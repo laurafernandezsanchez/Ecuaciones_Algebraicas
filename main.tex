@@ -10,15 +10,23 @@
 
 \begin{document}
 
-\input{portada}
-% --- AÑADE ESTA LÍNEA ---
-\hypertarget{indice}{} % <-- Esto define el punto de destino
-\tableofcontents
+  \input{portada}
+  % --- AÑADE ESTA LÍNEA ---
+  \hypertarget{indice}{} 
+  \tableofcontents
+  \chapter{Extensiones Algebraicas}
+    \input{capitulos/Tema1}
+  \chapter{Cuerpos de Descomposición}
+    \input{capitulos/Tema2}
+  \chapter{Extensiones Ciclotómicas}
+    \input{capitulos/Tema3}
 
-% Aquí empieza el contenido. 
-% \include inserta el archivo y fuerza un salto de página (ideal para capítulos)
+  \chapter{Extensiones separables}
+    \input{capitulos/Tema4}
 
   \chapter{Extensiones de Galois} 
   \input{capitulos/Tema5}   
- \end{document}
+
+
+\end{document}
  

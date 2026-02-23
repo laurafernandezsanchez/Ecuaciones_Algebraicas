@@ -1,0 +1,535 @@
+%%%% TEMA 4; EXTENSIONES SEPARABLES %%%%
+\section{Grado de separabilidad} % [cite: 117]
+\begin{definicion}{Grado de separabilidad}
+    Sea $E/K$ una extensión algebraica y $L$ un \textit{cuerpo algebraicamente cerrado} % [cite: 118]
+    Definimos el conjunto $S_{\sigma}^{E}$ de extensiones de $\sigma$ a un homomorfismo $E \to L$ como: % [cite: 120, 123]
+    $$S_{\sigma}^{E}=\{\tau:E\longrightarrow L \text{ homomorfismo de cuerpos } \mid \tau|_{K}=\sigma\}$$ % [cite: 125, 168]
+    donde $\sigma:K\longrightarrow L$ es un homomorfismo de cuerpos fijado. % [cite: 121, 122]
+    Se llama \textbf{grado de separabilidad} de $E$ sobre $K$ (o de la extensión $E/K$) al cardinal $|S_{\sigma}^{E}|$. % [cite: 126]
+    Denotaremos este grado de separabilidad por $[E:K]_{s}$. % [cite: 126]
+\end{definicion}
+
+Para que esta sea una buena definición matemática, el cardinal obtenido no debe depender de la elección del cuerpo $L$ ni del homomorfismo inicial $\sigma$. % [cite: 129]
+
+\begin{proposicion}{Buena definición de $[E:K]_{s}$}
+    Sea $E/K$ una extensión algebraica. % [cite: 165]
+    Entonces, el cardinal del conjunto de extensiones $S_{\sigma}^{E}$ es el mismo para todos los homomorfismos de cuerpos $\sigma:K\rightarrow L$, asumiendo que $L$ es un cuerpo algebraicamente cerrado. % [cite: 165]
+\end{proposicion}
+
+\begin{proof}
+    La demostración procede en cuatro fases lógicas. % [cite: 169]
+    
+    \textbf{Fase 1: Reducción del codominio a la clausura algebraica relativa.} % [cite: 170]
+    Nuestro objetivo inicial es demostrar que podemos restringir el cuerpo de llegada $L$ a un subcuerpo más manejable sin alterar el conjunto $S_{\sigma}^{E}$. % [cite: 171]
+    
+    Sea $\tau\in S_{\sigma}^{E}$ una extensión cualquiera. % [cite: 172]
+    Tomemos un elemento arbitrario $\alpha\in E$. % [cite: 172]
+    Como, por hipótesis, la extensión $E/K$ es algebraica, existe un polinomio $P \in K[X]$ tal que $P(\alpha)=0$. % [cite: 172, 133]
+    Al aplicar el homomorfismo $\tau$ a esta igualdad, obtenemos que $\tau(\alpha)$ es raíz del polinomio $\tau(P)$ que se obtiene aplicando $\tau$ a los coeficientes de $P$. % [cite: 172]
+    Dado que los coeficientes de $P$ pertenecen a $K$, y $\tau|_{K}=\sigma$, se sigue que $\tau(P)=\sigma(P)\in \sigma(K)[X]$. % [cite: 173]
+    
+    Como esto es cierto para todo $\alpha\in E$, deducimos que la imagen completa $\tau(E)$ es algebraica sobre $\tau(K)=\sigma(K)$. % [cite: 174]
+    Por la Proposición 2.3, la clausura algebraica de un cuerpo dentro de un cuerpo algebraicamente cerrado es, en sí misma, un cuerpo algebraicamente cerrado. % [cite: 174]
+    Por tanto, podemos asumir a partir de ahora, sin pérdida de generalidad, que $L$ es exactamente la clausura algebraica de $\sigma(K)$. % [cite: 174]
+    
+    \textbf{Fase 2: Consideración de un segundo homomorfismo y construcción del puente base.} % [cite: 175]
+    Para demostrar que el cardinal es independiente de $\sigma$ y de $L$, supongamos la existencia de otro homomorfismo de cuerpos $\sigma^{\prime}:K\rightarrow L^{\prime}$, donde $L^{\prime}$ es otro cuerpo algebraicamente cerrado. % [cite: 176]
+    Análogamente, asumimos que $L^{\prime}$ es la clausura algebraica de $\sigma^{\prime}(K)$. % [cite: 149]
+    Consideremos ahora la aplicación $\rho:\sigma(K)\rightarrow\sigma^{\prime}(K)$ definida mediante la composición $\rho=\sigma^{\prime}\circ\sigma^{-1}$. % [cite: 177]
+    
+    \textbf{Fase 3: Extensión del isomorfismo a las clausuras algebraicas.} % [cite: 178]
+    Aplicamos la Proposición 2.7 (Teorema de extensión de isomorfismos). % [cite: 179]
+    Dado que $L$ y $L^{\prime}$ son las clausuras algebraicas de $\sigma(K)$ y $\sigma^{\prime}(K)$ respectivamente, existe un isomorfismo global $\lambda:L\rightarrow L^{\prime}$ tal que $\lambda|_{\sigma(K)}=\rho$. % [cite: 180]
+    Es decir, $\forall k\in K$, $\lambda(\sigma(k))=\sigma^{\prime}(k)$ (1). % [cite: 181, 183]
+    
+    \textbf{Fase 4: Construcción de la biyección entre los conjuntos de extensiones.} % [cite: 184]
+    Procedemos a demostrar que $|S_{\sigma}^{E}|=|S_{\sigma^{\prime}}^{E}|$ estableciendo una biyección explícita. % [cite: 184]
+    Definimos la aplicación: % [cite: 185]
+    $$\Phi:S_{\sigma}^{E}\longrightarrow S_{\sigma^{\prime}}^{E}, \quad \tau\mapsto\lambda\circ\tau$$ % [cite: 186]
+    
+    \textit{Buena definición de $\Phi$:} Debemos verificar que la imagen de $\tau$ reside efectivamente en $S_{\sigma^{\prime}}^{E}$. % [cite: 187]
+    Es decir, que $\lambda\circ\tau$ extiende a $\sigma^{\prime}$. % [cite: 188]
+    Sea $k\in K$. Evaluamos la composición: % [cite: 188]
+    $$(\lambda\circ\tau)(k)=\lambda(\tau(k))$$ % [cite: 189]
+    Dado que $\tau\in S_{\sigma}^{E}$, sabemos que $\tau(k)=\sigma(k)$: % [cite: 191]
+    $$=\lambda(\sigma(k))$$ % [cite: 192]
+    Aplicando la propiedad de extensión de $\lambda$ demostrada en (1): % [cite: 193]
+    $$=\sigma^{\prime}(k)$$ % [cite: 194]
+    Por tanto, $\lambda\circ\tau$ es una extensión de $\sigma^{\prime}$, lo que confirma que está bien definida. % [cite: 195]
+    
+    \textit{Biyectividad de $\Phi$:} Dado que $\lambda$ es un isomorfismo de cuerpos, admite una aplicación inversa $\lambda^{-1}:L^{\prime}\rightarrow L$. % [cite: 196, 197]
+    Esto nos permite definir la aplicación inversa de $\Phi$: % [cite: 197]
+    $$\Psi:S_{\sigma^{\prime}}^{E}\longrightarrow S_{\sigma}^{E}, \quad \tau^{\prime}\mapsto\lambda^{-1}\circ\tau^{\prime}$$ % [cite: 198, 199]
+    Un razonamiento análogo al anterior demuestra que $\Psi$ está bien definida. % [cite: 200, 201]
+    
+    Habiendo establecido una biyección entre $S_{\sigma}^{E}$ y $S_{\sigma^{\prime}}^{E}$, concluimos innegablemente que ambos conjuntos tienen el mismo cardinal: % [cite: 202, 203]
+    $$|S_{\sigma}^{E}|=|S_{\sigma^{\prime}}^{E}|$$ % [cite: 204]
+    
+    Esto finaliza la demostración y nos permite definir unívocamente el grado de separabilidad $[E:K]_{s}$. % [cite: 205]
+\end{proof}
+
+\begin{observacion}{NOTA: ¿Qué definición estamos usando de clausura?}
+    La respuesta corta y directa es: En el contexto de esta demostración, son exactamente la misma cosa. % [cite: 206, 207]
+    Empieza siendo la primera interpretación que mencionas, y gracias a un teorema, se convierte automáticamente en la segunda. % [cite: 208]
+    Vamos a desenredar esto con todo el rigor formal que requiere: % [cite: 209]
+    
+    \textbf{1. La Interpretación "A" (Clausura algebraica RELATIVA)} % [cite: 210]
+    Tu primera interpretación ("el conjunto de los elementos que son algebraicos sobre el cuerpo") es lo que formalmente se llama la clausura algebraica de un cuerpo $F$ dentro de una extensión mayor $L$. % [cite: 211]
+    Definición: Dado $F\subseteq L$, definimos $\Omega=\{x\in L \mid x \text{ es algebraico sobre } F\}$. % [cite: 212, 213]
+    \textit{Problema de esta definición:} En general, este conjunto $\Omega$ no tiene por qué ser algebraicamente cerrado. % [cite: 213]
+    (Por ejemplo, la clausura algebraica de $\mathbb{Q}$ en $\mathbb{R}$ son los reales algebraicos, pero a ese conjunto le falta la raíz de $X^{2}+1$, por lo que no es algebraicamente cerrado). % [cite: 214]
+    
+    \textbf{2. La Interpretación "B" (Clausura algebraica ABSOLUTA)} % [cite: 215]
+    Tu segunda interpretación ("una extensión algebraica del cuerpo que es algebraicamente cerrada") es la definición axiomática de lo que es una "Clausura Algebraica" con mayúsculas (suele denotarse como $\overline{F}$). % [cite: 216, 217]
+    Es un cuerpo que cumple simultáneamente dos cosas: % [cite: 219]
+    \begin{enumerate}
+        \item Es extensión algebraica de la base. % [cite: 220]
+        \item Es algebraicamente cerrado. % [cite: 221]
+    \end{enumerate}
+    
+    \textbf{La Magia de la Proposición 2.3 (El puente entre A y B)} % [cite: 222]
+    Aquí es donde los apuntes hacen la conexión magistral. Fíjate cómo procede la demostración paso a paso: % [cite: 223, 224]
+    \begin{itemize}
+        \item \textbf{Construye usando A:} El texto dice está incluido en la clausura algebraica de $\sigma(K)$ en $L$. % [cite: 225]
+        Aquí está usando tu primera interpretación pura y dura. Agarra el saco gigante $L$ y filtra solo los elementos algebraicos sobre $\sigma(K)$. Llamemos a ese subconjunto $\Omega$. % [cite: 226]
+        \item \textbf{Aplica el Teorema (Prop 2.3):} El texto recuerda que nuestro $L$ original de partida ya era, por hipótesis, algebraicamente cerrado. % [cite: 227]
+        La Proposición 2.3 afirma que si el universo $L$ es algebraicamente cerrado, entonces el subconjunto relativo $\Omega$ hereda esa propiedad y también es algebraicamente cerrado. % [cite: 228]
+        \item \textbf{Llega a "B":} Como $\Omega$ es una extensión algebraica de $\sigma(K)$ (por construcción) y además es algebraicamente cerrado (por la Prop 2.3), entonces cumple perfectamente la definición de tu segunda interpretación. % [cite: 229]
+    \end{itemize}
+\end{observacion}
+
+
+\subsection*{Cálculo de $[K(\alpha):K]_s$ para $\alpha$ algebraico sobre $K$} % [cite: 230]
+
+\begin{ejemplo}{Ejemplo 4.3: Grado de separabilidad de una extensión simple}
+    Sea $\alpha$ algebraico sobre $K$. Sabemos que $[K(\alpha):K] = \operatorname{gr}(\operatorname{Min}_K(\alpha))$, pero buscamos calcular específicamente su grado de separabilidad $[K(\alpha):K]_s$. % 
+    
+    Recordemos que, por definición, $[K(\alpha):K]_s$ es el cardinal del conjunto de extensiones $S_{\sigma}^{K(\alpha)}$, el cual depende a priori de la elección de un cuerpo algebraicamente cerrado $L$ y de un homomorfismo base $\sigma:K\rightarrow L$. % [cite: 231]
+    
+    \textbf{Fase 1: Elección del marco de trabajo óptimo.} % [cite: 233]
+    Como el grado de separabilidad es independiente del homomorfismo $\sigma$ y de $L$ (Proposición 4.2), tomamos los más "fáciles": % [cite: 234]
+    \begin{itemize}
+        \item $L = \overline{K}$ (la clausura algebraica absoluta de $K$). % [cite: 235]
+        \item $\sigma =$ inclusión natural de $K$ en $\overline{K}$. % [cite: 236]
+    \end{itemize}
+    
+    \textbf{Fase 2: Simplificación del conjunto de extensiones.} % [cite: 237]
+    Bajo estas elecciones, el conjunto queda: % [cite: 238]
+    $$S_{\sigma}^{K(\alpha)} = \{\tau:K(\alpha)\rightarrow\overline{K} \mid \tau \text{ es homomorfismo y } \tau|_K = \sigma\}$$ % [cite: 239, 240]
+    Como $\sigma$ es la inclusión, la condición $\tau|_K = \sigma$ significa que $\tau(k)=k$ para todo $k \in K$, es decir, $\tau$ es un $K$-homomorfismo. % [cite: 241, 242]
+    Entonces, $[K(\alpha):K]_s$ es simplemente el número de $K$-homomorfismos de $K(\alpha)$ a $\overline{K}$. % [cite: 244]
+    
+    \textbf{Fase 3: Restricción sobre la imagen del generador $\alpha$.} % [cite: 245]
+    Sea $p(X) = \operatorname{Min}_K(\alpha) = X^n + c_{n-1}X^{n-1} + \dots + c_0$ con $c_i \in K$. % [cite: 246, 247]
+    Sabemos que $p(\alpha)=0$. Si tomamos $\tau \in S_{\sigma}^{K(\alpha)}$ y lo aplicamos a esta ecuación, usando que $\tau$ deja fijos los coeficientes $c_i \in K$, obtenemos: % [cite: 248, 250]
+    $$(\tau(\alpha))^n + c_{n-1}(\tau(\alpha))^{n-1} + \dots + c_0 = \tau(0) = 0$$ % [cite: 249, 251]
+    Esto equivale a $p(\tau(\alpha))=0$, lo que demuestra que $\tau(\alpha)$ está forzada a ser una raíz de $\operatorname{Min}_K(\alpha)$ en $\overline{K}$. % [cite: 252]
+    
+    \textbf{Fase 4: Biyección mediante el Lema de Extensión.} % [cite: 253]
+    Por el Lema de Extensión (1.9), todo $K$-homomorfismo de $K(\alpha)$ en $\overline{K}$ queda unívocamente determinado por la imagen del generador $\alpha$. % [cite: 254]
+    Recíprocamente, si $\beta \in \overline{K}$ es cualquier raíz de $\operatorname{Min}_K(\alpha)$, existe un isomorfismo $K(\alpha) \simeq K(\beta)$ que envía $\alpha \mapsto \beta$. % [cite: 255]
+    
+    Por tanto, hemos establecido una biyección entre los $K$-homomorfismos y las raíces distintas de $\operatorname{Min}_K(\alpha)$ en $\overline{K}$. % [cite: 257]
+    Concluimos formalmente que: % [cite: 258]
+    $$[K(\alpha):K]_s = \text{Número de raíces distintas de } \operatorname{Min}_K(\alpha) \text{ en } \overline{K}$$ % [cite: 259]
+\end{ejemplo}
+
+\begin{proposicion}{Propiedad multiplicativa del grado de separabilidad (Prop 4.4)}
+    Si $K \subseteq E \subseteq F$ es una torre de cuerpos, entonces: % [cite: 261]
+    $$[F:K]_s = [F:E]_s \cdot [E:K]_s$$ % [cite: 264]
+\end{proposicion}
+
+\begin{proof}
+    Sea $L$ un cuerpo algebraicamente cerrado y $\sigma : K \to L$ un homomorfismo. % [cite: 265]
+    Consideremos los conjuntos de extensiones y sus cardinales respectivos: % [cite: 268]
+    \begin{itemize}
+        \item $|S_{\sigma}^E| = [E:K]_s$
+        \item $|S_{\sigma}^F| = [F:K]_s$
+    \end{itemize}
+    
+    Para cada homomorfismo $\tau \in S_{\sigma}^E$ (es decir, $\tau: E \to L$ con $\tau|_K = \sigma$), definimos el conjunto de sus extensiones a $F$: % [cite: 269]
+    $$S_{\tau}^F = \{\rho: F \to L \text{ homomorfismo} \mid \rho|_E = \tau\}$$ % [cite: 269]
+    Por definición de separabilidad en la extensión $F/E$, el cardinal de este conjunto es $|S_{\tau}^F| = [F:E]_s$. % [cite: 268]
+
+
+    Si tomamos un $\rho \in \bigcup_{\tau \in S_{\sigma}^E} S_{\tau}^F$, existe un $\tau \in S_{\sigma}^E$ tal que $\rho|_E = \tau$. % [cite: 272]
+    Como $\tau|_K = \sigma$, se cumple que $\rho|_K = (\rho|_E)|_K = \tau|_K = \sigma$. % [cite: 273]
+    Por tanto, $\rho \in S_{\sigma}^F$. Esto prueba que $\bigcup_{\tau} S_{\tau}^F \subseteq S_{\sigma}^F$. % [cite: 273]
+    
+    Recíprocamente, si tomamos cualquier $\rho \in S_{\sigma}^F$, podemos definir $\tau = \rho|_E$. % [cite: 278]
+    Claramente $\tau|_K = \rho|_K = \sigma$, por lo que $\tau \in S_{\sigma}^E$. Y por definición, $\rho \in S_{\tau}^F$. % [cite: 278]
+    Esto demuestra la igualdad de los conjuntos: % [cite: 278]
+    $$S_{\sigma}^F = \bigcup_{\tau \in S_{\sigma}^E} S_{\tau}^F$$ % [cite: 279]
+    
+    ¿Es esta unión disjunta? Supongamos que un mismo homomorfismo $\rho$ pertenece a la intersección $S_{\tau_1}^F \cap S_{\tau_2}^F$ para ciertos $\tau_1, \tau_2 \in S_{\sigma}^E$. % [cite: 280, 284]
+    Entonces, por definición, $\rho|_E = \tau_1$ y también $\rho|_E = \tau_2$. % [cite: 281]
+    Esto implica trivialmente que $\tau_1 = \tau_2$. Por lo tanto, los conjuntos $S_{\tau}^F$ son disjuntos dos a dos cuando los $\tau$ son distintos. % [cite: 281, 283]
+    
+    Al ser una unión disjunta de conjuntos, el cardinal total es la suma de los cardinales de las partes: % [cite: 285]
+    $$|S_{\sigma}^F| = \sum_{\tau \in S_{\sigma}^E} |S_{\tau}^F|$$ % [cite: 285]
+    
+    Sustituyendo los cardinales que establecimos al inicio: % [cite: 285]
+    $$[F:K]_s = \sum_{\tau \in S_{\sigma}^E} [F:E]_s = |S_{\sigma}^E| \cdot [F:E]_s = [E:K]_s \cdot [F:E]_s$$ % [cite: 285]
+    
+    Lo que concluye la demostración. % [cite: 285]
+\end{proof}
+
+\section{Homomorfismo de Frobenius y Multiplicidad de Raíces} % [cite: 174, 221]
+
+\begin{lema}{Homomorfismo de Frobenius (Lema 4.5)} % [cite: 174, 209]
+    Sea $K$ un cuerpo con característica $\operatorname{car}(K) = p > 0$. Entonces la aplicación $\varphi: K \longrightarrow K$ dada por $\varphi(x) = x^p$ es un homomorfismo de cuerpos, llamado \textbf{homomorfismo de Frobenius}. % [cite: 175, 176, 210, 211, 212, 214]
+
+    Además, si $K$ es algebraico sobre su cuerpo primo (por ejemplo, si $K$ es un cuerpo finito), entonces $\varphi$ es un automorfismo de $K$, conocido como el \textbf{Automorfismo de Frobenius}. % [cite: 179, 215, 216, 218]
+\end{lema}
+
+\begin{proof}
+    Veamos primero que $\varphi$ es un homomorfismo de cuerpos. % [cite: 180]
+    Claramente $\varphi(1) = 1^p = 1$ y preserva el producto: $\varphi(ab) = (ab)^p = a^p b^p$. % [cite: 182]
+    Para la suma, utilizamos el desarrollo del binomio de Newton: % [cite: 181]
+    $$(a+b)^p = \sum_{i=0}^p \binom{p}{i} a^i b^{p-i}$$
+    Como $\operatorname{car}(K) = p$, todos los coeficientes binomiales $\binom{p}{i}$ para $0 < i < p$ son múltiplos de $p$ y, por tanto, se anulan en $K$. % [cite: 185]
+    Así, la suma se reduce a los términos extremos: $\varphi(a+b) = (a+b)^p = a^p + b^p = \varphi(a) + \varphi(b)$. % [cite: 183, 219]
+    Al ser un homomorfismo entre cuerpos, $\varphi$ es siempre inyectivo. % [cite: 183]
+
+    Para demostrar que es un automorfismo, solo falta ver que es suprayectivo (es decir, que todo elemento de $K$ tiene una raíz $p$-ésima en $K$). % [cite: 186]
+    Aquí utilizamos la hipótesis de que $K$ es una extensión algebraica sobre su cuerpo primo, que en característica $p$ es isomorfo a $\mathbb{F}_p \simeq \mathbb{Z}/p\mathbb{Z}$. % [cite: 187, 189, 190, 196]
+    
+    Primero observamos que $\varphi$ deja fijos a los elementos de $\mathbb{F}_p$. En efecto, por el Pequeño Teorema de Fermat, para todo $a \in \mathbb{F}_p$ se cumple $a^p \equiv a \pmod p$, lo que implica $a^p = a$. % [cite: 191, 192, 193]
+    Por tanto, $\varphi$ es un $\mathbb{F}_p$-homomorfismo y, dado que $\varphi(K) \subseteq K$, es un $\mathbb{F}_p$-endomorfismo de la extensión $K/\mathbb{F}_p$. % [cite: 195, 199]
+
+    Dado que $K/\mathbb{F}_p$ es una extensión algebraica, y recordando que todo endomorfismo de una extensión algebraica es un automorfismo (ver Proposición auxiliar abajo), concluimos que $\varphi$ es suprayectivo. Luego $\varphi$ es un automorfismo. % [cite: 198, 200]
+\end{proof}
+
+\begin{proposicion}{Todo endomorfismo algebraico es automorfismo} % [cite: 201]
+    Si $E/K$ es una extensión algebraica y $\sigma: E \to E$ es un $K$-endomorfismo, entonces $\sigma$ es un automorfismo. % [cite: 202, 207]
+\end{proposicion}
+
+\begin{proof}
+    Como $\sigma$ es un homomorfismo de cuerpos, es trivialmente inyectivo. % [cite: 202]
+    Veamos que es suprayectivo. Sea $\alpha \in E$ un elemento cualquiera y consideremos su polinomio mínimo $p = \operatorname{Min}_K(\alpha)$ con $\operatorname{gr}(p) = n$. % [cite: 204]
+    Por las propiedades elementales (Lema 1.8), cualquier $K$-homomorfismo permuta las raíces de un polinomio irreducible. % [cite: 205]
+    Por tanto, la restricción de $\sigma$ al conjunto (finito) de las raíces de $p$ en $E$ es una aplicación inyectiva de un conjunto finito en sí mismo, lo que fuerza a que sea biyectiva. % [cite: 205]
+    Al ser biyectiva sobre las raíces, $\alpha$ debe ser forzosamente la imagen de alguna otra raíz bajo $\sigma$. Esto demuestra que $\sigma$ es suprayectivo. % [cite: 206]
+\end{proof}
+
+\begin{lema}{Uniformidad de la multiplicidad (Lema 4.6)} % [cite: 221]
+    Sea $f \in K[X]$ un polinomio irreducible: % [cite: 221]
+    \begin{enumerate}
+        \item Todas las raíces de $f$ (en su cuerpo de descomposición) tienen exactamente la misma multiplicidad. % [cite: 222, 237]
+        \item Si $\operatorname{car}(K) = 0$, entonces todas las raíces de $f$ son simples. % [cite: 223]
+        \item Si $\operatorname{car}(K) = p > 0$, la multiplicidad de las raíces de $f$ es una potencia de $p$. De hecho, es $p^n$ si $n$ es el mayor entero no negativo tal que $f(X) = g(X^{p^n})$ para algún polinomio $g \in K[X]$. % [cite: 224, 227, 228, 229, 230]
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}
+    
+    \begin{observacion}{Preámbulo fundamental sobre derivadas:}
+        Un polinomio $f \in K[X]$ tiene raíces múltiples si y solo si comparte raíces con su derivada $f'$, es decir, si $\operatorname{mcd}(f, f') \neq 1$. % [cite: 254, 255, 259]
+        Como $f$ es irreducible por hipótesis, sus únicos divisores son $1$ y él mismo. Por tanto, si tiene raíces múltiples, $\operatorname{mcd}(f, f') = f$, lo que significa que $f$ divide a $f'$. % [cite: 256, 257]
+        Sin embargo, el grado de la derivada siempre es estrictamente menor: $\operatorname{gr}(f') < \operatorname{gr}(f)$. La única forma de que un polinomio divida a otro de grado menor es que el segundo sea el polinomio nulo. % [cite: 257]
+        En conclusión: $f$ tiene raíces múltiples $\iff f' = 0$. % [cite: 260, 261]
+    \end{observacion}
+
+    \textbf{Demostración de (1):} % [cite: 231]
+    Sean $\alpha_1, \dots, \alpha_r$ las raíces distintas de $f$ y $m_i$ la multiplicidad de cada $\alpha_i$. Podemos suponer sin pérdida de generalidad que $f$ es mónico. % [cite: 231, 234]
+    En el cuerpo de descomposición factoriza como: % [cite: 233, 237]
+    $$f(X) = (X-\alpha_1)^{m_1} \dots (X-\alpha_r)^{m_r}$$
+    Por el Lema de Extensión, para cualquier par de raíces $\alpha_i, \alpha_j$, existe un $K$-homomorfismo $\sigma: K(\alpha_i) \to K(\alpha_j)$ tal que $\sigma(\alpha_i) = \alpha_j$. % [cite: 238, 242]
+    Como $f$ tiene coeficientes en $K$, el homomorfismo deja invariante al polinomio: $\sigma(f) = f$. % [cite: 243]
+    Pero al aplicar $\sigma$ a la factorización lineal, obtenemos: % [cite: 243]
+    $$\sigma(f) = (X-\sigma(\alpha_1))^{m_1} \dots (X-\sigma(\alpha_r))^{m_r}$$
+    Al sustituir $\sigma(\alpha_i) = \alpha_j$, vemos que el factor $(X-\alpha_j)$ ahora aparece con el exponente $m_i$. % [cite: 244, 252]
+    Por el Teorema de Factorización Única, los exponentes deben coincidir obligatoriamente, concluyendo que $m_i = m_j$. % [cite: 248, 249, 252]
+
+
+    {\textbf{(2):}} Queremos demostrar que $\operatorname{car}(K)=0 \implies f$ no tiene raíces múltiples.
+
+Si $f(X) = X^n + \dots + a_1X + a_0$, $n \ge 1$, $f'(X) = nX^{n-1} + \dots + a_1$, como $\operatorname{car}(K)=0$, $n X^{n-1} \neq 0$
+$$\implies f' \neq 0 \xrightarrow[\text{Preámbulo}]{\text{}} f \text{ tiene raíces simples}$$
+
+{\textbf{(3):}} Sabemos que si $\operatorname{car}(K)=p \neq 0$, un polinomio $f \in K[X]$ cumple $f' = 0 \iff$ los exponentes no nulos de $f$ son múltiplos de $p$.
+
+O sea, que si $f'=0$, podemos "extraer" una potencia de $p$ y escribir $f(X) = f_1(X^p)$
+
+Si este nuevo polinomio cumple $f_1' = 0$, podemos seguir sacando "otra $p$" $f_1(X) = f_2(X^p)$
+
+Por tanto, $f(X) = f_2(X^{p^2})$.
+
+Al ser $\operatorname{gr}(f) < \infty$, no podremos extraer potencias de $p$ infinitamente. Sea $n \in \mathbb{Z}^+$ el mayor entero positivo (no-neg.) tal que $f(X) = g(X^{p^n})$ para algún $g \in K[X]$.
+
+Observemos que $\operatorname{gr}(f) = p^n \cdot \operatorname{gr}(g) \implies p^n \le \operatorname{gr}(f) < \infty$
+
+Se cumple que \underline{$g$ es irreducible} (si no lo fuera, $g(X) = a(X)b(X) \implies g(X^{p^n}) = a(X^{p^n}) \cdot b(X^{p^n}) = f(X)$ (\textbf{!!}) )
+
+Y también $g' \neq 0$ (pq si $g'=0 \implies g(X) = h(X^p) \implies f(X) = h(X^{p^{n+1}})$ y esto no puede ocurrir pq habíamos elegido el \underline{mayor} $n \in \mathbb{Z}^+$ que cumple esto)
+
+Por tanto, como $g' \neq 0$ y $g$ es irreducible $\implies$ sus raíces son simples.
+
+Por otra parte, consideramos $\alpha_1, \alpha_2, \dots, \alpha_k$ las distintas raíces de $f$ en su cuerpo de descomposición. Se cumple $f(\alpha_i) = g(\alpha_i^{p^n}) = 0 \implies \alpha_i^{p^n}$ es raíz de $g$
+\textcolor{mainblue}{\small (vamos a demostrar que son justamente $k$)}
+
+
+Tendremos $k$ raíces distintas también del polinomio $g$ pq si $\alpha_1 \neq \alpha_2 \implies \alpha_1^{p^n} \neq \alpha_2^{p^n}$ ya que, por el Lema Anterior, 
+el homomorfismo de Frobenius es una aplicación inyectiva. Veamos que estas son las únicas raíces de $g$.
+
+\textcolor{mainblue}{Por reducción al absurdo, supongamos que $g$ tuviera otras raíces adicionales $\beta_1, \dots, \beta_l$}
+
+Como $g$ no tiene raíces múltiples, $g(X) = (X - \alpha_1^{p^n}) \dots (X - \alpha_k^{p^n})(X - \beta_1) \dots (X - \beta_l)$
+
+$\leadsto f(X) = (X^{p^n} - \alpha_1^{p^n}) \dots (X^{p^n} - \alpha_k^{p^n})(X^{p^n} - \beta_1) \dots (X^{p^n} - \beta_l)$
+
+\textcolor{mainblue}{Fijemos un $(X^{p^n} - \beta_i)$. SPG supongamos que $i=1$}
+
+El polinomio $(X^{p^n} - \beta_1)$ tiene una raíz (al menos) en el cuerpo de descomposición;
+
+Si $\gamma$ es la raíz en cuestión, se cumple $\gamma^{p^n} = \beta_1 \implies f(\gamma) = 0$.
+
+O sea, $\gamma$ es raíz de $f \implies \gamma = \alpha_i$ para algún $i \leadsto \alpha_i^{p^n} = \beta_1$ (\textbf{!!})
+
+\hfill \textcolor{mainblue}{Habíamos asumido que $\alpha_i^{p^n} \neq \beta_i \;\; \forall i$}
+
+Por tanto, $g(X) = (X - \alpha_1^{p^n}) \dots (X - \alpha_k^{p^n}) \leadsto f(X) = (X^{p^n} - \alpha_1^{p^n}) \dots (X^{p^n} - \alpha_k^{p^n})$
+
+$$f(X) = (X - \alpha_1)^{p^n} \dots (X - \alpha_k)^{p^n} \implies \alpha_i \text{ tienen multiplicidad } p^n \;\; \forall i \in \{1, \dots, k\} \;\; $$
+\end{proof}
+
+
+
+\section{Grados de separabilidad e inseparabilidad}
+
+\begin{definicion}{Grados de un polinomio irreducible (Def. 4.7)}
+    Sea $f \in K[X]$ un polinomio irreducible. Se definen los siguientes grados asociados al polinomio:
+    \begin{itemize}
+        \item \textbf{Grado de separabilidad} ($\operatorname{gr}_s(f)$): Es el número exacto de raíces distintas que tiene el polinomio $f$ en su cuerpo de descomposición.
+        \item \textbf{Grado de inseparabilidad} ($\operatorname{gr}_i(f)$): Es la multiplicidad de cualquiera de sus raíces. (Recordemos por el Lema 4.6 que, al ser irreducible, todas las raíces de $f$ tienen exactamente la misma multiplicidad).
+    \end{itemize}
+    Dado que el grado total del polinomio cuenta todas las raíces con su multiplicidad, se cumple trivialmente la relación:
+    $$\operatorname{gr}(f) = \operatorname{gr}_s(f) \cdot \operatorname{gr}_i(f)$$
+\end{definicion}
+
+\begin{proposicion}{Proposición 4.8}
+    Si $\alpha$ es un elemento algebraico sobre $K$, entonces el grado de separabilidad de la extensión simple generada por $\alpha$ coincide con el grado de separabilidad de su polinomio mínimo:
+    $$[K(\alpha):K]_s = \operatorname{gr}_s(\operatorname{Min}_K(\alpha))$$
+    \textit{(Esta proposición es una consecuencia directa del Ejemplo 4.3, donde establecimos la biyección entre los $K$-homomorfismos y las raíces distintas del polinomio mínimo en la clausura algebraica).}
+\end{proposicion}
+
+\begin{proposicion}{Proposición 4.9}
+    Si $E/K$ es una extensión finita, entonces el grado de separabilidad $[E:K]_s$ divide al grado total de la extensión $[E:K]$.
+\end{proposicion}
+
+\begin{proof}
+    Razonamos por inducción sobre el grado de la extensión $n = [E:K]$.
+
+    \textbf{Caso base ($n=1$):}
+    Si $[E:K] = 1$, entonces trivialmente $E = K$. Como ya vimos, la definición del grado de separabilidad $[E:K]_s$ no depende del homomorfismo $\sigma$ ni del cuerpo algebraicamente cerrado $L$. Tomamos las elecciones más sencillas: $L = \overline{K}$ y $\sigma = \operatorname{id}_K$.
+    El conjunto de extensiones es:
+    $$S_{\sigma}^E = \{ \tau : K \to \overline{K} \mid \tau \text{ es } K\text{-homomorfismo y } \tau|_K = \operatorname{id}_K \}$$
+    La única aplicación de $K$ en sí mismo que deja fijo a $K$ es la propia identidad ($\tau(x) = x \implies \tau = \operatorname{id}$). Por lo tanto, $|S_{\sigma}^E| = 1$, lo que implica que $[K:K]_s = 1$. Evidentemente, $1$ divide a $1$.
+
+    \textbf{Paso inductivo ($n>1$):}
+    Supongamos que la proposición es cierta para cualquier extensión cuyo grado sea estrictamente menor que $n$.
+    Como $n > 1$, los cuerpos no son iguales ($K \subsetneq E$). Por tanto, podemos tomar un elemento $\alpha \in E \setminus K$. Esto nos permite construir la siguiente torre de cuerpos intermedia:
+
+    Por la fórmula de los grados en torres de cuerpos (Corolario 1.12), tenemos:
+    $$[E:K] = [E:K(\alpha)] \cdot [K(\alpha):K]$$
+
+    Como $\alpha \notin K$, sabemos que $[K(\alpha):K] > 1$. En consecuencia, el grado del tramo superior debe ser estrictamente menor que el total: $[E:K(\alpha)] < n$.
+    
+    Por la \textbf{hipótesis de inducción}, sabemos que $[E:K(\alpha)]_s$ divide a $[E:K(\alpha)]$. Esto significa que existe un entero $k \ge 1$ tal que:
+    $$[E:K(\alpha)] = k \cdot [E:K(\alpha)]_s \quad \text{--- (Ec. 1)}$$
+
+    Por otro lado, consideremos el tramo inferior $K(\alpha)/K$. Sea $p = \operatorname{Min}_K(\alpha)$. Dado que es una extensión finita y $\alpha$ es algebraico, sabemos que el grado de la extensión coincide con el grado del polinomio mínimo:
+    $$[K(\alpha):K] = \operatorname{gr}(p)$$
+    
+    Utilizando la Definición 4.7 y la Proposición 4.8, podemos descomponer este grado:
+    $$[K(\alpha):K] = \operatorname{gr}(p) = \operatorname{gr}_s(p) \cdot \operatorname{gr}_i(p) = [K(\alpha):K]_s \cdot \operatorname{gr}_i(p) \quad \text{--- (Ec. 2)}$$
+
+    Ahora, sustituimos (Ec. 1) y (Ec. 2) en la fórmula general de los grados de la torre:
+    $$[E:K] = \underbrace{\left( k \cdot [E:K(\alpha)]_s \right)}_{[E:K(\alpha)]} \cdot \underbrace{\left( [K(\alpha):K]_s \cdot \operatorname{gr}_i(p) \right)}_{[K(\alpha):K]}$$
+
+    Reordenando los factores obtenemos:
+    $$[E:K] = k \cdot \operatorname{gr}_i(p) \cdot \Big( [E:K(\alpha)]_s \cdot [K(\alpha):K]_s \Big)$$
+
+    Por la Proposición 4.4 (Propiedad multiplicativa del grado de separabilidad), el término entre paréntesis es exactamente el grado de separabilidad total $[E:K]_s$. Sustituyendo esto, llegamos a:
+    $$[E:K] = \Big( k \cdot \operatorname{gr}_i(p) \Big) \cdot [E:K]_s$$
+
+    Dado que tanto $k$ como $\operatorname{gr}_i(p)$ son enteros, hemos demostrado que $[E:K]_s$ divide a $[E:K]$, completando así la inducción.
+\end{proof}
+
+\begin{definicion}{Grado de inseparabilidad de una extensión}
+    Como consecuencia directa de la Proposición 4.9, para cualquier extensión finita $E/K$, se define el \textbf{grado de inseparabilidad} (denotado como $[E:K]_i$) como el cociente exacto entre el grado de la extensión y su grado de separabilidad:
+    $$[E:K]_i = \frac{[E:K]}{[E:K]_s}$$
+    Equivalentemente, se cumple siempre la factorización global: $[E:K] = [E:K]_s \cdot [E:K]_i$.
+\end{definicion}
+
+% -------------------------------------------------------------------
+
+\subsection{Tipos de separabilidad}
+
+La noción de separabilidad se puede aplicar a polinomios, a elementos individuales y a extensiones completas. Las definiciones formales son las siguientes:
+
+\begin{definicion}{Separabilidad (Def. 4.10)}
+    \begin{enumerate}
+        \item \textbf{Polinomio separable:} Un polinomio $f \in K[X]$ es separable si no tiene raíces múltiples en su cuerpo de descomposición (ni en ninguna otra extensión de $K$). Analíticamente, esto equivale a afirmar que el polinomio es coprimo con su derivada formal: $\operatorname{mcd}(f, f') = 1$.
+        
+        \item \textbf{Elemento separable:} Un elemento $\alpha$ perteneciente a una extensión de $K$ es separable sobre $K$ si cumple dos condiciones:
+        \begin{itemize}
+            \item Es algebraico sobre $K$.
+            \item Su polinomio mínimo $\operatorname{Min}_K(\alpha)$ es un polinomio separable.
+        \end{itemize}
+        \textit{Nota analítica:} Decir que $\alpha$ es separable equivale a decir que su extensión simple es totalmente separable: $[K(\alpha):K]_s = [K(\alpha):K]$, o lo que es lo mismo, su grado de inseparabilidad es trivial ($[K(\alpha):K]_i = 1$).
+        
+        \item \textbf{Extensión separable:} Una extensión $L/K$ es separable si \textit{todos} los elementos de $L$ son separables sobre $K$. (Como consecuencia inmediata de la definición anterior, toda extensión separable debe ser, por fuerza, una extensión algebraica).
+        
+        \item \textbf{Extensión puramente inseparable:} Una extensión $L/K$ es puramente inseparable si los únicos elementos de $L$ que son separables sobre $K$ son precisamente los elementos que ya pertenecen al cuerpo base $K$.
+    \end{enumerate}
+\end{definicion}
+
+\begin{observacion}{}
+    Si $\operatorname{car}(K) = 0$, entonces toda extensión de $K$ es separable. %
+    
+    Como vimos anteriormente, en característica cero la derivada de un polinomio irreducible nunca es nula, por lo que los polinomios irreducibles no pueden tener raíces múltiples. Por consiguiente, todo elemento algebraico sobre un cuerpo de característica cero es automáticamente separable. %
+\end{observacion}
+
+\begin{teorema}{Equivalencias de separabilidad (Teorema 4.12)}
+    Las siguientes afirmaciones son equivalentes para una extensión finita $L/K$: %
+    \begin{enumerate}
+        \item $L/K$ es separable.
+        \item $[L:K] = [L:K]_s$.
+        \item $[L:K]_i = 1$.
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    \textbf{(2) $\iff$ (3):} %
+    Es obvio por la propia definición del grado de inseparabilidad: $[L:K]_i = \frac{[L:K]}{[L:K]_s}$. Que este cociente sea $1$ equivale a que el numerador y el denominador sean iguales. %
+
+    \textbf{(2) $\implies$ (1):} %
+    Supongamos que $[L:K] = [L:K]_s$. Queremos ver que todo elemento de $L$ es separable sobre $K$. %
+    Sea $\alpha \in L$ un elemento arbitrario y denotemos $E = K(\alpha)$. Consideramos la torre de cuerpos $K \subseteq E \subseteq L$. %
+    Por la fórmula de grados y la propiedad multiplicativa del grado de separabilidad (Prop. 4.9), se tiene:
+    $$[L:E] \cdot [E:K] = [L:K] = [L:K]_s = [L:E]_s \cdot [E:K]_s$$
+    
+    Sabemos que el grado de separabilidad siempre divide al grado de la extensión, es decir, $[L:E]_s \le [L:E]$ y $[E:K]_s \le [E:K]$. %
+    Para que el producto de los grados de separabilidad sea igual al producto de los grados totales, es algebraicamente necesario que las igualdades se den factor a factor. Por tanto, se deduce forzosamente que:
+    $$[E:K] = [E:K]_s$$
+    Sustituyendo $E$, obtenemos $[K(\alpha):K] = [K(\alpha):K]_s$. Esto significa que $\alpha$ es separable sobre $K$. Como $\alpha$ era arbitrario, concluimos que $L/K$ es una extensión separable. %
+
+    \textbf{(1) $\implies$ (2):} %
+    Supongamos que $L/K$ es separable. Razonamos por inducción sobre $n = [L:K]$. %
+    \begin{itemize}
+        \item \textbf{Caso base ($n=1$):} Si $[L:K]=1$, entonces $L=K$ y trivialmente $[K:K] = 1 = [K:K]_s$. %
+        \item \textbf{Paso inductivo:} Supongamos que $n > 1$ y que la hipótesis de inducción se cumple para extensiones de grado estrictamente menor. %
+        Sea $\alpha \in L \setminus K$. Dado cualquier otro elemento $\beta \in L$, su polinomio mínimo sobre $K(\alpha)$, es decir $\operatorname{Min}_{K(\alpha)}(\beta)$, divide a su polinomio mínimo sobre $K$, $\operatorname{Min}_K(\beta)$, en el anillo $K(\alpha)[X]$. %
+        Como $L/K$ es separable, $\beta$ es separable sobre $K$, luego $\operatorname{Min}_K(\beta)$ no tiene raíces múltiples. Al ser un divisor, $\operatorname{Min}_{K(\alpha)}(\beta)$ tampoco tiene raíces múltiples, lo que implica que $\beta$ es separable sobre $K(\alpha)$. %
+        Como esto vale para cualquier $\beta \in L$, la extensión $L/K(\alpha)$ es separable. %
+        
+        Además, por la fórmula de la torre: $[L:K] = [L:K(\alpha)] \cdot [K(\alpha):K]$. %
+        Como $\alpha \notin K$, $[K(\alpha):K] > 1$, lo que implica que $[L:K(\alpha)] < n$. %
+        Podemos aplicar la hipótesis de inducción a la extensión $L/K(\alpha)$, obteniendo que $[L:K(\alpha)] = [L:K(\alpha)]_s$. %
+        Por otra parte, como $\alpha \in L$ y $L/K$ es separable, $\alpha$ es separable sobre $K$, por lo que $[K(\alpha):K] = [K(\alpha):K]_s$. %
+        
+        Multiplicando ambas igualdades:
+        $$[L:K] = [L:K(\alpha)] \cdot [K(\alpha):K] = [L:K(\alpha)]_s \cdot [K(\alpha):K]_s = [L:K]_s$$
+        Lo que completa la inducción. %
+    \end{itemize}
+\end{proof}
+
+\begin{corolario}{Multiplicatividad de la clase de extensiones separables (Corolario 4.13)}
+    Sea $K \subseteq E \subseteq L$ una torre de cuerpos. La extensión $L/K$ es separable si y solo si las extensiones $E/K$ y $L/E$ son separables. %
+\end{corolario}
+
+\begin{proof}
+    \textbf{($\implies$) Supongamos que $L/K$ es separable:} %
+    Claramente $E/K$ es separable, porque todo elemento de $E$ pertenece a $L$, y por hipótesis todos los elementos de $L$ son separables sobre $K$. %
+    Falta ver que $L/E$ es separable. Si tomamos $\alpha \in L$, sabemos que $\operatorname{Min}_E(\alpha)$ divide a $\operatorname{Min}_K(\alpha)$. Como $\alpha$ es separable sobre $K$, $\operatorname{Min}_K(\alpha)$ no tiene raíces múltiples. En consecuencia, su divisor $\operatorname{Min}_E(\alpha)$ tampoco tiene raíces múltiples. Por tanto, $\alpha$ es separable sobre $E$, lo que demuestra que $L/E$ es separable. %
+
+    \textbf{($\impliedby$) Supongamos que $L/E$ y $E/K$ son separables:} %
+    Queremos demostrar que $L/K$ es separable. Sea $\alpha \in L$. Como $L/E$ es separable, $\alpha$ es algebraico sobre $E$. Sea $p = \operatorname{Min}_E(\alpha)$. Al ser separable, $p$ no tiene raíces múltiples, es decir, $\operatorname{gr}(p) = \operatorname{gr}_s(p)$. %
+    
+    \textit{(La sutileza inmensa):} El Teorema 4.12 requiere que la extensión sea \textbf{finita} para poder relacionar la separabilidad con la igualdad de grados. 
+    Como no sabemos si la torre $L/E/K$ es infinita, tenemos que construir un andamio finito a medida para $\alpha$. %
+    
+    Sean $A$ los coeficientes del polinomio $p$, y definamos el cuerpo intermedio $F = K(A)$. 
+    Entonces construimos la subtorre $K \subseteq F \subseteq F(\alpha) \subseteq L$. %
+
+    Dado que $F \subseteq E$, el polinomio $p \in F[X]$ sigue siendo irreducible sobre $F$ (porque lo era sobre un cuerpo más grande $E$). 
+    Por tanto, $p = \operatorname{Min}_F(\alpha)$. %
+    Como $p$ no tiene raíces múltiples, $\alpha$ es separable sobre $F$, lo que implica que $[F(\alpha):F] = [F(\alpha):F]_s$. %
+    
+    Por otro lado, la extensión $F/K$ es \textbf{finita} (porque hemos adjuntado un número finito de elementos, los coeficientes de $p$, que son algebraicos sobre $K$). Como $F \subseteq E$ y $E/K$ es separable, $F/K$ es una extensión finita y separable. Aplicando el Teorema 4.12, sabemos que $[F:K] = [F:K]_s$. %
+    
+    Usando la propiedad multiplicativa de los grados totales y de los grados de separabilidad:
+    $$[F(\alpha):K] = [F(\alpha):F] \cdot [F:K] = [F(\alpha):F]_s \cdot [F:K]_s = [F(\alpha):K]_s$$
+    Como $[F(\alpha):K] = [F(\alpha):K]_s$, deducimos que la extensión $F(\alpha)/K$ es separable. %
+    En particular, $\alpha \in F(\alpha)$ es separable sobre $K$. Al ser $\alpha$ un elemento cualquiera de $L$, concluimos que toda la extensión $L/K$ es separable. %
+\end{proof}
+
+\begin{corolario}{Corolario 4.14}
+    Si $L=K(A)$ y todos los elementos del conjunto $A$ son separables sobre $K$, entonces la extensión $L/K$ es separable. %
+\end{corolario}
+
+\begin{proof}
+    Sea $\alpha \in L = K(A)$ un elemento cualquiera. Por la definición de cuerpo generado, $\alpha$ puede expresarse utilizando un número finito de elementos de $A$. Es decir, $\exists B \subseteq A$ con $B$ finito, tal que $\alpha \in K(B)$. %
+    Podemos suponer que $B = \{\alpha_1, \alpha_2, \dots, \alpha_k\}$, donde cada $\alpha_i$ es separable sobre $K$. %
+    
+    Consideremos la torre de cuerpos sucesivos:
+    $$K \subseteq K(\alpha_1) \subseteq K(\alpha_1, \alpha_2) \subseteq \dots \subseteq K(\alpha_1, \dots, \alpha_k) = K(B)$$
+    Como $\alpha_1$ es separable sobre $K$, $K(\alpha_1)/K$ es separable. 
+    Para el siguiente paso, $\alpha_2$ es separable sobre $K$, luego su polinomio mínimo sobre $K(\alpha_1)$ divide a su polinomio mínimo sobre $K$, por lo que $\alpha_2$ también es separable sobre $K(\alpha_1)$. Esto hace que $K(\alpha_1, \alpha_2)/K(\alpha_1)$ sea separable. %
+    
+    Aplicando el Corolario 4.13 reiteradamente (inducción sobre $k$), deducimos que toda la extensión $K(B)/K$ es separable. %
+    Como $\alpha \in K(B)$, $\alpha$ es separable sobre $K$. Al ser $\alpha$ un elemento arbitrario de $L$, la extensión completa $L/K$ es separable. %
+    
+    % --- CONCLUSIÓN DE LA DEMOSTRACIÓN DEL COROLARIO 4.14 ---
+    \begin{observacion}{Conclusión del paso inductivo final}
+        Para formalizar el paso inductivo final, observemos que $\alpha_n$ es separable sobre el cuerpo intermedio $K(\alpha_1, \dots, \alpha_{n-1})$. % [cite: 236]
+        Esto se justifica porque el polinomio mínimo sobre la extensión, $\operatorname{Min}_{K(\alpha_1, \dots, \alpha_{n-1})}(\alpha_n)$, divide al polinomio mínimo sobre el cuerpo base, $\operatorname{Min}_K(\alpha_n)$. % [cite: 242, 248]
+        Como $\alpha_n$ es separable sobre $K$, sabemos que $\operatorname{Min}_K(\alpha_n)$ no tiene raíces múltiples. En consecuencia, su divisor tampoco las tiene, haciendo que $\alpha_n$ sea separable sobre $K(\alpha_1, \dots, \alpha_{n-1})$. % [cite: 250]
+        Razonando por inducción y usando que la separabilidad es multiplicativa, llegamos a que $E = K(\alpha_1, \dots, \alpha_n)$ es una extensión separable sobre $K$. \qed % [cite: 237, 239, 240, 243, 251]
+    \end{observacion}
+\end{proof}
+
+
+
+
+% --- NUEVOS COROLARIOS ---
+
+\begin{corolario}{Clausura separable (Corolario 4.15)} % [cite: 252]
+    Sea $L/K$ una extensión de cuerpos. El conjunto:
+    $$A = \{ \alpha \in L \mid \alpha \text{ es separable sobre } K \}$$
+    es un subcuerpo de $L$ que contiene a $K$. % [cite: 252, 254, 256, 258]
+    A este subcuerpo $A$ se le llama la \textbf{clausura separable} de $K$ en $L$. % [cite: 253]
+\end{corolario}
+
+\begin{proof}
+    Denotemos por $A$ a dicho conjunto. % [cite: 255]
+    Por definición, todo elemento de $A$ es separable sobre $K$. % [cite: 259]
+    Si aplicamos el Corolario 4.14 tomando a $A$ como el conjunto generador, deducimos que la extensión generada $K(A)/K$ es una extensión separable. % [cite: 259]
+    Dado que toda la extensión es separable, cualquier elemento que pertenezca a $K(A)$ es separable sobre $K$. Esto implica, por la propia definición del conjunto $A$, que $K(A) \subseteq A$. % [cite: 259]
+    Por otro lado, la inclusión contraria $A \subseteq K(A)$ es obvia (todo conjunto está trivialmente contenido en el cuerpo que genera). % [cite: 260]
+    Por tanto, concluimos que $A = K(A)$. Al coincidir con un cuerpo generado, $A$ es indiscutiblemente un subcuerpo de $L$. % [cite: 260]
+\end{proof}
+
+\begin{corolario}{Levantamiento de extensiones (Corolario 4.16)} % [cite: 261]
+    La clase de extensiones separables es cerrada para levantamientos. % [cite: 261, 268]
+\end{corolario}
+
+\begin{proof}
+    Sean $E$ y $L$ dos extensiones sobre un mismo cuerpo base $K$. El "levantamiento" de $E$ a $L$ se define como el cuerpo compuesto $EL$. La situación se ilustra en el siguiente diagrama: % [cite: 263, 264, 265, 266]
+    Supongamos que la extensión base $E/K$ es separable. Queremos demostrar que el levantamiento $EL/L$ también es separable. % [cite: 269]
+    
+    Dado que $E/K$ es separable, todo elemento $\alpha \in E$ es separable sobre $K$. % [cite: 270]
+    Consideremos el polinomio mínimo de este elemento sobre $L$, es decir, $\operatorname{Min}_L(\alpha)$, y su polinomio mínimo sobre $K$, $\operatorname{Min}_K(\alpha)$. % [cite: 272]
+    Como $K \subseteq L$, se cumple que $\operatorname{Min}_L(\alpha)$ divide a $\operatorname{Min}_K(\alpha)$ en el anillo de polinomios $L[X]$. % [cite: 272]
+    Al ser $\alpha$ separable sobre $K$, sabemos que $\operatorname{Min}_K(\alpha)$ no tiene raíces múltiples. % [cite: 272]
+    En consecuencia, su divisor $\operatorname{Min}_L(\alpha)$ tampoco puede tener raíces múltiples, lo que demuestra inequívocamente que $\alpha$ es separable sobre $L$. % [cite: 272]
+    
+    Hemos probado que todos los elementos de $E$ son separables sobre $L$. % [cite: 271]
+    Recordemos que el cuerpo compuesto $EL$ es exactamente el cuerpo generado $L(E)$. Como está generado por un conjunto de elementos ($E$) que son todos separables sobre $L$, el Corolario 4.14 nos garantiza que la extensión generada $\frac{L(E)}{L} = \frac{EL}{L}$ es separable. % [cite: 273, 275]
+\end{proof}
+
+\begin{corolario}{Grado de la clausura separable (Corolario 4.18)} % [cite: 274]
+    Si $L/K$ es una extensión finita y $S$ es la clausura separable de $K$ en $L$ (es decir, el subcuerpo de los elementos separables), entonces se cumple la igualdad: % [cite: 274, 276]
+    $$[L:K]_s = [S:K]$$ % [cite: 274]
+\end{corolario}

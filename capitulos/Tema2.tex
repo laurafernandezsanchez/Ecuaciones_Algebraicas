@@ -1,0 +1,589 @@
+\section{Cuerpos Algebraicamente Cerrados}
+
+Recordemos del tema anterior que una extensión de cuerpos es finita si y solo si es una extensión algebraica y finitamente generada. Una consecuencia fundamental del Teorema de Kronecker nos permite caracterizar de múltiples formas aquellos cuerpos en los que todo polinomio tiene solución.
+
+\begin{proposicion}{Caracterización de Cuerpos Algebraicamente Cerrados (Prop. 2.1)}
+    Las siguientes condiciones son lógicamente equivalentes para un cuerpo $K$:
+    \begin{enumerate}
+        \item Todo polinomio no constante con coeficientes en $K$ tiene al menos una raíz en $K$ (esta es la definición estándar de que $K$ es algebraicamente cerrado).
+        \item Los polinomios irreducibles del anillo $K[X]$ son exactamente los polinomios de grado 1.
+        \item Todo polinomio no constante de $K[X]$ es completamente factorizable sobre $K$ (se descompone unívocamente en un producto de factores lineales).
+        \item $K$ contiene un subcuerpo $K_0$ tal que la extensión $K/K_0$ es algebraica y todo polinomio de $K_0[X]$ es completamente factorizable en $K[X]$.
+        \item Si $L/K$ es una extensión algebraica, entonces forzosamente $L = K$ (es decir, $K$ no posee extensiones algebraicas propias).
+        \item Si $L/K$ es una extensión finita, entonces $L = K$ (es decir, $K$ no posee extensiones finitas propias).
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+    Acometemos la demostración mediante un ciclo cerrado de implicaciones lógicas:
+
+    \textbf{(1) $\implies$ (2):} Es una consecuencia inmediata. Si existiera un polinomio irreducible de grado $n \ge 2$, por la condición (1) este tendría al menos una raíz $\alpha \in K$. Pero si tiene una raíz en $K$, por el Teorema del Resto el polinomio sería divisible por $(X-\alpha)$, lo cual contradice frontalmente su irreducibilidad. Por tanto, los únicos irreducibles son los de grado 1.
+
+    \textbf{(2) $\implies$ (3):} Como $K$ es un cuerpo, sabemos que el anillo de polinomios $K[X]$ es un Dominio de Factorización Única (DFU). Esto garantiza que cualquier polinomio se descompone de forma única en producto de polinomios irreducibles. Aplicando (2), todos estos factores irreducibles tienen grado 1. Esto significa exactamente que el polinomio original es completamente factorizable.
+
+    \textbf{(3) $\implies$ (4):} Es una implicación trivial. Basta con tomar $K_0 = K$. La extensión $K/K$ es trivialmente algebraica (todo elemento es raíz de su polinomio $X-a$) y, por (3), todo polinomio en $K_0[X]$ descompone completamente.
+
+    \textbf{(4) $\implies$ (5):} Supongamos que existe un subcuerpo $K_0 \subseteq K$ que cumple la hipótesis (4) y sea $L/K$ una extensión algebraica cualquiera. Como, por hipótesis, la extensión base $K/K_0$ también es algebraica, la transitividad de las extensiones algebraicas nos asegura que la torre completa $L/K_0$ es una extensión algebraica. 
+    
+    Sea $\alpha \in L$ un elemento arbitrario. Consideramos su polinomio mínimo sobre el cuerpo base pequeño: $p = \operatorname{Min}_{K_0}(\alpha)$. Por la condición (4), este polinomio se descompone linealmente en $K[X]$, es decir, todas sus raíces residen en $K$:
+    $$p(X) = a_0 (X-\alpha_1) \cdots (X-\alpha_n) \quad \text{con } \alpha_i \in K$$
+    Evaluando el polinomio en $\alpha$, obtenemos:
+    $$0 = p(\alpha) = a_0 (\alpha-\alpha_1) \dots (\alpha-\alpha_n)$$
+    Al estar trabajando en un dominio de integridad (un cuerpo carece de divisores de cero), forzosamente $\alpha - \alpha_i = 0$ para algún $i$. Es decir, $\alpha = \alpha_i$. Como sabíamos que $\alpha_i \in K$, deducimos inmediatamente que $\alpha \in K$. Al ser $\alpha$ un elemento arbitrario de $L$, tenemos que $L \subseteq K$, y por consiguiente $L = K$.
+
+    \textbf{(5) $\implies$ (6):} Esta implicación es directa, puesto que toda extensión finita es, por definición, una extensión algebraica.
+
+    \textbf{(6) $\implies$ (1):} Supongamos que se verifica (6) y tomemos un polinomio no constante arbitrario $p \in K[X] \setminus K$. Por el Teorema de Kronecker, sabemos que existe una extensión $K(\alpha)/K$ donde $\alpha$ es una raíz de $p$. Como $\alpha$ es raíz de un polinomio con coeficientes sobre $K$, $\alpha$ es un elemento algebraico sobre $K$. Esto implica que la extensión simple $K(\alpha)/K$ es de grado finito. Aplicando ahora nuestra hipótesis (6) a esta extensión finita, concluimos que $K(\alpha) = K$, lo que exige que la raíz $\alpha$ pertenezca a $K$.
+\end{proof}
+
+\begin{ejemplo}{Ejemplos de Cuerpos NO Algebraicamente Cerrados}
+    \begin{itemize}
+        \item Los cuerpos $\mathbb{Q}$ y $\mathbb{R}$ no son algebraicamente cerrados, ya que el polinomio $X^2 + 1 \in \mathbb{R}[X]$ carece de raíces en ambos.
+        \item El cuerpo finito $\mathbb{Z}_2$ tampoco lo es. El polinomio $X^2 + X + 1 \in \mathbb{Z}_2[X]$ no se anula ni al evaluar en $0$ ni en $1$ (de hecho, sus raíces en su cuerpo de descomposición serían complejas de la forma $\frac{-1 \pm \sqrt{3}i}{2}$).
+        \item \textbf{Ningún cuerpo finito es algebraicamente cerrado.} A modo de demostración para $p \ge 3$ (Ejemplo 2.4): el polinomio $X^{p-1} + 1$ jamás tiene raíces en $\mathbb{Z}_p$. Si tuviese una raíz $\alpha \in \mathbb{Z}_p$, al ser $\alpha \neq 0$ (el cero no lo anula), por el Pequeño Teorema de Fermat se cumpliría invariablemente que $\alpha^{p-1} \equiv 1 \pmod p$. Sustituyendo esto en la ecuación del polinomio, tendríamos $1 + 1 \equiv 0 \pmod p$, lo que implicaría que $p$ divide a $2$. Esto fuerza a que $p = 2$, contradiciendo nuestra premisa original de que $p \ge 3$.
+    \end{itemize}
+\end{ejemplo}
+
+\begin{teorema}{Teorema Fundamental del Álgebra (Teorema 2.2)}
+    El cuerpo de los números complejos $\mathbb{C}$ es algebraicamente cerrado.
+\end{teorema}
+\textit{(Nota: La demostración analítica de este teorema, basada en la compacidad de los discos en el plano complejo y el principio del módulo mínimo, se omite en este desarrollo puramente algebraico).}
+
+\section{Clausura Algebraica}
+
+Una vez establecido empíricamente que no todos los cuerpos son algebraicamente cerrados, surge una de las preguntas fundamentales de la Teoría de Cuerpos: dado un cuerpo cualquiera $K$, ¿existe siempre un cuerpo algebraicamente cerrado que lo contenga y actúe como su "universo de soluciones"?
+
+\begin{proposicion}{La clausura relativa hereda la completitud (Prop. 2.3)}
+    Sea $L/K$ una extensión con $L$ algebraicamente cerrado y sea $C$ la clausura algebraica de $K$ en $L$ (es decir, el conjunto de todos los elementos de $L$ que son algebraicos sobre $K$). Entonces la extensión $C/K$ es algebraica y el cuerpo $C$ es algebraicamente cerrado.
+\end{proposicion}
+
+\begin{proof}
+    Que $C/K$ es una extensión algebraica es una tautología derivada de la propia definición constructiva de $C$ (como vimos en el Corolario 1.17).
+    
+    Para demostrar que el subcuerpo $C$ es algebraicamente cerrado, tomemos un polinomio no constante $p \in C[X] \setminus C$. Dado que $C \subseteq L$, podemos visualizar $p$ como un polinomio en $L[X]$. Como el cuerpo $L$ es, por hipótesis inicial, algebraicamente cerrado, el polinomio $p$ posee garantizada al menos una raíz $\alpha \in L$.
+    
+    Al ser $\alpha$ raíz de un polinomio cuyos coeficientes están en $C$, podemos afirmar con total rigor que $\alpha$ es algebraico sobre $C$. Por tanto, la extensión simple $C(\alpha)/C$ es una extensión algebraica. 
+    
+    Se nos presenta entonces una torre de extensiones: $K \subseteq C \subseteq C(\alpha)$.
+    Sabemos que $C(\alpha)/C$ es algebraica y que $C/K$ es algebraica. Invocando la propiedad de transitividad (multiplicatividad) de las extensiones algebraicas, la extensión global $C(\alpha)/K$ es también una extensión algebraica.
+    
+    Esta transitividad implica inexorablemente que todos los elementos del cuerpo $C(\alpha)$ son algebraicos sobre el cuerpo base $K$. En particular, nuestro elemento $\alpha$ es algebraico sobre $K$. Pero recordemos que el cuerpo $C$ se definió precisamente como el conjunto máximo de \textit{todos} los elementos de $L$ que son algebraicos sobre $K$. Por consiguiente, $\alpha \in C$. 
+    
+    Acabamos de demostrar que cualquier polinomio con coeficientes en $C$ tiene una raíz que también pertenece a $C$. Luego $C$ es algebraicamente cerrado.
+\end{proof}
+
+\begin{definicion}{Clausura Algebraica Absoluta}
+    Una \textbf{clausura algebraica} de un cuerpo $K$ es una extensión de $K$ que cumple simultáneamente dos condiciones: es una extensión algebraica y, además, es un cuerpo algebraicamente cerrado.
+\end{definicion}
+
+\begin{observacion}{Cuidado con la nomenclatura (!)}
+    Es imperativo en el estudio del álgebra distinguir con precisión entre dos conceptos sutilmente diferentes pero a menudo confundidos:
+    \begin{itemize}
+        \item \textbf{Una clausura algebraica de $K$}: Es una estructura matemática absoluta. Es una extensión que es a la vez algebraica y algebraicamente cerrada.
+        \item \textbf{La clausura algebraica de $K$ en $L$}: Es un concepto puramente relativo a una extensión previamente dada $L/K$. Se define simplemente como el mayor subcuerpo de $L$ formado por elementos algebraicos sobre $K$. \textit{No tiene por qué ser algebraicamente cerrado} (a menos que el propio universo $L$ del que partimos lo sea, como ha demostrado de forma brillante la Proposición 2.3).
+    \end{itemize}
+\end{observacion}
+
+\begin{teorema}{Existencia de la Clausura Algebraica (Teorema 2.5)}
+    Todo cuerpo $K$ posee una clausura algebraica.
+\end{teorema}
+\begin{teorema}{Teorema de Extensión de Homomorfismos (Teorema 2.6)}
+    Sean $K$ y $L$ cuerpos, con $L$ algebraicamente cerrado, y sea $\sigma: K \rightarrow L$ un homomorfismo de cuerpos. 
+    Si $F/K$ es una extensión algebraica, entonces existe otro homomorfismo de cuerpos $\tau: F \rightarrow L$ que extiende a $\sigma$ (es decir, $\tau|_K = \sigma$).
+\end{teorema}
+
+\begin{proof}
+    Utilizaremos el \textbf{Lema de Zorn}, el cual establece que si un conjunto parcialmente ordenado $(S, \le)$ es inductivo (toda cadena tiene una cota superior en $S$), entonces posee al menos un elemento maximal.
+
+    \textbf{Paso 1: Definición del conjunto parcialmente ordenado.}
+    Consideremos el conjunto de todas las extensiones parciales de $\sigma$. Definimos:
+    $$\Omega = \{ (E, \tau) \mid K \subseteq E \subseteq F \text{ subextensión, y } \tau: E \rightarrow L \text{ homomorfismo que extiende a } \sigma \}$$
+    El conjunto $\Omega$ es no vacío ya que, trivialmente, $(K, \sigma) \in \Omega$.
+    
+    Dotamos a $\Omega$ de un orden parcial $\le$ definido por la relación de "ser extensión de":
+    $$(E_1, \tau_1) \le (E_2, \tau_2) \iff E_1 \subseteq E_2 \quad \text{y} \quad \tau_2|_{E_1} = \tau_1$$
+    Es fácil comprobar que $\le$ es una relación de orden (reflexiva, antisimétrica y transitiva).
+
+    \textbf{Paso 2: Comprobación de que $\Omega$ es inductivo.}
+    Sea $\{(E_i, \tau_i)\}_{i \in I}$ una cadena (un subconjunto totalmente ordenado) en $\Omega$. Fabricaremos una cota superior para esta cadena.
+    
+    Definimos el cuerpo unión $E = \bigcup_{i \in I} E_i$.
+    \begin{itemize}
+        \item \textit{¿Es $E$ un cuerpo?} Sí. Sean $\alpha, \beta \in E$. Por definición de unión, existen índices $i, j \in I$ tales que $\alpha \in E_i$ y $\beta \in E_j$. Al ser una cadena, podemos suponer sin pérdida de generalidad que $E_i \subseteq E_j$. Por tanto, $\alpha, \beta \in E_j$. Como $E_j$ es un cuerpo, $\alpha + \beta \in E_j \subseteq E$, $\alpha \cdot \beta \in E_j \subseteq E$, y los inversos también residen en $E_j \subseteq E$. Luego $E$ es un subcuerpo de $F$.
+    \end{itemize}
+    
+    Definimos ahora la aplicación $\tau: E \rightarrow L$. Si $\alpha \in E$, existe algún $E_i$ tal que $\alpha \in E_i$; definimos $\tau(\alpha) = \tau_i(\alpha)$.
+    \begin{itemize}
+        \item \textit{¿Está bien definida?} Supongamos que $\alpha$ también pertenece a otro $E_j$. Como es una cadena, supongamos $E_i \subseteq E_j$. Por la relación de orden, $\tau_j|_{E_i} = \tau_i$, lo que implica que $\tau_j(\alpha) = \tau_i(\alpha)$. La definición es consistente.
+        \item \textit{¿Es homomorfismo?} Claramente sí, hereda la linealidad y multiplicatividad de los $\tau_i$ al operar siempre en un $E_i$ lo suficientemente grande que contenga a los operandos.
+    \end{itemize}
+    Por construcción, $\tau$ extiende a $\sigma$ (ya que cada $\tau_i$ lo hace) y $(E, \tau)$ es una cota superior de la cadena. Por tanto, $\Omega$ es inductivo.
+
+    \textbf{Paso 3: Aplicación del Lema de Zorn y maximalidad.}
+    Por el Lema de Zorn, $\Omega$ posee un elemento maximal, al que llamaremos $(E, \tau)$. Por pertenecer a $\Omega$, sabemos que $E \subseteq F$. 
+    
+    ¿Se tiene que $E = F$? Lo demostraremos por reducción al absurdo. 
+    Supongamos que $E \subsetneq F$. Entonces existe un elemento $\alpha \in F \setminus E$. 
+    Tenemos la torre de cuerpos: $K \subseteq E \subsetneq E(\alpha) \subseteq F$.
+    
+    Como la extensión global $F/K$ es algebraica, el elemento $\alpha$ es algebraico sobre $K$, y por consiguiente, también es algebraico sobre $E$.
+    Consideremos su polinomio mínimo $p = \operatorname{Min}_E(\alpha) \in E[X]$. (Es un polinomio irreducible tal que $p(\alpha) = 0$).
+    
+    Aplicamos el homomorfismo $\tau$ a los coeficientes de $p$ para obtener un nuevo polinomio $\tau(p) \in \tau(E)[X] \subseteq L[X]$.
+    Como el cuerpo de llegada $L$ es, por hipótesis, \textbf{algebraicamente cerrado}, el polinomio $\tau(p)$ tiene obligatoriamente al menos una raíz $\beta \in L$.
+    
+    Aquí entra en juego el \textbf{Lema de Extensión (Lema 1.9)}. Como $p$ es irreducible sobre $E$ y $\beta$ es raíz de $\tau(p)$ en $L$, existe un homomorfismo $\tau': E(\alpha) \rightarrow L$ tal que:
+    \begin{enumerate}
+        \item $\tau'|_E = \tau$ (extiende a $\tau$).
+        \item $\tau'(\alpha) = \beta$ (envía la raíz $\alpha$ a la raíz $\beta$).
+    \end{enumerate}
+    
+    Pero esto significa que el par $(E(\alpha), \tau')$ pertenece a $\Omega$ y, además, $(E, \tau) \le (E(\alpha), \tau')$ con $E \subsetneq E(\alpha)$. 
+    Esto contradice flagrantemente que $(E, \tau)$ era un elemento maximal de $\Omega$.
+    
+    La suposición de que $E \subsetneq F$ debe ser falsa. Concluimos entonces que $E = F$, y por tanto, el homomorfismo maximal $\tau$ está definido sobre todo $F$ y extiende a $\sigma$, completando la demostración.
+\end{proof}
+
+\begin{observacion}{Aclaración intuitiva del Teorema}
+    Intuitivamente, este teorema nos dice que si tenemos un homomorfismo hacia un cuerpo algebraicamente cerrado ($L$), 
+    y el cuerpo de partida crece de manera exclusivamente ALGEBRAICA (pasando de $K$ a $F$), el homomorfismo también puede crecer
+     (extenderse) para cubrir este nuevo dominio sin romperse, gracias a que el cuerpo de llegada tiene espacio de sobra (raíces) para acomodar a los nuevos elementos.
+\end{observacion}
+
+\vspace{0.5cm}
+
+El primer corolario importante de este teorema muestra que la clausura algebraica de un cuerpo es única salvo isomorfismos. 
+Gracias a esto, a partir de ahora podemos usar el artículo definido y hablar de \textit{LA} clausura algebraica de un cuerpo, en lugar de \textit{"una"} clausura.
+
+\begin{corolario}{Unicidad de la clausura algebraica (Corolario 2.7)}
+    La clausura algebraica de un cuerpo es única salvo isomorfismos.
+    
+    Formalmente: Si $\sigma: K_1 \rightarrow K_2$ es un isomorfismo de cuerpos y $L_1, L_2$ son clausuras algebraicas de $K_1$ y $K_2$ respectivamente, entonces existe un isomorfismo global $\overline{\sigma}: L_1 \rightarrow L_2$ que extiende a $\sigma$ (es decir, $\overline{\sigma}|_{K_1} = \sigma$).
+\end{corolario}
+
+
+\begin{observacion}{Estrategia general para la unicidad}
+    La forma habitual de demostrar la unicidad es: si se tiene un cuerpo con dos clausuras, encontrar un isomorfismo entre ellas. 
+    Este Corolario 2.7 es una forma de generalizarlo, encontrando un isomorfismo entre las clausuras de dos cuerpos que ya son isomorfos previamente ($\sigma: K_1 \xrightarrow{\simeq} K_2$).
+\end{observacion}
+
+\begin{proof}[Continuación de la demostración del Corolario 2.7]
+    Tenemos la siguiente situación inicial con dos cuerpos isomorfos y sus respectivas clausuras algebraicas:
+    \begin{center}
+        \includegraphics[width=1\linewidth]{imagenes/Situacion2_9.png}
+    \end{center}
+
+    Esto nos lleva exactamente a la hipótesis del \textbf{Teorema 2.6} (Teorema de Extensión). Si consideramos $\sigma: K_1 \to L_2$ (componiendo con la inclusión $K_2 \hookrightarrow L_2$), como $L_1/K_1$ es algebraica y $L_2$ es algebraicamente cerrado, el teorema garantiza que:
+    $$\exists \overline{\sigma}: L_1 \longrightarrow L_2 \quad \text{que extiende a } \sigma \text{ (es decir, } \overline{\sigma}|_{K_1} = \sigma \text{)}$$
+
+    Faltaría ver que este $\overline{\sigma}$ es, de hecho, un isomorfismo. Como todo homomorfismo entre cuerpos es inyectivo, solo necesitamos demostrar la \textbf{suprayectividad}, es decir, que $\overline{\sigma}(L_1) = L_2$.
+
+    Al ser $\overline{\sigma}$ inyectivo, establece un isomorfismo entre $L_1$ y su imagen: $L_1 \cong \overline{\sigma}(L_1)$. 
+    Como $L_1$ es algebraicamente cerrado y esta propiedad se conserva por isomorfismos, deducimos que \textbf{$\overline{\sigma}(L_1)$ es algebraicamente cerrado}.
+
+
+    Veamos ahora la inclusión del cuerpo base. Sabemos que $K_2 \hookrightarrow L_2$. Dado un elemento cualquiera $\alpha \in K_2$, como $\sigma: K_1 \to K_2$ es isomorfismo (y por tanto biyectiva), existe $\sigma^{-1}(\alpha) \in K_1 \subseteq L_1$.
+    Al aplicar $\overline{\sigma}$ a este elemento, y recordando que $\overline{\sigma}$ coincide con $\sigma$ sobre $K_1$:
+    $$\overline{\sigma}(\sigma^{-1}(\alpha)) = \sigma(\sigma^{-1}(\alpha)) = \alpha$$
+    Como $\sigma^{-1}(\alpha) \in L_1$, su imagen $\alpha$ pertenece a $\overline{\sigma}(L_1)$. Esto demuestra que \textbf{$K_2 \subseteq \overline{\sigma}(L_1)$}.
+
+    
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{imagenes/Situacion2_9_2.png}
+    \end{center}
+
+    Utilizando la definición, como $L_2$ es una extensión algebraica de $K_2$, y $K_2 \subseteq \overline{\sigma}(L_1) \subseteq L_2$, la extensión $L_2 / \overline{\sigma}(L_1)$ también es algebraica.
+    Pero hemos demostrado que $\overline{\sigma}(L_1)$ es algebraicamente cerrado, y los cuerpos algebraicamente cerrados no tienen extensiones algebraicas propias (Prop. 2.1 (5)). 
+    Por consiguiente, forzosamente $\overline{\sigma}(L_1) = L_2$. 
+    
+    Al ser suprayectiva e inyectiva, $\overline{\sigma}$ es el isomorfismo buscado. \qed
+\end{proof}
+
+\begin{observacion}{Unicidad absoluta}
+    De aquí deducimos que LA clausura algebraica de un cuerpo $K$ es única salvo isomorfismos simplemente tomando en este corolario $K_1 = K_2 = K$ y $\sigma = \operatorname{id}_K$.
+\end{observacion}
+
+% -------------------------------------------------------------------
+
+\section{Cuerpos de Descomposición (CD) y Extensiones Normales}
+
+
+\begin{definicion}{Cuerpo de Descomposición}
+    Sean $K$ un cuerpo y $\mathcal{P}$ un conjunto de polinomios no constantes de $K[X]$ (es decir, $\mathcal{P} \subseteq K[X] \setminus K$).
+    
+    Se llama \textbf{cuerpo de descomposición (CD)} de $\mathcal{P}$ sobre $K$ a un cuerpo de la forma $K(S)$, donde:
+    $$S = \{ \text{todas las raíces de todos los polinomios de } \mathcal{P} \text{ en una clausura algebraica de } K \}$$
+    
+    Observemos que siempre se cumple la torre: $K \subseteq K(S) \subseteq \overline{K}$.
+    Se tendrá la igualdad $K(S) = \overline{K}$ cuando la familia $\mathcal{P}$ contenga a todos los polinomios de $K[X]$.
+\end{definicion}
+
+\begin{observacion}{Aclaración intuitiva}
+    Claramente, todos los polinomios de $\mathcal{P}$ tendrán sus raíces en la clausura algebraica $\overline{K}$ (pues es el universo donde todo factoriza). El cuerpo de descomposición busca tener \textit{todas} las raíces necesarias para factorizar $\mathcal{P}$, pero construyendo el cuerpo más pequeño posible, "sin que sobre mucho". Lo habitual en la práctica es aplicarlo a un único polinomio $p \in K[X]$.
+\end{observacion}
+
+\begin{proposicion}{Isomorfismo de Cuerpos de Descomposición (Prop. 2.9)}
+    Sea $\sigma: K_1 \longrightarrow K_2$ un isomorfismo de cuerpos.
+    Sean $\mathcal{P}_1 \subseteq K_1[X] \setminus K_1$ una familia de polinomios y $\mathcal{P}_2 = \{ \sigma(p) : p \in \mathcal{P}_1 \}$ la familia imagen en $K_2[X]$.
+    
+    Si $L_1$ es un cuerpo de descomposición de $\mathcal{P}_1$ sobre $K_1$, y $L_2$ es un cuerpo de descomposición de $\mathcal{P}_2$ sobre $K_2$, entonces existe un isomorfismo $\overline{\sigma}: L_1 \longrightarrow L_2$ que extiende a $\sigma$.
+\end{proposicion}
+
+\begin{proof}
+    Sean $\overline{K_1}$ y $\overline{K_2}$ las clausuras algebraicas de $K_1$ y $K_2$ respectivamente.
+    Por definición de cuerpo de descomposición, podemos escribir $L_i = K_i(S_i)$ dentro de $\overline{K_i}$ para $i=1,2$, donde $S_i$ es el conjunto de las raíces de los polinomios de $\mathcal{P}_i$.
+
+    \textbf{Estrategia de la demostración: "Subir al cielo para bajar a la tierra"}
+    El problema es que construir un isomorfismo directamente entre $L_1$ y $L_2$ "a ciegas" es difícil. La estrategia matemática estándar aquí es:
+    \begin{enumerate}
+        \item \textbf{Subir:} Irnos a las Clausuras Algebraicas ($\overline{K_1}$ y $\overline{K_2}$), que son cuerpos enormes donde sabemos que todas las raíces existen.
+        \item \textbf{Conectar:} Usar el Teorema anterior (Corolario 2.7) para conectar esas dos clausuras mediante un isomorfismo global.
+        \item \textbf{Restringir:} Demostrar que, al restringir la acción de ese isomorfismo a las raíces que nos interesan ($S_1$), caemos exactamente en las raíces del otro lado ($S_2$), conectando así $L_1$ con $L_2$.
+    \end{enumerate}
+
+    \textit{Paso 1 y 2 (Subir y Conectar):}
+    Por el Corolario 2.7, sabemos que existe un isomorfismo $\overline{\sigma}: \overline{K_1} \longrightarrow \overline{K_2}$ que extiende a $\sigma$.
+
+    \textit{Paso 3 (Restringir):}
+    Tomemos una raíz cualquiera $s \in S_1$. Por definición, existe un polinomio $p \in \mathcal{P}_1$ tal que $p(s) = 0$.
+    Aplicando el \textbf{Lema 1.8} (que asegura que los homomorfismos envían raíces de $p$ a raíces de $\sigma(p)$), deducimos que $\overline{\sigma}(s)$ será raíz del polinomio imagen $\overline{\sigma}(p) = \sigma(p)$.
+    Como $\sigma(p) \in \mathcal{P}_2$, cualquier raíz suya pertenece a $S_2$. 
+    Por tanto, $\overline{\sigma}(s) \in S_2$. Esto demuestra la inclusión: $\overline{\sigma}(S_1) \subseteq S_2$.
+
+    Con un razonamiento completamente análogo (usando el isomorfismo inverso $\sigma^{-1}$ y subiendo desde $\overline{K_2}$ hasta $\overline{K_1}$), obtenemos que $\overline{\sigma}^{-1}(S_2) \subseteq S_1$.
+    La doble inclusión nos garantiza que las raíces se biyectan perfectamente: $\overline{\sigma}(S_1) = S_2$.
+
+    Finalmente, evaluamos la imagen del cuerpo de descomposición $L_1$:
+    $$\overline{\sigma}(L_1) = \overline{\sigma}(K_1(S_1)) = \overline{\sigma}(K_1)(\overline{\sigma}(S_1))$$
+    Como $\overline{\sigma}$ extiende a $\sigma$, $\overline{\sigma}(K_1) = K_2$. Y como acabamos de probar, $\overline{\sigma}(S_1) = S_2$. Sustituyendo:
+    $$\overline{\sigma}(L_1) = K_2(S_2) = L_2$$
+    
+    Al restringir el isomorfismo global $\overline{\sigma}$ al subcuerpo $L_1$, obtenemos una aplicación suprayectiva sobre $L_2$. Al ser la restricción de un isomorfismo, conserva la inyectividad. Por tanto, hemos hallado una aplicación biyectiva que es isomorfismo de cuerpos entre $L_1$ y $L_2$ y que extiende a $\sigma$.
+\end{proof}
+
+\begin{corolario}{Unicidad del cuerpo de descomposición}
+    Si $\mathcal{P} \subseteq K[X] \setminus K$, todos los cuerpos de descomposición de $\mathcal{P}$ sobre un mismo cuerpo base $K$ son $K$-isomorfos entre sí.
+\end{corolario}
+
+\begin{proof}
+    Basta con aplicar la Proposición 2.9 tomando $K_1 = K_2 = K$ y como isomorfismo base la identidad $\sigma = \operatorname{id}_K$. El isomorfismo resultante entre los cuerpos de descomposición fijará los elementos de $K$, siendo por tanto un $K$-isomorfismo.
+\end{proof}
+
+\begin{observacion}{El artículo definido en el Cuerpo de Descomposición}
+    A partir de ahora, gracias al teorema de unicidad salvo isomorfismos, hablaremos de \textbf{EL} cuerpo de descomposición (y no \textit{un} cuerpo de descomposición).
+    
+    Además, el cuerpo de descomposición realmente solo tendrá sentido para un único polinomio o para un conjunto infinito de ellos. ¿Por qué?
+    \begin{enumerate}
+        \item Si $\mathcal{P} = \{p\}$, hablamos simplemente del C.D. "del polinomio $p$".
+        \item Si tenemos un conjunto finito de polinomios $\mathcal{P} = \{p_1, p_2, \dots, p_r\}$, podemos tomar su producto $p = p_1 \cdot p_2 \cdots p_r$. El conjunto de las raíces de todos los $p_i$ es exactamente el conjunto de las raíces del polinomio producto $p$.
+    \end{enumerate}
+    Luego, la familia finita $\mathcal{P}$ tiene exactamente el mismo cuerpo de descomposición que el polinomio único $p$.
+\end{observacion}
+
+\section*{Ejemplos de Cuerpos de Descomposición}
+
+
+Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mathbb{Q}$. Recordemos que si un cuerpo contiene a un elemento (como $\sqrt{2}$), por clausura de las operaciones de cuerpo, también contiene a su opuesto ($-\sqrt{2}$).
+
+\begin{ejemplo}{Cálculo de Cuerpos de Descomposición sobre $\mathbb{Q}$}
+    \begin{enumerate}
+        \item \textbf{Polinomios cuadráticos puros:}
+        \begin{itemize}
+            \item El C.D. de $X^2 - 2$ es $\mathbb{Q}(\sqrt{2}, -\sqrt{2}) = \mathbb{Q}(\sqrt{2})$.
+            \item El C.D. de $X^2 + 1$ es $\mathbb{Q}(i, -i) = \mathbb{Q}(i)$.
+            \item El C.D. de $X^2 + 4$ es $\mathbb{Q}(\sqrt{-4}, -\sqrt{-4}) = \mathbb{Q}(2i, -2i)$. Como $\frac{1}{2} \in \mathbb{Q}$, el cuerpo absorbe las constantes racionales: $\mathbb{Q}(2i) = \mathbb{Q}(i)$.
+            \item De manera general, el C.D. de $X^2 - q$ (con $q \in \mathbb{Q}$) es $\mathbb{Q}(\sqrt{q})$.
+        \end{itemize}
+        
+        \item \textbf{El polinomio $X^3 - 1$:}
+        Factoriza como $X^3 - 1 = (X-1)(X^2 + X + 1)$. Las raíces son $1$ y las complejas $\omega, \overline{\omega} = \frac{-1 \pm \sqrt{-3}}{2} = \frac{-1 \pm \sqrt{3}i}{2}$.
+        El C.D. será $\mathbb{Q}(1, \omega, \overline{\omega})$. Como $1 \in \mathbb{Q}$ y $\overline{\omega} = \omega^{-1} = \omega^2$, basta con adjuntar $\omega$.
+        El C.D. es $\mathbb{Q}(\omega) = \{ a + b\omega \mid a,b \in \mathbb{Q} \}$.
+        
+        \item \textbf{El polinomio $X^3 - 2$:}
+        Sus tres raíces en $\mathbb{C}$ son $\sqrt[3]{2}$, $\sqrt[3]{2}\omega$, y $\sqrt[3]{2}\omega^2$.
+        El C.D. será $\mathbb{Q}(\sqrt[3]{2}, \sqrt[3]{2}\omega, \sqrt[3]{2}\omega^2)$. 
+        Notemos que adjuntando la raíz real y $\omega$, generamos todas las demás multiplicando. Además, $\omega = \frac{\sqrt[3]{2}\omega}{\sqrt[3]{2}}$, por lo que $\omega$ pertenece al cuerpo.
+        Por tanto, el C.D. se simplifica a $\mathbb{Q}(\sqrt[3]{2}, \omega)$.
+        De forma análoga, para cualquier $a \in \mathbb{Q}$, el C.D. de $X^3 - a$ es $\mathbb{Q}(\sqrt[3]{a}, \omega)$.
+        
+        \item \textbf{El polinomio general $X^n - 1$:}
+        Las raíces son $\xi_n^k = e^{\frac{2\pi i k}{n}}$ para $k=0, \dots, n-1$. Las que tienen orden multiplicativo exacto $n$ se llaman raíces primitivas.
+        El C.D. es $\mathbb{Q}(1, \xi_n, \xi_n^2, \dots, \xi_n^{n-1}) = \mathbb{Q}(\xi_n)$. (Las demás son simplemente potencias del generador).
+        
+        \item \textbf{El binomio $X^n - a$ ($a \in \mathbb{Q}$):}
+        Las raíces son de la forma $\sqrt[n]{a} \cdot \xi_n^k$. El C.D. requiere tanto la raíz real principal como las raíces de la unidad que "rotan" esa magnitud en el plano complejo.
+        El C.D. es $\mathbb{Q}(\sqrt[n]{a}, \xi_n)$.
+        
+        \item \textbf{El polinomio $X^6 - 1$:}
+        Hay 6 raíces, pero no hace falta cogerlas todas; con adjuntar una primitiva es suficiente.
+        Tomamos $\xi_6 = e^{\frac{2\pi i}{6}} = \frac{1}{2} + \frac{\sqrt{3}}{2}i$.
+        El C.D. es $\mathbb{Q}(\xi_6) = \mathbb{Q}(i\sqrt{3}) = \mathbb{Q}(\sqrt{-3})$. El grado de la extensión es $[\mathbb{Q}(\xi_6) : \mathbb{Q}] = 2$.
+        (Nota: $X^6 - 1 = (X^3 - 1)(X^3 + 1) = (X-1)(X^2+X+1)(X+1)(X^2-X+1)$).
+        
+        \item \textbf{Cálculo del grado para $X^6 - 2$:}
+        Las raíces son $\sqrt[6]{2} \xi_6^k$. Por el caso general visto antes, el C.D. es $\mathbb{Q}(\sqrt[6]{2}, \xi_6)$.
+        Para calcular el grado $[ \mathbb{Q}(\sqrt[6]{2}, \xi_6) : \mathbb{Q} ]$, consideramos la torre de extensiones:
+        El grado inferior es 6 porque el polinomio mínimo de $\sqrt[6]{2}$ sobre $\mathbb{Q}$ es $X^6 - 2$, el cual es irreducible por el Criterio de Eisenstein (con el primo $p=2$).
+        El grado superior $m$ es como mucho 2, porque $\xi_6$ es raíz de $X^2 - X + 1$ (cuyos coeficientes están trivialmente en $\mathbb{Q}(\sqrt[6]{2})$). 
+        ¿Podría ser $m=1$? Si $m=1$, entonces $\xi_6 \in \mathbb{Q}(\sqrt[6]{2})$. Pero $\mathbb{Q}(\sqrt[6]{2}) \subseteq \mathbb{R}$ (es un cuerpo puramente real), mientras que $\xi_6 \in \mathbb{C} \setminus \mathbb{R}$. Por tanto, $\xi_6 \notin \mathbb{Q}(\sqrt[6]{2})$.
+        Esto fuerza a que $m=2$.
+        El grado total de la extensión es:
+        $$[\mathbb{Q}(\sqrt[6]{2}, \xi_6) : \mathbb{Q}] = 6 \cdot 2 = 12$$
+    \end{enumerate}
+\end{ejemplo}
+
+% -----------------------------------------------------------------------------
+
+\section{Extensiones Normales}
+
+\begin{definicion}{Extensión Normal}
+    Una extensión de cuerpos $L/K$ se dice que es \textbf{normal} si satisface cualquiera de las condiciones equivalentes del siguiente teorema.
+\end{definicion}
+
+\begin{teorema}{Caracterización de Extensiones Normales (Teorema 2.11)}
+    Las siguientes afirmaciones son lógicamente equivalentes para una extensión $L/K$:
+    \begin{enumerate}
+        \item $L$ es el cuerpo de descomposición sobre $K$ de una familia de polinomios no constantes con coeficientes en $K$.
+        \item $L/K$ es algebraica y, para toda clausura algebraica $F$ de $L$ y todo $K$-homomorfismo $\sigma: L \longrightarrow F$, se verifica que $\sigma(L) = L$ (es decir, $\sigma$ es un endomorfismo de $L$, $\sigma \in \operatorname{Gal}(L/K)$).
+        \item $L/K$ es algebraica y existe \textit{una} clausura algebraica $F$ de $L$ tal que todo $K$-homomorfismo $\sigma: L \longrightarrow F$ cumple que $\sigma(L) \subseteq L$.
+        \item $L/K$ es algebraica y, para todo $\alpha \in L$, su polinomio mínimo $\operatorname{Min}_K(\alpha)$ factoriza completamente en $L$.
+        \item $L/K$ es algebraica y todo polinomio irreducible de $K[X]$ que tenga \textit{al menos una} raíz en $L$, factoriza completamente en $L$ (es decir, "si tenemos una raíz, las tenemos todas").
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    Demostramos las equivalencias mediante un ciclo de implicaciones lógicas:
+
+    \textbf{(1) $\implies$ (2):} 
+    Supongamos que $L$ es el C.D. de una familia $\mathcal{P} \subseteq K[X] \setminus K$. 
+    Sea $F$ la clausura algebraica de $L$ y $\sigma: L \longrightarrow F$ un $K$-homomorfismo de cuerpos.
+    Por definición de C.D., $L = K(S)$, siendo $S = \{ \text{Raíces de los polinomios de } \mathcal{P} \}$.
+    Si tomamos un elemento $\alpha \in S$, $\alpha$ es raíz de un cierto polinomio $p \in \mathcal{P}$.
+    Por el Lema 1.8 (invarianza de raíces bajo homomorfismos), $\sigma(\alpha)$ es raíz del polinomio transformado $\sigma(p)$.
+    Pero $\sigma$ es un $K$-homomorfismo (fija los elementos de $K$), y como $p$ tiene coeficientes en $K$, resulta que $\sigma(p) = p$. 
+    Por tanto, $\sigma(\alpha)$ sigue siendo raíz de $p$, lo que implica que $\sigma(\alpha) \in S$.
+    Esto demuestra que $\sigma$ envía el conjunto generador $S$ dentro de sí mismo: $\sigma(S) \subseteq S$.
+    Como los homomorfismos son inyectivos y preservan la estructura algebraica:
+    $$\sigma(L) = \sigma(K(S)) = K(\sigma(S)) \subseteq K(S) = L$$
+    (De hecho, como $S$ es invariante y la aplicación es inyectiva sobre las raíces de cada polinomio que son conjuntos finitos, permuta las raíces, obligando a que $\sigma(S) = S$ y por tanto $\sigma(L) = L$). Que la extensión es algebraica es obvio, pues $L = K(S)$ está generada por raíces de polinomios.
+
+    \textbf{(2) $\implies$ (3):} 
+    Es una implicación lógica trivial. Si la propiedad (2) se cumple para \textit{toda} clausura algebraica y garantiza la igualdad $\sigma(L) = L$, entonces en particular existe \textit{alguna} clausura algebraica donde se cumple la inclusión $\sigma(L) \subseteq L$.
+
+    \textbf{(3) $\implies$ (4):}
+    \textbf{Objetivo:} Queremos demostrar que $L/K$ es algebraica y que, para todo $\alpha \in L$, el polinomio $p = \operatorname{Min}_K(\alpha)$ factoriza completamente en $L$.
+    
+    Como $K \subseteq L \subseteq F$, podemos considerar $p$ como un polinomio en $F[X]$. Dado que $F$ es una clausura algebraica y por tanto algebraicamente cerrado, el polinomio $p$ factoriza completamente en $F$ (por la Proposición 2.1):
+    $$p(X) = (X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n) \quad \text{con } \alpha_i \in F$$
+    
+    A cada raíz $\alpha_i$ vamos a aplicarle la \textbf{Proposición 2.10}:
+    \begin{quote}
+        \textit{Proposición 2.10:} Sea $p \in K[X]$ irreducible (el polinomio mínimo lo es por construcción) y sean $\alpha, \beta$ raíces de $p$ en dos extensiones de $K$ (pueden no ser las mismas extensiones de $K$). Entonces, existe un único $K$-isomorfismo $f: K(\alpha) \xrightarrow{\simeq} K(\beta)$ tal que $f(\alpha) = \beta$.
+    \end{quote}
+    Aplicando este resultado, deducimos que $K(\alpha) \simeq K(\alpha_i)$ para todo $i \in \{1, \dots, n\}$. Es decir, existe un $K$-isomorfismo $\tau_i: K(\alpha) \to K(\alpha_i)$ que cumple $\tau_i(\alpha) = \alpha_i$.
+    Como $\alpha_i \in F$, deducimos que el cuerpo generado $K(\alpha_i)$ está contenido en $F$. Esto nos permite definir el siguiente homomorfismo bien compuesto hacia $F$:
+    A continuación, aplicamos la siguiente proposición conocida:
+    \begin{quote}
+        \textit{Teorema 2.6:} Si $\sigma: K \to L$ es un homomorfismo de cuerpos con $L$ algebraicamente cerrado y $F/K$ una extensión algebraica, entonces existe otro homomorfismo de cuerpos $\tau: F \to L$ que extiende a $\sigma$.
+    \end{quote}
+    \textit{Adaptación a nuestro contexto:} Tomamos como homomorfismo base a $\tau: K(\alpha) \to F$. Sabemos que la extensión $L/K(\alpha)$ es algebraica porque $K \subseteq K(\alpha) \subseteq L$ y la extensión global $L/K$ es algebraica por hipótesis. Como $F$ es algebraicamente cerrado, el teorema nos garantiza que existe una extensión del homomorfismo a todo $L$. Es decir, $\exists \overline{\tau}: L \to F$ que extiende a $\tau$. (Para simplificar la notación, la llamaremos simplemente $\tau$).
+    
+    Evaluamos el elemento $\alpha$ bajo este homomorfismo:
+    $$\tau(\alpha) = (i \circ \tau_i)(\alpha) = i(\tau_i(\alpha)) = i(\alpha_i) = \alpha_i$$
+    
+    Ahora bien, por la hipótesis (3), todo $K$-homomorfismo de $L$ en su clausura $F$ cumple que $\tau(L) = L$. (Basta con que $\tau(L) \subseteq L$).
+    Como $\alpha \in L$, su imagen debe pertenecer a $L$:
+    $$\alpha \in L \implies \tau(\alpha) \in L \implies \alpha_i \in L$$
+    
+    Aplicando este mismo razonamiento sistemáticamente a todos los índices $i \in \{1, \dots, n\}$, concluimos que $\alpha_i \in L \;\; \forall i$. 
+    Por consiguiente, el polinomio $p = \operatorname{Min}_K(\alpha)$ factoriza completamente dentro de $L$.
+
+
+    \textbf{(4) $\implies$ (5):} 
+    Es inmediato. Sea $p \in K[X]$ un polinomio irreducible que tiene una raíz $\alpha \in L$. Al ser irreducible y mónico (salvo constante multiplicativa), $p$ coincide con $\operatorname{Min}_K(\alpha)$. Por la hipótesis (4), $\operatorname{Min}_K(\alpha)$ factoriza completamente en $L$. Luego $p$ factoriza completamente en $L$.
+
+    \textbf{(5) $\implies$ (1):} 
+    Si asumimos (5), afirmamos que $L$ es el cuerpo de descomposición sobre $K$ de la familia de polinomios irreducibles que tienen raíces en $L$. Formalmente:
+    $$\mathcal{P} = \{ \operatorname{Min}_K(\alpha) \mid \alpha \in L \}$$
+    Como cada $\alpha \in L$ aporta su polinomio mínimo, todas las raíces necesarias para generar $L$ están contempladas, y por hipótesis (5), todos estos polinomios factorizan completamente sin necesidad de "salir" de $L$.
+\end{proof}
+
+\subsection*{Ejemplos de Extensiones Normales}
+
+\begin{ejemplo}{Extensiones cuadráticas simples}
+    Cualquier extensión de la forma $\mathbb{Q}(\sqrt{q}) / \mathbb{Q}$ es normal, ya que es el cuerpo de descomposición del polinomio $X^2 - q$.
+\end{ejemplo}
+
+\begin{ejemplo}{¡TODA extensión de grado 2 es normal!}
+    Si $L/K$ es una extensión de grado 2 (con $\operatorname{car}(K) \neq 2$), siempre es normal y su grupo de Galois tiene exactamente orden 2.
+    
+    \textbf{Desarrollo riguroso:}
+    Sea $\alpha \in L \setminus K$. Entonces la extensión generada es $L = K(\alpha)$. Al ser el grado de la extensión 2, el polinomio mínimo $p = \operatorname{Min}_K(\alpha)$ tiene obligatoriamente grado 2.
+    Pongamos $p(X) = X^2 + aX + b$. Como la característica no es 2, podemos "completar el cuadrado" algebraicamente:
+    $$p(X) = \left( X + \frac{a}{2} \right)^2 + b - \frac{a^2}{4}$$
+    Definimos un nuevo generador $\beta = \alpha + \frac{a}{2}$ y una constante $c = \frac{a^2}{4} - b \in K$. 
+    El polinomio mínimo de $\beta$ es $q(X) = X^2 - c$, y se cumple que $L = K(\alpha) = K(\beta) = K(\sqrt{c})$.
+    
+    Como las raíces de $q(X)$ son $\pm\beta$, vemos que al contener una raíz ($\beta$), la otra raíz ($-\beta$) es simplemente el elemento opuesto y, por axiomas de cuerpo, también pertenece a $L$. 
+    Por tanto, $\operatorname{Min}_K(\beta)$ (y en consecuencia $\operatorname{Min}_K(\alpha)$) es completamente factorizable en $L$. 
+    Como el cuerpo $L$ se construye precisamente al añadir todas las raíces de este polinomio, $L$ es el cuerpo de descomposición de $\operatorname{Min}_K(\alpha)$ sobre $K$. Por el Teorema 2.11(1), la extensión $L/K$ es normal.
+    
+    \textbf{El Grupo de Galois:}
+    Cualquier $K$-automorfismo $\sigma \in \operatorname{Gal}(L/K)$ debe enviar $\beta$ a otra raíz de su polinomio mínimo. Las únicas opciones teóricas son $\sigma(\beta) = \beta$ (la identidad) y $\sigma(\beta) = -\beta$ (la conjugación).
+    Para garantizar que existen exactamente dos automorfismos, debemos ver que ambas opciones generan automorfismos distintos y bien definidos:
+    \begin{itemize}
+        \item Son distintos: como $\operatorname{car}(K) \neq 2$ y $\beta \notin K \implies \beta \neq 0$, se cumple que $2\beta \neq 0 \implies \beta \neq -\beta$.
+        \item Son válidos: Al ser $X^2 - c$ irreducible y tener raíces simples (es separable al ser característica $\neq 2$), la teoría elemental asegura que, por cada raíz en el cuerpo de descomposición, existe un automorfismo que envía el generador a dicha raíz. 
+    \end{itemize}
+    En particular, $\operatorname{Gal}(\mathbb{C}/\mathbb{R})$ tiene orden 2 y está formado exclusivamente por la aplicación identidad y la conjugación compleja.
+\end{ejemplo}
+
+\begin{ejemplo}{}%
+    Consideremos la extensión $\mathbb{Q}(\sqrt[3]{2})/\mathbb{Q}$. %
+    El polinomio mínimo del generador es $\operatorname{Min}_{\mathbb{Q}}(\sqrt[3]{2}) = X^3 - 2$. %
+    Sus raíces en $\mathbb{C}$ son $\alpha, \alpha\xi_3, \alpha\xi_3^2$ (donde $\alpha = \sqrt[3]{2}$ es real). %
+    
+    Sin embargo, en el cuerpo $L = \mathbb{Q}(\sqrt[3]{2})$ solamente está la raíz real $\alpha$. %
+    Las otras dos raíces son complejas y no pertenecen a $L$. %
+    Como el polinomio irreducible $\operatorname{Min}_{\mathbb{Q}}(\alpha)$ tiene una raíz en $L$ pero no factoriza completamente en $L$, la extensión no es normal. %
+\end{ejemplo} %
+
+\begin{corolario}{Corolario 2.12} %
+    Una extensión finitamente generada es normal si y solo si es el cuerpo de descomposición de un polinomio de $K[X]$. %
+\end{corolario} %
+
+\begin{proof}[Demostración del Corolario 2.12] %
+    $\impliedby$: Es la propia definición geométrica (por la equivalencia (1) del Teorema Anterior). %
+    
+    $\implies$: Supongamos que $L/K$ es una extensión normal y finitamente generada. %
+    Al ser finitamente generada, podemos escribir $L = K(\alpha_1, \dots, \alpha_n)$ con $\alpha_i \in L$ para todo $i = 1, \dots, n$. %
+    
+    Al ser $L/K$ normal, la caracterización (4) del Teorema Anterior nos garantiza que cada polinomio mínimo $p_i(X) = \operatorname{Min}_K(\alpha_i)$ factoriza completamente en $L$ (es decir, todas las raíces de cada $p_i(X)$ están dentro de $L$). %
+    
+    Definimos el polinomio producto $P(X) = \prod_{i=1}^n p_i(X)$. %
+    ¿Es $L$ el cuerpo de descomposición de este polinomio $P(X)$? %
+    Sea $E$ el cuerpo de descomposición de $P(X)$. Vamos a demostrar la doble inclusión para ver que $L = E$. %
+    
+    \begin{itemize}
+        \item $\subseteq$: Como $E$ es el cuerpo de descomposición, contiene a todas las raíces de $P(X)$. En particular, contiene a todos los generadores $\alpha_i \in E$. Además, $K \subseteq E$. Como $L = K(\alpha_1, \dots, \alpha_n)$ es el menor cuerpo que contiene a $K$ y a los $\alpha_i$, se deduce que $L \subseteq E$. %
+        \item $\supseteq$: Por otra parte, hemos visto que todas las raíces de $P(X)$ (que son la unión de las raíces de los $p_i$) viven en $L$. El cuerpo de descomposición $E$ está generado precisamente por esas raíces: $E = K(\text{raíces de } P)$. Como $K \subseteq L$ y las raíces están en $L$, el cuerpo generado $E$ está contenido en $L$, es decir $E \subseteq L$. %
+    \end{itemize}
+    
+    Por la doble inclusión, concluimos que $E = L$, como queríamos demostrar. %
+\end{proof}
+
+\begin{corolario}{Corolario 2.13} %
+    Si $L$ es una clausura algebraica de $K$, entonces la extensión $L/K$ es normal. %
+\end{corolario} %
+\textit{Demostración:} Trivial aplicando la equivalencia (3) del Teorema de normalidad y tomando $L=F$. %
+
+\begin{ejemplo}{Falta de transitividad de la normalidad} %
+    Consideremos $L = \mathbb{Q}(\sqrt[4]{2})$. %
+    El polinomio mínimo es $\operatorname{Min}_{\mathbb{Q}}(\sqrt[4]{2}) = X^4 - 2$, cuyas 4 raíces son $\pm\sqrt[4]{2}$ y $\pm i\sqrt[4]{2}$. %
+    Entonces $L$ solo contiene 2 de las 4 raíces (las reales). Por lo que $L/\mathbb{Q}$ \textbf{no} es normal. %
+    
+    Sin embargo, podemos construir la siguiente torre de cuerpos: %
+    $$\mathbb{Q} \subseteq \mathbb{Q}(\sqrt{2}) \subseteq \mathbb{Q}(\sqrt[4]{2})$$
+    Ambas subextensiones (la superior $\mathbb{Q}(\sqrt[4]{2})/\mathbb{Q}(\sqrt{2})$ y la inferior $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$) son extensiones de grado 2 y, por tanto, son normales. %
+    Esto demuestra de forma constructiva que \textbf{la clase de extensiones normales no es multiplicativa (no es transitiva)}. %
+\end{ejemplo}
+
+
+\begin{proposicion}{Propiedades de las extensiones normales (Prop. 2.15)} %
+    \begin{enumerate}
+        \item Sea $K \subseteq E \subseteq L$ una torre de cuerpos. Si $L/K$ es normal, entonces la subextensión superior $L/E$ es normal. %
+        \item Sea $\{E_i / K \}_{i \in I}$ una familia de extensiones admisibles. Si cada $E_i/K$ es normal, entonces la intersección $(\bigcap_{i \in I} E_i)/K$ y el compuesto $(\prod_{i \in I} E_i)/K$ son normales. %
+        \item \textbf{Levantamientos:} La clase de extensiones normales es cerrada para levantamientos. Es decir, si $E/K$ es normal y admisible con $F/K$, entonces el cuerpo compuesto $EF/F$ es normal. %
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof} %
+    \textbf{(1)} Obvio por definición, ya que si los polinomios factorizan completamente sobre $K$, también lo hacen sobre $E$. %
+    
+    \textbf{(2)} Para la intersección: Sea $p \in K[X]$ un polinomio irreducible con una raíz en $\bigcap E_i$. Entonces $p$ tiene una raíz en cada $E_i$. Como cada $E_i/K$ es normal (Teorema 2.11(5)), $p$ factoriza completamente en cada $E_i$. Al tener todas sus raíces en todos los $E_i$, tiene todas sus raíces en la intersección $\bigcap E_i$. Luego la intersección es normal. %
+    Para el producto: Si $E_i = K(S_i)$ es el C.D. de $\mathcal{P}_i$, entonces $\prod E_i = K(\bigcup S_i)$ es el C.D. de $\bigcup \mathcal{P}_i$, que la hace normal. %
+    
+    \textbf{(3)} Supongamos que $E/K$ es normal. Por la caracterización (1), $E$ es el cuerpo de descomposición de un cierto conjunto $\mathcal{P} \subseteq K[X] \setminus K$. Podemos escribir $E = K(S)$ donde $S$ es el conjunto de raíces de $\mathcal{P}$. %
+    Consideremos el cuerpo compuesto $EF$. Por propiedades del cuerpo generado: %
+    $$EF = F(E) = F(K(S)) = F(S)$$ %
+    Como $K \subseteq F$, la familia de polinomios cumple que $\mathcal{P} \subseteq F[X] \setminus F$. Entonces $EF = F(S)$ es exactamente el cuerpo de descomposición de la familia $\mathcal{P}$ sobre el cuerpo base $F$. %
+    Por la caracterización (1), la extensión $EF/F$ es normal. %
+\end{proof}
+
+\section{Clausura Normal} %
+
+\textit{Intuitivamente:} Tenemos una extensión $L/K$ que no es normal (le faltan raíces). Queremos encontrar el cuerpo "más ajustado posible" ($N$) que contenga a $L$ y que sí sea normal. A ese cuerpo lo llamamos clausura normal. %
+
+\begin{teorema}{Existencia de la Clausura Normal (Teorema 2.16)} %
+    Sea $L/K$ una extensión algebraica. Entonces: %
+    \begin{enumerate}
+        \item Existe una extensión $N/L$ que verifica: %
+        \begin{enumerate}
+            \item $N/K$ es normal. %
+            \item Si $E$ es una subextensión de $N/L$ y $E/K$ es normal, entonces $E = N$. %
+        \end{enumerate}
+        (Es decir, $N/K$ es la extensión normal más pequeña que extiende a $L$). En tal caso, se dice que $N/K$ es \textbf{una clausura normal} de $L/K$. %
+        \item Todas las clausuras normales de $L/K$ son $L$-isomorfas. %
+        \item Si la extensión inicial $L/K$ es finita, entonces su clausura normal $N/K$ también es finita. %
+    \end{enumerate}
+\end{teorema} %
+
+\begin{ejemplo}{Construcción intuitiva de la clausura normal} %
+    Veamos un ejemplo antes de demostrar el teorema general. %
+    Vimos anteriormente que la extensión $\mathbb{Q}(\sqrt[3]{2}) / \mathbb{Q}$ no era normal porque al polinomio mínimo $X^3 - 2$ le faltaban sus otras dos raíces complejas. %
+    
+    Para que sea normal, tenemos que "meterle lo que le falta". %
+    Las raíces que faltan son $\sqrt[3]{2}\xi_3$ y $\sqrt[3]{2}\xi_3^2$. %
+    Al adjuntar la raíz primitiva de la unidad, la clausura normal resultante será exactamente el cuerpo de descomposición: $\mathbb{Q}(\sqrt[3]{2}, \xi_3)$. %
+\end{ejemplo} %
+
+
+\begin{proof}[Demostración del Teorema 2.16] %
+    \textbf{Demostración de (1): Existencia y minimidad.} %
+    Sea $\overline{L}$ una clausura algebraica de $L$. %
+    Definimos el siguiente conjunto de subextensiones: %
+    $$\Omega = \{ E \mid L \subseteq E \subseteq \overline{L} \text{ tal que } E/K \text{ es una extensión normal} \}$$ %
+    
+    ¿Está este conjunto vacío? No. Como $\overline{L}$ es algebraicamente cerrado, por el Corolario 2.13 sabemos que la extensión $\overline{L}/K$ es normal. Por tanto, $\overline{L} \in \Omega$, lo que implica que $\Omega \neq \emptyset$. %
+    
+    Si tomamos la intersección de todos los cuerpos de esta familia: %
+    $$N := \bigcap_{E \in \Omega} E$$ %
+    se tiene trivialmente que $L \subseteq N \subseteq \overline{L}$. %
+    
+    Comprobemos las dos condiciones exigidas: %
+    \begin{enumerate}
+        \item Por la Proposición 2.15, la intersección arbitraria de extensiones normales vuelve a ser una extensión normal. Por tanto, $N/K$ es normal. %
+        \item Si $E$ es una subextensión de $N/L$ que es normal sobre $K$, entonces $E \in \Omega$. Por la propia definición de la intersección, $N$ está contenido en todos los elementos de $\Omega$, luego $N \subseteq E$. Como por hipótesis de subextensión $E \subseteq N$, forzosamente $N = E$. %
+    \end{enumerate}
+    Con esto queda demostrada la existencia. De esta demostración nos quedamos con la idea clave de que la clausura normal se obtiene \textit{intersecando} todas las subextensiones de la clausura algebraica que son normales sobre $K$. %
+
+    \vspace{0.5cm}
+
+    \textbf{Demostración de (2) y (3): Unicidad e finitud.} %
+    Supongamos que tenemos dos clausuras normales $N_1/K$ y $N_2/K$ de $L$. Queremos ver que son $L$-isomorfas. %
+    
+    Sea $B$ una base de $L$ visto como espacio vectorial sobre $K$. Para cada elemento básico $\alpha \in B$, construimos su polinomio mínimo $p_\alpha = \operatorname{Min}_K(\alpha)$. %
+    Definimos la familia de polinomios $\mathcal{P} = \{ p_\alpha \mid \alpha \in B \}$. %
+    
+    Llamemos $R_{1,\alpha}$ al conjunto de raíces de $p_\alpha$ que residen en $N_1$, y $R_{2,\alpha}$ a las que residen en $N_2$. %
+    Como $N_1/K$ y $N_2/K$ son extensiones normales por definición, cada polinomio $p_\alpha$ (al tener una raíz $\alpha \in L \subseteq N_i$) es completamente factorizable sobre $N_1$ y sobre $N_2$. %
+    
+    Además, la clausura normal $N_1$ ha de contener a $L$ (que contiene a la base $B$) y ser normal. Para ser normal, debe contener obligatoriamente \textit{todas} las raíces de los polinomios mínimos de sus elementos. Por minimalidad, no puede contener elementos "extra". %
+    Por tanto, $N_1$ y $N_2$ son exactamente los cuerpos de descomposición de la familia de polinomios $\mathcal{P}$ sobre $K$. %
+    
+    Formalmente, se tiene: %
+    $$N_1 = K\left( \bigcup_{\alpha \in B} R_{1,\alpha} \right) \quad \text{y} \quad N_2 = K\left( \bigcup_{\alpha \in B} R_{2,\alpha} \right)$$ %
+    Dado que $K \subseteq L$, podemos reescribir estos cuerpos añadiendo la base $L$: %
+    $$N_1 = L\left( \bigcup_{\alpha \in B} R_{1,\alpha} \right) \quad \text{y} \quad N_2 = L\left( \bigcup_{\alpha \in B} R_{2,\alpha} \right)$$ %
+    
+    Esto demuestra que $N_1$ y $N_2$ son cuerpos de descomposición de la \textbf{misma familia de polinomios} $\mathcal{P}$, pero vistos como extensiones sobre el cuerpo base $L$. %
+    Aplicando la Proposición 2.9 (Unicidad del cuerpo de descomposición), garantizamos la existencia de un $L$-isomorfismo entre ellos: %
+    $$\sigma: N_1 \longrightarrow N_2$$ %
+    Lo que prueba la parte (2). %
+    
+    Finalmente, para la parte (3): Si la extensión inicial $L/K$ es finita, entonces la base $B$ tiene un número finito de elementos. %
+    Esto implica que la familia de polinomios $\mathcal{P}$ es finita, y por ende, el conjunto total de raíces que debemos adjuntar es finito. %
+    Como acabamos de ver que $N_i$ es el cuerpo de descomposición de estos polinomios sobre $L$, la extensión $N_i/K$ está generada por un número finito de elementos algebraicos. %
+    Por el Corolario 1.15 (toda extensión finita generada por elementos algebraicos es finita), deducimos que $\frac{N_i}{K}$ es finita. %
+\end{proof} %

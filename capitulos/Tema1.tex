@@ -1,0 +1,623 @@
+\section{Extensiones de Cuerpos} %
+
+Recordemos de la teoría general de anillos que un cuerpo es un anillo conmutativo con la suma y el producto, donde todo elemento no nulo tiene inverso multiplicativo. %
+
+\begin{definicion}{Extensión de un cuerpo (Def. 1.1)} %
+    Sea $K$ un cuerpo. Una \textbf{extensión} de $K$ es un cuerpo $L$ que contiene a $K$ como subcuerpo. %
+    En tal caso, decimos que $L/K$ (o simplemente $K \subseteq L$) es una extensión de cuerpos. %
+\end{definicion}
+
+\begin{observacion}{Estructura de Espacio Vectorial y Grado de la Extensión} %
+    Toda extensión $L/K$ dota a $L$ de una estructura natural de \textbf{espacio vectorial sobre $K$}, que denotaremos como $L_K$. %
+    \begin{itemize}
+        \item La "suma de vectores" es simplemente la suma habitual de elementos en $L$. %
+        \item El "producto por escalar" es el producto de un elemento de $K$ por un elemento de $L$ dentro del cuerpo $L$. %
+    \end{itemize}
+    Como todo espacio vectorial, $L_K$ posee una base (llamada base de la extensión). %
+    A la dimensión de este espacio vectorial la llamaremos \textbf{grado de la extensión} y la denotaremos por $[L:K]$: %
+    $$[L:K] = \dim_K(L)$$ %
+    
+    Decimos que $L/K$ es una \textbf{extensión finita} si su grado es finito ($[L:K] < \infty$). %
+\end{observacion}
+
+\begin{observacion}{Consideraciones de Cardinalidad} %
+    Si $L/K$ es una extensión finita de grado $n$, entonces como espacios vectoriales se tiene el isomorfismo $L_K \simeq K^n$. %
+    Esto implica que la cardinalidad de los cuerpos cumple $|L| = |K|^n$. %
+    \begin{itemize}
+        \item Si $K$ es un cuerpo finito de orden $q$, entonces $L$ será un cuerpo finito de orden $q^n$. %
+        \item Si $K$ es un cuerpo infinito, entonces $L$ tendrá exactamente el mismo cardinal (infinito) que $K$. %
+    \end{itemize}
+\end{observacion}
+
+\subsection*{Ejemplos Fundamentales de Extensiones (Ej. 1.2)} %
+
+\begin{ejemplo}{Extensión Trivial} %
+    Si $L/K$ es una extensión de cuerpos, entonces $[L:K] = 1$ si y solo si $K = L$. %
+    
+    \textit{Justificación:} Si $[L:K] = 1$, esto significa que $\dim_K(L) = 1$. Cualquier elemento no nulo de $L$ forma una base. En particular, el elemento $1 \in K$ es una base válida. %
+    Por tanto, $L = \langle 1 \rangle_K = \{ k \cdot 1 \mid k \in K \} = K$. Y trivialmente, si $K=L$, la dimensión sobre sí mismo es 1. %
+\end{ejemplo} %
+
+\begin{ejemplo}{Los Complejos sobre los Reales} %
+    $\mathbb{C}/\mathbb{R}$ es una extensión finita de grado exactamente 2. %
+    
+    \textit{Justificación:} Todo número complejo $z \in \mathbb{C}$ se escribe de forma única como $z = a\cdot 1 + b\cdot i$, con $a,b \in \mathbb{R}$. %
+    El conjunto $\{1, i\}$ es un sistema generador y sus elementos son linealmente independientes sobre $\mathbb{R}$. Por tanto, es una base y $[\mathbb{C}:\mathbb{R}] = 2$. %
+\end{ejemplo} %
+
+\begin{ejemplo}{Extensiones de Grado Infinito} %
+    Las extensiones $\mathbb{R}/\mathbb{Q}$ y $\mathbb{C}/\mathbb{Q}$ son extensiones de grado infinito. %
+    
+    \textit{Justificación (por cardinalidad):} Sabemos que $\mathbb{Q}$ es un conjunto numerable. Si la extensión $\mathbb{R}/\mathbb{Q}$ fuera finita de grado $n$, entonces $\mathbb{R}$ sería isomorfo a $\mathbb{Q}^n$. %
+    El producto cartesiano finito de conjuntos numerables ($\mathbb{Q}^n$) sigue siendo numerable. Sin embargo, $\mathbb{R}$ es no numerable. %
+    Por reducción al absurdo, el grado no puede ser finito. %
+\end{ejemplo} %
+
+\begin{ejemplo}{Extensiones Cuadráticas Racionales} %
+    Para cualquier $n \in \mathbb{Q}$, consideramos la extensión $\mathbb{Q}(\sqrt{n}) / \mathbb{Q}$, donde $\mathbb{Q}(\sqrt{n}) = \{ a + b\sqrt{n} \mid a,b \in \mathbb{Q} \}$. %
+    
+    \begin{itemize}
+        \item \textbf{Caso 1:} Si $n$ es un cuadrado perfecto en $\mathbb{Q}$ (ej. $n=9$), entonces $\sqrt{n} \in \mathbb{Q}$. En este caso $\mathbb{Q}(\sqrt{n}) = \mathbb{Q}$ y el grado de la extensión es 1. %
+        \item \textbf{Caso 2:} Si $n$ no es un cuadrado perfecto, entonces $\{1, \sqrt{n}\}$ forma una base. %
+        ¿Por qué son linealmente independientes? Si existieran $a,b \in \mathbb{Q}$ tales que $a \cdot 1 + b \cdot \sqrt{n} = 0$, y supusiéramos que $b \neq 0$, tendríamos $\sqrt{n} = \frac{-a}{b}$. %
+        Pero $\frac{-a}{b} \in \mathbb{Q}$, lo cual es una contradicción porque habíamos supuesto que $\sqrt{n} \notin \mathbb{Q}$. Por tanto $b=0$, lo que fuerza a que $a=0$. %
+        Son independientes y el grado de la extensión es $[\mathbb{Q}(\sqrt{n}):\mathbb{Q}] = 2$. %
+    \end{itemize}
+\end{ejemplo} %
+
+\begin{ejemplo}{Cuerpos de Fracciones Polinómicas} %
+    El cuerpo de fracciones racionales $K(X)$ (formado por los cocientes $\frac{P(X)}{Q(X)}$) del anillo de polinomios $K[X]$ es una extensión de $K$ de grado infinito. %
+    (Basta observar que el conjunto infinito $\{1, X, X^2, X^3, \dots\}$ es linealmente independiente sobre $K$). %
+\end{ejemplo} %
+
+\subsection*{Morfismos, Torres y Grupos de Galois} %
+
+\begin{definicion}{Torres y Multiplicatividad} %
+    Una \textbf{torre de extensiones} es una cadena de subcuerpos: $K_1 \subseteq K_2 \subseteq \dots \subseteq K_n$. %
+    Cada paso $K_{i+1}/K_i$ se llama subextensión. %
+    
+    Una clase $\mathcal{C}$ de extensiones se dice \textbf{multiplicativa} (o transitiva) si para cada torre $K_1 \subseteq K_2 \subseteq K_3$, se cumple que: %
+    $$K_3/K_1 \in \mathcal{C} \iff K_2/K_1 \in \mathcal{C} \text{ y } K_3/K_2 \in \mathcal{C}$$ %
+\end{definicion} %
+
+\begin{definicion}{Homomorfismos de Extensiones} %
+    Si $L_1$ y $L_2$ son extensiones de $K$, un \textbf{homomorfismo de extensiones} (o $K$-homomorfismo) de $L_1/K$ en $L_2/K$ es un homomorfismo de cuerpos $f: L_1 \to L_2$ que deja fijos los elementos del cuerpo base, es decir, $f(a) = a$ para todo $a \in K$. %
+    Esto equivale a decir que $f$ es una aplicación lineal entre espacios vectoriales sobre $K$. %
+\end{definicion} %
+
+\begin{definicion}{Clasificación de Morfismos y Grupo de Galois} %
+    \begin{itemize}
+        \item \textbf{Endomorfismo:} Un $K$-homomorfismo de $L/K$ en sí misma ($L \to L$). %
+        \item \textbf{Isomorfismo ($K$-isomorfismo):} Un $K$-homomorfismo que además es biyectivo. %
+        \item \textbf{Automorfismo ($K$-automorfismo):} Un isomorfismo de una extensión $L/K$ en sí misma. %
+    \end{itemize}
+    El \textbf{Grupo de Galois} de una extensión $L/K$, denotado como $\operatorname{Gal}(L/K)$, es el conjunto de todos los $K$-automorfismos de $L$, dotado de la operación de composición de funciones. %
+\end{definicion} %
+
+\begin{definicion}{Subextensiones y Admisibilidad} %
+    \begin{itemize}
+        \item Una \textbf{subextensión} de $L/K$ es un cuerpo intermedio $M$ tal que $K \subseteq M \subseteq L$. %
+        \item Dos extensiones $L_1/K$ y $L_2/K$ se dicen \textbf{admisibles} si existe un cuerpo mayor $L$ que las contiene simultáneamente ($L_1 \subseteq L$ y $L_2 \subseteq L$). %
+    \end{itemize}
+\end{definicion} %
+
+\begin{observacion}{Inyectividad universal de los homomorfismos de cuerpos} %
+    \textbf{Todos los homomorfismos entre cuerpos son inyectivos.} %
+    \textit{Demostración:} El núcleo de un homomorfismo de anillos $f: K \to L$ es siempre un ideal de $K$. Pero los únicos ideales de un cuerpo son $\{0\}$ y el propio cuerpo. Como un homomorfismo de cuerpos por definición cumple $f(1) = 1 \neq 0$, el núcleo no puede ser todo $K$. Por exclusión, $\ker(f) = \{0\}$, lo que garantiza que la aplicación es estrictamente inyectiva. %
+    
+    Consecuencia fundamental: Si existe un homomorfismo $f: K \to L$, la imagen $f(K)$ es un subcuerpo de $L$ idéntico a $K$. %
+    A efectos prácticos, abusaremos de la notación e identificaremos $K$ con su imagen $f(K)$, considerando siempre que el cuerpo de partida es un subcuerpo del cuerpo de llegada ($K \subseteq L$). %
+\end{observacion} %
+
+
+\begin{proposicion}{Propiedades Estructurales Básicas (Prop. 1.3)} %
+    \begin{enumerate}
+        \item Sean $L_1$ y $L_2$ extensiones de $K$. Si existe un $K$-homomorfismo $f: L_1 \to L_2$, entonces sus grados cumplen: %
+        $$[L_1:K] \le [L_2:K]$$ %    
+        \item Todo endomorfismo de una extensión \textbf{finita} es automáticamente un automorfismo. %
+        \item \textbf{Propiedad Multiplicativa del Grado:} Sea $K \subseteq E \subseteq L$ una torre de cuerpos. Si la extensión base y la extensión superior son finitas, entonces la extensión total es finita y se cumple: %
+        $$[L:K] = [L:E] \cdot [E:K]$$ %
+        Además, si $B$ es una base de $E_K$ y $B'$ es una base de $L_E$, entonces el producto de bases: %
+        $$A = \{ b \cdot b' \mid b \in B, b' \in B' \}$$ %
+        es una base exacta de $L_K$. %
+    \end{enumerate}
+\end{proposicion} %
+\begin{proof}[Demostración de la Proposición 1.3] %
+    \textbf{1) Desigualdad de grados para homomorfismos:} %
+    Sea $f: L_1 \rightarrow L_2$ el $K$-homomorfismo en cuestión. %
+    Como $L_1$ y $L_2$ son cuerpos, sabemos que todo homomorfismo entre cuerpos es estrictamente inyectivo. %
+    Por tanto, $f$ establece un isomorfismo entre $L_1$ y su imagen, es decir, $L_1 \simeq f(L_1)$. %
+    
+    Viendo a $f(L_1)$ como un subespacio vectorial de $L_2$ sobre el cuerpo base $K$, la inyectividad garantiza que la dimensión se conserva: %
+    $$\dim_K(L_1) = \dim_K(f(L_1))$$ %
+    Como la dimensión de un subespacio nunca puede exceder la dimensión del espacio total ($f(L_1) \subseteq L_2$), se sigue que: %
+    $$\dim_K(f(L_1)) \le \dim_K(L_2) \implies [L_1 : K] \le [L_2 : K]$$ %
+
+    \textbf{2) Todo endomorfismo de una extensión finita es un automorfismo:} %
+    Sea $\sigma: L \rightarrow L$ un endomorfismo y sea $[L:K] = n < \infty$. %
+    De nuevo, por ser un homomorfismo de cuerpos, $\sigma$ es inyectivo. %
+    
+    Recordemos el \textbf{Teorema de las Dimensiones} (o Teorema del Rango-Nulidad) que vimos en Álgebra Lineal. Para cualquier aplicación lineal $T: V \rightarrow V$: %
+    $$\dim(\ker(T)) + \dim(\operatorname{Im}(T)) = \dim(V)$$ %
+    
+    Aplicando esto a nuestro $K$-endomorfismo $\sigma$ (que es una aplicación $K$-lineal del espacio $L_K$ en sí mismo): %
+    Como $\sigma$ es inyectivo, su núcleo es trivial, $\ker(\sigma) = \{0\}$, luego $\dim_K(\ker(\sigma)) = 0$. %
+    Sustituyendo en la fórmula: %
+    $$0 + \dim_K(\operatorname{Im}(\sigma)) = n \implies \dim_K(\operatorname{Im}(\sigma)) = n$$ %
+    
+    Dado que la imagen de $\sigma$ tiene la misma dimensión que el espacio total $L$ y está contenida en él ($\operatorname{Im}(\sigma) \subseteq L$), deducimos que $\operatorname{Im}(\sigma) = L$. %
+    Por tanto, $\sigma$ es suprayectiva. Al ser inyectiva y suprayectiva, es biyectiva, lo que la convierte por definición en un \textbf{automorfismo}. %
+
+    \textbf{3) Propiedad multiplicativa del grado:} %
+    Sea $K \subseteq E \subseteq L$. Supongamos que $B = \{u_1, \dots, u_m\}$ es una base de $E$ como $K$-espacio vectorial ($m = [E:K]$) y que $C = \{v_1, \dots, v_n\}$ es una base de $L$ como $E$-espacio vectorial ($n = [L:E]$). %
+    Queremos demostrar que el conjunto producto $A = \{u_i \cdot v_j \mid i=1\dots m, j=1\dots n\}$ es una base de $L_K$. %
+
+    \textit{Paso A: A es un Sistema Generador.} %
+    Sea $x \in L$ un elemento cualquiera. Como $C$ es base de $L$ sobre $E$, podemos escribir $x$ como combinación lineal con coeficientes en $E$: %
+    $$x = \sum_{j=1}^n \lambda_j \cdot v_j \quad \text{con } \lambda_j \in E$$ %
+    Ahora, como $B$ es base de $E$ sobre $K$, cada coeficiente $\lambda_j \in E$ se puede escribir a su vez como combinación lineal con coeficientes en $K$: %
+    $$\lambda_j = \sum_{i=1}^m a_{ij} \cdot u_i \quad \text{con } a_{ij} \in K$$ %
+    Sustituyendo $\lambda_j$ en la primera ecuación: %
+    $$x = \sum_{j=1}^n \left( \sum_{i=1}^m a_{ij} \cdot u_i \right) \cdot v_j = \sum_{j=1}^n \sum_{i=1}^m a_{ij} \cdot (u_i \cdot v_j)$$ %
+    Esto demuestra que cualquier $x \in L$ se puede expresar como combinación lineal de los elementos de $A$ con coeficientes en $K$. %
+
+    \textit{Paso B: A es Linealmente Independiente.} %
+    Supongamos que una combinación lineal de los elementos de $A$ se anula: %
+    $$\sum_{j=1}^n \sum_{i=1}^m k_{ij} \cdot (u_i \cdot v_j) = 0 \quad \text{con } k_{ij} \in K$$ %
+    Queremos ver que $k_{ij} = 0$ para todo $i,j$. %
+    "Deshacemos" la suma agrupando respecto a $v_j$: %
+    $$\sum_{j=1}^n \underbrace{\left( \sum_{i=1}^m k_{ij} \cdot u_i \right)}_{C_j} \cdot v_j = 0$$ %
+    Llamemos $C_j = \sum_{i=1}^m k_{ij} u_i$. Como $u_i \in E$ y $k_{ij} \in K$, está claro que $C_j \in E$. %
+    Nuestra ecuación se convierte en $\sum_{j=1}^n C_j \cdot v_j = 0$. %
+    Como los $v_j$ forman una base de $L$ sobre el cuerpo $E$, son linealmente independientes sobre $E$, lo que fuerza a que todos los coeficientes sean cero: $C_j = 0$ para todo $j$. %
+    Es decir: %
+    $$\sum_{i=1}^m k_{ij} \cdot u_i = 0 \quad \forall j$$ %
+    Pero los $u_i$ forman una base de $E$ sobre $K$, por lo que son linealmente independientes sobre $K$. Esto fuerza a que los coeficientes internos también sean cero: $k_{ij} = 0$ para todo $i$. %
+    Como $k_{ij} = 0$ para todo $i, j$, el conjunto $A$ es linealmente independiente. %
+
+    Al ser un sistema generador y linealmente independiente, $A$ es una base de $L_K$. %
+    Como el cardinal de $A$ es $m \cdot n$, concluimos que: %
+    $$[L:K] = [L:E] \cdot [E:K]$$ %
+\end{proof}
+
+% =========================================================================================
+
+\section{Operaciones con Extensiones: Compuesto y Adjunción} %
+
+\begin{definicion}{(4) El Cuerpo Compuesto $L_1 L_2$} %
+    Si $L_1$ y $L_2$ son dos subcuerpos admisibles (es decir, ambos contenidos dentro de un cuerpo mayor $L$), se define su \textbf{cuerpo compuesto} $L_1 L_2$ como el menor subcuerpo de $L$ que contiene tanto a $L_1$ como a $L_2$. %
+\end{definicion} %
+
+\begin{observacion}{Construcción rigurosa del cuerpo compuesto} %
+    \textbf{El problema lógico:} La simple unión conjuntista $L_1 \cup L_2$ casi nunca es un cuerpo. Si tomamos $a \in L_1$ y $b \in L_2$, para que sea un cuerpo debe contener su suma $a+b$ y su producto $a \cdot b$. Pero si $a \notin L_2$ y $b \notin L_1$, esos resultados caen fuera de la unión. %
+    
+    \textbf{La Construcción (Paso a Paso):} %
+    \begin{enumerate}
+        \item \textit{La estructura de Anillo (Numeradores):} Para capturar todos los productos y sumas posibles, consideramos el conjunto de todas las combinaciones lineales finitas de productos cruzados: %
+        $$R = \left\{ \sum_{k=1}^n a_k b_k \;\middle|\; a_k \in L_1, b_k \in L_2 \right\}$$ %
+        Este conjunto $R$ es un anillo. Es cerrado bajo suma y multiplicación, pero no necesariamente tiene inversos. %
+        
+        \item \textit{La estructura de Cuerpo (Divisiones):} El cuerpo compuesto $L_1 L_2$ debe contener los inversos de todos los elementos no nulos de ese anillo $R$. Por tanto, sus elementos tienen necesariamente la forma de fracciones: %
+        $$L_1 L_2 = \left\{ \frac{x}{y} \;\middle|\; x,y \in R, y \neq 0 \right\}$$ %
+        Sustituyendo la forma explícita de $x$ e $y$, llegamos a la expresión general: %
+        $$L_1 L_2 = \left\{ \frac{a_1 b_1 + \dots + a_n b_n}{a'_1 b'_1 + \dots + a'_m b'_m} \;\middle|\; a_i, a'_i \in L_1; \; b_i, b'_i \in L_2; \text{ den.} \neq 0 \right\}$$ %
+    \end{enumerate}
+    
+    \textit{Nota para la intuición:} Si la extensión es algebraica y finita (como suele ocurrir en Teoría de Galois), muchas veces el anillo $R$ ya es un cuerpo por sí mismo (gracias a las propiedades de los elementos algebraicos), y no hace falta efectuar la división. Sin embargo, la definición general con fracciones cubre rigurosamente todos los casos, incluyendo extensiones trascendentes. %
+\end{observacion}
+
+\vspace{0.5cm}
+
+\begin{definicion}{(5) Adjunción de un conjunto S a un cuerpo K} %
+    Sea $K$ un cuerpo base y $S \subset L$ un conjunto de elementos "extraños" en una extensión mayor. Queremos "pegarle" (adjuntar) esos elementos a $K$. %
+    Es fundamental distinguir entre el \textbf{Anillo generado} $K[S]$ y el \textbf{Cuerpo generado} $K(S)$. %
+\end{definicion} %
+
+\begin{observacion}{A. El Menor Subanillo $K[S]$} %
+    ¿Qué elementos debe tener obligatoriamente cualquier anillo que contenga a $K$ y a $S$? %
+    \begin{enumerate}
+        \item Debe tener productos de elementos de $S$ entre sí (potencias $s^2, s_1s_2$, etc.). %
+        \item Debe tener productos de escalares de $K$ por esos elementos. %
+        \item Debe tener sumas de todo lo anterior. %
+    \end{enumerate}
+    Esto describe exactamente la evaluación de un polinomio. Cualquier elemento de este anillo generado tiene la forma de un polinomio evaluado en los elementos de $S$: %
+    $$y = p(s_1, s_2, \dots, s_n) \quad \text{donde } p \in K[X_1, \dots, X_n] \text{ y } s_i \in S$$ %
+    
+    \textit{Detalle Lógico Importante:} Aunque el conjunto $S$ sea infinito, cualquier cálculo concreto (polinomio) solo puede usar una \textbf{cantidad finita} de elementos de $S$ a la vez. Por eso la definición indica "donde $n$ es un número natural arbitrario"; la estructura algebraica siempre opera de forma finitaria. %
+\end{observacion}
+
+\begin{observacion}{B. El Menor Subcuerpo $K(S)$} %
+    Un anillo de polinomios (como $K[S]$) no suele ser un cuerpo (por ejemplo, el propio anillo $K[X]$ carece de inversos multiplicativos para $X$). Para obtener el cuerpo generado, es imperativo añadir los inversos. %
+    
+    Por tanto, el cuerpo generado $K(S)$ se construye formalmente como el \textbf{cuerpo de fracciones del anillo $K[S]$}. %
+    Sus elementos son funciones racionales (cocientes de polinomios) evaluadas en combinaciones finitas de los elementos de $S$: %
+    $$z = \frac{p(s_1, \dots, s_n)}{q(s_1, \dots, s_n)} \quad \text{donde } p,q \in K[X_1, \dots, X_n], \; s_i \in S \text{ y } q(s_1, \dots, s_n) \neq 0$$ %
+\end{observacion}
+
+
+\begin{observacion}{Intersección de cuerpos} %
+    Recordemos que la intersección de cuerpos es siempre un cuerpo. Entonces, la intersección de cualquier familia de subcuerpos de $L$ es también un subcuerpo de $L$. %
+    
+    Dado un conjunto $S \subset L$, el cuerpo generado $K(S)$ se define como el menor subcuerpo de $L$ que contiene tanto a $K$ como a $S$. %
+    Así pues, podemos ver a $K(S)$ como la intersección de todos los subcuerpos de $L$ que contienen a $K \cup S$. %
+    
+    Además, si tenemos dos conjuntos $S_1, S_2 \subset L$, se cumple que al generar sucesivamente es lo mismo que generar con la unión: %
+    $$K(S_1)K(S_2) = K(S_1 \cup S_2)$$ %
+\end{observacion} %
+
+\begin{definicion}{Compuesto de una familia de subextensiones} %
+    Si $L_1/K$ y $L_2/K$ son dos subextensiones de $L$, entonces su cuerpo compuesto $L_1L_2$ es la intersección de todos los subcuerpos de $L$ que contienen a $L_1 \cup L_2$. %
+    
+    Este concepto se puede generalizar de forma natural a una familia arbitraria de subextensiones $\mathcal{C}$. El compuesto de $\mathcal{C}$ es el menor subcuerpo de $L$ que contiene a todos los elementos de $\mathcal{C}$, y coincide con $K(\bigcup_{E \in \mathcal{C}} E)$. %
+    
+    Si $\mathcal{C} = \{L_1/K, \dots, L_n/K\}$, el compuesto se denota $L_1 \dots L_n = K(L_1 \cup \dots \cup L_n)$ y está formado explícitamente por todos los elementos de la forma: %
+    $$\frac{\sum_{i=1}^m a_{1i} \cdots a_{ni}}{\sum_{i=1}^m b_{1i} \cdots b_{ni}}$$ %
+    con $m$ arbitrario, $a_{ji}, b_{ji} \in L_j$ y el denominador distinto de cero. %
+\end{definicion} %
+
+\begin{definicion}{Extensiones Simples y Finitamente Generadas} %
+    \begin{itemize} %
+        \item Diremos que $L/K$ es una \textbf{extensión finitamente generada} si existe un número finito de elementos $\alpha_1, \dots, \alpha_n \in L$ tales que $L = K(\alpha_1, \dots, \alpha_n)$. %
+        \item Diremos que $L/K$ es \textbf{simple} si $L = K(\alpha)$ para un único elemento $\alpha \in L$. En este caso, diremos que $\alpha$ es un \textbf{elemento primitivo} de la extensión. %
+    \end{itemize} %
+\end{definicion} %
+
+% =======================================================================
+\begin{observacion}
+    \textbf{$K[S]$: El Anillo generado (Corchetes = Polinomios)} %
+    Cuando usamos corchetes, estamos generando el menor \textbf{anillo} que contiene a $K$ y a $S$. %
+    Las operaciones permitidas son suma, resta y multiplicación. \textbf{NO división}. %
+    \begin{itemize} %
+        \item \textit{Forma:} Polinomios evaluados en los elementos de $S$. %
+        \item \textit{Ejemplo:} En $\mathbb{Z}[\sqrt{2}]$ podemos tener $1+\sqrt{2}$ o $(\sqrt{2})^2=2$, pero no podemos tener $1/\sqrt{2}$ porque en un anillo no se garantiza la existencia de inversos. %
+    \end{itemize} %
+
+    \textbf{$K(S)$: El Cuerpo generado (Paréntesis = Fracciones)} %
+    Cuando usamos paréntesis, estamos generando el menor \textbf{cuerpo} que contiene a $K$ y a $S$. %
+    Operaciones permitidas: Suma, resta, multiplicación y \textbf{división} (por no nulos). %
+    \begin{itemize} %
+        \item \textit{Forma:} Cocientes de polinomios (fracciones racionales) evaluados en $S$. Es el "Cuerpo de Fracciones" del anillo $K[S]$. %
+        \item Se tiene siempre la inclusión: $K[S] \subseteq K(S)$. %
+    \end{itemize} %
+
+    ¿Cuándo son iguales $K[S]$ y $K(S)$? %
+
+    Aquí está la clave para entender por qué en Teoría de Galois a menudo se operan como si fueran idénticos: %
+    \begin{itemize} %
+        \item \textbf{Si $S$ es trascendente} (como una variable $X$): $K[X] \neq K(X)$. %
+        El inverso de $X$ (que es $1/X$) vive en el cuerpo $K(X)$ pero no en el anillo $K[X]$. %
+        \item \textbf{Si $S$ es algebraico} (ej. $\alpha = \sqrt{2}$): ¡Sorpresa! $K[\alpha] = K(\alpha)$. %
+        Si un elemento satisface una ecuación polinómica, esto permite "racionalizar" cualquier fracción. Por ejemplo, en $\mathbb{Q}(\sqrt{2})$, el inverso $1/\sqrt{2}$ se puede reescribir como $\frac{\sqrt{2}}{2} = 0 + \frac{1}{2}\sqrt{2}$. Al poder escribir el inverso como una combinación lineal (un polinomio), el anillo absorbe al cuerpo. %
+    \end{itemize} %
+
+\end{observacion}
+
+\begin{center} %
+\renewcommand{\arraystretch}{1.5} %
+\begin{tabular}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|} %
+\hline %
+\textbf{Concepto} & \textbf{Definición Formal} & \textbf{Ejemplo Clave} \\ \hline %
+\textbf{Finitamente Generada} & Existe un conjunto finito $S=\{\alpha_1, \dots, \alpha_n\}$ tal que $L = K(\alpha_1, \dots, \alpha_n)$. & $K(X)$ (generada solo por el elemento $X$). \\ \hline %
+\textbf{Extensión Finita} & El grado $[L:K]$ es un número finito $n$ (dimensión vectorial finita). & $\mathbb{Q}(\sqrt{2})$ (grado 2). \\ \hline %
+\end{tabular} %
+\end{center} %
+
+\textbf{La trampa:} $K(X)$ está generada por 1 solo elemento ($X$), así que es finitamente generada. PERO, su base como espacio vectorial es $\{1, X, X^2, \dots\}$, por lo que su grado es infinito. %
+
+\textit{Conclusión:} Toda extensión finita es finitamente generada, pero \textbf{NO toda extensión finitamente generada es finita}. (Solo lo son si sus generadores son algebraicos). %
+
+% =======================================================================
+
+\begin{lema}{Lema 1.4} %
+    Sea $L/K$ una extensión. Si $\alpha \in L$ es una raíz de un polinomio irreducible $p \in K[X]$ de grado $n$, entonces: %
+    \begin{enumerate}
+        \item $K[\alpha] = K(\alpha)$. %
+        \item Para cualquier $q \in K[X]$, se tiene $q(\alpha) = 0 \iff p \mid q$ en $K[X]$. %
+        \item El conjunto $\{1, \alpha, \alpha^2, \dots, \alpha^{n-1}\}$ es una base de $K(\alpha)$ como espacio vectorial sobre $K$. En particular, $[K(\alpha) : K] = n$. %
+    \end{enumerate}
+\end{lema} %
+
+\begin{proof} %
+    \textbf{Demostración de (1) y (2):} %
+    Consideramos la aplicación de evaluación $\delta_\alpha : K[X] \rightarrow L$ definida por $q(X) \mapsto q(\alpha)$. Es un homomorfismo de anillos. %
+    
+    El núcleo de este homomorfismo es: %
+    $$\ker(\delta_\alpha) = \{g(X) \in K[X] \mid g(\alpha) = 0\}$$ %
+    Como $K$ es un cuerpo, $K[X]$ es un Dominio de Ideales Principales (DIP), por lo que todo ideal está generado por un único polinomio. Luego $\ker(\delta_\alpha) = (I)$ para algún polinomio $I$. %
+    
+    Como $\delta_\alpha(1) = 1 \neq 0$, el núcleo no es todo el anillo, por lo que $(I)$ es un ideal propio ($\subsetneq K[X]$). %
+    Por hipótesis, $\alpha$ es raíz de $p$, luego $p(\alpha) = 0$. Esto implica que $p \in \ker(\delta_\alpha)$, es decir, el ideal generado por $p$ está contenido en el núcleo: $(p) \subseteq \ker(\delta_\alpha)$. %
+    
+    Ahora bien, $p$ es un polinomio irreducible. En un DIP, las nociones de elemento irreducible y primo coinciden, y todo ideal primo no nulo es maximal. Por tanto, $(p)$ es un ideal \textbf{maximal}. %
+    Como tenemos la cadena de ideales $(p) \subseteq \ker(\delta_\alpha) \subsetneq K[X]$ y $(p)$ no puede estar contenido estrictamente en otro ideal propio, forzosamente: %
+    $$\ker(\delta_\alpha) = (p)$$ %
+    
+    Esto demuestra el \textbf{apartado (2)} directamente: $q(\alpha) = 0 \iff q \in \ker(\delta_\alpha) \iff q \in (p) \iff p \mid q$. %
+    
+    Aplicando el Primer Teorema de Isomorfía de anillos: %
+    $$\frac{K[X]}{\ker(\delta_\alpha)} \simeq \operatorname{Im}(\delta_\alpha)$$ %
+    Sustituyendo el núcleo y la imagen (que es precisamente el anillo generado $K[\alpha]$): %
+    $$\frac{K[X]}{(p)} \simeq K[\alpha]$$ %
+    Dado que $(p)$ es maximal, el cociente $K[X]/(p)$ es un cuerpo. Por isomorfismo, $K[\alpha]$ también es un \textbf{cuerpo}. %
+    
+    Por definición, $K(\alpha)$ es el \textit{menor} cuerpo que contiene a $K$ y a $\alpha$. Como $K[\alpha]$ ya es un cuerpo que contiene a ambos, se debe cumplir $K(\alpha) \subseteq K[\alpha]$. %
+    Como la inclusión contraria $K[\alpha] \subseteq K(\alpha)$ es trivial, concluimos que $K[\alpha] = K(\alpha)$. Esto demuestra el \textbf{apartado (1)}. %
+    
+    \vspace{0.3cm}
+    
+    \textbf{Demostración de (3):} %
+    Sea $\beta \in K(\alpha)$. Por el apartado anterior, sabemos que $K(\alpha) = K[\alpha]$, por lo que $\beta$ puede expresarse como $\beta = f(\alpha)$ para algún polinomio $f \in K[X]$. %
+    
+    Dado que $K[X]$ es un dominio euclídeo, realizamos la división euclídea de $f$ entre $p$: %
+    $$f(X) = p(X)q(X) + r(X) \quad \text{con } \operatorname{gr}(r) < \operatorname{gr}(p) = n$$ %
+    Evaluamos esta expresión en $\alpha$: %
+    $$\beta = f(\alpha) = p(\alpha)q(\alpha) + r(\alpha)$$ %
+    Como $p(\alpha) = 0$, nos queda simplemente $\beta = r(\alpha)$. %
+    Como el grado de $r$ es estrictamente menor que $n$, podemos escribir $r(X) = r_0 + r_1X + \dots + r_{n-1}X^{n-1}$. %
+    Al sustituir obtenemos $\beta = r_0 + r_1\alpha + \dots + r_{n-1}\alpha^{n-1}$, lo que prueba que $\{1, \alpha, \dots, \alpha^{n-1}\}$ es un \textbf{sistema generador} de $K(\alpha)$ sobre $K$. %
+    
+    Veamos ahora que son \textbf{linealmente independientes}. %
+    Supongamos una combinación lineal nula: $\sum_{i=0}^{n-1} a_i \alpha^i = 0$ con $a_i \in K$. %
+    Definimos el polinomio $a(X) = \sum_{i=0}^{n-1} a_i X^i$. %
+    Claramente, $a(\alpha) = 0$. Por el apartado (2), esto implica que el polinomio $a(X)$ es múltiplo de $p(X)$. %
+    Sin embargo, por construcción, $\operatorname{gr}(a) \le n-1 < n = \operatorname{gr}(p)$. %
+    El único polinomio múltiplo de $p(X)$ cuyo grado es estrictamente menor que el del propio $p(X)$ es el \textbf{polinomio cero}. %
+    Por tanto, $a(X) = 0$, lo que fuerza a que $a_i = 0$ para todo $i$. %
+    
+    Al ser un sistema generador y linealmente independiente, conforman una base, por lo que $\dim_K(K(\alpha)) = n$. %
+\end{proof} %
+
+
+\section{Adjunción de Raíces y Teorema de Kronecker} %
+
+\begin{teorema}{Teorema de Kronecker} %
+    Si $K$ es un cuerpo y $p \in K[X] \setminus K$ es un polinomio no constante, entonces existe una extensión $L$ de $K$ que contiene al menos una raíz de $p$. %
+\end{teorema} %
+
+\begin{proof} %
+    Como $p \notin K$, sabemos que $p \neq 0$ y $p$ no es invertible. %
+    Dado que $K[X]$ es un Dominio de Factorización Única (DFU), $p$ es divisible por algún factor irreducible $q \in K[X]$. %
+    Es evidente que cualquier raíz de $q$ será automáticamente una raíz de $p$ (pues $p = q \cdot c$). Por tanto, sin pérdida de generalidad, podemos suponer desde el principio que $p$ es \textbf{irreducible}. %
+    
+    Al ser $p$ irreducible en el DFU $K[X]$, el ideal generado por él, $(p)$, es un ideal maximal. %
+    Definimos el anillo cociente: %
+    $$L := \frac{K[X]}{(p)}$$ %
+    Como $(p)$ es maximal, $L$ es un \textbf{cuerpo}. %
+    
+    ¿Es $L$ una extensión de $K$? Sí, porque la aplicación natural $K \to K[X]/(p)$ dada por $k \mapsto k + (p)$ es un homomorfismo de cuerpos, y por tanto, inyectivo. Esto nos permite identificar a $K$ con un subcuerpo de $L$. %
+    
+    Solo falta ver que $L$ contiene una raíz de $p$. Definimos el elemento $\alpha \in L$ como la clase de equivalencia de la indeterminada $X$: %
+    $$\alpha = X + (p)$$ %
+    Evaluamos el polinomio $p$ (cuyos coeficientes están en $K$) en este elemento $\alpha$: %
+    $$p(\alpha) = p(X + (p)) = p(X) + (p)$$ %
+    Pero $p(X) \in (p)$, por lo que la clase $p(X) + (p)$ es exactamente la clase del cero en el cociente. %
+    $$p(\alpha) = (p) \equiv 0_L \quad \text{(la clase nula)}$$ %
+    Hemos construido un cuerpo $L$ donde $\alpha$ es raíz de $p$. %
+\end{proof} %
+
+\begin{definicion}{Polinomio completamente factorizable} %
+    Sea $p \in K[X] \setminus K$. Diremos que $p$ es \textbf{completamente factorizable} en $K$ si se puede expresar como un producto de polinomios de grado 1 en $K[X]$, es decir: %
+    $$p(X) = a(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n) \quad \text{con } a, \alpha_i \in K$$ %
+    En tal caso, las raíces de $p$ son exactamente $\alpha_1, \dots, \alpha_n$. %
+\end{definicion} %
+
+\begin{ejemplo} %
+    El polinomio $X^3 - 1$ factoriza como $(X-1)(X^2+X+1)$. %
+    Esta expresión no es completamente factorizable ni en $\mathbb{Q}$ ni en $\mathbb{R}$. Sin embargo, sobre $\mathbb{C}$, es completamente factorizable: %
+    $$X^3 - 1 = (X-1)\left(X - \frac{-1+\sqrt{-3}}{2}\right)\left(X - \frac{-1-\sqrt{-3}}{2}\right)$$ %
+\end{ejemplo} %
+
+\begin{corolario}{Factorización total} %
+    Si $K$ es un cuerpo y $p \in K[X] \setminus K$, entonces $p$ es completamente factorizable en alguna extensión de $K$. %
+\end{corolario} %
+
+\begin{proof} %
+    Procedemos por inducción sobre el grado de $p$. Si $\operatorname{gr}(p) = 1$, el polinomio ya está factorizado en el propio $K$ y no hay nada que demostrar. %
+    
+    Por el Teorema de Kronecker, existe una extensión $E/K$ que contiene al menos una raíz de $p$, digamos $\alpha$. %
+    Por el Teorema del Resto, en el anillo $E[X]$, podemos factorizar $p$ como: %
+    $$p(X) = (X-\alpha)q(X) \quad \text{con } q \in E[X]$$ %
+    Como $\operatorname{gr}(q) = \operatorname{gr}(p) - 1$, podemos aplicar la hipótesis de inducción a $q$: existe una extensión $L/E$ donde $q$ es completamente factorizable. %
+    Al ser $p = (X-\alpha)q$ y $q$ descomponer totalmente en $L$, $p$ también descompone totalmente en $L$. Dado que $L$ es extensión de $E$ y $E$ es extensión de $K$, $L$ es una extensión de $K$. %
+\end{proof}
+
+% =========================================================================
+
+\section{Torres Radicales y Resolubilidad} %
+
+\begin{definicion}{Torre Radical y Extensión Radical (Def. 1.7)} %
+    Una \textbf{torre radical} es una torre de cuerpos $E_0 \subseteq E_1 \subseteq \dots \subseteq E_n$ tal que, para cada $i \ge 1$, existen un entero $n_i \ge 1$ y un elemento $\alpha_i \in E_i$ que cumplen: %
+    $$E_i = E_{i-1}(\alpha_i) \quad \text{y} \quad \alpha_i^{n_i} \in E_{i-1}$$ %
+    
+    Diremos que una extensión $L/K$ es \textbf{radical} si existe una torre radical $K = E_0 \subseteq E_1 \subseteq \dots \subseteq E_n = L$. %
+    
+    Una ecuación polinómica $P(X) = 0$ se dice que es \textbf{resoluble por radicales} en $K$ si existe una extensión radical $L/K$ tal que $P$ es completamente factorizable en $L$. %
+\end{definicion} %
+
+\begin{observacion}{La analogía de la Torre Radical ("El Edificio")} %
+    La definición nos dice que un cuerpo se construye añadiendo raíces de elementos que ya teníamos, paso a paso. Es como un edificio en construcción: %
+    \begin{itemize} %
+        \item \textbf{Piso 0 ($E_0$):} Los cimientos. Es nuestro cuerpo base (por ejemplo, $\mathbb{Q}$). %
+        \item \textbf{El paso radical ($E_i = E_{i-1}(\alpha_i)$):} El piso actual se construye tomando un número $\beta \in E_{i-1}$ que ya existía en el piso de abajo, y añadiendo formalmente su raíz $n$-ésima $\alpha_i = \sqrt[n_i]{\beta}$. %
+    \end{itemize}
+    
+    \textbf{Ejemplo de Raíces Anidadas:} %
+    Queremos un cuerpo que contenga a $\sqrt{3+\sqrt{2}}$. No podemos añadirlo de golpe partiendo de $\mathbb{Q}$. %
+    \begin{enumerate} %
+        \item Piso 0: $E_0 = \mathbb{Q}$. %
+        \item Piso 1: Añadimos $\alpha_1 = \sqrt{2}$. Como $\alpha_1^2 = 2 \in E_0$, definimos $E_1 = \mathbb{Q}(\sqrt{2})$. %
+        \item Piso 2: Ahora que tenemos $\sqrt{2}$, consideramos $\beta = 3+\sqrt{2} \in E_1$. Tomamos $\alpha_2 = \sqrt{\beta}$. Como $\alpha_2^2 \in E_1$, definimos $E_2 = E_1(\alpha_2) = \mathbb{Q}(\sqrt{3+\sqrt{2}})$. %
+    \end{enumerate} %
+    Esta es la conexión profunda con la Teoría de Galois: la fórmula cuadrática es una torre de altura 1. Las fórmulas de Cardano para el grado 3 requieren torres más altas. Si las soluciones de una ecuación no caben en \textit{ninguna} torre de este tipo (Abel-Ruffini para grado $\ge 5$), la ecuación no tiene fórmula resolutiva. %
+\end{observacion}
+
+% =========================================================================
+
+\begin{observacion}{Notación de homomorfismos de cuerpos y su acción sobre polinomios} %
+     Si $\sigma: K \to E$ es un homomorfismo de cuerpos, este induce de forma natural un homomorfismo entre anillos de polinomios $\sigma: K[X] \to E[X]$ simplemente aplicando $\sigma$ a los coeficientes: $\sigma(a_n X^n + \dots + a_0) = \sigma(a_n)X^n + \dots + \sigma(a_0)$. %
+\end{observacion}
+
+\begin{lema}{Invarianza y Permutación de Raíces (Lema 1.8)} %
+    Sean $\sigma: E \to L$ un homomorfismo de cuerpos y $p \in E[X]$. %
+    \begin{enumerate}
+        \item Si $\alpha$ es una raíz de $p$ en $E$, entonces $\sigma(\alpha)$ es una raíz del polinomio imagen $\sigma(p)$ en $L$. %
+        \item Si $E/K$ y $L/K$ son extensiones de un cuerpo base $K$, $p \in K[X]$, y $\sigma$ es un \textbf{$K$-homomorfismo}, entonces $\sigma$ se restringe a una aplicación \textbf{inyectiva} del conjunto de las raíces de $p$ en $E$ al conjunto de las raíces de $p$ en $L$. %
+        \item En particular, si $E = L$ (es decir, $\sigma \in \operatorname{Gal}(L/K)$ es un $K$-automorfismo), entonces esta restricción es una \textbf{permutación} (aplicación biyectiva) del conjunto de las raíces de $p$ en $L$. %
+    \end{enumerate}
+\end{lema} %
+
+\begin{proof} %
+    \textbf{Demostración de (a):} %
+    Sea $p(X) = p_0 + p_1 X + \dots + p_n X^n$ con $p_i \in E$. Evaluamos el polinomio transformado $\sigma(p)$ en el elemento transformado $\sigma(\alpha)$: %
+    \begin{align*}
+        (\sigma(p))(\sigma(\alpha)) &= \sigma(p_0) + \sigma(p_1)\sigma(\alpha) + \dots + \sigma(p_n)\sigma(\alpha)^n \\
+        &= \sigma(p_0 + p_1\alpha + \dots + p_n\alpha^n) \quad \text{(por ser $\sigma$ homomorfismo)} \\
+        &= \sigma(p(\alpha))
+    \end{align*} %
+    Como por hipótesis $\alpha$ es raíz, $p(\alpha) = 0$. Y como todo homomorfismo lleva el cero al cero, $\sigma(0) = 0$. Por tanto, $\sigma(\alpha)$ es raíz de $\sigma(p)$. %
+
+    \vspace{0.1cm}
+
+    \textbf{Demostración de (b) [La Restricción a las Raíces]:} %
+    El escenario es fundamental: $p \in K[X]$ (los coeficientes están en $K$) y $\sigma$ es un $K$-homomorfismo. %
+    ¿Qué significa ser $K$-homomorfismo? Que fija los elementos de $K$, es decir, $\sigma(k) = k$ para todo $k \in K$. %
+    
+    Al aplicar $\sigma$ al polinomio $p$, como sus coeficientes están en $K$, estos no cambian: %
+    $$\sigma(p) = \sigma(a_n)X^n + \dots + \sigma(a_0) = a_n X^n + \dots + a_0 = p$$ %
+    El polinomio es invariante ($\sigma(p) = p$). %
+    
+    Sean $R_E$ y $R_L$ los conjuntos de raíces de $p$ en $E$ y $L$, respectivamente. Si $\alpha \in R_E$, por el apartado (a), $\sigma(\alpha)$ es raíz de $\sigma(p)$. Pero como $\sigma(p) = p$, resulta que $\sigma(\alpha)$ es raíz de $p$ en $L$. Es decir, $\sigma(\alpha) \in R_L$. %
+    
+    Así, $\sigma$ mapea $R_E \to R_L$. ¿Es inyectiva? Sí, es "gratis". Todo homomorfismo de cuerpos es inyectivo en todo su dominio $E$. Si es inyectivo en un conjunto grande, su restricción a un subconjunto ($R_E$) también lo es trivialmente. %
+
+    \vspace{0.1cm}
+
+    \textbf{Demostración de (c) [La Permutación]:} %
+    Ahora $E=L$, luego $\sigma$ es un automorfismo de $L$ que fija $K$. %
+    Sea $S$ el conjunto de las raíces de $p$ en $L$. Por el apartado (b), la restricción de $\sigma$ nos da una función inyectiva $f: S \to S$. %
+    
+    \textit{El argumento de finitud:} Un polinomio no nulo de grado $n$ tiene a lo sumo $n$ raíces. Por tanto, el conjunto $S$ es \textbf{finito}. %
+    
+    Por teoría básica de conjuntos, toda aplicación inyectiva de un conjunto finito en sí mismo es forzosamente sobreyectiva (y por tanto, biyectiva). %
+    *(Intuición: Si tienes 3 sillas y 3 personas que cambian de asiento, y cada persona se sienta en una silla distinta —inyectividad—, es imposible que quede alguna silla vacía —sobreyectividad—).* %
+    
+    Como la aplicación es una biyección del conjunto finito de raíces $S$ en sí mismo, constituye por definición una \textbf{permutación} de las raíces de $p$. %
+\end{proof} %
+
+\begin{lema}{Lema de Extensión (Lema 1.9)} %
+    Sea $\sigma: K_1 \rightarrow K_2$ un homomorfismo de cuerpos y sea $p \in K_1[X]$ un polinomio irreducible. %
+    Sean $L_1/K_1$ y $L_2/K_2$ dos extensiones de cuerpos y sean $\alpha_1 \in L_1$ y $\alpha_2 \in L_2$ con $\alpha_1$ una raíz de $p$. %
+    
+    Entonces, existe un homomorfismo $\hat{\sigma}: K_1(\alpha_1) \rightarrow K_2(\alpha_2)$ tal que $\hat{\sigma}|_{K_1} = \sigma$ y $\hat{\sigma}(\alpha_1) = \alpha_2$ \textbf{si y solo si} $\alpha_2$ es una raíz del polinomio imagen $\sigma(p)$. %
+    
+    En tal caso, sólo hay un homomorfismo $\hat{\sigma}$ que satisfaga la condición indicada y, si además $\sigma$ es un isomorfismo, entonces también $\hat{\sigma}$ es un isomorfismo. %
+\end{lema} %
+
+\begin{proof} %
+    \textbf{($\implies$)} Supongamos que existe $\hat{\sigma}$ en las condiciones dadas. Queremos ver que $\alpha_2$ es raíz de $\sigma(p)$. %
+    Como por hipótesis $\alpha_1$ es raíz de $p \in K_1[X]$, se tiene $p(\alpha_1) = 0$. %
+    Aplicando el homomorfismo $\hat{\sigma}$, obtenemos $\hat{\sigma}(p(\alpha_1)) = \hat{\sigma}(0) = 0$. %
+    Por el Lema de invarianza de raíces (Lema 1.8), sabemos que aplicar $\hat{\sigma}$ a la evaluación de un polinomio es equivalente a evaluar el polinomio transformado en la raíz transformada: %
+    $$0 = \hat{\sigma}(p(\alpha_1)) = \hat{\sigma}(p)(\hat{\sigma}(\alpha_1))$$ %
+    Como $\hat{\sigma}$ extiende a $\sigma$ sobre $K_1$, se tiene $\hat{\sigma}(p) = \sigma(p)$. Además, $\hat{\sigma}(\alpha_1) = \alpha_2$. %
+    Sustituyendo, obtenemos $0 = \sigma(p)(\alpha_2)$, lo que prueba que $\alpha_2$ es raíz de $\sigma(p)$. %
+
+    \vspace{0.2cm}
+    
+    \textbf{($\impliedby$)} Supongamos que $\alpha_2$ es raíz de $\sigma(p)$. Vamos a construir $\hat{\sigma}$. %
+    Consideramos los homomorfismos de evaluación: %
+    \begin{align*}
+        \delta_{\alpha_1} &: K_1[X] \longrightarrow K_1(\alpha_1), \quad f(X) \mapsto f(\alpha_1) \\
+        \delta_{\alpha_2} &: K_2[X] \longrightarrow K_2(\alpha_2), \quad g(X) \mapsto g(\alpha_2)
+    \end{align*} %
+    Sabemos (por el Lema 1.4) que, como $p$ es irreducible y $\alpha_1$ es raíz, el núcleo es $\ker(\delta_{\alpha_1}) = (p)$ y la imagen es $K_1[\alpha_1] = K_1(\alpha_1)$. %
+    Esto nos permite definir la aplicación natural: %
+    $$\hat{\sigma}: K_1(\alpha_1) \longrightarrow K_2(\alpha_2)$$ %
+    $$\hat{\sigma}(f(\alpha_1)) := \sigma(f)(\alpha_2) \quad \text{para cualquier } f \in K_1[X]$$ %
+    
+    \textit{1. ¿Está bien definida? (¿Imágenes iguales?)} %
+    Supongamos que $f(\alpha_1) = g(\alpha_1)$. Entonces $(f-g)(\alpha_1) = 0$, lo que implica que $f-g \in \ker(\delta_{\alpha_1}) = (p)$. %
+    Es decir, $f-g = p \cdot h$ para algún $h \in K_1[X]$. %
+    Aplicando el homomorfismo inducido por $\sigma$: %
+    $$\sigma(f-g) = \sigma(p \cdot h) = \sigma(p)\sigma(h)$$ %
+    Evaluamos en $\alpha_2$: %
+    $$\sigma(f-g)(\alpha_2) = \sigma(p)(\alpha_2) \cdot \sigma(h)(\alpha_2)$$ %
+    Como $\alpha_2$ es raíz de $\sigma(p)$ por hipótesis, el término de la derecha es 0. %
+    Luego $\sigma(f-g)(\alpha_2) = 0 \implies \sigma(f)(\alpha_2) - \sigma(g)(\alpha_2) = 0 \implies \sigma(f)(\alpha_2) = \sigma(g)(\alpha_2)$. %
+    La aplicación está perfectamente definida, independientemente del representante elegido. %
+
+    \textit{2. ¿Es homomorfismo de cuerpos?} %
+    Sí, hereda trivialmente las propiedades de los polinomios. Para la suma: %
+    \begin{align*}
+        \hat{\sigma}(f(\alpha_1) + g(\alpha_1)) &= \hat{\sigma}((f+g)(\alpha_1)) = \sigma(f+g)(\alpha_2) \\
+        &= (\sigma(f) + \sigma(g))(\alpha_2) = \sigma(f)(\alpha_2) + \sigma(g)(\alpha_2) \\
+        &= \hat{\sigma}(f(\alpha_1)) + \hat{\sigma}(g(\alpha_1))
+    \end{align*} %
+    El producto es análogo. Además, verifica las condiciones exigidas: $\hat{\sigma}|_{K_1} = \sigma$ (aplicado a polinomios constantes) y $\hat{\sigma}(\alpha_1) = \hat{\sigma}(X(\alpha_1)) = \sigma(X)(\alpha_2) = \alpha_2$. %
+
+    \textit{3. Unicidad:} %
+    Supongamos que $\tau: K_1(\alpha_1) \to K_2(\alpha_2)$ es otro homomorfismo con $\tau|_{K_1} = \sigma$ y $\tau(\alpha_1) = \alpha_2$. %
+    Cualquier elemento $\beta \in K_1(\alpha_1)$ se escribe como $f(\alpha_1) = f_0 + f_1\alpha_1 + \dots + f_n\alpha_1^n$ con $f_i \in K_1$. %
+    \begin{align*}
+        \tau(\beta) &= \tau(f(\alpha_1)) = \tau(f_0) + \tau(f_1)\tau(\alpha_1) + \dots + \tau(f_n)\tau(\alpha_1)^n \\
+        &= \sigma(f_0) + \sigma(f_1)\alpha_2 + \dots + \sigma(f_n)\alpha_2^n \\
+        &= \sigma(f)(\alpha_2) = \hat{\sigma}(f(\alpha_1)) = \hat{\sigma}(\beta)
+    \end{align*} %
+    Luego $\tau = \hat{\sigma}$. %
+
+    \textit{4. Es Isomorfismo:} %
+    Por último, si $\sigma$ es un isomorfismo, sabemos que $\hat{\sigma}$ es inyectivo (todo homomorfismo de cuerpos lo es). %
+    Para la suprayectividad, notemos que $\operatorname{Im}(\hat{\sigma})$ es un subcuerpo de $K_2(\alpha_2)$ que contiene a $\sigma(K_1) = K_2$ y contiene a $\hat{\sigma}(\alpha_1) = \alpha_2$. %
+    Como $K_2(\alpha_2)$ es el menor cuerpo que contiene a $K_2$ y $\alpha_2$, forzosamente $\operatorname{Im}(\hat{\sigma}) = K_2(\alpha_2)$. Por tanto, $\hat{\sigma}$ es suprayectivo y constituye un isomorfismo. %
+\end{proof} %
+
+\begin{proposicion}{Isomorfismo de raíces conjugadas} %
+    Sea $p \in K[X]$ un polinomio irreducible y sean $\alpha, \beta$ raíces de $p$ en dos extensiones de $K$. %
+    Entonces, existe un único $K$-isomorfismo $f: K(\alpha) \xrightarrow{\simeq} K(\beta)$ tal que $f(\alpha) = \beta$. %
+\end{proposicion} %
+
+\begin{proof} %
+    Basta tomar la identidad $\sigma = \operatorname{id}_K$ en el Lema anterior, definiendo $K_1 = K_2 = K$. %
+    Como $\sigma(p) = p$, la condición de que $\beta$ sea raíz de $\sigma(p)$ se cumple trivialmente. %
+    El Lema nos garantiza entonces el isomorfismo deseado. %
+\end{proof} %
+
+\begin{observacion}{Nota: No es superfluo que sea irreducible} %
+    La hipótesis de irreducibilidad de $p$ es vital. %
+    Si tomamos $p(X) = X(X^2 + 1) \in \mathbb{Q}[X]$ (que es reducible), tiene como raíces $\alpha = 0$ y $\beta = i$. %
+    Los cuerpos generados son $\mathbb{Q}(0) = \mathbb{Q}$ y $\mathbb{Q}(i)$. %
+    Evidentemente $\mathbb{Q} \not\simeq \mathbb{Q}(i)$ ya que tienen distinto grado sobre $\mathbb{Q}$ (1 y 2, respectivamente). %
+    
+    \textit{Conclusión general:} Dado $p \in K[X]$ irreducible, la extensión de $K$ obtenida al adjuntar \textit{cualquier} raíz $\alpha$ de $p$ es esencialmente idéntica al cuerpo cociente genérico $K[X]/(p)$, independientemente del cuerpo "grande" donde hayamos encontrado dicha raíz. %
+\end{observacion} %
+
+% =========================================================================================
+
+\section{Extensiones Algebraicas} %
+
+\begin{definicion}{Elemento Algebraico y Extensión Algebraica (Def. 1.11)} %
+    Dada una extensión $L/K$ y un elemento $\alpha \in L$: %
+    \begin{itemize}
+        \item Se dice que $\alpha$ es \textbf{algebraico} sobre $K$ si existe algún polinomio no nulo $p \in K[X]$ tal que $p(\alpha) = 0$. %
+        \item En caso contrario, diremos que $\alpha$ es \textbf{transcendente} sobre $K$. %
+    \end{itemize}
+    
+    Diremos que la extensión total $L/K$ es una \textbf{extensión algebraica} si \textit{todo} elemento $\alpha \in L$ es algebraico sobre $K$. En caso contrario, diremos que la extensión es transcendente. %
+\end{definicion} %
+
+\begin{ejemplo} %
+    En la extensión $\mathbb{Q}(\sqrt{n})/\mathbb{Q}$, el elemento $\sqrt{n}$ es algebraico, ya que es raíz del polinomio $X^2 - n \in \mathbb{Q}[X]$. %
+\end{ejemplo} %
+
+\begin{proposicion}{Caracterización de elementos algebraicos (Prop. 1.12)} %
+    Si $L/K$ es una extensión de cuerpos y $\alpha \in L$, entonces las siguientes condiciones son equivalentes: %
+    \begin{enumerate}
+        \item $\alpha$ es algebraico sobre $K$. %
+        \item El homomorfismo de evaluación $\delta_\alpha: K[X] \rightarrow L$ (dado por $p \mapsto p(\alpha)$) \textbf{no} es inyectivo. %
+        \item $K[\alpha] = K(\alpha)$. %
+        \item El anillo $K[\alpha]$ es un subcuerpo de $L$. %
+        \item $K(\alpha)/K$ es una extensión finita (de dimensión vectorial finita). %
+    \end{enumerate}
+    \textit{(La demostración seguirá el esquema de implicaciones lógicas: $(1) \iff (2) \implies (3) \implies (4) \implies (2)$, y comprobando la finitud por otro lado).} %
+\end{proposicion} %
+

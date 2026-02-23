@@ -1,0 +1,365 @@
+\section{Extensiones Ciclotómicas} % [cite: 280]
+
+\begin{definicion}{Extensión ciclotómica (Def. 3.4)} % [cite: 281]
+    Sea $K$ un cuerpo y $n$ un entero positivo. % [cite: 281]
+    Se llama \textbf{$n$-ésima extensión ciclotómica} de $K$ al cuerpo de descomposición del polinomio $X^n - 1$ sobre $K$. % [cite: 282]
+    
+    Como el conjunto de las raíces $n$-ésimas de la unidad forma un grupo cíclico, la $n$-ésima extensión ciclotómica de $K$ es $K(\xi)$, donde $\xi$ es un generador del grupo de raíces $n$-ésimas de la unidad. % [cite: 283, 285]
+\end{definicion}
+
+\begin{definicion}{Polinomio ciclotómico} % [cite: 290]
+    Supongamos que $\operatorname{car}(K) = p \nmid n$ y sean $\xi_1, \xi_2, \dots, \xi_{\varphi(n)}$ las raíces $n$-ésimas primitivas de la unidad en un cuerpo de descomposición. % [cite: 284, 286, 287]
+    Llamamos \textbf{$n$-ésimo polinomio ciclotómico} a: % [cite: 290]
+    $$\Phi_n = (X-\xi_1) \cdots (X-\xi_{\varphi(n)})$$ % [cite: 290]
+    \textit{(Más adelante veremos que si consideramos cuerpos de característica $p$, entonces $\Phi_n \in \mathbb{Z}_p[X]$)}. % [cite: 289, 290]
+\end{definicion}
+
+\begin{observacion}{Aclaración sobre raíces de la unidad} % [cite: 291]
+    Para el polinomio $X^n - 1$: % [cite: 291]
+    \begin{itemize}
+        \item $\alpha$ es \textbf{raíz $n$-ésima} si $\alpha^n = 1$. % [cite: 294]
+        \item $\alpha$ es \textbf{raíz $n$-ésima primitiva} si su orden multiplicativo es exactamente $n$, es decir $|\alpha| = |\langle \alpha \rangle| = n$. % [cite: 295] 
+        Esto equivale a decir que $\alpha^n = 1$, pero $\alpha^k \neq 1$ para todo $k = 1, \dots, n-1$. % [cite: 295]
+    \end{itemize}
+\end{observacion}
+
+\begin{observacion}{Recordatorio de Grupos y Anillos} % [cite: 296]
+    \begin{itemize}
+        \item El \textbf{subcuerpo primo} de un cuerpo $K$ es el menor cuerpo contenido en él. % [cite: 297, 298, 299, 300]
+        \item Se tiene que el cuerpo primo de $K \cong \mathbb{Q}$ si $\operatorname{car}(K) = 0$, y es isomorfo a $\mathbb{Z}_p$ si $\operatorname{car}(K) = p$. % [cite: 301]
+        \item El \textbf{anillo primo} de $K$ es isomorfo a $\mathbb{Z}$ si $\operatorname{car}(K) = 0$, o igual al cuerpo primo si la característica es distinta de cero. % [cite: 302, 321]
+        \item En cualquier caso, el anillo primo es siempre un Dominio de Factorización Única (DFU). % [cite: 322]
+    \end{itemize}
+\end{observacion}
+
+\section{Polinomios sobre un DFU} % [cite: 303]
+
+\begin{definicion}{Polinomio Primitivo y Contenido} % [cite: 304, 306]
+    Sea $D$ un Dominio de Factorización Única (DFU) y $K$ su cuerpo de fracciones. Sea $P \in K[X] \setminus \{0\}$. % [cite: 303]
+    \begin{itemize}
+        \item Un polinomio $Q \in D[X]$ es un \textbf{polinomio primitivo} si sus coeficientes son coprimos entre sí. % [cite: 305]
+        \item Llamaremos \textbf{contenido} de $P$ a un elemento $a \in K$ tal que $P = a P_1$ con $P_1 \in D[X]$ primitivo. % [cite: 307]
+        \item Lo denotamos por $C(P)$. Este valor siempre existe: como $P \in K[X]$, podemos multiplicar por un denominador común $d \in D \setminus \{0\}$ tal que $dP \in D[X]$. % [cite: 308]
+        Si extraemos el máximo común divisor de los coeficientes, $a = \operatorname{mcd}(\text{coeficientes de } dP)$, entonces $P_1 = \frac{d}{a} P$ es un polinomio primitivo, y podemos escribir $P = \frac{a}{d} P_1$. Por tanto, $\frac{a}{d} \in C(P)$. % [cite: 309]
+    \end{itemize}
+\end{definicion}
+
+\begin{observacion}{Unicidad del contenido} % [cite: 326]
+    El concepto de contenido de un polinomio es único salvo producto por unidades de $D$ ($D^\times$). % [cite: 326]
+    En efecto, si $a, b \in C(P)$, entonces $P = a P_1 = b P_2$ con $P_1, P_2 \in D[X]$ primitivos. % [cite: 310, 312]
+    Escribiendo $a = \frac{a_1}{a_2}$ y $b = \frac{b_1}{b_2}$, tenemos $\frac{a_1}{a_2} P_1 = \frac{b_1}{b_2} P_2$, lo que equivale a $a_1 b_2 P_1 = a_2 b_1 P_2$. % [cite: 316, 319]
+    Como $D$ es un dominio y los polinomios son primitivos, al igualar los máximos comunes divisores de los coeficientes a ambos lados, obtenemos que $a_1 b_2$ y $a_2 b_1$ son elementos asociados en $D$. % [cite: 323, 325] 
+    Por tanto, existe una unidad $u \in D^\times$ tal que $b = a u$. % [cite: 326]
+\end{observacion}
+
+\begin{lema}{Lema de Gauss} % [cite: 327]
+    Si $K$ es el cuerpo de fracciones de un DFU $D$, y $P, Q \in K[X] \setminus \{0\}$, entonces: % [cite: 329]
+    $$C(P \cdot Q) = C(P) \cdot C(Q)$$ % [cite: 329]
+    En particular, el producto de dos polinomios primitivos es primitivo (salvo unidad). % [cite: 330, 334]
+\end{lema}
+
+\begin{proof}
+    Podemos escribir $P = a P_1$ y $Q = b Q_1$ con $P_1, Q_1$ primitivos y $a \in C(P)$, $b \in C(Q)$. % [cite: 331, 332]
+    Está claro que $P \cdot Q = ab (P_1 Q_1)$. % [cite: 333]
+    Bastará con demostrar que el producto $P_1 Q_1$ es primitivo, ya que eso implicaría automáticamente que $ab \in C(PQ)$. % [cite: 335]
+    
+    Procedemos por reducción al absurdo. Supongamos que $P_1 Q_1$ no es primitivo. Entonces existe un elemento primo $p \in D$ que divide a todos los coeficientes de $P_1 Q_1$. % [cite: 335]
+    Sean $P_1 = a_0 + a_1 X + \dots + a_n X^n$ y $Q_1 = b_0 + b_1 X + \dots + b_m X^m$. % [cite: 335]
+    Como $P_1$ y $Q_1$ son primitivos, $\operatorname{mcd}(a_i) = 1$ y $\operatorname{mcd}(b_j) = 1$. Por lo tanto, $p$ no puede dividir a todos sus coeficientes. % [cite: 335]
+    Elijamos $i$ como el menor índice tal que $p \nmid a_i$, y $j$ como el menor índice tal que $p \nmid b_j$. % [cite: 335]
+    
+    Analicemos el coeficiente de grado $i+j$ en el polinomio producto $P_1 Q_1$, que viene dado por la suma $\sum_{k+l=i+j} a_k b_l$: % [cite: 337, 338]
+    $$\dots + a_{i-1}b_{j+1} + a_i b_j + a_{i+1}b_{j-1} + \dots$$ % [cite: 335]
+    Por nuestra elección minimal de $i$ y $j$, el primo $p$ divide a todos los sumandos anteriores a $a_i b_j$ (porque $p \mid a_k$ para $k < i$) y a todos los sumandos posteriores (porque $p \mid b_l$ para $l < j$). % [cite: 335]
+    Sin embargo, $p \nmid a_i$ y $p \nmid b_j$, y como $p$ es primo, $p \nmid a_i b_j$. % [cite: 335]
+    Por tanto, $p$ no puede dividir a la suma total, lo que es una flagrante contradicción con la suposición de que $p$ dividía a todos los coeficientes de $P_1 Q_1$. % [cite: 335]
+\end{proof}
+
+\begin{lema}{Lema 3.6} % [cite: 336]
+    Sea $D$ un DFU, $K$ su cuerpo de fracciones y $P \in D[X]$, $Q \in K[X]$ polinomios mónicos. % [cite: 339]
+    Si $Q$ divide a $P$ en el anillo $K[X]$, entonces $Q \in D[X]$ y $Q$ divide a $P$ en $D[X]$. % [cite: 339, 340]
+\end{lema}
+
+\begin{proof}
+    Dado que $Q$ divide a $P$ en $K[X]$, existe un polinomio $R \in K[X]$ tal que $P = Q \cdot R$. % [cite: 341]
+    Como $P$ es mónico y está en $D[X]$, sus coeficientes son coprimos (el coeficiente principal es 1, que solo es divisible por unidades). Por tanto, $P$ es primitivo y $C(P) = 1$. % [cite: 341]
+    Además, como $P$ y $Q$ son mónicos, necesariamente $R$ debe ser también un polinomio mónico. % [cite: 341]
+    
+    Aplicamos el Lema de Gauss a la igualdad $P = Q \cdot R$: % [cite: 348]
+    $$1 = C(P) = C(Q \cdot R) = C(Q) \cdot C(R)$$ % [cite: 342]
+    
+    Por la definición de contenido, existen polinomios primitivos $Q^*, R^* \in D[X]$ tales que $Q = C(Q)Q^*$ y $R = C(R)R^*$. % [cite: 342, 352]
+    Fijémonos en los coeficientes principales. Sea $u \in D$ el coeficiente principal de $Q^*$. % [cite: 350, 351]
+    Al ser $Q$ mónico, su coeficiente principal es 1, por lo que $1 = C(Q) \cdot u$, lo que implica que $C(Q) = u^{-1}$. % [cite: 350]
+    Análogamente, si $v \in D$ es el coeficiente principal de $R^*$, tenemos $1 = C(R) \cdot v$, por lo que $C(R) = v^{-1}$. % [cite: 352]
+    
+    Sustituyendo esto en la ecuación de los contenidos: % [cite: 354]
+    $$1 = C(Q) \cdot C(R) = u^{-1} \cdot v^{-1} \implies uv = 1$$ % [cite: 342, 352, 354]
+    Esta relación nos indica que tanto $u$ como $v$ son unidades en $D$ ($u, v \in D^\times$). % [cite: 354]
+    
+    Por lo tanto, $C(Q) = u^{-1} \in D$. Esto significa que $Q = u^{-1} Q^*$ es el producto de un elemento de $D$ por un polinomio de $D[X]$, lo que garantiza que $Q \in D[X]$. % [cite: 347, 353, 354]
+    Del mismo modo, $R = v^{-1} R^* \in D[X]$. % [cite: 354]
+    Al tener $P = Q \cdot R$ con $Q, R \in D[X]$, concluimos que $Q$ divide a $P$ dentro de $D[X]$. % [cite: 340]
+\end{proof}
+
+%%%%%%%%%%%%%%%% AÑADIR AQUI LA DEM 
+
+\begin{proposicion}{Propiedades de los polinomios ciclotómicos (Prop. 3.7)} %
+En característica $p \ge 0$ (siempre que $p \nmid n$), se verifican las siguientes propiedades: %
+\begin{enumerate}
+\item $\operatorname{gr}(\Phi_n) = \varphi(n) = |\mathbb{Z}_n^*|$. %
+\item $X^n - 1 = \prod_{d \mid n} \Phi_d(X)$. %
+\item $\Phi_n \in \mathbb{Z}_p[X]$. %
+\item Si $K$ es el cuerpo de fracciones de $\mathbb{Z}_p$ y $\xi$ es una raíz de la unidad en una extensión de $K$, entonces $\operatorname{Min}_K(\xi) \in \mathbb{Z}_p[X]$. %
+\end{enumerate}
+
+\textit{(Nota notacional: Si $p=0$, entendemos que el anillo primo es $\mathbb{Z}_0 = \mathbb{Z}$ y su cuerpo de fracciones es $K = \mathbb{Q}$).} %
+
+\end{proposicion}
+\begin{proof}
+    \textbf{Demostración de 1): Grado del polinomio ciclotómico} %
+    
+    Consideremos el polinomio $f(X) = X^n - 1$ sobre el cuerpo $K$. Su derivada formal es $f'(X) = nX^{n-1}$. %
+    Como por hipótesis la característica $p$ no divide a $n$ ($p \nmid n$), tenemos que $n \neq 0$ en $K$, por lo que $f'(X)$ solo se anula en $X=0$. %
+    Dado que $0$ no es raíz de $X^n - 1$, el polinomio y su derivada son coprimos ($\operatorname{mcd}(f, f') = 1$). Esto garantiza que $X^n - 1$ tiene exactamente $n$ raíces distintas en su cuerpo de descomposición. %
+    
+    El conjunto de estas $n$ raíces forma un grupo multiplicativo, denotado por $G$. Todo subgrupo finito del grupo multiplicativo de un cuerpo es cíclico, por lo que $G \cong (\mathbb{Z}_n, +)$. %
+    Por la teoría elemental de grupos cíclicos, el número de generadores de un grupo cíclico de orden $n$ es exactamente $\varphi(n)$ (la función indicatriz de Euler, que cuenta los números coprimos con $n$). %
+    Dado que el $n$-ésimo polinomio ciclotómico $\Phi_n(X)$ se define como el producto de los factores $(X-\xi_i)$ donde $\xi_i$ son precisamente estos generadores (las raíces $n$-ésimas primitivas), concluimos irremediablemente que su grado es el número de factores, es decir, $\operatorname{gr}(\Phi_n) = \varphi(n)$. %
+
+    \textbf{Demostración de 2): Factorización de $X^n - 1$} %
+    
+    Como hemos establecido, el grupo $G$ de las $n$ raíces de $X^n - 1$ es un grupo cíclico de orden $n$. %
+    El polinomio descompone linealmente en su cuerpo de escisión como: %
+    $$X^n - 1 = \prod_{z \in G} (X - z)$$ %
+    Por el Teorema de Lagrange, el orden de cualquier elemento $z \in G$ debe ser un divisor exacto de $n$. %
+    Clasifiquemos los elementos de $G$ atendiendo a su orden multiplicativo exacto. Para cada divisor $d \mid n$, definimos el conjunto: %
+    $$G_d = \{ z \in G \mid \text{orden}(z) = d \}$$ %
+    Es fundamental observar que un elemento tiene orden $d$ en $G$ si y solo si es una raíz $d$-ésima primitiva de la unidad. Por tanto, el producto de los factores lineales asociados a $G_d$ construye exactamente el $d$-ésimo polinomio ciclotómico: %
+    $$\prod_{z \in G_d} (X - z) = \Phi_d(X)$$ %
+    Dado que todo elemento de $G$ tiene un único orden, la familia de subconjuntos $\{G_d\}_{d \mid n}$ constituye una partición disjunta del grupo $G$ (es decir, $G = \bigsqcup_{d \mid n} G_d$). %
+    Reordenando los factores del producto original según esta partición geométrica, obtenemos: %
+    $$X^n - 1 = \prod_{d \mid n} \left( \prod_{z \in G_d} (X - z) \right) = \prod_{d \mid n} \Phi_d(X)$$ %
+
+    \textbf{Demostración de 3): Pertenencia a $\mathbb{Z}_p[X]$} %
+    
+    Dividiremos esta demostración en dos fases lógicas. Primero demostraremos que $\Phi_n \in K[X]$ (donde $K$ es el cuerpo de fracciones de $\mathbb{Z}_p$) razonando por inducción fuerte sobre $n$. %
+    
+    \begin{itemize}
+        \item \textbf{Caso base ($n=1$):} $\Phi_1(X) = X - 1$. Como los coeficientes $1$ y $-1$ pertenecen a cualquier cuerpo primo, trivialmente $\Phi_1 \in K[X]$. %
+        \item \textbf{Paso inductivo:} Supongamos que la proposición es cierta para todo entero $d < n$. Esto es, para todo divisor $d$ de $n$ estrictamente menor que $n$, se cumple que $\Phi_d \in K[X]$. %
+        Despejando el término $d=n$ del producto obtenido en el apartado anterior, tenemos: %
+        $$X^n - 1 = \left( \prod_{\substack{d \mid n \\ d < n}} \Phi_d(X) \right) \cdot \Phi_n(X)$$ %
+        Definamos $G(X) = \prod_{d \mid n, d < n} \Phi_d(X)$. Por la hipótesis de inducción, al ser un producto de polinomios en $K[X]$, el propio $G(X)$ pertenece a $K[X]$. Además, como cada $\Phi_d$ es mónico por definición, $G(X)$ también es un polinomio mónico. %
+        
+        Realizamos la división euclídea de $X^n - 1$ entre $G(X)$ dentro del anillo $K[X]$. El algoritmo de la división nos garantiza que existen únicos polinomios $C(X), R(X) \in K[X]$ tales que: %
+        $$X^n - 1 = G(X) C(X) + R(X) \quad \text{con } \operatorname{gr}(R) < \operatorname{gr}(G)$$ %
+        Sin embargo, operando en el cuerpo de descomposición (un cuerpo más grande), sabemos que la división es exacta y el cociente es $\Phi_n(X)$. Por la unicidad del algoritmo de división, el cociente y el resto deben ser los mismos independientemente de si operamos en $K$ o en su extensión. Por tanto, el resto $R(X)$ es obligatoriamente el polinomio nulo y el cociente $C(X) = \Phi_n(X)$ debe tener sus coeficientes en $K$. Concluimos que $\Phi_n \in K[X]$. %
+    \end{itemize}
+    
+    A continuación, fortalecemos el resultado para demostrar que realmente caen en $\mathbb{Z}_p[X]$, dependiendo de la característica: %
+    \begin{itemize}
+        \item \textbf{Si $p > 0$:} El cuerpo primo $K$ es exactamente $\mathbb{Z}_p$. Al no haber denominadores, el anillo y su cuerpo de fracciones coinciden. Hemos probado que $\Phi_n \in K[X] = \mathbb{Z}_p[X]$. %
+        \item \textbf{Si $p = 0$:} El anillo es $\mathbb{Z}_0 = \mathbb{Z}$ y su cuerpo de fracciones es $K = \mathbb{Q}$. Hasta ahora sabemos que $\Phi_n \in \mathbb{Q}[X]$. %
+        Consideremos la igualdad $X^n - 1 = G(X) \cdot \Phi_n(X)$. %
+        Sabemos que $X^n - 1 \in \mathbb{Z}[X]$. Además, tanto $G(X)$ como $\Phi_n(X)$ son polinomios mónicos con coeficientes en $\mathbb{Q}$. %
+        Aplicamos el \textbf{Lema 3.6} (corolario del Lema de Gauss): si un polinomio mónico en $\mathbb{Q}[X]$ divide a un polinomio en $\mathbb{Z}[X]$, entonces el divisor pertenece necesariamente a $\mathbb{Z}[X]$. %
+        Dado que $\Phi_n(X)$ divide a $X^n - 1$ en $\mathbb{Q}[X]$, deducimos que $\Phi_n(X) \in \mathbb{Z}[X]$. %
+    \end{itemize}
+
+    \textbf{Demostración de 4): El polinomio mínimo sobre el cuerpo de fracciones} %
+    
+    Sea $\xi$ una raíz de la unidad (de algún orden $m$) y $f(X) = \operatorname{Min}_K(\xi)$. %
+    Por la propia definición axiomática del polinomio mínimo, sus coeficientes siempre residen en el cuerpo base, luego $f(X) \in K[X]$. %
+    
+    Como $\xi$ es raíz de la unidad de orden $m$, es raíz del polinomio $X^m - 1$. %
+    Por las propiedades del polinomio mínimo, si un elemento es raíz de un polinomio sobre $K$, su polinomio mínimo debe dividirlo. Por lo tanto, $f(X)$ divide a $X^m - 1$ en $K[X]$. %
+    
+    Replicamos la dicotomía según la característica del cuerpo: %
+    \begin{itemize}
+        \item \textbf{Si $p > 0$:} De nuevo, $K = \mathbb{Z}_p$, luego $f(X) \in \mathbb{Z}_p[X]$ de forma trivial. %
+        \item \textbf{Si $p = 0$:} $K = \mathbb{Q}$. Tenemos que $f(X) \in \mathbb{Q}[X]$ y $f(X)$ es un polinomio mónico que divide a $X^m - 1$ (el cual pertenece a $\mathbb{Z}[X]$). %
+        Apelando nuevamente al \textbf{Lema 3.6}, como $f(X)$ es un divisor mónico racional de un polinomio entero, se sigue forzosamente que $f(X)$ tiene coeficientes exclusivamente enteros. Por tanto, $\operatorname{Min}_{\mathbb{Q}}(\xi) \in \mathbb{Z}[X]$. %
+    \end{itemize}
+\end{proof}
+
+
+
+\begin{observacion}{Independencia de la característica} %
+    Observemos que la expresión polinómica de $\Phi_n$ \textbf{no depende de la característica} del cuerpo (siempre que la característica no divida a $n$). %
+    Sin embargo, que el polinomio $\Phi_n$ sea o no irreducible \textbf{sí que depende} fuertemente de la característica del cuerpo base. %
+\end{observacion}
+
+\begin{observacion}{Cálculo recursivo de Polinomios Ciclotómicos} %
+    La expresión obtenida en la demostración anterior nos proporciona un método iterativo y recursivo directo para calcular $\Phi_n$: %
+    $$X^n - 1 = \Phi_n(X) \cdot \prod_{d \mid n, d \neq n} \Phi_d(X) \implies \Phi_n(X) = \frac{X^n - 1}{\prod_{d \mid n, d \neq n} \Phi_d(X)}$$ %
+    
+    Ejemplos de cálculo directo: %
+    \begin{itemize}
+        \item $\Phi_1(X) = X - 1$
+        \item $\Phi_2(X) = \frac{X^2 - 1}{\Phi_1(X)} = \frac{(X+1)(X-1)}{X-1} = X + 1$
+        \item $\Phi_3(X) = \frac{X^3 - 1}{\Phi_1(X)} = \frac{X^3 - 1}{X - 1} = X^2 + X + 1$
+        \item $\Phi_4(X) = \frac{X^4 - 1}{\Phi_1(X) \cdot \Phi_2(X)} = \frac{(X^2 + 1)(X^2 - 1)}{(X - 1)(X + 1)} = X^2 + 1$
+    \end{itemize}
+    
+    En general, si $q$ es un número primo (distinto de la característica), sus únicos divisores son $1$ y $q$, por lo que: %
+    $$\Phi_q(X) = \frac{X^q - 1}{\Phi_1(X)} = \frac{X^q - 1}{X - 1} = X^{q-1} + X^{q-2} + \dots + X + 1$$ %
+    Por ejemplo: $\Phi_5(X) = X^4 + X^3 + X^2 + X + 1$. %
+\end{observacion}
+
+\begin{teorema}{Irreducibilidad en $\mathbb{Q}$ (Teorema 3.9)} %
+    Los polinomios ciclotómicos $\Phi_n \in \mathbb{Z}[X]$ en característica 0 son siempre \textbf{irreducibles} sobre $\mathbb{Q}$. %
+\end{teorema}
+
+% --- CONTINUACIÓN DEL TEOREMA 3.9 ---
+
+\begin{proof}[Demostración del Teorema 3.9] %
+    \textbf{Fase 1: Planteamiento inicial} %
+    Fijemos una raíz $n$-ésima primitiva de la unidad, a la que llamaremos $\xi$. %
+    Sea $f = \operatorname{Min}_{\mathbb{Q}}(\xi)$ su polinomio mínimo sobre los racionales y denotemos $\Phi = \Phi_n$ al $n$-ésimo polinomio ciclotómico. %
+    
+    Sabemos que $\Phi$ es un polinomio mónico cuyas raíces son \textit{todas} las raíces primitivas de la unidad: %
+    $$\Phi(X) = (X-\xi_1)(X-\xi_2)\dots(X-\xi_{\varphi(n)})$$ %
+    Como $f$ es el polinomio mínimo de $\xi$, y $\xi$ es raíz de $\Phi$, se sigue obligatoriamente que $f$ debe dividir a $\Phi$ en $\mathbb{Q}[X]$. %
+    
+    Para que $\Phi = f$ (y con ello $\Phi$ sea irreducible por definición), siendo ambos polinomios mónicos, es suficiente con demostrar que $f$ contiene \textit{todas} las raíces de $\Phi$. %
+    Con esto, tendrían las mismas raíces, serían polinomios asociados y, por ser mónicos, serían iguales. %
+    
+    Las raíces primitivas $n$-ésimas son de la forma $\xi^r$ con $\operatorname{mcd}(r,n)=1$. %
+    Por lo tanto, nuestro objetivo se reduce a demostrar la siguiente afirmación: %
+    \textit{Si $\xi$ es raíz de $f$, entonces cualquier $\xi^r$ con $\operatorname{mcd}(r,n)=1$ también es raíz de $f$.} %
+
+    \textbf{Fase 2: El paso primo (Lema clave por reducción al absurdo)} %
+    Vamos a demostrar primero el caso en el que $r = p$ es un número primo tal que $p \nmid n$. %
+    Lo haremos por reducción al absurdo. Supongamos que $\xi^p$ \textbf{no} es raíz de $f$. %
+
+    Sean $g = \operatorname{Min}_{\mathbb{Q}}(\xi^p)$ y $g_1(X) = g(X^p)$. %
+    Como $\xi$ es raíz de $g_1$ (pues $g_1(\xi) = g(\xi^p) = 0$), el polinomio mínimo $f$ divide automáticamente a $g_1$ en $\mathbb{Q}[X]$. %
+    
+    Por la Proposición 3.7, el polinomio mínimo de cualquier raíz de la unidad tiene coeficientes enteros. Por tanto, $f \in \mathbb{Z}[X]$ y $g \in \mathbb{Z}[X]$, de donde también se deduce que $g_1 \in \mathbb{Z}[X]$. %
+    En resumen: tenemos que $\mathbb{Z}$ es un DFU, $\mathbb{Q}$ su cuerpo de fracciones, $f, g_1 \in \mathbb{Z}[X]$ son mónicos, y $f$ divide a $g_1$ en $\mathbb{Q}[X]$. %
+    Aplicando el \textbf{Lema 3.6} (consecuencia del Lema de Gauss), deducimos que $f$ divide a $g_1$ en $\mathbb{Z}[X]$. Es decir, existe un $h \in \mathbb{Z}[X]$ tal que: %
+    $$g_1(X) = f(X) \cdot h(X)$$
+
+    \textbf{Fase 3: Descenso al cuerpo finito $\mathbb{Z}_p$} %
+    Vamos a "trasladar" los coeficientes de los polinomios a $\mathbb{Z}_p$. Para ello, consideramos la proyección canónica $\pi: \mathbb{Z} \to \mathbb{Z}_p$ y la extendemos al anillo de polinomios $\mathbb{Z}[X] \to \mathbb{Z}_p[X]$ reduciendo sus coeficientes módulo $p$. %
+    Denotaremos con una barra ($\overline{f}$) a la imagen de un polinomio bajo esta aplicación. %
+    
+    Recordemos dos propiedades fundamentales en un cuerpo de característica $p$: %
+    \begin{enumerate}
+        \item El binomio de Newton: $(a+b)^p = a^p + b^p$.
+        \item El Pequeño Teorema de Fermat: $a^p \equiv a \pmod p$, lo que implica que $\overline{a}^p = \overline{a}$ en $\mathbb{Z}_p$.
+    \end{enumerate}
+    Juntando estos dos resultados, si $\overline{g}(X) = a_0 + a_1 X + \dots + a_m X^m$, tenemos: %
+    $$(\overline{g}(X))^p = (a_0 + a_1 X + \dots + a_m X^m)^p = a_0^p + a_1^p X^p + \dots + a_m^p X^{mp}$$
+    Como $a_i^p = a_i$ en $\mathbb{Z}_p$, esto es exactamente igual a: %
+    $$= a_0 + a_1 X^p + \dots + a_m (X^p)^m = \overline{g}(X^p) = \overline{g_1}(X)$$
+    
+    Proyectando la igualdad $g_1 = f \cdot h$ a $\mathbb{Z}_p[X]$, obtenemos: %
+    $$(\overline{g}(X))^p = \overline{g_1}(X) = \overline{f}(X) \cdot \overline{h}(X)$$
+
+    \textbf{Fase 4: La contradicción de la raíz múltiple} %
+    Sea $q(X) \in \mathbb{Z}_p[X]$ un factor irreducible de $\overline{f}(X)$. %
+    Como $q \mid \overline{f}$, la igualdad anterior implica que $q \mid (\overline{g})^p$. %
+    Al ser $q$ irreducible, esto fuerza a que $q \mid \overline{g}$. %
+    Por tanto, $\overline{f}$ y $\overline{g}$ comparten un factor irreducible $q$ en $\mathbb{Z}_p[X]$. %
+
+    Retomemos nuestra hipótesis de absurdo: habíamos supuesto que $\xi^p$ no era raíz de $f$. %
+    Si $\xi^p$ no es raíz de $f$, entonces $f$ y $g$ (siendo ambos polinomios irreducibles y mónicos distintos en $\mathbb{Q}[X]$) son \textbf{coprimos}. %
+    Además, $\xi$ es raíz primitiva (raíz de $\Phi_n$) y $\xi^p$ también es raíz primitiva (pues $p \nmid n \implies \operatorname{mcd}(p,n)=1$). %
+    Esto significa que tanto $f$ como $g$ dividen a $\Phi_n$, y por ser coprimos, su producto divide a $\Phi_n$: %
+    $$f \cdot g \mid \Phi_n(X) \implies f \cdot g \mid X^n - 1 \quad \text{en } \mathbb{Z}[X]$$
+    
+    Proyectando esta divisibilidad a $\mathbb{Z}_p[X]$, tenemos que $\overline{f} \cdot \overline{g} \mid X^n - 1$. %
+    Como $q$ divide tanto a $\overline{f}$ como a $\overline{g}$, deducimos que: %
+    $$q^2 \mid X^n - 1 \quad \text{en } \mathbb{Z}_p[X]$$
+    Esto significa que el polinomio $X^n - 1$ tiene una \textbf{raíz múltiple} en alguna extensión del cuerpo $\mathbb{Z}_p$. %
+    Sin embargo, ya demostramos anteriormente que si la característica $p$ no divide a $n$ ($p \nmid n$), la derivada de $X^n - 1$ es $n X^{n-1} \neq 0$, por lo que $X^n - 1$ \textbf{no tiene raíces múltiples}. %
+    
+    ¡Hemos llegado a una contradicción! La suposición de que $\xi^p$ no era raíz de $f$ es falsa. Por tanto, $\xi^p$ es raíz de $f$. %
+
+    \textbf{Fase 5: Paso al caso general (Inducción)} %
+    Queremos ver que para cualquier $r$ con $\operatorname{mcd}(r,n)=1$, $\xi^r$ es raíz de $f$. %
+    Podemos factorizar $r$ en producto de números primos: $r = p_1 p_2 \dots p_k$ (donde algunos $p_i$ pueden repetirse, pero ninguno divide a $n$). %
+    Razonamos por inducción sobre el número de factores primos $k$: %
+    \begin{itemize}
+        \item \textbf{Caso base ($k=1$):} Es exactamente el paso primo que acabamos de demostrar. %
+        \item \textbf{Paso inductivo:} Supongamos que el resultado es cierto para $k-1$ factores. %
+        Sea $\eta = \xi^{p_1 \dots p_{k-1}}$. Por hipótesis de inducción, $\eta$ es raíz de $f$. %
+        Como $f$ es irreducible y $\eta$ es raíz, $f$ debe ser el polinomio mínimo de $\eta$, es decir, $f = \operatorname{Min}_{\mathbb{Q}}(\eta)$. %
+        Ahora aplicamos el caso base (el paso primo) al elemento $\eta$ y al primo $p_k$: si $\eta$ es raíz de su polinomio mínimo $f$, entonces $\eta^{p_k}$ también es raíz de $f$. %
+        Pero $\eta^{p_k} = (\xi^{p_1 \dots p_{k-1}})^{p_k} = \xi^r$. %
+    \end{itemize}
+    Por lo tanto, $\xi^r$ es raíz de $f$ para todo $r$ coprimo con $n$. %
+    
+    \textbf{Conclusión:} %
+    El polinomio mínimo $f$ contiene a todas las raíces de $\Phi_n$. Dado que ambos son mónicos y $f \mid \Phi_n$, concluimos irrevocablemente que $f = \Phi_n$. %
+    Como el polinomio mínimo es irreducible por definición, $\Phi_n$ es irreducible en $\mathbb{Q}[X]$. %
+\end{proof}
+
+
+\begin{corolario}{Corolario 3.10}
+    Si $\xi$ es una raíz $n$-ésima primitiva de la unidad en característica 0, entonces:
+    $$[\mathbb{Q}(\xi) : \mathbb{Q}] = \operatorname{gr}(\operatorname{Min}_{\mathbb{Q}}(\xi)) = \operatorname{gr}(\Phi_n) = \varphi(n)$$
+\end{corolario}
+
+\begin{observacion}{Nota: El Teorema 3.9 y la característica $p$}
+    El Teorema 3.9 (que afirma que los polinomios ciclotómicos son irreducibles) \textbf{no funciona si la característica es distinta de 0} (es decir, la hipótesis de característica 0 no es superflua).
+    
+    Por ejemplo, consideremos el cuerpo finito $\mathbb{F}_8$. Sabemos que $[\mathbb{F}_8 : \mathbb{F}_2] = 3$. 
+    El grupo multiplicativo de este cuerpo es $\mathbb{F}_8^* = \langle \xi_7 \rangle$, donde $\xi_7$ es un generador y, por tanto, una raíz 7-ésima primitiva de la unidad.
+    
+    Como $\xi_7 \in \mathbb{F}_8$, el grado de su polinomio mínimo sobre $\mathbb{F}_2$ debe dividir al grado de la extensión, que es 3 (de hecho, es exactamente 3).
+    Sin embargo, el grado del polinomio ciclotómico $\Phi_7(X)$ es $\varphi(7) = 6$.
+    Como el grado del polinomio mínimo (3) no coincide con $\varphi(7)$, deducimos que el polinomio mínimo no es $\Phi_7$, lo que implica inequívocamente que \textbf{$\Phi_7(X)$ no es irreducible sobre $\mathbb{F}_2$} (se descompone en factores).
+\end{observacion}
+
+% =========================================================================
+% SECCIÓN AÑADIDA: EJEMPLOS DEL TEMA 3
+% =========================================================================
+
+\section*{Ejemplos Adicionales del Tema 3 (Extensiones Ciclotómicas)}
+
+\begin{ejemplo}{Cálculo del 6º polinomio ciclotómico}
+    Queremos calcular $\Phi_6(X)$ usando la fórmula recursiva $X^n - 1 = \prod_{d \mid n} \Phi_d(X)$.
+    Los divisores de 6 son 1, 2, 3 y 6. Por tanto:
+    $$X^6 - 1 = \Phi_1(X) \cdot \Phi_2(X) \cdot \Phi_3(X) \cdot \Phi_6(X)$$
+    Ya conocemos los anteriores (calculados previamente):
+    \begin{itemize}
+        \item $\Phi_1(X) = X - 1$
+        \item $\Phi_2(X) = X + 1$
+        \item $\Phi_3(X) = X^2 + X + 1$
+    \end{itemize}
+    Notemos que $\Phi_1(X) \cdot \Phi_2(X) \cdot \Phi_3(X) = (X^2 - 1)(X^2 + X + 1) = X^4 + X^3 - X - 1$.
+    También podemos ser más astutos y observar que $\Phi_1(X) \cdot \Phi_2(X) \cdot \Phi_3(X) = (X^3-1)(X+1)$. 
+    Pero aún más fácil, sabemos que $X^6 - 1 = (X^3 - 1)(X^3 + 1)$. Como $\Phi_1 \Phi_3 = X^3 - 1$, deducimos que:
+    $$X^3 + 1 = \Phi_2(X) \cdot \Phi_6(X) \implies \Phi_6(X) = \frac{X^3 + 1}{X + 1} = X^2 - X + 1$$
+\end{ejemplo}
+
+\begin{ejemplo}{Grados de extensiones ciclotómicas sobre $\mathbb{Q}$}
+    Sea $\xi$ una raíz 8-ésima primitiva de la unidad (por ejemplo, $\xi = e^{2\pi i / 8} = \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}$).
+    ¿Cuál es el grado de la extensión $\mathbb{Q}(\xi)/\mathbb{Q}$?
+    
+    Por el Corolario 3.10, como estamos en característica 0, el grado es exactamente $\varphi(8)$.
+    Dado que $8 = 2^3$, calculamos la función de Euler:
+    $$\varphi(8) = 8 \left(1 - \frac{1}{2}\right) = 4$$
+    Por tanto, $[\mathbb{Q}(\xi) : \mathbb{Q}] = 4$.
+    El polinomio mínimo de $\xi$ será $\Phi_8(X)$. Como los divisores de 8 son 1, 2, 4, 8:
+    $$\Phi_8(X) = \frac{X^8 - 1}{\Phi_1 \Phi_2 \Phi_4} = \frac{X^8 - 1}{X^4 - 1} = X^4 + 1$$
+    Este polinomio es irreducible en $\mathbb{Q}[X]$.
+\end{ejemplo}
+
+\begin{ejemplo}{Descomposición de un polinomio ciclotómico en característica $p$}
+    Vamos a desarrollar con detalle la \textbf{Nota} teórica anterior sobre $\mathbb{F}_2$.
+    El polinomio ciclotómico $\Phi_7(X)$ en $\mathbb{Z}[X]$ es:
+    $$\Phi_7(X) = X^6 + X^5 + X^4 + X^3 + X^2 + X + 1$$
+    Sobre $\mathbb{Q}$, este polinomio es irreducible (Teorema 3.9). Sin embargo, si lo vemos como un polinomio con coeficientes en $\mathbb{F}_2$ (reduciendo módulo 2), se factoriza.
+    
+    En $\mathbb{F}_2[X]$, se comprueba que:
+    $$(X^3 + X + 1)(X^3 + X^2 + 1) = X^6 + X^5 + X^4 + 2X^3 + X^2 + X + 1$$
+    Como $2 = 0$ en $\mathbb{F}_2$, el término $2X^3$ desaparece, y obtenemos exactamente $\Phi_7(X)$.
+    
+    Esto demuestra empíricamente que:
+    $$\Phi_7(X) = (X^3 + X + 1)(X^3 + X^2 + 1) \quad \text{en } \mathbb{F}_2[X]$$
+    Las raíces primitivas 7-ésimas se reparten: 3 de ellas son raíces del primer factor, y las otras 3 son raíces del segundo. El polinomio mínimo de cualquiera de ellas tiene grado 3, no $\varphi(7)=6$.
+\end{ejemplo}
