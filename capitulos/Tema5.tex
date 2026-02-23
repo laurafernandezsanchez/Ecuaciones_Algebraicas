@@ -1,66 +1,162 @@
 \section{La correspondencia de Galois} 
+\begin{definicion}{Homomorfismos de extensiones}
+    Dadas $K \subseteq L_1, L_2$ extensiones.
 
-Recordemos que si $L/K$ es una extensión de cuerpos, entonces el grupo de Galois de $L/K$ es el grupo $\operatorname{Gal}(L/K)$ formado por los automorfismos de $L/K$, es decir, los $K$-automorfismos de $L$. ]% 4]
+    Si $L_1$ y $L_2$ son dos extensiones de $K$, entonces un \textbf{homomorfismo} de $L_1/K$ en $L_2/K$ (también llamado $K$-homomorfismo) es un homomorfismo de cuerpos $f : L_1 \to L_2$ tal que $f(a) = a$ para todo $a \in K$.
+    
+    Un \textbf{endomorfismo} de una extensión $L/K$ es un homomorfismo de $L/K$ en sí misma. Un \textbf{isomorfismo} de extensiones (o $K$-isomorfismo) es un homomorfismo de extensiones que es isomorfismo de cuerpos y un \textbf{automorfismo} de extensiones (o $K$-automorfismo) es un isomorfismo de una extensión de $K$ en sí misma.
+\end{definicion}
+
+\begin{definicion}{Grupo de Galois}
+    El \textbf{grupo de Galois} de $L/K$ es el conjunto de $K$-automorfismos de $L/K$ con la composición de aplicaciones. 
+    
+    Lo denotamos por $\operatorname{Gal}(L/K)$.
+\end{definicion}
+
+\begin{definicion}{Subextensión}
+    Una \textbf{subextensión} de $L/K$ es un cuerpo $M$ tal que $K \subseteq M \subseteq L$.
+\end{definicion}
+
+\begin{definicion}{Extensiones admisibles}
+    Dos extensiones $L_1/K$ y $L_2/K$ son \textbf{admisibles} si existe un cuerpo $L$ tal que $L_1 \subseteq L$ y $L_2 \subseteq L$.
+\end{definicion}
+
+\begin{observacion}{Convenios y propiedades básicas}
+    En todo momento supondremos $1 \neq 0 \implies$ Todos los homomorfismos entre cuerpos son inyectivos.
+    Además, los $K$-homomorfismos son homomorfismos de $K$-espacios vectoriales.
+    
+    De esta forma siempre que exista un homomorfismo de cuerpos $f : K \to L$, el cuerpo $L$ contiene un subcuerpo isomorfo a $K$, la imagen $f(K)$ de $f$. Por otro lado $K$ admite una extensión isomorfa a $L$, a saber el conjunto $K \cup (L \setminus f(K))$, en el que se define el producto de la forma obvia. 
+    
+    Abusaremos a menudo de la notación y cada vez que tengamos un homomorfismo de cuerpos $f : K \to L$, simplemente consideraremos $K$ como subcuerpo de $L$, identificando los elementos de $K$ y $f(K)$, a través de $f$.
+    
+    De aquí tenemos que, si $f: K \to L$ es un homomorfismo de cuerpos:
+    \begin{observacion}{}
+        \begin{enumerate}
+            \item $f(K) \simeq K$ (como cuerpos). A veces simplemente escribiremos $K$ para referirnos a $f(K)$.
+            \item Por convenio, $K$ es subcuerpo de $L$ identificando $K$ con $f(K)$.
+        \end{enumerate}
+    \end{observacion}
+\end{observacion}
 
 \begin{ejemplo}{}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Claramente $\operatorname{Gal}(K/K)=1$, pero no son éstas las únicas extensiones con grupo de Galois trivial. ]% 5]
-        Por ejemplo, si $a$ es un número racional positivo que no es el cubo de un número racional, entonces $p=X^{3}-a$ es irreducible en $\mathbb{Q}[X]$. ]% 6]
-        Las raíces de $p$ son $\alpha=\sqrt[3]{a}$, $\omega\alpha$ y $\omega^{2}\alpha$, donde $\omega$ es una raíz tercera primitiva de la unidad. ]% 7]
-        Como $\omega$ no es un número real, la única raíz de $p$ que pertenece a $K(\alpha)$ es $\alpha$ y por tanto $\operatorname{Gal}(K(\alpha)/K)=1$ (¿por qué?). ]% 8]
-        
-        \item Si $L/K$ es una extensión de grado 2 y $\operatorname{car}(K)\ne 2$, entonces $\operatorname{Gal}(L/K)$ tiene dos elementos. ]% 9]
-        En efecto, si $\alpha\in L\setminus K$, entonces $L=K(\alpha)$ y por tanto $p=\operatorname{Min}_{K}(\alpha)$ tiene grado 2. Pongamos $p=X^{2}+aX+b=\left(X+\frac{a}{2}\right)^{2}+b-\frac{a^2}{4}$ y sean $\beta=\alpha+\frac{a}{2}$ y $c=\frac{a^{2}}{4}-b$. ]% 10]
-        Entonces $q=\operatorname{Min}_{K}(\beta)=X^{2}-c$ y $L=K(\beta)=K(\sqrt{c})$. Como las raíces de $q$ son $\pm\beta$, si $\sigma\in \operatorname{Gal}(L/K)$ entonces $\sigma(\beta)=\pm\beta$, con lo que efectivamente $\operatorname{Gal}(L/K)$ tiene dos elementos. ]% 11]
-        (¿Seguro que tiene dos?). 
-        En particular, $\operatorname{Gal}(\mathbb{C}/\mathbb{R})$ tiene orden 2 y de hecho está formado por la identidad y la conjugación. ]% 13]
-        
-        \item Como un automorfismo de $\mathbb{R}$ ha de ser una aplicación creciente (¿por qué?), necesariamente $\operatorname{Gal}(\mathbb{R}/\mathbb{Q})=1$ y por tanto $\operatorname{Gal}(\mathbb{R}/K)=1$ para todo subcuerpo $K$ de $\mathbb{R}$ (¿por qué?). ]% 14]
-        De hecho, el único automorfismo de $\mathbb{R}$ es la identidad (¿por qué?). ]% 15]
-        
-        \item Sean $K=\mathbb{Q}(\sqrt{2},\sqrt{3})$ y $\sigma\in \operatorname{Gal}(K/\mathbb{Q})$. Entonces $\sigma(\sqrt{2})=\pm\sqrt{2}$ y $\sigma(\sqrt{3})=\pm\sqrt{3}$ y por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene a lo sumo 4 elementos. ]% 16]
-        De hecho $\operatorname{Gal}(K/\mathbb{Q})$ tiene exactamente cuatro elementos. En efecto, en el Ejemplo (2) hemos visto que $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene 2 elementos. ]% 17]
-        Por otro lado $\sqrt{3}\notin\mathbb{Q}(\sqrt{2})$ (ver Ejercicio 1.11 del Capítulo 1). ]% 18]
-        Por tanto, $K/\mathbb{Q}(\sqrt{2})$ es una extensión separable (¿por qué?) de grado 2, con lo que cada uno de los dos elementos de $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene dos extensiones a un homomorfismo de $K$ en una clausura algebraica de $K$ que, como además $K/\mathbb{Q}$ es normal (¿por qué?), estas dos extensiones son elementos de $\operatorname{Gal}(K/\mathbb{Q})$. Por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene cuatro elementos: $\sigma_{++}, \sigma_{+-}, \sigma_{-+}, \sigma_{--}$ dados por $\sigma_{ab}(\sqrt{2})=a\sqrt{2}$ y $\sigma_{ab}(\sqrt{3})=b\sqrt{3}$. ]% 19]
-        
-        \item Sea $\xi$ una raíz $n$-ésima primitiva de la unidad y sea $L=K(\xi)/K$ una extensión ciclotómica. ]% 20]
-        Si $\sigma\in \operatorname{Gal}(L/K)$, entonces $\sigma(\xi)=\xi^{i}$ para algún entero $i$ coprimo con $n$, y $\sigma$ está completamente determinada por el resto de $i$ módulo $n$. ]% 21]
-        Por tanto, tenemos una aplicación $\psi:\operatorname{Gal}(L/K)\rightarrow\mathbb{Z}_{n}^{*}$ que asocia $\sigma\in \operatorname{Gal}(L/K)$ con la única clase en $\mathbb{Z}_{n}^{*}$ que contiene a $i$ (con $\sigma(\xi)=\xi^{i}$). ]% 22]
-        Entonces % 23, 24, 25, 26] 
-        es un homomorfismo inyectivo de grupos (comprobarlo) y por tanto $\operatorname{Gal}(L/K)$ es isomorfo a un subgrupo de $\mathbb{Z}_{n}^{*}$. En particular, el grupo de Galois de toda extensión ciclotómica es abeliano. ]% 27]
-        Si además $K=\mathbb{Q}$, entonces $\operatorname{Min}_{\mathbb{Q}}(\xi)=\Phi_{n}$, el $n$-ésimo polinomio ciclotómico (Teorema 3.9). ]% 28]
-        Por tanto, para cada $i$ coprimo con $n$ existe un elemento $\sigma\in \operatorname{Gal}(L=\mathbb{Q}(\xi)/\mathbb{Q})$ con $\sigma(\xi)=\xi^{i}$. En otras palabras, $\operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ es isomorfo a $\mathbb{Z}_{n}^{*}$ y un isomorfismo $\tau:\mathbb{Z}_{n}^{*}\rightarrow \operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ viene dado asociando $i\in\mathbb{Z}_{n}^{*}$ con el único automorfismo $\tau_{i}$ de $\mathbb{Q}(\xi)$ tal que $\tau_{i}(\xi)=\xi^{i}$. ]% 29]
-    \end{enumerate}
+    Claramente $\operatorname{Gal}(K/K)=1$, pero no son éstas las únicas extensiones con grupo de Galois trivial. %
+    Por ejemplo, si $a$ es un número racional positivo que no es el cubo de un número racional, entonces $p=X^{3}-a$ es irreducible en $\mathbb{Q}[X]$. %
+    Las raíces de $p$ son $\alpha=\sqrt[3]{a}$, $\omega\alpha$ y $\omega^{2}\alpha$, donde $\omega$ es una raíz tercera primitiva de la unidad. %
+    Como $\omega$ no es un número real, la única raíz de $p$ que pertenece a $K(\alpha)$ es $\alpha$ y por tanto $\operatorname{Gal}(K(\alpha)/K)=1$ (¿por qué?). %
 \end{ejemplo}
 
-Obsérvese que si $\phi:L\rightarrow L^{*}$ es un $K$-isomorfismo, entonces la aplicación $\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(L^{*}/K)$ dada por $\sigma\mapsto\phi\sigma\phi^{-1}$ es un isomorfismo. ]% 30]
+\begin{observacion}{Justificación del Ejemplo 1}
+    Cualquier $K$-automorfismo $\sigma \in \operatorname{Gal}(K(\alpha)/K)$ está completamente determinado por la imagen del generador de la extensión, es decir, por $\sigma(\alpha)$. %
+    Además, los homomorfismos de cuerpos preservan las raíces de los polinomios con coeficientes en el cuerpo base. Como $\alpha$ es raíz de $p \in K[X]$, su imagen $\sigma(\alpha)$ debe ser obligatoriamente otra raíz de $p$. %
+    
+    Por tanto, las únicas opciones teóricas son $\sigma(\alpha) \in \{\alpha, \omega\alpha, \omega^2\alpha\}$. %
+    Sin embargo, $\sigma$ es un endomorfismo de $K(\alpha)$, lo que exige que $\sigma(\alpha) \in K(\alpha)$. Dado que $a > 0$ es racional, podemos considerar $K(\alpha) \subset \mathbb{R}$. Como $\omega = -\frac{1}{2} + i\frac{\sqrt{3}}{2} \notin \mathbb{R}$, se sigue que $\omega\alpha \notin \mathbb{R}$ y $\omega^2\alpha \notin \mathbb{R}$, por lo que ninguna de estas dos raíces pertenece a $K(\alpha)$. %
+    La única asignación bien definida y posible es $\sigma(\alpha) = \alpha$, lo que implica que $\sigma$ es la aplicación identidad. %
+\end{observacion}
 
-Si $L/K$ es una extensión algebraica y $\overline{L}$ una clausura algebraica de $L$, entonces podemos ver cada elemento de $\operatorname{Gal}(L/K)$ como un elemento de $S_{1}^{L}=\{\sigma:L\rightarrow\overline{L} \mid \sigma|_{K}=1_{K}\}$. ]% 31]
-]Por tanto de la Proposición 4.9 deducimos: % 32]
+\begin{ejemplo}{}
+    Si $L/K$ es una extensión de grado 2 y $\operatorname{car}(K)\ne 2$, entonces $\operatorname{Gal}(L/K)$ tiene dos elementos. %
+    En efecto, si $\alpha\in L\setminus K$, entonces $L=K(\alpha)$ y por tanto $p=\operatorname{Min}_{K}(\alpha)$ tiene grado 2. Pongamos $p=X^{2}+aX+b=\left(X+\frac{a}{2}\right)^{2}+b-\frac{a^2}{4}$ y sean $\beta=\alpha+\frac{a}{2}$ y $c=\frac{a^{2}}{4}-b$. %
+    Entonces $q=\operatorname{Min}_{K}(\beta)=X^{2}-c$ y $L=K(\beta)=K(\sqrt{c})$. Como las raíces de $q$ son $\pm\beta$, si $\sigma\in \operatorname{Gal}(L/K)$ entonces $\sigma(\beta)=\pm\beta$, con lo que efectivamente $\operatorname{Gal}(L/K)$ tiene dos elementos. %
+    (¿Seguro que tiene dos?). %
+    En particular, $\operatorname{Gal}(\mathbb{C}/\mathbb{R})$ tiene orden 2 y de hecho está formado por la identidad y la conjugación. %
+\end{ejemplo}
+
+\begin{observacion}{Justificación del Ejemplo 2}
+    Para asegurar que efectivamente tiene \textit{exactamente} dos elementos, debemos garantizar que las dos opciones teóricas ($\sigma(\beta) = \beta$ y $\sigma(\beta) = -\beta$) generan automorfismos distintos y bien definidos. %
+    
+    Primero, comprobamos que son distintos: como $\operatorname{car}(K) \neq 2$, se cumple que $2\beta \neq 0$ (ya que $\beta \notin K \implies \beta \neq 0$), por lo que $\beta \neq -\beta$. %
+    Segundo, comprobamos que ambas opciones dan lugar a automorfismos válidos: $L$ es el cuerpo de escisión del polinomio $X^2-c$ sobre $K$. Al ser irreducible y tener raíces simples (es separable por ser de característica distinta de 2), la teoría elemental de extensiones asegura que por cada raíz en el cuerpo de escisión existe un $K$-automorfismo que envía el generador a dicha raíz. Por consiguiente, existe el automorfismo identidad ($\beta \mapsto \beta$) y un automorfismo no trivial ($\beta \mapsto -\beta$), formando un grupo de Galois de orden 2. %
+\end{observacion}
+
+\begin{ejemplo}{}
+    Como un automorfismo de $\mathbb{R}$ ha de ser una aplicación creciente (¿por qué?), necesariamente $\operatorname{Gal}(\mathbb{R}/\mathbb{Q})=1$ y por tanto $\operatorname{Gal}(\mathbb{R}/K)=1$ para todo subcuerpo $K$ de $\mathbb{R}$ (¿por qué?). %
+    De hecho, el único automorfismo de $\mathbb{R}$ es la identidad (¿por qué?). %
+\end{ejemplo}
+
+\begin{observacion}{Justificación del Ejemplo 3}
+    Vamos a responder a las tres preguntas secuencialmente: %
+    \begin{enumerate}
+        \item \textbf{¿Por qué ha de ser creciente?} Sea $\sigma \in \operatorname{Aut}(\mathbb{R})$. Todo número real positivo $x > 0$ admite una raíz cuadrada real, es decir, $x = (\sqrt{x})^2$. Al aplicar $\sigma$, obtenemos $\sigma(x) = \sigma((\sqrt{x})^2) = (\sigma(\sqrt{x}))^2$. Un cuadrado en $\mathbb{R}$ es siempre positivo o cero. Como $\sigma$ es un automorfismo (y por tanto inyectivo, enviando $0 \mapsto 0$), para $x > 0$ se tiene estrictamente que $\sigma(x) > 0$. %
+        Si tomamos $a < b$, entonces $b - a > 0$. Por la propiedad anterior, $\sigma(b-a) > 0$, y por linealidad $\sigma(b) - \sigma(a) > 0$, lo que implica $\sigma(a) < \sigma(b)$. Por lo tanto, $\sigma$ preserva el orden estrictamente.
+        
+        \item \textbf{¿Por qué el único automorfismo es la identidad?} Sabemos que todo automorfismo fija el cuerpo primo; por tanto, $\sigma(q) = q$ para todo $q \in \mathbb{Q}$. %
+        Sea $x \in \mathbb{R}$ un número irracional. Por la densidad de $\mathbb{Q}$ en $\mathbb{R}$, podemos acotarlo entre dos sucesiones de racionales tales que $q_1 < x < q_2$. Dado que $\sigma$ es creciente (como demostramos arriba), preserva estas desigualdades: $\sigma(q_1) < \sigma(x) < \sigma(q_2)$. %
+        Como $\sigma$ fija los racionales, esto se traduce en $q_1 < \sigma(x) < q_2$. Al tomar el límite cuando $q_1$ y $q_2$ tienden a $x$, por el Teorema del Sandwich (o encaje de intervalos), obtenemos forzosamente que $\sigma(x) = x$. Por tanto, $\sigma$ es la identidad en todo $\mathbb{R}$.
+        
+        \item \textbf{¿Por qué $\operatorname{Gal}(\mathbb{R}/K)=1$?} El grupo $\operatorname{Gal}(\mathbb{R}/K)$ está formado por los automorfismos de $\mathbb{R}$ que fijan $K$. Pero acabamos de demostrar que el único automorfismo general de $\mathbb{R}$ (es decir, el único elemento de $\operatorname{Aut}(\mathbb{R})$) es la identidad. Por tanto, exijamos que fije $K$ o que fije $\mathbb{Q}$, el único candidato posible sigue siendo la aplicación identidad. %
+    \end{enumerate}
+\end{observacion}
+
+\begin{ejemplo}{}
+    Sean $K=\mathbb{Q}(\sqrt{2},\sqrt{3})$ y $\sigma\in \operatorname{Gal}(K/\mathbb{Q})$. Entonces $\sigma(\sqrt{2})=\pm\sqrt{2}$ y $\sigma(\sqrt{3})=\pm\sqrt{3}$ y por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene a lo sumo 4 elementos. %
+    De hecho $\operatorname{Gal}(K/\mathbb{Q})$ tiene exactamente cuatro elementos. En efecto, en el Ejemplo (2) hemos visto que $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene 2 elementos. %
+    Por otro lado $\sqrt{3}\notin\mathbb{Q}(\sqrt{2})$ (ver Ejercicio 1.11 del Capítulo 1). %
+    Por tanto, $K/\mathbb{Q}(\sqrt{2})$ es una extensión separable (¿por qué?) de grado 2, con lo que cada uno de los dos elementos de $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene dos extensiones a un homomorfismo de $K$ en una clausura algebraica de $K$ que, como además $K/\mathbb{Q}$ es normal (¿por qué?), estas dos extensiones son elementos de $\operatorname{Gal}(K/\mathbb{Q})$. %
+    Por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene cuatro elementos: $\sigma_{++}, \sigma_{+-}, \sigma_{-+}, \sigma_{--}$ dados por $\sigma_{ab}(\sqrt{2})=a\sqrt{2}$ y $\sigma_{ab}(\sqrt{3})=b\sqrt{3}$. %
+\end{ejemplo}
+
+\begin{observacion}{Justificación del Ejemplo 4}
+    \begin{enumerate}
+        \item \textbf{¿Por qué $K/\mathbb{Q}(\sqrt{2})$ es separable?} Esta extensión se obtiene adjuntando $\sqrt{3}$, cuyo polinomio mínimo sobre $\mathbb{Q}(\sqrt{2})$ es divisor de $X^2-3$. Estamos trabajando sobre una extensión de $\mathbb{Q}$, lo que significa que el cuerpo base tiene característica cero. Todo polinomio irreducible sobre un cuerpo de característica cero es separable (sus derivadas formales nunca son nulas), por lo que toda extensión algebraica en característica cero es automáticamente separable. %
+        \item \textbf{¿Por qué $K/\mathbb{Q}$ es normal?} Una extensión finita es normal si y solo si es el cuerpo de escisión de algún polinomio sobre el cuerpo base. En este caso, $K = \mathbb{Q}(\sqrt{2},\sqrt{3})$ contiene todas las raíces del polinomio $f(X) = (X^2-2)(X^2-3) \in \mathbb{Q}[X]$, y de hecho es generado por ellas. Al ser cuerpo de escisión, la extensión es normal. %
+    \end{enumerate}
+\end{observacion}
+
+\begin{ejemplo}{}
+    Sea $\xi$ una raíz $n$-ésima primitiva de la unidad y sea $L=K(\xi)/K$ una extensión ciclotómica. %
+    Si $\sigma\in \operatorname{Gal}(L/K)$, entonces $\sigma(\xi)=\xi^{i}$ para algún entero $i$ coprimo con $n$, y $\sigma$ está completamente determinada por el resto de $i$ módulo $n$. %
+    Por tanto, tenemos una aplicación $\psi:\operatorname{Gal}(L/K)\rightarrow\mathbb{Z}_{n}^{*}$ que asocia $\sigma\in \operatorname{Gal}(L/K)$ con la única clase en $\mathbb{Z}_{n}^{*}$ que contiene a $i$ (con $\sigma(\xi)=\xi^{i}$). %
+    Entonces $\psi$ es un homomorfismo inyectivo de grupos (comprobarlo) y por tanto $\operatorname{Gal}(L/K)$ es isomorfo a un subgrupo de $\mathbb{Z}_{n}^{*}$. En particular, el grupo de Galois de toda extensión ciclotómica es abeliano. %
+    Si además $K=\mathbb{Q}$, entonces $\operatorname{Min}_{\mathbb{Q}}(\xi)=\Phi_{n}$, el $n$-ésimo polinomio ciclotómico (Teorema 3.9). %
+    Por tanto, para cada $i$ coprimo con $n$ existe un elemento $\sigma\in \operatorname{Gal}(L=\mathbb{Q}(\xi)/\mathbb{Q})$ con $\sigma(\xi)=\xi^{i}$. En otras palabras, $\operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ es isomorfo a $\mathbb{Z}_{n}^{*}$ y un isomorfismo $\tau:\mathbb{Z}_{n}^{*}\rightarrow \operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ viene dado asociando $i\in\mathbb{Z}_{n}^{*}$ con el único automorfismo $\tau_{i}$ de $\mathbb{Q}(\xi)$ tal que $\tau_{i}(\xi)=\xi^{i}$. %
+\end{ejemplo}
+
+\begin{observacion}{Justificación del Ejemplo 5}
+    \textbf{Comprobación de que $\psi$ es un homomorfismo inyectivo:} %
+    
+    Primero, veamos que respeta la operación del grupo (la composición). Sean $\sigma, \tau \in \operatorname{Gal}(L/K)$. Supongamos que $\psi(\sigma) = [i]$ y $\psi(\tau) = [j]$, lo que significa por definición que $\sigma(\xi) = \xi^i$ y $\tau(\xi) = \xi^j$. %
+    Calculemos la imagen de $\xi$ bajo la composición $\sigma \circ \tau$:
+    $$(\sigma \circ \tau)(\xi) = \sigma(\tau(\xi)) = \sigma(\xi^j)$$
+    Como $\sigma$ es un homomorfismo de cuerpos, preserva los exponentes:
+    $$\sigma(\xi^j) = (\sigma(\xi))^j = (\xi^i)^j = \xi^{ij}$$
+    Esto nos dice que el automorfismo composición $\sigma \circ \tau$ eleva $\xi$ a la potencia $ij$. Por tanto, $\psi(\sigma \circ \tau) = [ij] = [i][j] = \psi(\sigma)\psi(\tau)$ en el grupo multiplicativo $\mathbb{Z}_{n}^{*}$. Esto demuestra que $\psi$ es un homomorfismo. %
+    
+    Segundo, evaluemos la inyectividad estudiando el núcleo. Supongamos que $\sigma \in \ker(\psi)$. Esto significa que $\psi(\sigma)$ es el elemento neutro de $\mathbb{Z}_{n}^{*}$, es decir, la clase $[1]$. Entonces, $\sigma(\xi) = \xi^1 = \xi$. %
+    Dado que el cuerpo $L = K(\xi)$ está generado en su totalidad por $\xi$ y los elementos de $K$ (los cuales todo automorfismo de Galois deja fijos por definición), si un automorfismo deja fijo al generador $\xi$, obligatoriamente deja fijo a todo elemento de $L$. Luego $\sigma = \operatorname{id}_L$. Al ser su núcleo trivial, $\psi$ es inyectiva. %
+\end{observacion}
+
+\begin{observacion}{Isomorfismos de grupos de Galois}
+    Obsérvese que si $\phi:L\rightarrow L^{*}$ es un $K$-isomorfismo, entonces la aplicación $\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(L^{*}/K)$ dada por $\sigma\mapsto\phi\sigma\phi^{-1}$ es un isomorfismo. % 30]
+\end{observacion}
+
+Si $L/K$ es una extensión algebraica y $\overline{L}$ una clausura algebraica de $L$, entonces podemos ver cada elemento de $\operatorname{Gal}(L/K)$ como un elemento de $S_{1}^{L}=\{\sigma:L\rightarrow\overline{L} \mid \sigma|_{K}=1_{K}\}$.
+Por tanto de la Proposición 4.9 deducimos: % 32]
 
 \begin{proposicion}{}
-    Si $L/K$ es una extensión finita entonces $|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$. ]% 33]
+    Si $L/K$ es una extensión finita entonces $|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$. % 33]
 \end{proposicion}
 
-Recordemos que $\operatorname{Sub}(L/K)$ denota el conjunto de las subextensiones de $L/K$. ]% 34]
-Si $G$ es un grupo, entonces vamos a denotar por $\operatorname{Sub}(G)$ al conjunto de todos los subgrupos de $G$ y si $H$ es un subgrupo de $G$, entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que contienen a $H$. En realidad esta última notación es ambigua pues si $N$ es un subgrupo normal de $G$, entonces $\operatorname{Sub}(G/N)$ tiene dos significados: el conjunto de los subgrupos de $G$ que contienen a $N$ y el conjunto de los subgrupos del cociente $G/N$. El Teorema de la Correspondencia (Teorema 5.4 de GyA) nos muestra que esta ambigüedad no es muy grave. ]% 35]
+Recordemos que $\operatorname{Sub}(L/K)$ denota el conjunto de las subextensiones de $L/K$. % 34]
+Si $G$ es un grupo, entonces vamos a denotar por $\operatorname{Sub}(G)$ al conjunto de todos los subgrupos de $G$ y si $H$ es un subgrupo de $G$, 
+entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que contienen a $H$. En realidad esta última notación es ambigua pues si $N$ es un subgrupo normal de $G$, entonces $\operatorname{Sub}(G/N)$ tiene dos significados: el conjunto de los subgrupos de $G$ que contienen a $N$ y el conjunto de los subgrupos del cociente $G/N$. El Teorema de la Correspondencia (Teorema 5.4 de GyA) nos muestra que esta ambigüedad no es muy grave. % 35]
 
-Consideramos $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G/H)$ como conjuntos ordenados por la inclusión. Una aplicación $f:(A,\le)\rightarrow(B,\le)$ entre conjuntos ordenados se dice que es un homomorfismo de conjuntos ordenados si conserva el orden, es decir, si para cada $x, y\in A$ tales que $x\le y$ se verifica que $f(x)\le f(y)$ y se dice que es un anti-homomorfismo de conjuntos ordenados si $f(x)\ge f(y)$ para todo $x, y\in A$ con $x\le y$. ]% 36]
+Consideramos $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G/H)$ como conjuntos ordenados por la inclusión. Una aplicación $f:(A,\le)\rightarrow(B,\le)$ entre conjuntos ordenados se dice que es un homomorfismo de conjuntos ordenados si conserva el orden, es decir, si para cada $x, y\in A$ tales que $x\le y$ se verifica que $f(x)\le f(y)$ y se dice que es un anti-homomorfismo de conjuntos ordenados si $f(x)\ge f(y)$ para todo $x, y\in A$ con $x\le y$. % 36]
 
 Si $L/K$ es una extensión de cuerpos entonces tenemos dos aplicaciones: % 37]
 \begin{align*}
     (-)^{\circ} &= \operatorname{Gal}(L/-) \colon \operatorname{Sub}(L/K) \longrightarrow \operatorname{Sub}(\operatorname{Gal}(L/K)) \\
     (-)^{\circ} &= L^{(-)} \colon \operatorname{Sub}(\operatorname{Gal}(L/K)) \longrightarrow \operatorname{Sub}(L/K)
-]\end{align*} % 38]
+\end{align*} % 38]
 La aplicación que va para la derecha asocia $F\in \operatorname{Sub}(L/K)$ con 
-]$$F^{\circ}=\operatorname{Gal}(L/F)=\{\sigma\in \operatorname{Gal}(L/K) \mid \sigma(x)=x \text{ para todo } x\in F\}$$ % 39, 40]
+$$F^{\circ}=\operatorname{Gal}(L/F)=\{\sigma\in \operatorname{Gal}(L/K) \mid \sigma(x)=x \text{ para todo } x\in F\}$$ % 39, 40]
 y la que va para la izquierda asocia $H\in \operatorname{Sub}(\operatorname{Gal}(L/K))$ con
-]$$H^{\circ}=L^{H}=\{a\in L \mid \sigma(a)=a \text{ para todo } \sigma\in H\}.$$ % 41, 42]
+$$H^{\circ}=L^{H}=\{a\in L \mid \sigma(a)=a \text{ para todo } \sigma\in H\}.$$ % 41, 42]
 
-El par formado por estas aplicaciones se llama correspondencia de Galois de la extensión $L/K$. Veamos algunas propiedades de la correspondencia de Galois. ]% 43]
+El par formado por estas aplicaciones se llama correspondencia de Galois de la extensión $L/K$. Veamos algunas propiedades de la correspondencia de Galois. % 43]
 
-Recordemos que tanto la unidad de un anillo, como el neutro de un grupo o el subgrupo trivial del grupo lo denotamos siempre como $1$. Por el contexto no debería haber confusión. ]% 44]
-En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operatorname{Gal}(L/K)$. ]% 45]
+Recordemos que tanto la unidad de un anillo, como el neutro de un grupo o el subgrupo trivial del grupo lo denotamos siempre como $1$. Por el contexto no debería haber confusión. % 44]
+En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operatorname{Gal}(L/K)$. % 45]
 
 \begin{proposicion}{}
     Sea $L/K$ una extensión de cuerpos y sea $G=\operatorname{Gal}(L/K)$. ]La correspondencia de Galois $(-)^{\circ}:\operatorname{Sub}(L/K)\rightleftharpoons \operatorname{Sub}(G)$ satisface las siguientes propiedades, donde $X$ e $Y$ son ambos subextensiones de $L/K$ o ambos subgrupos de $G$: % 46]
