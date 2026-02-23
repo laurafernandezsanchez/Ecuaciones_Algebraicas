@@ -371,7 +371,7 @@ El siguiente teorema caracteriza las extensiones de Galois. % 8]
 
 \begin{teorema}{Condiciones equivalentes para una extensión de Galois} % 10]
     Las siguientes condiciones son equivalentes para una extensión de cuerpos $L/K$ con $G=\operatorname{Gal}(L/K)$: % 10]
-    \begin{enumerate}[label=(1)]
+    \begin{enumerate}
         \item $L/K$ es una extensión de Galois. % 11]
         \item $L/E$ es una extensión de Galois para todo $E\in \operatorname{Sub}(L/K)$. % 12]
         \item $L/K$ es algebraica y toda subextensión de $L/K$ es cerrada. % 13]
@@ -403,7 +403,7 @@ La siguiente proposición muestra criterios para decidir si una extensión es de
 
 \begin{proposicion}{Criterios para una extensión de Galois finita} 
     Las siguientes condiciones son equivalentes para una extensión finita $L/K$: 
-    \begin{enumerate}[label=(1)]
+    \begin{enumerate}
         \item $L/K$ es una extensión de Galois. 
         \item $[L:K]=|\operatorname{Gal}(L/K)|$. 
         \item $[L:E]=|\operatorname{Gal}(L/E)|$ para todo $E\in \operatorname{Sub}(L/K)$. 
@@ -438,7 +438,8 @@ La siguiente proposición muestra criterios para decidir si una extensión es de
     (2) Es consecuencia de la Proposición 5.6. 
 \end{proof}
 
-Si $K\subseteq E\subseteq L$ es una torre de cuerpos y $\sigma\in \operatorname{Gal}(L/K)$, entonces $\operatorname{Res}_{E}^{L}(\sigma)$ denota la restricción de $\sigma$ a $E$. En principio $\operatorname{Res}_{E}^{L}(\sigma)$ es un $K$-homomorfismo de $E$ en $L$, pero si $E/K$ es normal entonces $\sigma\in \operatorname{Gal}(E/K)$. % 48]
+Si $K\subseteq E\subseteq L$ es una torre de cuerpos y $\sigma\in \operatorname{Gal}(L/K)$, entonces $\operatorname{Res}_{E}^{L}(\sigma)$ denota la restricción de $\sigma$ a $E$. 
+En principio $\operatorname{Res}_{E}^{L}(\sigma)$ es un $K$-homomorfismo de $E$ en $L$, pero si $E/K$ es normal entonces $\sigma\in \operatorname{Gal}(E/K)$. % 48]
 Eso es lo que pasa en las condiciones de la siguiente proposición y está claro que en tal caso $\operatorname{Res}_{E}^{L}:\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(E/K)$ es un homomorfismo de grupos. % 49]
 
 \begin{proposicion}{Condiciones equivalentes para una extensión de Galois} % 50]
@@ -484,28 +485,38 @@ En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfi
 \end{teorema}
 
 \begin{proof}
-    Como $L/K$ es de Galois, del Teorema 5.10 se deduce que $L/L\cap E$ también es de Galois y de la Proposición 5.9 que lo es $LE/E$76]. Que la primera es finita es obvio y que lo sea la segunda es consecuencia de la Proposición 1.1876].
+    Como $L/K$ es de Galois, del Teorema 5.10 se deduce que $L/L\cap E$ también es de Galois y de la Proposición 5.9 que lo es $LE/E$. Que la primera es finita es obvio y que lo sea la segunda es consecuencia de la Proposición 1.18.
     
     Sea $f=\operatorname{Res}_{L}^{LE}$7. Que $f$ es inyectiva es obvio ya que un elemento del núcleo es un automorfismo $\sigma$ de $LE$ que verifica $\sigma(x)=x$ para todo $x\in L$ y todo $x\in E$7.
     
-    Para ver que $f$ es suprayectiva ponemos $H=\operatorname{Im} f\subseteq \operatorname{Gal}(L/L\cap E)$78]. Entonces $L\cap E=(L\cap E)^{\circ\circ}=\operatorname{Gal}(L/L\cap E)^{\circ}\subseteq H^{\circ}$78]. Sea $\alpha\in H^{\circ}$78]. Entonces para todo $\sigma\in \operatorname{Gal}(LE/E)$ se verifica $\sigma(\alpha)=f(\sigma)(\alpha)=\alpha$, pues $f(\sigma)\in H$79]. Esto demuestra que $\alpha\in \operatorname{Gal}(LE/E)^{\circ}=E^{\circ\circ}=E$, pues $LE/E$ es de Galois79]. Como esto se verifica para cada $\alpha\in H^{\circ}$ y $H^{\circ}\subseteq L$ deducimos que $H^{\circ}\subseteq L\cap E=(L\cap E)^{\circ\circ}$80]. Por tanto, $H^{\circ}=(L\cap E)^{\circ\circ}$80]. Como $L/L\cap E$ es de Galois, concluimos que $\operatorname{Im} f=H=(L\cap E)^{\circ\circ\circ}=\operatorname{Gal}(L/L\cap E)$, o sea $f$ es suprayectiva80].
+    Para ver que $f$ es suprayectiva ponemos $H=\operatorname{Im} f\subseteq \operatorname{Gal}(L/L\cap E)$. Entonces $L\cap E=(L\cap E)^{\circ\circ}=\operatorname{Gal}(L/L\cap E)^{\circ}\subseteq H^{\circ}$. 
+    Sea $\alpha\in H^{\circ}$. Entonces para todo $\sigma\in \operatorname{Gal}(LE/E)$ se verifica $\sigma(\alpha)=f(\sigma)(\alpha)=\alpha$, pues $f(\sigma)\in H$. Esto demuestra que $\alpha\in \operatorname{Gal}(LE/E)^{\circ}=E^{\circ\circ}=E$, pues $LE/E$ es de Galois.
+     Como esto se verifica para cada $\alpha\in H^{\circ}$ y $H^{\circ}\subseteq L$ deducimos que $H^{\circ}\subseteq L\cap E=(L\cap E)^{\circ\circ}$. Por tanto, $H^{\circ}=(L\cap E)^{\circ\circ}$. Como $L/L\cap E$ es de Galois, concluimos que $\operatorname{Im} f=H=(L\cap E)^{\circ\circ\circ}=\operatorname{Gal}(L/L\cap E)$, o sea $f$ es suprayectiva.
 \end{proof}
 \subsection{Ejemplo tocho}
-    Vamos a calcular los subcuerpos del cuerpo de escisión $F$ del polinomio $X^{5}-p$, donde $p$ es un número primo, y cuáles son normales sobre $\mathbb{Q}$83].
+    Vamos a calcular los subcuerpos del cuerpo de escisión $F$ del polinomio $X^{5}-p$, donde $p$ es un número primo, y cuáles son normales sobre $\mathbb{Q}$.
     
-    Los subcuerpos de $F$ son precisamente las subextensiones de $F/\mathbb{Q}$84]. Por el Teorema Fundamental de la Teoría de Galois (Teorema 5.12) dichos cuerpos están en correspondencia biunívoca con los subgrupos de $G=\operatorname{Gal}(F/\mathbb{Q})$ y los normales son los que corresponden con subgrupos normales de $G$84]. Sea $\alpha=\sqrt[5]{p}$.
+    Los subcuerpos de $F$ son precisamente las subextensiones de $F/\mathbb{Q}$.
+     Por el Teorema Fundamental de la Teoría de Galois (Teorema 5.12) dichos cuerpos están en correspondencia biunívoca con los subgrupos de $G=\operatorname{Gal}(F/\mathbb{Q})$ y los normales son los que corresponden con subgrupos normales de $G$. Sea $\alpha=\sqrt[5]{p}$.
     
-    Entonces $F=\mathbb{Q}(\alpha,\zeta_{5})$. Además, $[\mathbb{Q}(\alpha):\mathbb{Q}]=5$ y $[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=\varphi(5)=4$85]. Por tanto $[F:\mathbb{Q}]$ es al menos 2085]. Por otro lado $[F:\mathbb{Q}(\alpha)]\le[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=4$ y por tanto $[F:\mathbb{Q}]=[F:\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}]\le 20$. Luego $|G|=[F:\mathbb{Q}]=20$86]. Además $G$ contiene a $\operatorname{Gal}(F/\mathbb{Q}(\alpha))$ y a $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ que serán dos subgrupos de órdenes 4 y 5 respectivamente.
+    Entonces $F=\mathbb{Q}(\alpha,\zeta_{5})$. Además, $[\mathbb{Q}(\alpha):\mathbb{Q}]=5$ y $[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=\varphi(5)=4$. Por tanto $[F:\mathbb{Q}]$ es al menos 20. Por otro lado $[F:\mathbb{Q}(\alpha)]\le[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=4$ y por tanto $[F:\mathbb{Q}]=[F:\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}]\le 20$. 
+    Luego $|G|=[F:\mathbb{Q}]=20$. Además $G$ contiene a $\operatorname{Gal}(F/\mathbb{Q}(\alpha))$ y a $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ que serán dos subgrupos de órdenes 4 y 5 respectivamente.
     
-    Por el Teorema de las Irracionalidades Accesorias (Teorema 5.14), $\operatorname{Res}_{\mathbb{Q}(\zeta_{5})}^{F}:\operatorname{Gal}(F/\mathbb{Q}(\alpha))\rightarrow \operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ es un isomorfismo8. Usando el isomorfismo entre $\operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ y $\mathbb{Z}_{5}^{*}$ (Problema (3.15)) deducimos que $\operatorname{Gal}(F/\mathbb{Q}(\alpha))=\langle\tau\rangle$ con $\tau(\zeta_{5})=\zeta_{5}^{2}$. Por otro lado tenemos otro elemento $\sigma\in \operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ con $\sigma(\alpha)=\zeta_{5}\alpha$ y claramente $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))=\langle\sigma\rangle$.
+    Por el Teorema de las Irracionalidades Accesorias (Teorema 5.14), $\operatorname{Res}_{\mathbb{Q}(\zeta_{5})}^{F}:\operatorname{Gal}(F/\mathbb{Q}(\alpha))\rightarrow \operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ es un isomorfismo8. Usando el isomorfismo entre $\operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ y $\mathbb{Z}_{5}^{*}$ (Problema (3.15)) deducimos que $\operatorname{Gal}(F/\mathbb{Q}(\alpha))=\langle\tau\rangle$ con $\tau(\zeta_{5})=\zeta_{5}^{2}$. 
+    Por otro lado tenemos otro elemento $\sigma\in \operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ con $\sigma(\alpha)=\zeta_{5}\alpha$ y claramente $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))=\langle\sigma\rangle$.
     
-    Por otro lado, como $\mathbb{Q}(\zeta_{5})/\mathbb{Q}$ es de Galois pero $\mathbb{Q}(\alpha)/\mathbb{Q}$ no lo es, deducimos que $\langle\sigma\rangle$ es normal en $G$ pero $\langle\tau\rangle$ no es normal en $G$. Por tanto $\tau\sigma\tau^{-1}=\sigma^{i}$ para algún $i\in\{2,3,4\}$. De hecho $i=2$ pues $\tau\sigma\tau^{-1}(\alpha)=\tau\sigma(\alpha)=\tau(\zeta_{5}\alpha)=\zeta_{5}^{2}\alpha=\sigma^{2}(\alpha)$. Por tanto, todos los elementos de $G$ tienen una única forma $\sigma^{i}\tau^{j}$ con $0\le i\le 4$ y $0\le j\le 3$.
+    Por otro lado, como $\mathbb{Q}(\zeta_{5})/\mathbb{Q}$ es de Galois pero $\mathbb{Q}(\alpha)/\mathbb{Q}$ no lo es, deducimos que $\langle\sigma\rangle$ es normal en $G$ pero $\langle\tau\rangle$ no es normal en $G$. Por tanto $\tau\sigma\tau^{-1}=\sigma^{i}$ para algún $i\in\{2,3,4\}$. 
+    De hecho $i=2$ pues $\tau\sigma\tau^{-1}(\alpha)=\tau\sigma(\alpha)=\tau(\zeta_{5}\alpha)=\zeta_{5}^{2}\alpha=\sigma^{2}(\alpha)$. Por tanto, todos los elementos de $G$ tienen una única forma $\sigma^{i}\tau^{j}$ con $0\le i\le 4$ y $0\le j\le 3$.
     
-    Vamos a calcular los subgrupos cíclicos. Ya tenemos tres: $1$, $\langle\sigma\rangle$ y $\langle\tau\rangle$, que tienen orden 1, 5 y 4, respectivamente. Todos los elementos de la forma $\sigma^{i}$ generan $\langle\sigma\rangle$ y $\tau$ y $\tau^{-1}$ generan $\langle\tau\rangle$. Otro subgrupo cíclico más será $\langle\tau^{2}\rangle$92]. Este último tiene orden 2. Solo nos falta calcular los subgrupos cíclicos generados por los elementos de la forma $\sigma^{i}\tau^{j}$ con $1\le i\le 4$ y $1\le j\le 3$.
+    Vamos a calcular los subgrupos cíclicos. Ya tenemos tres: $1$, $\langle\sigma\rangle$ y $\langle\tau\rangle$, que tienen orden 1, 5 y 4, respectivamente. Todos los elementos de la forma $\sigma^{i}$ generan $\langle\sigma\rangle$ y $\tau$ y $\tau^{-1}$ generan $\langle\tau\rangle$. Otro subgrupo cíclico más será $\langle\tau^{2}\rangle$. 
+    Este último tiene orden 2. Solo nos falta calcular los subgrupos cíclicos generados por los elementos de la forma $\sigma^{i}\tau^{j}$ con $1\le i\le 4$ y $1\le j\le 3$.
     
-    Comenzamos con los de la forma $\sigma^{i}\tau^{2}$. De la igualdad $\tau\sigma=\sigma^{2}\tau$ observamos que $\tau^{2}\sigma=\sigma^{4}\tau^{2}=\sigma^{-1}\tau^{2}$. Por tanto, para cada $i$ tenemos que $(\sigma^{i}\tau^{2})^{2}=1$. O sea, cada $\sigma^{i}\tau^{2}$ tiene orden 2 . Esto nos proporciona cinco subgrupos de orden 2, uno de los cuales es $\langle\tau^{2}\rangle$.
+    Comenzamos con los de la forma $\sigma^{i}\tau^{2}$. De la igualdad $\tau\sigma=\sigma^{2}\tau$ observamos que $\tau^{2}\sigma=\sigma^{4}\tau^{2}=\sigma^{-1}\tau^{2}$. Por tanto, para cada $i$ tenemos que $(\sigma^{i}\tau^{2})^{2}=1$. O sea, cada $\sigma^{i}\tau^{2}$ tiene orden 2 .
+     Esto nos proporciona cinco subgrupos de orden 2, uno de los cuales es $\langle\tau^{2}\rangle$.
     
-    Por otro lado $(\sigma^{i}\tau)^{2}=\sigma^{3i}\tau^{2}$, que tiene orden 296. Por tanto, $\langle\sigma^{i}\tau\rangle$ tiene orden 4 y su único subgrupo de orden 2 es $\langle\sigma^{3i}\tau^{2}\rangle$96. Como estos últimos son distintos para los cinco valores distintos de $i$, obtenemos de esta forma cinco subgrupos cíclicos de orden 4, uno de los cuales es $\langle\tau\rangle$. Cada uno de estos subgrupos tiene dos elementos de orden 49. Más concretamente $\langle\sigma^{i}\tau\rangle$ también está generado por $(\sigma^{i}\tau)^{3}=\sigma^{i}\tau\sigma^{3i}\tau^{2}=\sigma^{2i}\tau^{3}$9. Por tanto, ya tenemos todos los subgrupos cíclicos:
+    Por otro lado $(\sigma^{i}\tau)^{2}=\sigma^{3i}\tau^{2}$, que tiene orden 296. Por tanto, $\langle\sigma^{i}\tau\rangle$ tiene orden 4 y su único subgrupo de orden 2 es $\langle\sigma^{3i}\tau^{2}\rangle$96. 
+    Como estos últimos son distintos para los cinco valores distintos de $i$, obtenemos de esta forma cinco subgrupos cíclicos de orden 4, uno de los cuales es $\langle\tau\rangle$. Cada uno de estos subgrupos tiene dos elementos de orden 49. 
+    Más concretamente $\langle\sigma^{i}\tau\rangle$ también está generado por $(\sigma^{i}\tau)^{3}=\sigma^{i}\tau\sigma^{3i}\tau^{2}=\sigma^{2i}\tau^{3}$9. Por tanto, ya tenemos todos los subgrupos cíclicos:
     \begin{itemize}
         \item De orden 1: $1$.
         \item De orden 2: $\langle\sigma^{i}\tau^{2}\rangle$ con $0\le i\le 4$.
@@ -513,14 +524,22 @@ En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfi
         \item De orden 5: $\langle\sigma\rangle$.
     \end{itemize}
     
-    Calculamos ahora los grupos generados por dos elementos $g$ y $h$. Por supuesto, si uno de ellos está en el subgrupo generado por el otro lo que obtendremos es uno de los grupos cíclicos, con lo que suponemos que $g\notin\langle h\rangle$ y $h\notin\langle g\rangle$104].
+    Calculamos ahora los grupos generados por dos elementos $g$ y $h$. Por supuesto, si uno de ellos está en el subgrupo generado por el otro lo que obtendremos es uno de los grupos cíclicos, con lo que suponemos que $g\notin\langle h\rangle$ y $h\notin\langle g\rangle$.
     
-    Supongamos primero que uno de los dos tiene orden 5. Por ejemplo, supongamos que $|g|=5$ y por tanto $h$ tiene orden 2 ó 4105]. Si $h$ tiene orden 4 entonces $\langle g,h\rangle=G$105]. Sin embargo si $h$ tiene orden 2 entonces $\langle g,h\rangle=\langle\sigma,\tau^{2}\rangle$ y como $\tau^{2}\sigma=\sigma^{-1}\tau^{2}$ tenemos que $\langle\sigma,\tau^{2}\rangle$ tiene orden 10105]. 
+    Supongamos primero que uno de los dos tiene orden 5. Por ejemplo, supongamos que $|g|=5$ y por tanto $h$ tiene orden 2 ó 4. Si $h$ tiene orden 4 entonces $\langle g,h\rangle=G$. Sin embargo si $h$ tiene orden 2 entonces $\langle g,h\rangle=\langle\sigma,\tau^{2}\rangle$ y como $\tau^{2}\sigma=\sigma^{-1}\tau^{2}$ tenemos que $\langle\sigma,\tau^{2}\rangle$ tiene orden 10. 
     
-    En los demás casos $g$ y $h$ tienen orden 2 ó 4 y vamos a ver que siempre $\langle g,h\rangle=G$105]. Si $|g|=|h|=4$ entonces podemos suponer que $g=\sigma^{i}\tau$ y $h=\sigma^{j}\tau$ con $i\ne j$105]. Por tanto, $\langle g,h\rangle$ contiene a $gh^{-1}=\sigma^{i-j}$105]. Como este elemento genera a $\langle\sigma\rangle$, tenemos que $\langle g,h\rangle=\langle\sigma,\tau\rangle=G$105]. El mismo argumento muestra que si $g$ y $h$ tienen orden 2 y son distintos, entonces generan $G$106]. Finalmente si uno tiene orden 2 y el otro 4, por ejemplo $h$, entonces $\langle g,h\rangle$ contiene a $\langle g,h^{2}\rangle$ con $g$ y $h^{2}$ distintos de orden 2 y de nuevo obtenemos que $\langle g,h\rangle=G$.
+    En los demás casos $g$ y $h$ tienen orden 2 ó 4 y vamos a ver que siempre $\langle g,h\rangle=G$. Si $|g|=|h|=4$ entonces podemos suponer que $g=\sigma^{i}\tau$ y $h=\sigma^{j}\tau$ con $i\ne j$. Por tanto, $\langle g,h\rangle$ contiene a $gh^{-1}=\sigma^{i-j}$. Como este elemento genera a $\langle\sigma\rangle$, tenemos que $\langle g,h\rangle=\langle\sigma,\tau\rangle=G$. 
+    El mismo argumento muestra que si $g$ y $h$ tienen orden 2 y son distintos, entonces generan $G$. Finalmente si uno tiene orden 2 y el otro 4, por ejemplo $h$, entonces $\langle g,h\rangle$ contiene a $\langle g,h^{2}\rangle$ con $g$ y $h^{2}$ distintos de orden 2 y de nuevo obtenemos que $\langle g,h\rangle=G$.
 
 
     El retículo de subgrupos que obtenemos es el siguiente: 
+    \begin{figure}
+    \centering
+    \includegraphics[width=1.3\linewidth]{imagenes/Diagrama1T5.png}
+    \end{figure}
+
+
+
     Dando la vuelta al diagrama obtenemos las inclusiones entre los subcuerpos de $F$. Pero antes de hacerlo vamos a calcular los cuerpos. 
     
     Claramente $G^{\circ}=\mathbb{Q}$, $1^{\circ}=F$, $\langle\sigma\rangle^{\circ}=\mathbb{Q}(\zeta_5)$, $\langle\tau\rangle^{\circ}=\mathbb{Q}(\alpha)$. 
@@ -528,16 +547,22 @@ En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfi
     Observamos que $\sigma^i\tau(\zeta_5^{-i}\alpha)=\sigma^i(\zeta_5^{-2i}\alpha)=\zeta_5^{-i}\alpha$. 
     Por tanto $\langle\sigma^i\tau\rangle^{\circ} = \mathbb{Q}(\zeta_5^{-i}\alpha)$. 
     
-    Por otro lado $\langle\sigma,\tau^2\rangle$ es el único subgrupo que tiene grado 2 sobre $\mathbb{Q}$, cuyo cuerpo fijo además está contenido en $\langle\sigma\rangle^{\circ}=\mathbb{Q}(\zeta_5)$. % [cite: 7
+    Por otro lado $\langle\sigma,\tau^2\rangle$ es el único subgrupo que tiene grado 2 sobre $\mathbb{Q}$, cuyo cuerpo fijo además está contenido en $\langle\sigma\rangle^{\circ}=\mathbb{Q}(\zeta_5)$. 
     Observando que $\beta=\zeta_5+\zeta_5^{-1}=2\cos(2\pi/5)\in\mathbb{R}$, tenemos que $\mathbb{Q}(\beta)$ está contenido en $\mathbb{Q}(\zeta_5)$. 
     Además, como $1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0$ tenemos que $\beta^2=\zeta_5^2+\zeta_5^{-2}+2=-\beta+1$, con lo que $\beta$ es raíz de $X^2+X-1$, de donde $\beta=\frac{-1+\sqrt{5}}{2}$ y por tanto $\mathbb{Q}(\beta)=\mathbb{Q}(\sqrt{5})$. % [cite: 7
     
+
+
     Por tanto $\langle\sigma,\tau^2\rangle^{\circ}=\mathbb{Q}(\sqrt{5})$.
     Ahora observamos que $\langle\sigma^{3i}\tau^2\rangle=\langle\sigma,\tau^2\rangle\cap\langle\sigma^i\tau\rangle$.
     Como la correspondencia de Galois es un anti-isomorfismo de retículos deducimos que $\langle\sigma^{3i}\tau^2\rangle^{\circ}=\langle\sigma,\tau^2\rangle^{\circ}\langle\sigma^i\tau\rangle^{\circ}=\mathbb{Q}(\sqrt{5},\zeta_5^{-i}\alpha)$. % [cite: 78]
     
     Por tanto el retículo de subcuerpos es el siguiente: 
-
+    
+    \begin{figure}
+    \centering
+    \includegraphics[width=1.3\linewidth]{imagenes/Diagrama2T5.png}
+    \end{figure}
     Obsérvese que los únicos subgrupos normales de $G$ son $1$, $\langle\sigma\rangle$, $\langle\sigma,\tau^2\rangle$ y $G$.
     Por tanto, los únicos subcuerpos de $F$ que son normales sobre $\mathbb{Q}$ son $\mathbb{Q}$, $\mathbb{Q}(\sqrt{5})$, $\mathbb{Q}(\zeta_5)$ y $F$. 
 
