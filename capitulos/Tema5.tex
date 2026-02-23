@@ -1,0 +1,363 @@
+\section{La correspondencia de Galois} 
+
+Recordemos que si $L/K$ es una extensión de cuerpos, entonces el grupo de Galois de $L/K$ es el grupo $\operatorname{Gal}(L/K)$ formado por los automorfismos de $L/K$, es decir, los $K$-automorfismos de $L$. ]% 4]
+
+\begin{ejemplo}{}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Claramente $\operatorname{Gal}(K/K)=1$, pero no son éstas las únicas extensiones con grupo de Galois trivial. ]% 5]
+        Por ejemplo, si $a$ es un número racional positivo que no es el cubo de un número racional, entonces $p=X^{3}-a$ es irreducible en $\mathbb{Q}[X]$. ]% 6]
+        Las raíces de $p$ son $\alpha=\sqrt[3]{a}$, $\omega\alpha$ y $\omega^{2}\alpha$, donde $\omega$ es una raíz tercera primitiva de la unidad. ]% 7]
+        Como $\omega$ no es un número real, la única raíz de $p$ que pertenece a $K(\alpha)$ es $\alpha$ y por tanto $\operatorname{Gal}(K(\alpha)/K)=1$ (¿por qué?). ]% 8]
+        
+        \item Si $L/K$ es una extensión de grado 2 y $\operatorname{car}(K)\ne 2$, entonces $\operatorname{Gal}(L/K)$ tiene dos elementos. ]% 9]
+        En efecto, si $\alpha\in L\setminus K$, entonces $L=K(\alpha)$ y por tanto $p=\operatorname{Min}_{K}(\alpha)$ tiene grado 2. Pongamos $p=X^{2}+aX+b=\left(X+\frac{a}{2}\right)^{2}+b-\frac{a^2}{4}$ y sean $\beta=\alpha+\frac{a}{2}$ y $c=\frac{a^{2}}{4}-b$. ]% 10]
+        Entonces $q=\operatorname{Min}_{K}(\beta)=X^{2}-c$ y $L=K(\beta)=K(\sqrt{c})$. Como las raíces de $q$ son $\pm\beta$, si $\sigma\in \operatorname{Gal}(L/K)$ entonces $\sigma(\beta)=\pm\beta$, con lo que efectivamente $\operatorname{Gal}(L/K)$ tiene dos elementos. ]% 11]
+        (¿Seguro que tiene dos?). 
+        En particular, $\operatorname{Gal}(\mathbb{C}/\mathbb{R})$ tiene orden 2 y de hecho está formado por la identidad y la conjugación. ]% 13]
+        
+        \item Como un automorfismo de $\mathbb{R}$ ha de ser una aplicación creciente (¿por qué?), necesariamente $\operatorname{Gal}(\mathbb{R}/\mathbb{Q})=1$ y por tanto $\operatorname{Gal}(\mathbb{R}/K)=1$ para todo subcuerpo $K$ de $\mathbb{R}$ (¿por qué?). ]% 14]
+        De hecho, el único automorfismo de $\mathbb{R}$ es la identidad (¿por qué?). ]% 15]
+        
+        \item Sean $K=\mathbb{Q}(\sqrt{2},\sqrt{3})$ y $\sigma\in \operatorname{Gal}(K/\mathbb{Q})$. Entonces $\sigma(\sqrt{2})=\pm\sqrt{2}$ y $\sigma(\sqrt{3})=\pm\sqrt{3}$ y por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene a lo sumo 4 elementos. ]% 16]
+        De hecho $\operatorname{Gal}(K/\mathbb{Q})$ tiene exactamente cuatro elementos. En efecto, en el Ejemplo (2) hemos visto que $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene 2 elementos. ]% 17]
+        Por otro lado $\sqrt{3}\notin\mathbb{Q}(\sqrt{2})$ (ver Ejercicio 1.11 del Capítulo 1). ]% 18]
+        Por tanto, $K/\mathbb{Q}(\sqrt{2})$ es una extensión separable (¿por qué?) de grado 2, con lo que cada uno de los dos elementos de $\operatorname{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q})$ tiene dos extensiones a un homomorfismo de $K$ en una clausura algebraica de $K$ que, como además $K/\mathbb{Q}$ es normal (¿por qué?), estas dos extensiones son elementos de $\operatorname{Gal}(K/\mathbb{Q})$. Por tanto $\operatorname{Gal}(K/\mathbb{Q})$ tiene cuatro elementos: $\sigma_{++}, \sigma_{+-}, \sigma_{-+}, \sigma_{--}$ dados por $\sigma_{ab}(\sqrt{2})=a\sqrt{2}$ y $\sigma_{ab}(\sqrt{3})=b\sqrt{3}$. ]% 19]
+        
+        \item Sea $\xi$ una raíz $n$-ésima primitiva de la unidad y sea $L=K(\xi)/K$ una extensión ciclotómica. ]% 20]
+        Si $\sigma\in \operatorname{Gal}(L/K)$, entonces $\sigma(\xi)=\xi^{i}$ para algún entero $i$ coprimo con $n$, y $\sigma$ está completamente determinada por el resto de $i$ módulo $n$. ]% 21]
+        Por tanto, tenemos una aplicación $\psi:\operatorname{Gal}(L/K)\rightarrow\mathbb{Z}_{n}^{*}$ que asocia $\sigma\in \operatorname{Gal}(L/K)$ con la única clase en $\mathbb{Z}_{n}^{*}$ que contiene a $i$ (con $\sigma(\xi)=\xi^{i}$). ]% 22]
+        Entonces % 23, 24, 25, 26] 
+        es un homomorfismo inyectivo de grupos (comprobarlo) y por tanto $\operatorname{Gal}(L/K)$ es isomorfo a un subgrupo de $\mathbb{Z}_{n}^{*}$. En particular, el grupo de Galois de toda extensión ciclotómica es abeliano. ]% 27]
+        Si además $K=\mathbb{Q}$, entonces $\operatorname{Min}_{\mathbb{Q}}(\xi)=\Phi_{n}$, el $n$-ésimo polinomio ciclotómico (Teorema 3.9). ]% 28]
+        Por tanto, para cada $i$ coprimo con $n$ existe un elemento $\sigma\in \operatorname{Gal}(L=\mathbb{Q}(\xi)/\mathbb{Q})$ con $\sigma(\xi)=\xi^{i}$. En otras palabras, $\operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ es isomorfo a $\mathbb{Z}_{n}^{*}$ y un isomorfismo $\tau:\mathbb{Z}_{n}^{*}\rightarrow \operatorname{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})$ viene dado asociando $i\in\mathbb{Z}_{n}^{*}$ con el único automorfismo $\tau_{i}$ de $\mathbb{Q}(\xi)$ tal que $\tau_{i}(\xi)=\xi^{i}$. ]% 29]
+    \end{enumerate}
+\end{ejemplo}
+
+Obsérvese que si $\phi:L\rightarrow L^{*}$ es un $K$-isomorfismo, entonces la aplicación $\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(L^{*}/K)$ dada por $\sigma\mapsto\phi\sigma\phi^{-1}$ es un isomorfismo. ]% 30]
+
+Si $L/K$ es una extensión algebraica y $\overline{L}$ una clausura algebraica de $L$, entonces podemos ver cada elemento de $\operatorname{Gal}(L/K)$ como un elemento de $S_{1}^{L}=\{\sigma:L\rightarrow\overline{L} \mid \sigma|_{K}=1_{K}\}$. ]% 31]
+]Por tanto de la Proposición 4.9 deducimos: % 32]
+
+\begin{proposicion}{}
+    Si $L/K$ es una extensión finita entonces $|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$. ]% 33]
+\end{proposicion}
+
+Recordemos que $\operatorname{Sub}(L/K)$ denota el conjunto de las subextensiones de $L/K$. ]% 34]
+Si $G$ es un grupo, entonces vamos a denotar por $\operatorname{Sub}(G)$ al conjunto de todos los subgrupos de $G$ y si $H$ es un subgrupo de $G$, entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que contienen a $H$. En realidad esta última notación es ambigua pues si $N$ es un subgrupo normal de $G$, entonces $\operatorname{Sub}(G/N)$ tiene dos significados: el conjunto de los subgrupos de $G$ que contienen a $N$ y el conjunto de los subgrupos del cociente $G/N$. El Teorema de la Correspondencia (Teorema 5.4 de GyA) nos muestra que esta ambigüedad no es muy grave. ]% 35]
+
+Consideramos $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G/H)$ como conjuntos ordenados por la inclusión. Una aplicación $f:(A,\le)\rightarrow(B,\le)$ entre conjuntos ordenados se dice que es un homomorfismo de conjuntos ordenados si conserva el orden, es decir, si para cada $x, y\in A$ tales que $x\le y$ se verifica que $f(x)\le f(y)$ y se dice que es un anti-homomorfismo de conjuntos ordenados si $f(x)\ge f(y)$ para todo $x, y\in A$ con $x\le y$. ]% 36]
+
+Si $L/K$ es una extensión de cuerpos entonces tenemos dos aplicaciones: % 37]
+\begin{align*}
+    (-)^{\circ} &= \operatorname{Gal}(L/-) \colon \operatorname{Sub}(L/K) \longrightarrow \operatorname{Sub}(\operatorname{Gal}(L/K)) \\
+    (-)^{\circ} &= L^{(-)} \colon \operatorname{Sub}(\operatorname{Gal}(L/K)) \longrightarrow \operatorname{Sub}(L/K)
+]\end{align*} % 38]
+La aplicación que va para la derecha asocia $F\in \operatorname{Sub}(L/K)$ con 
+]$$F^{\circ}=\operatorname{Gal}(L/F)=\{\sigma\in \operatorname{Gal}(L/K) \mid \sigma(x)=x \text{ para todo } x\in F\}$$ % 39, 40]
+y la que va para la izquierda asocia $H\in \operatorname{Sub}(\operatorname{Gal}(L/K))$ con
+]$$H^{\circ}=L^{H}=\{a\in L \mid \sigma(a)=a \text{ para todo } \sigma\in H\}.$$ % 41, 42]
+
+El par formado por estas aplicaciones se llama correspondencia de Galois de la extensión $L/K$. Veamos algunas propiedades de la correspondencia de Galois. ]% 43]
+
+Recordemos que tanto la unidad de un anillo, como el neutro de un grupo o el subgrupo trivial del grupo lo denotamos siempre como $1$. Por el contexto no debería haber confusión. ]% 44]
+En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operatorname{Gal}(L/K)$. ]% 45]
+
+\begin{proposicion}{}
+    Sea $L/K$ una extensión de cuerpos y sea $G=\operatorname{Gal}(L/K)$. ]La correspondencia de Galois $(-)^{\circ}:\operatorname{Sub}(L/K)\rightleftharpoons \operatorname{Sub}(G)$ satisface las siguientes propiedades, donde $X$ e $Y$ son ambos subextensiones de $L/K$ o ambos subgrupos de $G$: % 46]
+    \begin{enumerate}[label=(1)]
+        \item $L^{\circ}=1$, $K^{\circ}=G$ y $1^{\circ}=L$. ]% 47]
+        \item $(-)^{\circ}=\operatorname{Gal}(L/-)$ y $(-)^{\circ}=L^{(-)}$ son antihomomorfismos de conjuntos ordenados, es decir, si $X\subseteq Y$ entonces $Y^{\circ}\subseteq X^{\circ}$. ]% 48]
+        \item $X\subseteq X^{\circ\circ}$ y $X^{\circ}=X^{\circ\circ\circ}$. % 2]
+        \item Las dos aplicaciones que forman la correspondencia de Galois se restringen a un anti-isomorfismo de conjuntos ordenados entre sus dos imágenes. % 4]
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+    (1) y (2) y la inclusión $X\subseteq X^{\circ\circ}$ son sencillos ejercicios. % 5]
+    Por tanto $X^{\circ}\subseteq X^{\circ\circ\circ}\subseteq X^{\circ}$, lo que prueba la igualdad de (3). % 6]
+    Finalmente (4) es consecuencia inmediata de (2) y la igualdad de (3). % 7, 8]
+\end{proof}
+
+Los elementos de las imágenes de las dos aplicaciones de la correspondencia de Galois se dice que son respectivamente subextensiones cerradas en $L/K$ y subgrupos cerrados en $\operatorname{Gal}(L/K)$. % 9]
+Obsérvese que de la propiedad (3) de la Proposición 5.3 se tiene que $X$ es cerrado si y solo si $X=X^{\circ\circ}$ % 10, 11] y la propiedad (4) se puede reescribir como: % 12]
+
+\begin{corolario}{}
+    Las aplicaciones de la correspondencia de Galois de una extensión de cuerpos $L/K$ se restringen a un anti-isomorfismo de conjuntos ordenados entre las subextensiones cerradas en $L/K$ y los subgrupos cerrados en $\operatorname{Gal}(L/K)$. % 13]
+\end{corolario}
+
+Por la Proposición 5.3, $L$, $1$ y $\operatorname{Gal}(L/K)$ son cerrados en $L/K$, pero $K$ no tiene por qué serlo. % 14]
+Por ejemplo, si $L\ne K$ y $\operatorname{Gal}(L/K)=1$ (ver Ejemplos 5.1) entonces $K^{\circ\circ}=1^{\circ}=L\ne K$. % 15]
+
+\begin{proposicion}{}
+    Sea $L/K$ una extensión de cuerpos. % 16]
+    \begin{enumerate}[label=(1)]
+        \item Si $E_{1}\subseteq E_{2}$ son subextensiones de $L/K$ con $E_{2}/E_{1}$ finita entonces $[E_{1}^{\circ}:E_{2}^{\circ}]\le[E_{2}:E_{1}]$. % 17]
+        \item Si $H_{1}\le H_{2}$ son subgrupos de $\operatorname{Gal}(L/K)$ con $[H_{2}:H_{1}]<\infty$, entonces $[H_{1}^{\circ}:H_{2}^{\circ}]\le[H_{2}:H_{1}]$. % 18]
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+    (1) Razonamos por inducción sobre $n=[E_{2}:E_{1}]$ con el caso $n=1$ obvio. % 19]
+    Supongamos pues que $n>1$ y la hipótesis de inducción. Sean $\alpha\in E_{2}\setminus E_{1}$, $p=\operatorname{Min}_{E_{1}}(\alpha)$ y $s=\operatorname{gr}(p)$. % 20]
+    Entonces $s=[E_{1}(\alpha):E_{1}]$ y $[E_{2}:E_{1}(\alpha)]<n$. Si $s<n$, entonces por la hipótesis de inducción tenemos: % 21]
+    $$[E_{1}^{\circ}:E_{2}^{\circ}]=[E_{1}^{\circ}:E_{1}(\alpha)^{\circ}][E_{1}(\alpha)^{\circ}:E_{2}^{\circ}]\le[E_{1}(\alpha):E_{1}][E_{2}:E_{1}(\alpha)]=[E_{2}:E_{1}].$$ % 22]
+    En caso contrario, $E_{2}=E_{1}(\alpha)$. Sean $R$ el conjunto de raíces de $p$ y $\phi:E_{1}^{\circ}/E_{2}^{\circ}\rightarrow R$ la aplicación dada por $\phi(\sigma E_{2}^{\circ})=\sigma(\alpha)$. Es fácil ver que esta aplicación está bien definida y es inyectiva. % 23]
+    Por tanto $[E_{1}^{\circ}:E_{2}^{\circ}]\le|R|\le \operatorname{gr}(p)=[E_{2}:E_{1}]$. % 24]
+    
+    (2) Pongamos $[H_{2}:H_{1}] = n$, $H_{2}/H_{1}=\{\tau_{1}H_{1},\dots,\tau_{n}H_{1}\}$ con $\tau_{1}=1$ y razonemos por reducción al absurdo, es decir, supondremos que $[H_{1}^{\circ}:H_{2}^{\circ}]>n$. Entonces existen $\alpha_{1},\dots,\alpha_{n},\alpha_{n+1}\in H_{1}^{\circ}$ linealmente independientes sobre $H_{2}^{\circ}$. Consideremos la matriz: % 25]
+    $$A=\begin{pmatrix}
+    \tau_{1}(\alpha_{1}) & \tau_{1}(\alpha_{2}) & \dots & \tau_{1}(\alpha_{n+1})\\ 
+    \tau_{2}(\alpha_{1}) & \tau_{2}(\alpha_{2}) & \dots & \tau_{2}(\alpha_{n+1})\\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \tau_{n}(\alpha_{1}) & \tau_{n}(\alpha_{2}) & \dots & \tau_{n}(\alpha_{n+1})
+    \end{pmatrix}$$ % 26]
+    y sea $r$ el rango de $A$. Reordenamos los $\alpha_{i}$ para que las primeras $r$ columnas sean linealmente independientes. % 27]
+    Entonces la columna $r+1$ es combinación lineal de las $r$ primeras (obsérvese que $r\le n<n+1=$ número de columnas de $A$) y por tanto existe $a=(a_{1},\dots,a_{r},1,0,\dots,0)^T\in (L)^{n+1}$ tal que $Aa=0$. % 28]
+    Como $\tau_{1}=1$ tenemos: % 29]
+    $$\alpha_{1}a_{1}+\dots+\alpha_{r}a_{r}+\alpha_{r+1}=0$$ % 30, 31, 32]
+    y, como los $\alpha_{i}$ son linealmente independientes sobre $H_{2}^{\circ}$, existe $1\le i\le r$ tal que $a_{i}\notin H_{2}^{\circ}$. % 33]
+    Reordenando $a_{1},\dots,a_{r}$ podemos suponer que $a_{1}\notin H_{2}^{\circ}$, es decir $\sigma(a_{1})\ne a_{1}$ para algún $\sigma\in H_{2}$. % 34]
+    La aplicación $H_{2}/H_{1}\rightarrow H_{2}/H_{1}$ dada por $\tau H_{1}\mapsto\sigma\tau H_{1}$ es inyectiva pues si $\sigma\sigma_{1}H_{1}=\sigma\sigma_{2}H_{1}$ entonces $\sigma_{2}^{-1}\sigma_{1}=(\sigma\sigma_{2})^{-1}(\sigma\sigma_{1})\in H_{1}$, luego $\sigma_{1}H_{1}=\sigma_{2}H_{1}$. % 35]
+    Por tanto existe una permutación $\rho\in S_{n}$ tal que $\sigma^{-1}\tau_{i}=\tau_{\rho(i)}$ para todo $i=1,\dots,n$, con lo que la matriz: % 36]
+    $$B=\begin{pmatrix}
+    \sigma^{-1}\tau_{1}(\alpha_{1}) & \sigma^{-1}\tau_{1}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{1}(\alpha_{n+1})\\ 
+    \sigma^{-1}\tau_{2}(\alpha_{1}) & \sigma^{-1}\tau_{2}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{2}(\alpha_{n+1})\\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \sigma^{-1}\tau_{n}(\alpha_{1}) & \sigma^{-1}\tau_{n}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{n}(\alpha_{n+1})
+    \end{pmatrix}$$ % 37]
+    se obtiene permutando las filas de la matriz $A$. Eso implica que $Ba=0$ y por tanto $A\sigma(a)=0$. % 38, 39]
+    Luego $A(a-\sigma(a))=0$ y: % 40, 41, 42, 43]
+    $$a-\sigma(a) = \begin{pmatrix}
+    a_{1}-\sigma(a_{1}) \\ 
+    \vdots \\ 
+    a_{r}-\sigma(a_{r}) \\ 
+    1-1 \\ 
+    0 \\ 
+    \vdots \\ 
+    0
+    \end{pmatrix} = \begin{pmatrix}
+    a_{1}-\sigma(a_{1}) \\ 
+    \vdots \\ 
+    a_{r}-\sigma(a_{r}) \\ 
+    0 \\ 
+    0 \\ 
+    \vdots \\ 
+    0
+    \end{pmatrix}$$ % 44]
+    con $a_{1}-\sigma(a_{1})\ne 0$. Eso implica que las primeras $r$ columnas de $A$ son linealmente dependientes en contra de la elección, lo que proporciona la contradicción deseada. % 45]
+\end{proof}
+
+\begin{corolario}{}
+    Sea $L/K$ una extensión de cuerpos. % 46]
+    \begin{enumerate}
+        \item Si $K\subseteq E_{1}\subseteq E_{2}\subseteq L$ es una torre de cuerpos, con $[E_{2}:E_{1}]<\infty$ y $E_{1}$ cerrado en $L/K$ entonces $E_{2}$ es cerrado en $L/K$ y $[E_{1}^{\circ}:E_{2}^{\circ}]=[E_{2}:E_{1}]$. % 47]
+        \item Si $H_{1}\le H_{2}\le \operatorname{Gal}(L/K)$ son subgrupos de $\operatorname{Gal}(L/K)$ con $[H_{2}:H_{1}]<\infty$ y $H_{1}$ cerrado en $L/K$ entonces $H_{2}$ es cerrado en $L/K$ y $[H_{1}^{\circ}:H_{2}^{\circ}]=[H_{2}:H_{1}]$. % 48]
+    \end{enumerate}
+\end{corolario}
+
+\begin{proof}
+    (1) Aplicando el primer apartado de la Proposición 5.5 a $E_{1}\le E_{2}$ obtenemos que $[E_{1}^{\circ}:E_{2}^{\circ}]\le[E_{2}:E_{1}]$ y aplicando el segundo apartado a $E_{2}^{\circ}\subseteq E_{1}^{\circ}$ obtenemos $[E_{2}^{\circ\circ}:E_{1}^{\circ\circ}]\le[E_{1}^{\circ}:E_{2}^{\circ}]$. % 49]
+    Como $E_{1}$ es cerrado tenemos que $[E_{2}^{\circ\circ}:E_{1}]=[E_{2}^{\circ\circ}:E_{1}^{\circ\circ}]\le[E_{2}:E_{1}]$ y como $E_{2}\subseteq E_{2}^{\circ\circ}$ concluimos que $E_{2}=E_{2}^{\circ\circ}$, es decir $E_{2}^{\circ\circ}$ es cerrado. % 50]
+    
+    (2) Es completamente análoga. % 51]
+\end{proof}
+
+Como consecuencia del segundo apartado del Corolario 5.6 y el primero de la Proposición 5.3 se tiene el siguiente corolario: % 52]
+
+\begin{corolario}{}
+    Todo subgrupo finito de $\operatorname{Gal}(L/K)$ es cerrado en $L/K$. % 53]
+\end{corolario}
+
+\section{Extensiones de Galois} % 1, 2, 3]
+
+\begin{definicion}{Extensión de Galois} % 4]
+    Una extensión de Galois es una extensión de cuerpos que es normal y separable. % 4]
+\end{definicion}
+
+\begin{observacion}{} % 5]
+    Obsérvese que toda extensión de Galois es algebraica (por ser separable). % 5]
+\end{observacion}
+
+La siguiente proposición es consecuencia inmediata de las Proposiciones 2.15 y 4.16. % 6]
+
+\begin{proposicion}{} % 7]
+    La clase de extensiones de Galois es cerrada para levantamientos. % 7]
+\end{proposicion}
+
+El siguiente teorema caracteriza las extensiones de Galois. % 8]
+
+\begin{teorema}{} % 10]
+    Las siguientes condiciones son equivalentes para una extensión de cuerpos $L/K$ con $G=\operatorname{Gal}(L/K)$: % 10]
+    \begin{enumerate}[label=(1)]
+        \item $L/K$ es una extensión de Galois. % 11]
+        \item $L/E$ es una extensión de Galois para todo $E\in \operatorname{Sub}(L/K)$. % 12]
+        \item $L/K$ es algebraica y toda subextensión de $L/K$ es cerrada. % 13]
+        \item $L/K$ es algebraica y $K$ es una subextensión cerrada de $L/K$. % 14]
+        \item $L/K$ es algebraica y $G^{\circ}=K$, o sea, si $\alpha\in L$ satisface $\sigma(\alpha)=\alpha$ para todo $\sigma\in G$ entonces $\alpha\in K$. % 15]
+        \item $L/K$ es algebraica y para todo $\alpha\in L\setminus K$ existe $\sigma\in \operatorname{Gal}(L/K)$ tal que $\sigma(\alpha)\ne\alpha$. % 16]
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof} 
+    (1) $\implies$ (2) es consecuencia de la Proposición 5.9. 
+    
+    (2) $\implies$ (3). Supongamos que $L/K$ satisface (2) y sea $E\in \operatorname{Sub}(L/K)$. De la Proposición 5.3 se tiene que $E\subseteq E^{\circ\circ}$ y tenemos que demostrar que se verifica la igualdad, o lo que es lo mismo, tenemos que demostrar que si $\alpha\in L\setminus E$ entonces existe $\sigma\in \operatorname{Gal}(L/E)$ tal que $\sigma(\alpha)\ne\alpha$. % 18]
+    Sea $\alpha\in L\setminus E$ y sea $p=\operatorname{Min}_{E}(\alpha)$. Este polinomio tiene una raíz en $L$ y, como $L/E$ es normal, $p$ es completamente factorizable en $L$. Como además $L/E$ es separable y $\alpha\notin E$, existe $\beta\in L$, con $\alpha\ne\beta$, tal que $\beta$ también es raíz de $p$. % 19]
+    De la Proposición 1.10 se deduce que existe un $E$-isomorfismo $\sigma:E(\alpha)\rightarrow E(\beta)$. Sea $\overline{L}$ una clausura algebraica de $L$. Como $L/E$ es algebraica (y por tanto también lo es $L/E(\alpha)$), $\sigma$ se extiende a un homomorfismo de $L$ en $\overline{L}$ que también denotaremos por $\sigma$, y como $L/E$ es normal, $\sigma(L)\subseteq L$, con lo que $\sigma\in \operatorname{Gal}(L/E)$. % 20]
+    Deducimos que $\alpha\ne\beta=\sigma(\alpha)$. % 21]
+    
+    (3) $\implies$ (4), (4) $\implies$ (5), y que (5) y (6) son equivalentes, está claro. % 22]
+    
+    (5) $\implies$ (1). Supongamos que $L/K$ verifica (5). Sea $\alpha\in L$; sean $p=\operatorname{Min}_{K}(\alpha)$ y $n=\operatorname{gr}(p)$. % 23]
+    Tenemos que demostrar que $p$ factoriza completamente en $L$ (para demostrar que $L/K$ es normal) y que $p$ no tiene raíces múltiples (para mostrar que $L/K$ es separable). % 24]
+    Esto equivale a demostrar que $p$ tiene $n$ raíces (distintas) en $L$. Sea $R=\{\alpha=\alpha_{1},\dots,\alpha_{r}\}$ el conjunto de las (distintas) raíces de $p$ en $L$ y sea $q=(X-\alpha_{1})\cdots(X-\alpha_{r})$. % 25]
+    Si $\sigma\in \operatorname{Gal}(L/K)$, entonces $\sigma(\alpha_{i})$ es una raíz de $p$ en $L$, lo que implica que $\sigma$ induce una permutación de $R$ y por tanto $\sigma(q)=q$, es decir $\sigma(a)=a$ para cada uno de los coeficientes $a$ de $q$. % 26]
+    Como estamos suponiendo que $L/K$ satisface la propiedad (5), concluimos que cada uno de estos coeficientes pertenece a $K$, es decir $q\in K[X]$. % 27]
+    Como $r=\operatorname{gr}(q)\le n=\operatorname{gr}(p)$ y $p$ tiene grado mínimo entre los polinomios de $K[X]$ que tienen a $\alpha$ como raíz deducimos que $p=q$ y por tanto $r=n$. % 28]
+\end{proof}
+
+La siguiente proposición muestra criterios para decidir si una extensión es de Galois para el caso de extensiones finitas. % 29]
+
+\begin{proposicion}{} % 30]
+    Las siguientes condiciones son equivalentes para una extensión finita $L/K$: % 30]
+    \begin{enumerate}[label=(1)]
+        \item $L/K$ es una extensión de Galois. % 30]
+        \item $[L:K]=|\operatorname{Gal}(L/K)|$. % 33]
+        \item $[L:E]=|\operatorname{Gal}(L/E)|$ para todo $E\in \operatorname{Sub}(L/K)$. % 34]
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof} % 35, 36, 37, 38, 39, 40]
+    Sea $\overline{L}$ una clausura algebraica. Podemos ver cada elemento de $\operatorname{Gal}(L/K)$ como un $K$-homomorfismo de $L$ en $\overline{L}$. De esta manera, si $\sigma$ denota la inclusión de $K$ en $L$ tenemos que $\operatorname{Gal}(L/K)\subseteq S_{\sigma}^{L}$. Combinando esto con la Proposición 5.2 tenemos que: % 35]
+    $$|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$$ % 36]
+    Por el Teorema 4.12, la segunda desigualdad es una igualdad si y solo si $L/K$ es separable. % 37]
+    La primera desigualdad es una igualdad si y solo si todo $K$-homomorfismo de $L$ a $\overline{L}$ cumple $\tau(L)\subseteq L$ si y solo si $L/K$ es normal. % 38]
+    Esto demuestra que (1) y (2) son equivalentes. % 39]
+    
+    Combinando la equivalencia entre (1) y (2) y el Teorema 5.10 se deduce de forma inmediata que (1) y (3) son equivalentes. % 40]
+\end{proof}
+
+\begin{teorema}{Teorema Fundamental de la Teoría de Galois} % 41]
+    Sea $L/K$ una extensión de Galois finita y sea $G=\operatorname{Gal}(L/K)$. Entonces se verifican las siguientes propiedades: % 41]
+    \begin{enumerate}[label=(1)]
+        \item La correspondencia de Galois es un anti-isomorfismo de conjuntos ordenados entre $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G)$. % 42]
+        \item Si $X$ e $Y$ están ambos en $\operatorname{Sub}(L/K)$ o en $\operatorname{Sub}(G)$ y $X\subseteq Y$ entonces $[X^{\circ}:Y^{\circ}]=[Y:X]$. En particular: % 43]
+        \begin{enumerate}[label=(a)]
+            \item Si $E\in \operatorname{Sub}(L/K)$ entonces $[L:E]=|E^{\circ}|$ y $[E:K]=[G:E^{\circ}]$. % 44]
+            \item Si $H\in \operatorname{Sub}(G)$ entonces $|H|=[L:H^{\circ}]$ y $[G:H]=[H^{\circ}:K]$. % 45]
+        \end{enumerate}
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof} % 46, 47]
+    (1) A la vista de la Proposición 5.3 y el Teorema 5.10, para demostrar (1) sólo falta demostrar que todo subgrupo $H$ de $G$ es cerrado, pero eso es consecuencia inmediata del Corolario 5.7. % 46]
+    
+    (2) Es consecuencia de la Proposición 5.6. 
+\end{proof}
+
+Si $K\subseteq E\subseteq L$ es una torre de cuerpos y $\sigma\in \operatorname{Gal}(L/K)$, entonces $\operatorname{Res}_{E}^{L}(\sigma)$ denota la restricción de $\sigma$ a $E$. En principio $\operatorname{Res}_{E}^{L}(\sigma)$ es un $K$-homomorfismo de $E$ en $L$, pero si $E/K$ es normal entonces $\sigma\in \operatorname{Gal}(E/K)$. % 48]
+Eso es lo que pasa en las condiciones de la siguiente proposición y está claro que en tal caso $\operatorname{Res}_{E}^{L}:\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(E/K)$ es un homomorfismo de grupos. % 49]
+
+\begin{proposicion}{} % 50]
+    Sea $L/K$ una extensión finita de Galois. Si $E\in \operatorname{Sub}(L/K)$ entonces las siguientes condiciones son equivalentes: % 50]
+    \begin{enumerate}[label=(1)]
+        \item $E/K$ es de Galois. % 51]
+        \item $E/K$ es normal. % 52]
+        \item $\sigma(E)\subseteq E$ para todo $\sigma\in \operatorname{Gal}(L/K)$. % 53]
+        \item $\operatorname{Gal}(L/E)$ es normal en $\operatorname{Gal}(L/K)$. % 54]
+    \end{enumerate}
+    Además, si estas condiciones se satisfacen, entonces la aplicación de restricción % 55]
+    $$\operatorname{Res}_{E}^{L}:\operatorname{Gal}(L/K)\rightarrow \operatorname{Gal}(E/K), \quad \sigma\mapsto\sigma|_{E}$$ % 56]
+    es suprayectiva y como su núcleo es $\operatorname{Gal}(L/E)$, se tiene que % 57]
+    $$\operatorname{Gal}(E/K)\simeq\frac{\operatorname{Gal}(L/K)}{\operatorname{Gal}(L/E)}$$ % 58]
+\end{proposicion}
+
+
+\begin{proof}
+    La equivalencia entre (1) y (2) es consecuencia inmediata de que la clase de extensiones separables es multiplicativa (Proposición 4.13).
+    
+    (2) $\implies$ (3). Supongamos que $E/K$ es normal y sean $\alpha\in E$ y $\sigma\in \operatorname{Gal}(L/K)$. Entonces $p=\operatorname{Min}_{K}(\alpha)$ es completamente factorizable en $E$, o sea $p=(X-\alpha_{1})\cdots(X-\alpha_{n})$ con $\alpha_{1},\dots,\alpha_{n}\in E$. Entonces $\sigma(\alpha)$ es raíz de $p$ y por tanto $\sigma(\alpha)=\alpha_{i}\in E$, para algún $i$. 
+    Esto prueba que $\sigma(E)\subseteq E$.
+    
+    (3) $\implies$ (4). Supongamos que se verifica (3) y sean $\sigma\in \operatorname{Gal}(L/K)$ y $\tau\in \operatorname{Gal}(L/E)$. Entonces $\sigma(E)\subseteq E$ y por tanto $\tau(\sigma(\alpha))=\sigma(\alpha)$, es decir $\sigma^{-1}\tau\sigma(\alpha)=\alpha$, para todo $\alpha\in E$. Esto prueba que $\sigma^{-1}\tau\sigma\in \operatorname{Gal}(L/E)$ para todo $\sigma\in \operatorname{Gal}(L/K)$ y todo $\tau\in \operatorname{Gal}(L/E)$, es decir $\operatorname{Gal}(L/E)$ es normal en $\operatorname{Gal}(L/K)$.
+    
+    (4) $\implies$ (2). Supongamos que $\operatorname{Gal}(L/E)$ es normal en $\operatorname{Gal}(L/K)$. Sea $\rho:E\rightarrow\overline{L}$ un $K$-homomorfismo. 
+    Como $L/E$ es algebraica, $\rho$ se extiende a un $K$-homomorfismo $\sigma:L\rightarrow\overline{L}$. Como $L/K$ es normal, $\sigma(L)=L$ (Teorema 2.11), y por tanto podemos considerar $\sigma$ como un elemento de $\operatorname{Gal}(L/K)$. Por hipótesis, $\sigma^{-1}\tau\sigma\in \operatorname{Gal}(L/E)$ para todo $\tau\in \operatorname{Gal}(L/E)$, con lo que $\tau\sigma(\alpha)=\sigma(\alpha)$, para todo $\tau\in \operatorname{Gal}(L/E)$ y todo $\alpha\in E$. 
+    Esto muestra que $\rho(\alpha)=\sigma(\alpha)\in \operatorname{Gal}(L/E)^{\circ}=E^{\circ\circ}=E$65]. Como $L/E$ es algebraica, $\overline{L}$ es una clausura algebraica de $E$ con lo que hemos comprobado que $E/K$ satisface las condiciones del Teorema 2.11, es decir $E/K$ es normal65].
+    
+    Supongamos ahora que las condiciones (1)-(4) se verifican. Entonces la aplicación de restricción
+    $$f = \operatorname{Res}_{E}^{L}: \operatorname{Gal}(L/K) \rightarrow \operatorname{Gal}(E/K), \quad \sigma\mapsto\sigma|_{E}$$
+    es un homomorfismo de grupos cuyo núcleo es $\operatorname{Gal}(L/E)$. Aplicando el Primer Teorema de Isomorfía y que todas las extensiones $L/K$, $E/K$ y $L/E$ son de Galois deducimos que
+    $$|\operatorname{Im} f| = \frac{|\operatorname{Gal}(L/K)|}{|\operatorname{Gal}(L/E)|} = \frac{[L:K]}{[L:E]} = [E:K] = |\operatorname{Gal}(E/K)|,$$
+    lo que implica que $f$ es suprayectiva y $\operatorname{Gal}(E/K)\simeq\frac{\operatorname{Gal}(L/K)}{\operatorname{Gal}(L/E)}$.
+\end{proof}
+
+En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfismo de restricción.
+
+\begin{teorema}{Teorema de las Irracionalidades Accesorias de Lagrange}
+    Sean $L/K$ y $E/K$ dos extensiones admisibles y supongamos que la primera es finita y de Galois. Entonces $LE/E$ y $L/L\cap E$ son extensiones de Galois finitas y el homomorfismo de restricción
+    $$\operatorname{Res}_{L}^{LE}:\operatorname{Gal}(LE/E)\rightarrow \operatorname{Gal}(L/L\cap E)$$
+    es un isomorfismo de grupos.
+\end{teorema}
+
+\begin{proof}
+    Como $L/K$ es de Galois, del Teorema 5.10 se deduce que $L/L\cap E$ también es de Galois y de la Proposición 5.9 que lo es $LE/E$76]. Que la primera es finita es obvio y que lo sea la segunda es consecuencia de la Proposición 1.1876].
+    
+    Sea $f=\operatorname{Res}_{L}^{LE}$77]. Que $f$ es inyectiva es obvio ya que un elemento del núcleo es un automorfismo $\sigma$ de $LE$ que verifica $\sigma(x)=x$ para todo $x\in L$ y todo $x\in E$77].
+    
+    Para ver que $f$ es suprayectiva ponemos $H=\operatorname{Im} f\subseteq \operatorname{Gal}(L/L\cap E)$78]. Entonces $L\cap E=(L\cap E)^{\circ\circ}=\operatorname{Gal}(L/L\cap E)^{\circ}\subseteq H^{\circ}$78]. Sea $\alpha\in H^{\circ}$78]. Entonces para todo $\sigma\in \operatorname{Gal}(LE/E)$ se verifica $\sigma(\alpha)=f(\sigma)(\alpha)=\alpha$, pues $f(\sigma)\in H$79]. Esto demuestra que $\alpha\in \operatorname{Gal}(LE/E)^{\circ}=E^{\circ\circ}=E$, pues $LE/E$ es de Galois79]. Como esto se verifica para cada $\alpha\in H^{\circ}$ y $H^{\circ}\subseteq L$ deducimos que $H^{\circ}\subseteq L\cap E=(L\cap E)^{\circ\circ}$80]. Por tanto, $H^{\circ}=(L\cap E)^{\circ\circ}$80]. Como $L/L\cap E$ es de Galois, concluimos que $\operatorname{Im} f=H=(L\cap E)^{\circ\circ\circ}=\operatorname{Gal}(L/L\cap E)$, o sea $f$ es suprayectiva80].
+\end{proof}
+
+\begin{ejemplo}{}
+    Vamos a calcular los subcuerpos del cuerpo de escisión $F$ del polinomio $X^{5}-p$, donde $p$ es un número primo, y cuáles son normales sobre $\mathbb{Q}$83].
+    
+    Los subcuerpos de $F$ son precisamente las subextensiones de $F/\mathbb{Q}$84]. Por el Teorema Fundamental de la Teoría de Galois (Teorema 5.12) dichos cuerpos están en correspondencia biunívoca con los subgrupos de $G=\operatorname{Gal}(F/\mathbb{Q})$ y los normales son los que corresponden con subgrupos normales de $G$84]. Sea $\alpha=\sqrt[5]{p}$84].
+    
+    Entonces $F=\mathbb{Q}(\alpha,\zeta_{5})$. Además, $[\mathbb{Q}(\alpha):\mathbb{Q}]=5$ y $[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=\varphi(5)=4$85]. Por tanto $[F:\mathbb{Q}]$ es al menos 2085]. Por otro lado $[F:\mathbb{Q}(\alpha)]\le[\mathbb{Q}(\zeta_{5}):\mathbb{Q}]=4$ y por tanto $[F:\mathbb{Q}]=[F:\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}]\le 20$85]. Luego $|G|=[F:\mathbb{Q}]=20$86]. Además $G$ contiene a $\operatorname{Gal}(F/\mathbb{Q}(\alpha))$ y a $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ que serán dos subgrupos de órdenes 4 y 5 respectivamente86].
+    
+    Por el Teorema de las Irracionalidades Accesorias (Teorema 5.14), $\operatorname{Res}_{\mathbb{Q}(\zeta_{5})}^{F}:\operatorname{Gal}(F/\mathbb{Q}(\alpha))\rightarrow \operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ es un isomorfismo87]. Usando el isomorfismo entre $\operatorname{Gal}(\mathbb{Q}(\zeta_{5})/\mathbb{Q})$ y $\mathbb{Z}_{5}^{*}$ (Problema (3.15)) deducimos que $\operatorname{Gal}(F/\mathbb{Q}(\alpha))=\langle\tau\rangle$ con $\tau(\zeta_{5})=\zeta_{5}^{2}$88]. Por otro lado tenemos otro elemento $\sigma\in \operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))$ con $\sigma(\alpha)=\zeta_{5}\alpha$ y claramente $\operatorname{Gal}(F/\mathbb{Q}(\zeta_{5}))=\langle\sigma\rangle$88].
+    
+    Por otro lado, como $\mathbb{Q}(\zeta_{5})/\mathbb{Q}$ es de Galois pero $\mathbb{Q}(\alpha)/\mathbb{Q}$ no lo es, deducimos que $\langle\sigma\rangle$ es normal en $G$ pero $\langle\tau\rangle$ no es normal en $G$89]. Por tanto $\tau\sigma\tau^{-1}=\sigma^{i}$ para algún $i\in\{2,3,4\}$89]. De hecho $i=2$ pues $\tau\sigma\tau^{-1}(\alpha)=\tau\sigma(\alpha)=\tau(\zeta_{5}\alpha)=\zeta_{5}^{2}\alpha=\sigma^{2}(\alpha)$90]. Por tanto, todos los elementos de $G$ tienen una única forma $\sigma^{i}\tau^{j}$ con $0\le i\le 4$ y $0\le j\le 3$90].
+    
+    Vamos a calcular los subgrupos cíclicos. Ya tenemos tres: $1$, $\langle\sigma\rangle$ y $\langle\tau\rangle$, que tienen orden 1, 5 y 4, respectivamente91]. Todos los elementos de la forma $\sigma^{i}$ generan $\langle\sigma\rangle$ y $\tau$ y $\tau^{-1}$ generan $\langle\tau\rangle$92]. Otro subgrupo cíclico más será $\langle\tau^{2}\rangle$92]. Este último tiene orden 293]. Solo nos falta calcular los subgrupos cíclicos generados por los elementos de la forma $\sigma^{i}\tau^{j}$ con $1\le i\le 4$ y $1\le j\le 3$93].
+    
+    Comenzamos con los de la forma $\sigma^{i}\tau^{2}$. De la igualdad $\tau\sigma=\sigma^{2}\tau$ observamos que $\tau^{2}\sigma=\sigma^{4}\tau^{2}=\sigma^{-1}\tau^{2}$94]. Por tanto, para cada $i$ tenemos que $(\sigma^{i}\tau^{2})^{2}=1$95]. O sea, cada $\sigma^{i}\tau^{2}$ tiene orden 295]. Esto nos proporciona cinco subgrupos de orden 2, uno de los cuales es $\langle\tau^{2}\rangle$95].
+    
+    Por otro lado $(\sigma^{i}\tau)^{2}=\sigma^{3i}\tau^{2}$, que tiene orden 296]. Por tanto, $\langle\sigma^{i}\tau\rangle$ tiene orden 4 y su único subgrupo de orden 2 es $\langle\sigma^{3i}\tau^{2}\rangle$96]. Como estos últimos son distintos para los cinco valores distintos de $i$, obtenemos de esta forma cinco subgrupos cíclicos de orden 4, uno de los cuales es $\langle\tau\rangle$96]. Cada uno de estos subgrupos tiene dos elementos de orden 497]. Más concretamente $\langle\sigma^{i}\tau\rangle$ también está generado por $(\sigma^{i}\tau)^{3}=\sigma^{i}\tau\sigma^{3i}\tau^{2}=\sigma^{2i}\tau^{3}$97]. Por tanto, ya tenemos todos los subgrupos cíclicos97]:
+    \begin{itemize}
+        \item De orden 1: $1$.
+        \item De orden 2: $\langle\sigma^{i}\tau^{2}\rangle$ con $0\le i\le 4$.
+        \item De orden 4: $\langle\sigma^{i}\tau\rangle$ con $0\le i\le 4$.
+        \item De orden 5: $\langle\sigma\rangle$101].
+    \end{itemize}
+    
+    Calculamos ahora los grupos generados por dos elementos $g$ y $h$103]. Por supuesto, si uno de ellos está en el subgrupo generado por el otro lo que obtendremos es uno de los grupos cíclicos, con lo que suponemos que $g\notin\langle h\rangle$ y $h\notin\langle g\rangle$104].
+    
+    Supongamos primero que uno de los dos tiene orden 5105]. Por ejemplo, supongamos que $|g|=5$ y por tanto $h$ tiene orden 2 ó 4105]. Si $h$ tiene orden 4 entonces $\langle g,h\rangle=G$105]. Sin embargo si $h$ tiene orden 2 entonces $\langle g,h\rangle=\langle\sigma,\tau^{2}\rangle$ y como $\tau^{2}\sigma=\sigma^{-1}\tau^{2}$ tenemos que $\langle\sigma,\tau^{2}\rangle$ tiene orden 10105]. 
+    
+    En los demás casos $g$ y $h$ tienen orden 2 ó 4 y vamos a ver que siempre $\langle g,h\rangle=G$105]. Si $|g|=|h|=4$ entonces podemos suponer que $g=\sigma^{i}\tau$ y $h=\sigma^{j}\tau$ con $i\ne j$105]. Por tanto, $\langle g,h\rangle$ contiene a $gh^{-1}=\sigma^{i-j}$105]. Como este elemento genera a $\langle\sigma\rangle$, tenemos que $\langle g,h\rangle=\langle\sigma,\tau\rangle=G$105]. El mismo argumento muestra que si $g$ y $h$ tienen orden 2 y son distintos, entonces generan $G$106]. Finalmente si uno tiene orden 2 y el otro 4, por ejemplo $h$, entonces $\langle g,h\rangle$ contiene a $\langle g,h^{2}\rangle$ con $g$ y $h^{2}$ distintos de orden 2 y de nuevo obtenemos que $\langle g,h\rangle=G$.
+
+
+% --- CONTINUACIÓN DEL EJEMPLO 5.15 ---
+    El retículo de subgrupos que obtenemos es el siguiente: % [cite: 49, 50, 55, 68]
+    Dando la vuelta al diagrama obtenemos las inclusiones entre los subcuerpos de $F$. Pero antes de hacerlo vamos a calcular los cuerpos. % [cite: 69]
+    
+    Claramente $G^{\circ}=\mathbb{Q}$, $1^{\circ}=F$, $\langle\sigma\rangle^{\circ}=\mathbb{Q}(\zeta_5)$, $\langle\tau\rangle^{\circ}=\mathbb{Q}(\alpha)$. % [cite: 70, 71]
+    Cada uno de los $\langle\sigma^i\tau\rangle^{\circ}$ tiene que tener grado 5 sobre $\mathbb{Q}$ y serán los únicos subcuerpos de grado 5 sobre $\mathbb{Q}$, que necesariamente son $\mathbb{Q}(\alpha)$, $\mathbb{Q}(\zeta_5\alpha)$, $\mathbb{Q}(\zeta_5^2\alpha)$, $\mathbb{Q}(\zeta_5^3\alpha)$ y $\mathbb{Q}(\zeta_5^4\alpha)$. % [cite: 72]
+    Observamos que $\sigma^i\tau(\zeta_5^{-i}\alpha)=\sigma^i(\zeta_5^{-2i}\alpha)=\zeta_5^{-i}\alpha$. % [cite: 73, 75]
+    Por tanto $\langle\sigma^i\tau\rangle^{\circ} = \mathbb{Q}(\zeta_5^{-i}\alpha)$. % [cite: 74, 76]
+    
+    Por otro lado $\langle\sigma,\tau^2\rangle$ es el único subgrupo que tiene grado 2 sobre $\mathbb{Q}$, cuyo cuerpo fijo además está contenido en $\langle\sigma\rangle^{\circ}=\mathbb{Q}(\zeta_5)$. % [cite: 77]
+    Observando que $\beta=\zeta_5+\zeta_5^{-1}=2\cos(2\pi/5)\in\mathbb{R}$, tenemos que $\mathbb{Q}(\beta)$ está contenido en $\mathbb{Q}(\zeta_5)$. % [cite: 77]
+    Además, como $1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0$ tenemos que $\beta^2=\zeta_5^2+\zeta_5^{-2}+2=-\beta+1$, con lo que $\beta$ es raíz de $X^2+X-1$, de donde $\beta=\frac{-1+\sqrt{5}}{2}$ y por tanto $\mathbb{Q}(\beta)=\mathbb{Q}(\sqrt{5})$. % [cite: 77]
+    
+    Por tanto $\langle\sigma,\tau^2\rangle^{\circ}=\mathbb{Q}(\sqrt{5})$. % [cite: 78]
+    Ahora observamos que $\langle\sigma^{3i}\tau^2\rangle=\langle\sigma,\tau^2\rangle\cap\langle\sigma^i\tau\rangle$. % [cite: 78]
+    Como la correspondencia de Galois es un anti-isomorfismo de retículos deducimos que $\langle\sigma^{3i}\tau^2\rangle^{\circ}=\langle\sigma,\tau^2\rangle^{\circ}\langle\sigma^i\tau\rangle^{\circ}=\mathbb{Q}(\sqrt{5},\zeta_5^{-i}\alpha)$. % [cite: 78]
+    
+    Por tanto el retículo de subcuerpos es el siguiente: % [cite: 79]
+
+    Obsérvese que los únicos subgrupos normales de $G$ son $1$, $\langle\sigma\rangle$, $\langle\sigma,\tau^2\rangle$ y $G$. % [cite: 100]
+    Por tanto, los únicos subcuerpos de $F$ que son normales sobre $\mathbb{Q}$ son $\mathbb{Q}$, $\mathbb{Q}(\sqrt{5})$, $\mathbb{Q}(\zeta_5)$ y $F$. % [cite: 100]
+\end{ejemplo}
+

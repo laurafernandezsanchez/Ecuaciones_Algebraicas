@@ -1,0 +1,24 @@
+\documentclass[a4paper,11pt]{book} % Usamos 'book' para tener capítulos
+
+% Importamos la configuración desde el otro archivo
+\input{preambulo.tex}
+
+% --- DATOS DEL DOCUMENTO ---
+\title{\textbf{Ecuaciones Algebraicas}}
+\author{Laura Fernández}
+\date{Curso 2025-2026}
+
+\begin{document}
+
+\input{portada}
+% --- AÑADE ESTA LÍNEA ---
+\hypertarget{indice}{} % <-- Esto define el punto de destino
+\tableofcontents
+
+% Aquí empieza el contenido. 
+% \include inserta el archivo y fuerza un salto de página (ideal para capítulos)
+
+  \chapter{Extensiones de Galois} 
+  \input{capitulos/Tema5}   
+ \end{document}
+ 
