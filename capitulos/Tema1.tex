@@ -621,3 +621,158 @@ Recordemos de la teoría general de anillos que un cuerpo es un anillo conmutati
     \textit{(La demostración seguirá el esquema de implicaciones lógicas: $(1) \iff (2) \implies (3) \implies (4) \implies (2)$, y comprobando la finitud por otro lado).} %
 \end{proposicion} %
 
+% ==========================================
+% TEMA 1: EXTENSIONES DE CUERPOS (Continuación)
+% ==========================================
+
+\begin{proof}[Continuación de la demostración de la Proposición 1.12]
+    \begin{itemize}
+        \item \textbf{(b) $\Rightarrow$ (a):} Se tiene porque $\ker(S_\alpha) \neq (0)$, luego el homomorfismo de evaluación no es inyectivo.
+        \item \textbf{(c) $\Rightarrow$ (d):} Obvio.
+        \item \textbf{(a) $\Rightarrow$ (c):} Si $\alpha$ es algebraico sobre $K$, existe $f \in K[X] \setminus \{0\}$ tal que $f(\alpha) = 0$. Esto implica que $\alpha$ es raíz de algún factor $p_i$ irreducible (ya que $K[X]$ es un Dominio de Factorización Única y $f = p_1 \cdots p_k$). 
+        
+        Aplicando el Primer Teorema de Isomorfía al homomorfismo de evaluación, obtenemos:
+        $$ \frac{K[X]}{(p_i)} \simeq K[\alpha] $$
+        Como $(p_i)$ es un ideal maximal (por ser $p_i$ irreducible), el cociente es un cuerpo. Por lo tanto, $K[\alpha]$ es un cuerpo, lo que implica que $K(\alpha) = K[\alpha]$ y que la extensión es finita.
+        
+        \item \textbf{(e) $\Rightarrow$ (b):} Supongamos por reducción al absurdo que $\ker(S_\alpha) = (0)$ (es decir, el homomorfismo es inyectivo). Entonces $K[X] \simeq K[\alpha]$. Como $K[X]$ es un espacio vectorial de dimensión infinita sobre $K$, $K[\alpha]$ también lo sería, lo cual contradice la hipótesis de que la extensión es de dimensión finita.
+    \end{itemize}
+\end{proof}
+
+\subsection*{El Polinomio Mínimo}
+
+Sea $L/K$ una extensión y $\alpha \in L$ un elemento algebraico sobre $K$. Consideramos el homomorfismo de evaluación $S_\alpha: K[X] \rightarrow L$. Se cumple que su núcleo $I = \ker(S_\alpha)$ es un ideal primo porque:
+$$ \frac{K[X]}{I} \simeq K[\alpha] \subseteq L $$
+y al estar contenido en un cuerpo, es un dominio de integridad. De hecho, al ser $K[X]$ un Dominio de Ideales Principales (por el algoritmo de la división), el ideal está generado por un único elemento, $I = (p)$.
+
+De todos los generadores posibles de este ideal, hay uno solo que es mónico. Si $\ker(S_\alpha) = (f(X))$ donde $f(X) = f_n X^n + \dots$, al ser $K$ un cuerpo y el núcleo un ideal, podemos multiplicar por el inverso del coeficiente principal $\frac{1}{f_n}$ para obtener un polinomio mónico que genera el mismo ideal.
+
+\begin{definicion}{Polinomio Mínimo}
+    Llamaremos polinomio mínimo al único polinomio irreducible y mónico de $\alpha$ sobre $K$ que lo anula. Lo denotaremos como $\operatorname{Min}_K(\alpha)$.
+\end{definicion}
+
+Del Teorema de Extensión Simple deducimos lo siguiente:
+
+\begin{lema}{Lema 1.13}
+    Si $\alpha$ es algebraico sobre $K$, entonces:
+    $$ [K(\alpha) : K] = \operatorname{gr}(\operatorname{Min}_K(\alpha)) $$
+    Y si este grado es $n$, entonces el conjunto $\{1, \alpha, \alpha^2, \dots, \alpha^{n-1}\}$ constituye una base de $K(\alpha)$ como espacio vectorial sobre $K$.
+\end{lema}
+
+\begin{observacion}{Recordatorio: Criterio de Eisenstein}
+    Sea $p \in \mathbb{Z}[X]$ tal que $p(X) = a_0 + a_1 X + \dots + a_n X^n$ y sea $q$ un número primo. Si se cumple que:
+    \begin{itemize}
+        \item $q \nmid a_n$ (el primo no divide al coeficiente principal)
+        \item $q \mid a_i$ para $i = 0, \dots, n-1$ (el primo divide a los demás coeficientes)
+        \item $q^2 \nmid a_0$ (el cuadrado del primo no divide al término independiente)
+    \end{itemize}
+    Entonces $p(X)$ es irreducible en $\mathbb{Q}[X]$.
+\end{observacion}
+
+\begin{ejemplo}{Ejemplos 1.14}
+    \begin{enumerate}
+        \item \textbf{Polinomios mínimos básicos:} $\operatorname{Min}_{\mathbb{Q}}(\sqrt{2}) = X^2 - 2$, mientras que $\operatorname{Min}_{\mathbb{R}}(\sqrt{2}) = X - \sqrt{2}$. Por otro lado, $\operatorname{Min}_{\mathbb{Q}}(i) = \operatorname{Min}_{\mathbb{R}}(i) = X^2 + 1$. Más generalmente, si $q \in \mathbb{Q}$ y $\sqrt{q} \notin \mathbb{Q}$, entonces $\operatorname{Min}_{\mathbb{Q}}(\sqrt{q}) = X^2 - q$.
+        \item Si $\alpha = \sqrt{5+\sqrt{5}}$, entonces $\alpha^2 - 5 = \sqrt{5}$. Elevando al cuadrado de nuevo obtenemos $5 = (\alpha^2 - 5)^2 = \alpha^4 - 10\alpha^2 + 25$, es decir, $\alpha$ es una raíz del polinomio $X^4 - 10X^2 + 20$. Aplicando el Criterio de Eisenstein a este polinomio para el primo $q=5$, deducimos que es irreducible sobre $\mathbb{Q}$ y, por tanto, $\operatorname{Min}_{\mathbb{Q}}(\alpha) = X^4 - 10X^2 + 20$.
+        \item \textbf{Trascendencia de variables:} El cuerpo de fracciones de $K[X]$ es $K(X)$ y la extensión $K(X)/K$ es de grado infinito, pues las potencias de $X$ ($\{1, X, X^2, \dots\}$) son linealmente independientes sobre $K$. Por tanto, $X$ es trascendente sobre $K$.
+        \item \textbf{Trascendencia de constantes famosas:} Decidir si un número real o complejo es algebraico sobre el cuerpo de los números racionales es un problema normalmente muy difícil. El carácter trascendente de $\pi$ sobre $\mathbb{Q}$ fue demostrado por Lindemann en 1882. También es trascendente la base $e$ del logaritmo neperiano, lo que fue demostrado por Hermite en 1873.
+    \end{enumerate}
+\end{ejemplo}
+
+\begin{corolario}{Equivalencias de Extensiones Finitas (Corolario de Prop. 1.12)}
+    Las siguientes afirmaciones son equivalentes para una extensión $L/K$:
+    \begin{enumerate}
+        \item $L/K$ es finita.
+        \item $L/K$ es algebraica y finitamente generada.
+        \item Existen $\alpha_1, \dots, \alpha_n \in L$ algebraicos sobre $K$ tales que $L = K(\alpha_1, \dots, \alpha_n)$.
+    \end{enumerate}
+\end{corolario}
+
+\begin{proof}
+    \textbf{(2) $\Rightarrow$ (3):} Obvio, por la propia definición.
+    
+    \textbf{(1) $\Rightarrow$ (2):} Si $L/K$ es finita, entonces $[L:K] < \infty$. Entonces, para todo $\alpha \in L$, se tiene la torre $K \subseteq K(\alpha) \subseteq L$, lo que implica que $[K(\alpha) : K] \le [L:K] < \infty$. Al ser una extensión simple finita, $\alpha$ es algebraico, 
+    por lo que la extensión total $L/K$ es algebraica. Además, como el grado es finito (sea $[L:K] = n$), existe una base $\{u_1, \dots, u_n\}$, por lo que $L = K(u_1, \dots, u_n)$, siendo finitamente generada.
+    
+    \textbf{(3) $\Rightarrow$ (1):} Para deducir que la extensión es finita, vamos a construir una torre de cuerpos que empiece en $K$ y acabe en $L$, para usar la propiedad multiplicativa del grado:
+    \begin{align*}
+        F_0 &= K \\
+        F_1 &= K(\alpha_1) \\
+        F_2 &= K(\alpha_1, \alpha_2) = F_1(\alpha_2) \\
+        &\vdots \\
+        F_i &= K(\alpha_1, \dots, \alpha_i) = F_{i-1}(\alpha_i) \\
+        &\vdots \\
+        F_n &= K(\alpha_1, \dots, \alpha_n) = L
+    \end{align*}
+    Vamos a probar que cada grado $[F_i : F_{i-1}]$ es finito. Como cada $F_i = F_{i-1}(\alpha_i)$, para saber su grado basta ver si $\alpha_i$ es algebraico sobre $F_{i-1}$. Esto se cumple por hipótesis: como $K \subseteq F_{i-1}$ y $\alpha_i$ es algebraico sobre $K$, 
+    también lo es sobre $F_{i-1}$ (el polinomio mínimo de $\alpha_i$ sobre $K$ pertenece a $K[X]$ y, por tanto, a $F_{i-1}[X]$). Luego cada salto $[F_i : F_{i-1}]$ es finito. Por la multiplicatividad de los grados en torres de cuerpos, el grado total $[L:K]$ es finito.
+\end{proof}
+
+\begin{proposicion}{La clase de extensiones algebraicas es multiplicativa (Prop. 1.16)}
+    Sea $K_1 \subseteq K_2 \subseteq K_3$ una torre de extensiones. Se cumple que:
+    $$ K_3/K_1 \text{ es algebraica} \iff K_2/K_1 \text{ y } K_3/K_2 \text{ son algebraicas} $$
+\end{proposicion}
+
+\begin{proof}
+    \textbf{($\Rightarrow$)} Es obvio. Las raíces de $K_3$ sobre $K_1$ se mantienen en el cuerpo y son automáticamente raíces sobre $K_2$.
+    
+    \textbf{($\Leftarrow$)} Sea $\alpha \in K_3$. Como $K_3/K_2$ es algebraica, $\alpha$ es raíz de algún polinomio no nulo en $K_2[X]$. Es decir, existe $p(X) = p_0 + p_1X + \dots + p_nX^n \in K_2[X] \setminus \{0\}$ tal que $p(\alpha) = 0$.
+    
+    Como $p_0, p_1, \dots, p_n \in K_2$ y la extensión base $K_2/K_1$ es algebraica, todos estos coeficientes son algebraicos sobre $K_1$. Sea $F = K_1(p_0, p_1, \dots, p_n)$. Por el corolario anterior, la extensión $F/K_1$ es finita.
+    
+    Sabemos que $\alpha$ es algebraico sobre $F$ (puesto que $p(X) \in F[X]$), lo que implica que la extensión simple $F(\alpha)/F$ es finita.
+    
+    Como $F/K_1$ y $F(\alpha)/F$ son extensiones finitas, y la clase de extensiones finitas es multiplicativa, se sigue que la extensión global $F(\alpha)/K_1$ es finita. Al ser finita, es algebraica, y como $\alpha \in F(\alpha)$, concluimos que $\alpha$ es algebraico sobre $K_1$.
+\end{proof}
+
+
+\begin{corolario}{Clausura algebraica de $K$ en $L$}
+    Si $L/K$ es una extensión de cuerpos, entonces el conjunto $C$ de los elementos de $L$ que son algebraicos sobre $K$ es un subcuerpo de $L$ que contiene a $K$, llamado \textbf{clausura algebraica de $K$ en $L$}.
+    
+    En concreto, si $S \subseteq L$ está formado por elementos algebraicos sobre $K$, entonces la extensión $K(S)/K$ es algebraica.
+\end{corolario}
+
+\begin{proof}
+    Para cualesquiera $\alpha, \beta \in C$, sabemos que la extensión generada $K(\alpha, \beta)/K$ es finita y, por tanto, algebraica. 
+    Esto implica que cualquier combinación de estos elementos mediante las operaciones del cuerpo (como $\alpha + \beta$, $\alpha \cdot \beta$, etc.) produce elementos que 
+    también son algebraicos sobre $K$. Por lo tanto, estos elementos pertenecen a $C$, demostrando que $C$ es un cuerpo.
+\end{proof}
+
+\begin{definicion}{Clase cerrada para levantamientos}
+    Decimos que una clase $\mathcal{C}$ de extensiones de cuerpos es \textbf{cerrada para levantamientos} si, 
+    para cada par de extensiones admisibles $L_1/K$ y $L_2/K$, se cumple que:
+    $$ L_1/K \in \mathcal{C} \implies L_1 L_2 / L_2 \in \mathcal{C} $$
+   
+\end{definicion}
+
+\begin{proposicion}{Levantamiento de las clases fundamentales}
+    Cada una de las clases de extensiones finitas, algebraicas, finitamente generadas y simples 
+    son cerradas para levantamientos.
+\end{proposicion}
+
+\begin{proof}
+    Analizamos cada caso asumiendo que $L_1/K \in \mathcal{C}$ y levantamos al cuerpo compuesto $L_1 L_2$:
+    
+    \begin{itemize}
+        \item \textbf{Finitamente generadas o simples:} Si $L_1/K$ es finitamente generada o simple, entonces $L_1 = K(\alpha_1, \dots, \alpha_n)$ con $\alpha_i \in L_1$. El compuesto es $L_1 L_2 = L_2(L_1) = L_2(\alpha_1, \dots, \alpha_n)$. Como está generado por una cantidad finita de elementos, la extensión $L_1 L_2 / L_2$ es finitamente generada.
+        
+        \item \textbf{Algebraicas:} Si $L_1/K$ es algebraica, todo elemento de $L_1$ es algebraico sobre $K$. Como $K \subseteq L_2$, también es algebraico sobre $L_2$ (trivialmente). Por el corolario anterior, el conjunto de elementos algebraicos sobre $L_2$ es un cuerpo. Este cuerpo contiene a $L_1$ y a $L_2$, por lo que contiene a su compuesto $L_1 L_2$. Por tanto, la extensión $L_1 L_2 / L_2$ es algebraica.
+        
+        \item \textbf{Finitas:} Si $L_1/K$ es finita, equivale a ser algebraica y finitamente generada. Por los dos apartados anteriores, el levantamiento $L_1 L_2 / L_2$ será simultáneamente algebraico y finitamente generado. Aplicando el Corolario 1.15, deducimos que $L_1 L_2 / L_2$ es una extensión finita.
+    \end{itemize}
+\end{proof}
+
+
+\begin{proposicion}{Automorfismos en extensiones algebraicas}
+    Sea $L/K$ una extensión algebraica y sea $\sigma$ un $K$-endomorfismo de $L$. Entonces $\sigma$ es un automorfismo.
+\end{proposicion}
+
+\begin{proof}
+    Como $\sigma$ es un homomorfismo de cuerpos, sabemos que es inyectivo. Solo necesitamos demostrar que es suprayectivo.
+    
+    Sea $\alpha \in L$. Como la extensión es algebraica, $\alpha$ tiene un polinomio mínimo $p = \operatorname{Min}_K(\alpha)$ de grado $\operatorname{gr}(p) = n$. 
+    Por el Lema 1.8 (invarianza de raíces), el endomorfismo $\sigma$ induce una permutación sobre el conjunto finito de las raíces de $p$ que residen en $L$.
+    
+    Al ser una permutación de un conjunto finito, la restricción de $\sigma$ a estas raíces es biyectiva y, en particular, suprayectiva. Por lo tanto, el elemento $\alpha$ (que es una de las raíces) debe tener una preimagen bajo $\sigma$.
+    
+    Como todo elemento $\alpha \in L$ tiene preimagen, la aplicación $\sigma$ es suprayectiva. Siendo inyectiva y suprayectiva, concluimos que $\sigma$ es un automorfismo.
+\end{proof}

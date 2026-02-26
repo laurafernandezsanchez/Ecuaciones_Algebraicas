@@ -169,9 +169,11 @@ Por tanto de la Proposición 4.9 deducimos: % 32]
     Si $L/K$ es una extensión finita entonces $|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$. % 33]
 \end{proposicion}
 
-
+Recordemos que $\operatorname{Sub}(L/K)$ denota el conjunto de todas las subextensiones de $L/K$. \\
 Si $G$ es un grupo, entonces vamos a denotar por $\operatorname{Sub}(G)$ al conjunto de todos los subgrupos de $G$ y si $H$ es un subgrupo de $G$, 
-entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que contienen a $H$. En realidad esta última notación es ambigua pues si $N$ es un subgrupo normal de $G$, entonces $\operatorname{Sub}(G/N)$ tiene dos significados: el conjunto de los subgrupos de $G$ que contienen a $N$ y el conjunto de los subgrupos del cociente $G/N$. El Teorema de la Correspondencia (Teorema 5.4 de GyA) nos muestra que esta ambigüedad no es muy grave. % 35]
+entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que contienen a $H$. En realidad esta última notación es ambigua pues si $N$ es un subgrupo normal de $G$, entonces $\operatorname{Sub}(G/N)$ tiene dos significados: el conjunto de los subgrupos de $G$ que contienen a $N$ y el conjunto de los subgrupos del cociente $G/N$. 
+El Teorema de la Correspondencia (Teorema 5.4 de GyA) nos muestra que esta ambigüedad no es muy grave.\\
+Como $(\operatorname{Gal}(L/K))$ es un grupo, $\operatorname{Sub}(\operatorname{Gal}(L/K))$ es el conjunto de los subgrupos de $\operatorname{Gal}(L/K)$ y $\operatorname{Sub}(\operatorname{Gal}(L/K)/H)$ es el conjunto de los subgrupos de $\operatorname{Gal}(L/K)$ que contienen a $H$.
 
 \begin{definicion}{Homomorfismo y anti-homomorfismo de conjuntos ordenados}
     Consideramos $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G/H)$ como conjuntos ordenados por la inclusión. 
@@ -183,8 +185,8 @@ entonces $\operatorname{Sub}(G/H)$ es el conjunto de los subgrupos de $G$ que co
     El par formado por las siguientes aplicaciones se llama \textbf{correspondencia de Galois de la extensión $L/K$}. 
     Si $L/K$ es una extensión de cuerpos entonces tenemos dos aplicaciones: 
     \begin{align*}
-        (-)^{\circ} &= \operatorname{Gal}(L/-) \colon \operatorname{Sub}(L/K) \longrightarrow \operatorname{Sub}(\operatorname{Gal}(L/K)) \\
-        (-)^{\circ} &= L^{(-)} \colon \operatorname{Sub}(\operatorname{Gal}(L/K)) \longrightarrow \operatorname{Sub}(L/K)
+        (-)^{\circ} &:= \operatorname{Gal}(L/-) \colon \operatorname{Sub}(L/K) \longrightarrow \operatorname{Sub}(\operatorname{Gal}(L/K)) \\
+        (-)^{\circ} &:= L^{(-)} \colon \operatorname{Sub}(\operatorname{Gal}(L/K)) \longrightarrow \operatorname{Sub}(L/K)
     \end{align*} 
     La aplicación que va para la derecha asocia $F\in \operatorname{Sub}(L/K)$ con 
     $$F^{\circ}=\operatorname{Gal}(L/F)=\{\sigma\in \operatorname{Gal}(L/K) \mid \sigma(x)=x \text{ para todo } x\in F\}$$ % 39, 40]
@@ -215,8 +217,8 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
     \textbf{(1) Casos triviales:}
     \begin{itemize}
         \item $L^{\circ} = \operatorname{Gal}(L/L)$. El único automorfismo de $L$ que deja fijo todo elemento de $L$ es la identidad. Por tanto, $L^{\circ} = \{1\} = 1$.
-        \item $K^{\circ} = \operatorname{Gal}(L/K)$. Por definición, este es el grupo de Galois total $G$.
-        \item $1^{\circ} = L^{\{1\}}$. El conjunto de elementos de $L$ fijados por el automorfismo identidad es todo $L$.
+        \item $K^{\circ} = \operatorname{Gal}(L/K)=G$. Por definición, este es el grupo de Galois total $G$.
+        \item $1^{\circ} = L^{\{1\}}=\{\alpha\in L : 1(\alpha)=\alpha\} = L$. El conjunto de elementos de $L$ fijados por el automorfismo identidad es todo $L$.
     \end{itemize}
 
     \textbf{(2) Antihomomorfismos (Inversión del orden):}
@@ -239,7 +241,7 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
     \end{itemize}
 
     \textbf{(4) Anti-isomorfismo de las imágenes:}
-    Llamemos "elementos cerrados" a aquellos subcuerpos o subgrupos que pertenecen a las imágenes de la correspondencia de Galois (es decir, aquellos de la forma $Y = X^{\circ}$). 
+    Llamemos \textbf{elementos cerrados} a aquellos subcuerpos o subgrupos que pertenecen a las imágenes de la correspondencia de Galois (es decir, aquellos de la forma $Y = X^{\circ}$). 
     
     Si tomamos un elemento cerrado $Y = X^{\circ}$ y le aplicamos dos veces el operador de Galois, obtenemos $Y^{\circ\circ} = (X^{\circ})^{\circ\circ} = X^{\circ\circ\circ}$. Por la propiedad (3), sabemos que $X^{\circ\circ\circ} = X^{\circ}$, con lo que deducimos que $Y^{\circ\circ} = Y$. 
     
@@ -251,19 +253,27 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
     subextensiones cerradas en $L/K$ y subgrupos cerrados en $\operatorname{Gal}(L/K)$. % 9]
 \end{definicion}
 
-\begin{observacion}{}
-    Obsérvese que de la propiedad (3) de la Proposición 5.3 se tiene que $X$ es cerrado si y solo si $X=X^{\circ\circ}$ 
+\begin{observacion}{El operador de clausura}
+    Se tiene que un elemento $X$ (ya sea un cuerpo intermedio o un subgrupo) es cerrado si y solo si $X = X^{\circ\circ}$. 
+    
+    Llamamos a $X^{\circ\circ}$ la \textbf{clausura} de $X$ porque la doble aplicación de la correspondencia cumple las propiedades axiomáticas de un operador de clausura:
+    \begin{itemize}
+        \item \textbf{Extensivo:} $X \subseteq X^{\circ\circ}$. Para un cuerpo $M$, $M \subseteq L^{\text{Gal}(L/M)}$, lo que significa que el cuerpo fijo por los automorfismos que fijan $M$ es, al menos, tan grande como $M$.
+        \item \textbf{Idempotente:} $(X^{\circ\circ})^{\circ\circ} = X^{\circ\circ}$. Una vez cerrado, el conjunto no crece más mediante aplicaciones sucesivas.
+        \item \textbf{Monótono:} Si $A \subseteq B$, entonces $A^{\circ\circ} \subseteq B^{\circ\circ}$.
+    \end{itemize}
 \end{observacion}
 
-\begin{corolario}{}
-    Las aplicaciones de la correspondencia de Galois de una extensión de cuerpos $L/K$ se restringen a 
-    un anti-isomorfismo de conjuntos ordenados entre las subextensiones cerradas en $L/K$ y 
-    los subgrupos cerrados en $\operatorname{Gal}(L/K)$.
+\begin{corolario}{Anti-isomorfismo de conjuntos ordenados}
+    Las aplicaciones de la correspondencia de Galois de una extensión de cuerpos $L/K$ se restringen a un \textbf{anti-isomorfismo} de conjuntos ordenados entre las subextensiones cerradas en $L/K$ y los subgrupos cerrados en $\text{Gal}(L/K)$.
 \end{corolario}
 
-\begin{observacion}{}
-    Por la Proposición 5.3, $L$, $1$ y $\operatorname{Gal}(L/K)$ son cerrados en $L/K$, pero $K$ no tiene por qué serlo. 
-    Por ejemplo, si $L\ne K$ y $\operatorname{Gal}(L/K)=1$ (ver Ejemplos 5.1) entonces $K^{\circ\circ}=1^{\circ}=L\ne K$. 
+\begin{observacion}{Cuerpos y grupos siempre cerrados (Obs. 5.1.10)}
+    Por las propiedades de la correspondencia, los elementos extremos $L$, $1$ (el subgrupo identidad) y $\text{Gal}(L/K)$ son siempre cerrados en $L/K$.
+    
+    Sin embargo, el cuerpo base $K$ \textbf{no tiene por qué ser cerrado}. Por ejemplo, si $L \neq K$ pero $\text{Gal}(L/K) = 1$ (como ocurre en extensiones no normales o puramente inseparables), entonces la clausura de $K$ es:
+    $$ K^{\circ\circ} = (K^{\circ})^{\circ} = 1^{\circ} = L \neq K $$
+    En este caso, $K$ no es un elemento cerrado de la correspondencia.
 \end{observacion}
 
 
@@ -276,37 +286,117 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
 \end{proposicion}
 
 \begin{proof}
-    (1) Razonamos por inducción sobre $n=[E_{2}:E_{1}]$ con el caso $n=1$ obvio. % 19]
-    Supongamos pues que $n>1$ y la hipótesis de inducción. Sean $\alpha\in E_{2}\setminus E_{1}$, $p=\operatorname{Min}_{E_{1}}(\alpha)$ y $s=\operatorname{gr}(p)$. % 20]
-    Entonces $s=[E_{1}(\alpha):E_{1}]$ y $[E_{2}:E_{1}(\alpha)]<n$. Si $s<n$, entonces por la hipótesis de inducción tenemos: % 21]
-    $$[E_{1}^{\circ}:E_{2}^{\circ}]=[E_{1}^{\circ}:E_{1}(\alpha)^{\circ}][E_{1}(\alpha)^{\circ}:E_{2}^{\circ}]\le[E_{1}(\alpha):E_{1}][E_{2}:E_{1}(\alpha)]=[E_{2}:E_{1}].$$ % 22]
-    En caso contrario, $E_{2}=E_{1}(\alpha)$. Sean $R$ el conjunto de raíces de $p$ y $\phi:E_{1}^{\circ}/E_{2}^{\circ}\rightarrow R$ la aplicación dada por $\phi(\sigma E_{2}^{\circ})=\sigma(\alpha)$. Es fácil ver que esta aplicación está bien definida y es inyectiva. % 23]
-    Por tanto $[E_{1}^{\circ}:E_{2}^{\circ}]\le|R|\le \operatorname{gr}(p)=[E_{2}:E_{1}]$. % 24]
+    \textbf{1) Demostración de $[E_{1}^{\circ}:E_{2}^{\circ}]\le[E_{2}:E_{1}]$}
+
+    Procedemos por inducción sobre el grado de la extensión $n = [E_{2} : E_{1}]$. 
     
-    (2) Pongamos $[H_{2}:H_{1}] = n$, $H_{2}/H_{1}=\{\tau_{1}H_{1},\dots,\tau_{n}H_{1}\}$ con $\tau_{1}=1$ y razonemos por reducción al absurdo, es decir, supondremos que $[H_{1}^{\circ}:H_{2}^{\circ}]>n$. Entonces existen $\alpha_{1},\dots,\alpha_{n},\alpha_{n+1}\in H_{1}^{\circ}$ linealmente independientes sobre $H_{2}^{\circ}$. Consideremos la matriz: % 25]
+    \textbf{Caso base ($n=1$):}
+    Si $[E_{2} : E_{1}] = 1$, entonces $E_{2} = E_{1}$. Por definición, sus grupos de automorfismos asociados son idénticos: $E_{1}^{\circ} = E_{2}^{\circ}$. En consecuencia, el índice del subgrupo es $[E_{1}^{\circ} : E_{2}^{\circ}] = 1$, cumpliéndose la igualdad trivialmente.
+
+    \textbf{Paso inductivo:}
+    Supongamos que el resultado es válido para cualquier extensión de grado menor que $n$. Consideramos un elemento $\alpha \in E_{2} \setminus E_{1}$ y el cuerpo intermedio $E_{1}(\alpha)$. 
+
+    Si $E_{1}(\alpha) \subsetneq E_{2}$, podemos descomponer la extensión en una torre: $E_{1} \subseteq E_{1}(\alpha) \subseteq E_{2}$. Por la propiedad multiplicativa de los grados:
+    $$[E_{2} : E_{1}] = [E_{2} : E_{1}(\alpha)] \cdot [E_{1}(\alpha) : E_{1}]$$
+    Como ambos factores son estrictamente menores que $n$, aplicamos la hipótesis de inducción a cada uno. Usando la propiedad de los índices de subgrupos en una torre:
+    $$[E_{1}^{\circ} : E_{2}^{\circ}] = [E_{1}^{\circ} : E_{1}(\alpha)^{\circ}] \cdot [E_{1}(\alpha)^{\circ} : E_{2}^{\circ}] \le [E_{1}(\alpha) : E_{1}] \cdot [E_{2} : E_{1}(\alpha)] = [E_{2} : E_{1}]$$
+
+    \textbf{Caso de la extensión simple ($E_{2} = E_{1}(\alpha)$):}
+    Sea $p = \operatorname{Min}_{E_{1}}(\alpha)$ el polinomio mínimo de $\alpha$ sobre $E_{1}$, con grado $s = \operatorname{gr}(p) = [E_{2} : E_{1}]$. Definimos $R$ como el conjunto de raíces de $p$ contenidas en $L$.
+    
+    Consideramos la aplicación entre el conjunto de clases laterales y las raíces:
+    $$ \psi : E_{1}^{\circ} / E_{2}^{\circ} \longrightarrow R, \quad \psi(\sigma E_{2}^{\circ}) = \sigma(\alpha) $$
+    
+    \begin{itemize}
+        \item \textbf{Buena definición:} Supongamos que $\sigma E_{2}^{\circ} = \tau E_{2}^{\circ}$. Esto implica que $\tau^{-1}\sigma \in E_{2}^{\circ}$. Por definición, el grupo $E_{2}^{\circ} = \text{Gal}(L/E_{2})$ fija todos los elementos de $E_{2}$. Como $\alpha \in E_{2}$, se tiene que $\tau^{-1}\sigma(\alpha) = \alpha$, lo que implica $\sigma(\alpha) = \tau(\alpha)$. Además, como $\sigma \in E_{1}^{\circ}$ fija $E_{1}$ y $\alpha$ es raíz de $p \in E_{1}[X]$, $\sigma(\alpha)$ es obligatoriamente otra raíz de $p$ en $L$, por lo que la imagen está en $R$.
+        
+        \item \textbf{Inyectividad:} Supongamos que $\psi(\sigma E_{2}^{\circ}) = \psi(\tau E_{2}^{\circ})$, es decir, $\sigma(\alpha) = \tau(\alpha)$. Multiplicando por la izquierda por el inverso, tenemos $\tau^{-1}\sigma(\alpha) = \alpha$. Dado que $\tau^{-1}\sigma$ ya fijaba $E_{1}$ (por ser composición de elementos de $E_{1}^{\circ}$), ahora también fija al generador $\alpha$. Por tanto, fija a todo el cuerpo $E_{1}(\alpha) = E_{2}$, lo que significa que $\tau^{-1}\sigma \in E_{2}^{\circ}$. Esto demuestra que $\sigma E_{2}^{\circ} = \tau E_{2}^{\circ}$.
+    \end{itemize}
+
+    Al ser $\psi$ una aplicación inyectiva, el cardinal del dominio no puede superar al del codominio:
+    $$ [E_{1}^{\circ} : E_{2}^{\circ}] \le |R| \le \operatorname{gr}(p) = [E_{2} : E_{1}] $$
+    donde la última desigualdad se debe a que un polinomio de grado $s$ tiene a lo sumo $s$ raíces.
+    
+    \vspace{0.3 mm}
+
+
+    \textbf{2) Demostración de $[H_{1}^{\circ}:H_{2}^{\circ}]\le[H_{2}:H_{1}]$}\\
+    \textbf{Aclaración previa sobre los representantes $\tau_i$:}
+    Por hipótesis, el índice del subgrupo es finito y vale $[H_{2}:H_{1}] = n$. En la teoría de grupos, el índice nos dice exactamente en cuántos "trozos" (clases laterales) podemos dividir el grupo grande ($H_2$) usando el subgrupo pequeño ($H_1$). 
+    Por tanto, el grupo $H_2$ se particiona en $n$ clases laterales por la izquierda. Los elementos $\tau_1, \tau_2, \dots, \tau_n \in H_2$ son los \textbf{representantes} elegidos para cada una de esas clases, de modo que $H_{2}/H_{1}=\{\tau_{1}H_{1},\dots,\tau_{n}H_{1}\}$. 
+    Como el propio subgrupo $H_1$ es una de estas clases laterales, resulta muy conveniente elegir el elemento neutro (la identidad de Galois) como su representante, por lo que fijamos $\tau_{1}=1$.
+
+    \vspace{0.4cm}
+    \textbf{Desarrollo formal por reducción al absurdo:}
+    
+    Nuestro objetivo es demostrar que $[H_{1}^{\circ}:H_{2}^{\circ}] \le n$. Supongamos lo contrario, es decir, que $[H_{1}^{\circ}:H_{2}^{\circ}] > n$. 
+    Recordemos que $H_1^\circ$ y $H_2^\circ$ son subcuerpos de $L$ denominados \textbf{cuerpos fijos} por la acción de los subgrupos $H_1, H_2 \le \operatorname{Gal}(L/K)$. 
+
+Formalmente, se definen como los conjuntos de elementos de $L$ que permanecen invariantes ante la acción de cada uno de los automorfismos del subgrupo correspondiente:
+
+\begin{equation*}
+    H_1^\circ = \{ a \in L \mid \sigma(a) = a, \quad \forall \sigma \in H_1 \}
+\end{equation*}
+\begin{equation*}
+    H_2^\circ = \{ a \in L \mid \sigma(a) = a, \quad \forall \sigma \in H_2 \}
+\end{equation*}
+
+Donde cada $\sigma \in \operatorname{Gal}(L/K)$ es un $K$-automorfismo del cuerpo $L$. Por las propiedades de la correspondencia de Galois, estos conjuntos siempre tienen estructura de cuerpo.
+
+    Si la dimensión del espacio vectorial $H_{1}^{\circ}$ sobre el cuerpo base $H_{2}^{\circ}$ es estrictamente mayor que $n$, significa que podemos encontrar al menos $n+1$ 
+    elementos en $H_{1}^{\circ}$ que sean linealmente independientes sobre $H_{2}^{\circ}$ (aquí $H_{2}^{\circ}$ funciona como el cuerpo donde cogemos los escalares). 
+    Llamemos a estos elementos $\alpha_{1},\dots,\alpha_{n},\alpha_{n+1} \in H_{1}^{\circ}$.
+
+    Evaluemos todos nuestros representantes $\tau_i$ en cada uno de estos elementos y formemos la siguiente matriz $A$ de tamaño $n \times (n+1)$ con coeficientes en $L$:
     $$A=\begin{pmatrix}
     \tau_{1}(\alpha_{1}) & \tau_{1}(\alpha_{2}) & \dots & \tau_{1}(\alpha_{n+1})\\ 
     \tau_{2}(\alpha_{1}) & \tau_{2}(\alpha_{2}) & \dots & \tau_{2}(\alpha_{n+1})\\ 
     \vdots & \vdots & \ddots & \vdots \\ 
     \tau_{n}(\alpha_{1}) & \tau_{n}(\alpha_{2}) & \dots & \tau_{n}(\alpha_{n+1})
-    \end{pmatrix}$$ % 26]
-    y sea $r$ el rango de $A$. Reordenamos los $\alpha_{i}$ para que las primeras $r$ columnas sean linealmente independientes. % 2
-    Entonces la columna $r+1$ es combinación lineal de las $r$ primeras (obsérvese que $r\le n<n+1=$ número de columnas de $A$) y por tanto existe $a=(a_{1},\dots,a_{r},1,0,\dots,0)^T\in (L)^{n+1}$ tal que $Aa=0$. % 28]
-    Como $\tau_{1}=1$ tenemos: % 29]
-    $$\alpha_{1}a_{1}+\dots+\alpha_{r}a_{r}+\alpha_{r+1}=0$$ % 30, 31, 32]
-    y, como los $\alpha_{i}$ son linealmente independientes sobre $H_{2}^{\circ}$, existe $1\le i\le r$ tal que $a_{i}\notin H_{2}^{\circ}$. % 33]
-    Reordenando $a_{1},\dots,a_{r}$ podemos suponer que $a_{1}\notin H_{2}^{\circ}$, es decir $\sigma(a_{1})\ne a_{1}$ para algún $\sigma\in H_{2}$. % 34]
-    La aplicación $H_{2}/H_{1}\rightarrow H_{2}/H_{1}$ dada por $\tau H_{1}\mapsto\sigma\tau H_{1}$ es inyectiva pues si $\sigma\sigma_{1}H_{1}=\sigma\sigma_{2}H_{1}$ entonces $\sigma_{2}^{-1}\sigma_{1}=(\sigma\sigma_{2})^{-1}(\sigma\sigma_{1})\in H_{1}$, luego $\sigma_{1}H_{1}=\sigma_{2}H_{1}$. % 35]
-    Por tanto existe una permutación $\rho\in S_{n}$ tal que $\sigma^{-1}\tau_{i}=\tau_{\rho(i)}$ para todo $i=1,\dots,n$, con lo que la matriz: % 36]
-    $$B=\begin{pmatrix}
-    \sigma^{-1}\tau_{1}(\alpha_{1}) & \sigma^{-1}\tau_{1}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{1}(\alpha_{n+1})\\ 
-    \sigma^{-1}\tau_{2}(\alpha_{1}) & \sigma^{-1}\tau_{2}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{2}(\alpha_{n+1})\\ 
-    \vdots & \vdots & \ddots & \vdots \\ 
-    \sigma^{-1}\tau_{n}(\alpha_{1}) & \sigma^{-1}\tau_{n}(\alpha_{2}) & \dots & \sigma^{-1}\tau_{n}(\alpha_{n+1})
-    \end{pmatrix}$$ % 3
-    se obtiene permutando las filas de la matriz $A$. Eso implica que $Ba=0$ y por tanto $A\sigma(a)=0$. % 38, 39]
-    Luego $A(a-\sigma(a))=0$ y: % 40, 41, 42, 43]
-    $$a-\sigma(a) = \begin{pmatrix}
+    \end{pmatrix}$$
+    
+    Cualquier sistema de ecuaciones lineales homogéneo con más incógnitas (columnas = $n+1$) que ecuaciones (filas = $n$) tiene siempre soluciones no triviales. Por tanto, el núcleo de esta matriz contiene vectores distintos de cero.
+    
+    \textbf{El argumento de minimidad (Truco de Artin):}
+    Sea $r$ el rango por columnas de $A$. Evidentemente $r \le n < n+1$. 
+    Reordenando los elementos $\alpha_{i}$ si fuera necesario, podemos suponer sin pérdida de generalidad que las primeras $r$ columnas de $A$ son linealmente independientes y que la columna $r+1$ es una combinación lineal exacta de estas $r$ primeras columnas. 
+    
+    Esto nos garantiza que existe un vector solución $a \in L^{n+1}$ no nulo con una estructura muy específica:
+    $$ a=(a_{1},\dots,a_{r},1,0,\dots,0)^T $$
+    donde el 1 está en la posición $r+1$. Se cumple que $Aa=0$.
+    
+    \textbf{Análisis de los coeficientes de la solución:}
+    Fijémonos en la primera fila del sistema $Aa=0$. Al ser $\tau_{1}=1$ (la identidad), la primera fila de la matriz es simplemente $(\alpha_1, \alpha_2, \dots, \alpha_{n+1})$. Multiplicando por el vector $a$, obtenemos:
+    $$\alpha_{1}a_{1}+\dots+\alpha_{r}a_{r}+\alpha_{r+1} \cdot 1 = 0$$
+    
+    Si todos los coeficientes $a_1, \dots, a_r$ pertenecieran al cuerpo base $H_{2}^{\circ}$, tendríamos una combinación lineal nula de elementos $\alpha_i$ sobre el cuerpo $H_{2}^{\circ}$. Pero habíamos elegido los $\alpha_i$ precisamente para que fueran linealmente independientes sobre $H_{2}^{\circ}$, lo cual haría esto imposible. 
+    Concluimos que al menos uno de los coeficientes no pertenece a $H_{2}^{\circ}$. Reordenando de nuevo si hace falta, supongamos que $a_{1}\notin H_{2}^{\circ}$.
+    
+    ¿Qué significa que $a_{1}\notin H_{2}^{\circ}$? Por la definición de cuerpo fijo, significa que existe algún automorfismo $\sigma \in H_{2}$ que "mueve" a $a_1$, es decir, $\sigma(a_{1})\ne a_{1}$.
+
+    \textbf{La acción del automorfismo $\sigma$ sobre el sistema:}
+    Tomemos la ecuación vectorial completa $Aa=0$ y apliquémosle el automorfismo $\sigma$ a todo el sistema. Dado que $\sigma(0)=0$, obtenemos $\sigma(A)\sigma(a) = 0$.
+    
+    Vamos a ver qué forma tiene la matriz transformada $\sigma(A)$. Su elemento genérico en la fila $i$ y columna $j$ es $\sigma(\tau_i(\alpha_j))$. 
+    Notemos que, al ser $\sigma \in H_2$, el conjunto de clases laterales por la izquierda $\{\sigma\tau_1 H_1, \dots, \sigma\tau_n H_1\}$ es exactamente el mismo conjunto original de clases laterales (solo se han permutado). Por tanto, para cada índice $i$, existe un único índice $k = \rho(i)$ y un elemento $h_i \in H_1$ tales que:
+    $$ \sigma\tau_i = \tau_{\rho(i)} h_i $$
+    
+    Ahora evaluamos esto en $\alpha_j$. Recordemos que $\alpha_j \in H_{1}^{\circ}$, lo que significa que es invariante (se queda fijo) ante cualquier elemento de $H_1$, incluyendo $h_i$. Por tanto $h_i(\alpha_j) = \alpha_j$. Sustituyendo:
+    $$ \sigma(\tau_i(\alpha_j)) = \tau_{\rho(i)}(h_i(\alpha_j)) = \tau_{\rho(i)}(\alpha_j) $$
+    
+    Esto demuestra un hecho crucial: la matriz $\sigma(A)$ es exactamente la misma matriz $A$, pero con las \textbf{filas permutadas} según la permutación $\rho$. Un sistema de ecuaciones no cambia sus soluciones por cambiar el orden de las filas, lo que implica directamente que:
+    $$ A\sigma(a)=0 $$
+
+    \textbf{La contradicción final:}
+    Tenemos ahora dos soluciones distintas para el sistema matricial original:
+    \begin{itemize}
+        \item $a = (a_1, \dots, a_r, 1, 0, \dots, 0)^T$
+        \item $\sigma(a) = (\sigma(a_1), \dots, \sigma(a_r), \sigma(1), 0, \dots, 0)^T = (\sigma(a_1), \dots, \sigma(a_r), 1, 0, \dots, 0)^T$
+    \end{itemize}
+    (Dado que $\sigma$ es un automorfismo de cuerpos, $\sigma(1)=1$ y $\sigma(0)=0$).
+    
+    Como el sistema es lineal, la resta de dos soluciones es otra solución. Restamos ambos vectores:
+    $$ a-\sigma(a) = \begin{pmatrix}
     a_{1}-\sigma(a_{1}) \\ 
     \vdots \\ 
     a_{r}-\sigma(a_{r}) \\ 
@@ -322,8 +412,14 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
     0 \\ 
     \vdots \\ 
     0
-    \end{pmatrix}$$ % 44]
-    con $a_{1}-\sigma(a_{1})\ne 0$. Eso implica que las primeras $r$ columnas de $A$ son linealmente dependientes en contra de la elección, lo que proporciona la contradicción deseada. % 45]
+    \end{pmatrix} $$
+    
+    Observemos este nuevo vector solución. Es distinto del vector nulo porque habíamos garantizado que $\sigma(a_{1}) \neq a_{1}$, luego su primera componente $a_{1}-\sigma(a_{1}) \ne 0$.
+    Sin embargo, tiene un cero en la posición $r+1$. Esto significa que acabamos de encontrar una combinación lineal nula utilizando \textbf{únicamente} las primeras $r$ columnas de la matriz $A$ (sin necesitar la columna $r+1$).
+    
+    Pero esto es una contradicción flagrante, porque habíamos elegido $r$ precisamente de forma que las primeras $r$ columnas de $A$ fueran \textbf{linealmente independientes}.
+    
+    Esta contradicción proviene de nuestra suposición inicial de que $[H_{1}^{\circ}:H_{2}^{\circ}] > n$. Por lo tanto, dicha suposición debe ser falsa, quedando demostrado que $[H_{1}^{\circ}:H_{2}^{\circ}] \le n = [H_{2}:H_{1}]$.
 \end{proof}
 
 \begin{corolario}{}
@@ -335,17 +431,68 @@ En la siguiente proposición $1$ siempre denota el subgrupo trivial de $\operato
 \end{corolario}
 
 \begin{proof}
-    (1) Aplicando el primer apartado de la Proposición 5.5 a $E_{1}\le E_{2}$ obtenemos que $[E_{1}^{\circ}:E_{2}^{\circ}]\le[E_{2}:E_{1}]$ y aplicando el segundo apartado a $E_{2}^{\circ}\subseteq E_{1}^{\circ}$ obtenemos $[E_{2}^{\circ\circ}:E_{1}^{\circ\circ}]\le[E_{1}^{\circ}:E_{2}^{\circ}]$. % 49]
-    Como $E_{1}$ es cerrado tenemos que $[E_{2}^{\circ\circ}:E_{1}]=[E_{2}^{\circ\circ}:E_{1}^{\circ\circ}]\le[E_{2}:E_{1}]$ y como $E_{2}\subseteq E_{2}^{\circ\circ}$ concluimos que $E_{2}=E_{2}^{\circ\circ}$, es decir $E_{2}^{\circ\circ}$ es cerrado. % 50]
-    
-    (2) Es completamente análoga. % 51]
+    \textbf{(1) Demostración para subextensiones:}
+
+    Queremos probar que si $E_{1}$ es cerrado ($E_{1} = E_{1}^{\circ\circ}$) y la extensión es finita, entonces $E_{2}$ también es cerrado y se da la igualdad de grados. 
+
+    \begin{itemize}
+        \item \textbf{Paso 1: Aplicación de la Proposición 5.5 (parte 1).} 
+        Consideramos la inclusión de subextensiones $E_{1} \subseteq E_{2}$. Por la proposición demostrada anteriormente, sabemos que el índice del subgrupo asociado no supera al grado de la extensión:
+        \begin{equation}
+            [E_{1}^{\circ} : E_{2}^{\circ}] \le [E_{2} : E_{1}] \tag{I}
+        \end{equation}
+
+        \item \textbf{Paso 2: Aplicación de la Proposición 5.5 (parte 2).}
+        Ahora aplicamos la segunda parte de la proposición a los subgrupos $H_{1} = E_{2}^{\circ}$ y $H_{2} = E_{1}^{\circ}$. Notemos que al ser $E_1 \subseteq E_2$, se invierte el orden en los grupos: $E_{2}^{\circ} \subseteq E_{1}^{\circ}$. La proposición nos dice que el grado de la extensión de los cuerpos fijos no supera al índice de los grupos:
+        \begin{equation}
+            [E_{2}^{\circ\circ} : E_{1}^{\circ\circ}] \le [E_{1}^{\circ} : E_{2}^{\circ}] \tag{II}
+        \end{equation}
+
+        \item \textbf{Paso 3: Uso de la hipótesis de clausura.}
+        Como $E_{1}$ es cerrado en $L/K$ por hipótesis, se cumple que $E_{1} = E_{1}^{\circ\circ}$. Sustituyendo esto en la desigualdad (II) y encadenándola con la (I), obtenemos:
+        \begin{equation}
+            [E_{2}^{\circ\circ} : E_{1}] \le [E_{1}^{\circ} : E_{2}^{\circ}] \le [E_{2} : E_{1}] \tag{III}
+        \end{equation}
+
+        \item \textbf{Paso 4: Conclusión por inclusión y dimensiones.}
+        Sabemos que para cualquier subextensión se cumple la inclusión $E_{2} \subseteq E_{2}^{\circ\circ}$. En una torre de cuerpos $E_1 \subseteq E_2 \subseteq E_2^{\circ\circ}$, si el grado total $[E_2^{\circ\circ} : E_1]$ es menor o igual al grado intermedio $[E_2 : E_1]$, la única posibilidad lógica es que los cuerpos sean idénticos:
+        $$ E_{2} = E_{2}^{\circ\circ} $$
+        Esto demuestra que $E_{2}$ es \textbf{cerrado}. Al ser idénticos, sus grados son iguales, lo que fuerza a que todas las desigualdades en (III) se conviertan en igualdades, probando que $[E_{1}^{\circ} : E_{2}^{\circ}] = [E_{2} : E_{1}]$.
+    \end{itemize}
+
+    \vspace{0.4cm}
+    \textbf{(2) Demostración para subgrupos:}
+
+    El razonamiento es totalmente simétrico al anterior, intercambiando los roles de cuerpos y grupos.
+
+    \begin{itemize}
+        \item Por la Proposición 5.5 (parte 2) aplicada a $H_{1} \le H_{2}$, tenemos que $[H_{1}^{\circ} : H_{2}^{\circ}] \le [H_{2} : H_{1}]$.
+        \item Aplicando la parte 1 de la misma proposición a los cuerpos $E_1 = H_2^\circ$ y $E_2 = H_1^\circ$ (recordando que $H_2^\circ \subseteq H_1^\circ$), obtenemos $[H_{2}^{\circ\circ} : H_{1}^{\circ\circ}] \le [H_{1}^{\circ} : H_{2}^{\circ}]$.
+        \item Como $H_{1}$ es cerrado, $H_{1} = H_{1}^{\circ\circ}$. Combinando las desigualdades:
+        $$ [H_{2}^{\circ\circ} : H_{1}] \le [H_{1}^{\circ} : H_{2}^{\circ}] \le [H_{2} : H_{1}] $$
+        \item Dada la inclusión natural $H_{2} \subseteq H_{2}^{\circ\circ}$, y que el índice de la clausura no puede superar al del grupo original respecto al mismo subgrupo cerrado $H_1$, concluimos que $H_{2} = H_{2}^{\circ\circ}$.
+        \item Por tanto, $H_{2}$ es \textbf{cerrado} y se verifica la igualdad de índices $[H_{1}^{\circ} : H_{2}^{\circ}] = [H_{2} : H_{1}]$.
+    \end{itemize}
 \end{proof}
 
 Como consecuencia del segundo apartado del Corolario 5.6 y el primero de la Proposición 5.3 se tiene el siguiente corolario: % 52]
 
-\begin{corolario}{}
-    Todo subgrupo finito de $\operatorname{Gal}(L/K)$ es cerrado en $L/K$. % 53]
+\begin{corolario}{Cierre de subgrupos finitos}
+    Todo subgrupo finito de $\operatorname{Gal}(L/K)$ es cerrado en $L/K$. %
 \end{corolario}
+
+\begin{proof}
+    Sea $H$ un subgrupo finito de $\operatorname{Gal}(L/K)$. Para demostrar que es cerrado, aplicaremos los resultados de cierre obtenidos anteriormente:
+
+    \begin{itemize}
+        \item Consideramos el subgrupo trivial $H_1 = \{1\}$. 
+        \item Sabemos que el subgrupo trivial $\{1\}$ es siempre un subgrupo \textbf{cerrado} en $\operatorname{Gal}(L/K)$. Esto se debe a que su cuerpo fijo es todo el cuerpo superior, $\{1\}^\circ = L$, y el grupo de automorfismos que fijan $L$ es únicamente la identidad, $L^\circ = \{1\}$.
+        \item Por hipótesis, $H$ es un subgrupo finito, lo que implica que el índice del subgrupo trivial dentro de $H$ es finito: $[H : \{1\}] = |H| < \infty$.
+        \item Aplicamos ahora el segundo apartado del corolario anterior, el cual establece que si $H_1 \le H$ es una inclusión de subgrupos donde el subgrupo menor ($H_1$) es cerrado y el índice $[H : H_1]$ es finito, entonces el subgrupo mayor ($H$) es obligatoriamente cerrado.
+    \end{itemize}
+
+    Por lo tanto, al ser $\{1\}$ cerrado y $[H:\{1\}]$ finito, concluimos que $H$ es cerrado en $L/K$.
+\end{proof}
 
 
 %%%% SECCIÓN 5.2 %%%%% EXTENSIONES DE GALOIS %%%%
@@ -369,34 +516,123 @@ es cerrada para levantamientos y de que la clase de extensiones separables tambi
 
 El siguiente teorema caracteriza las extensiones de Galois. % 8]
 
-\begin{teorema}{Condiciones equivalentes para una extensión de Galois} % 10]
+\begin{teorema}{Condiciones equivalentes para una extensión de Galois} 
     Las siguientes condiciones son equivalentes para una extensión de cuerpos $L/K$ con $G=\operatorname{Gal}(L/K)$: % 10]
     \begin{enumerate}
         \item $L/K$ es una extensión de Galois. % 11]
-        \item $L/E$ es una extensión de Galois para todo $E\in \operatorname{Sub}(L/K)$. % 12]
-        \item $L/K$ es algebraica y toda subextensión de $L/K$ es cerrada. % 13]
-        \item $L/K$ es algebraica y $K$ es una subextensión cerrada de $L/K$. % 14]
+        \item $L/E$ es una extensión de Galois para todo $E\in \operatorname{Sub}(L/K)$. 
+        \item $L/K$ es algebraica y toda subextensión de $L/K$ es cerrada. 
+        \item $L/K$ es algebraica y $K$ es una subextensión cerrada de $L/K$. 
         \item $L/K$ es algebraica y $G^{\circ}=K$, o sea, si $\alpha\in L$ satisface $\sigma(\alpha)=\alpha$ para todo $\sigma\in G$ entonces $\alpha\in K$. % 15]
         \item $L/K$ es algebraica y para todo $\alpha\in L\setminus K$ existe $\sigma\in \operatorname{Gal}(L/K)$ tal que $\sigma(\alpha)\ne\alpha$. % 16]
     \end{enumerate}
 \end{teorema}
 
-\begin{proof} 
-    (1) $\implies$ (2) es consecuencia de la Proposición 5.9. 
+\begin{proof}
+    Vamos a demostrar la equivalencia formando un ciclo de implicaciones lógicas y demostrando las equivalencias directas cuando sea conveniente.
+
+    \vspace{0.3cm}
+    \textbf{(1) $\implies$ (2): Toda subextensión es de Galois.} \\
+    Recordemos la definición de una clase de extensiones cerrada para levantamientos: si una extensión $L_1/K$ pertenece a una clase $\mathcal{C}$, y tenemos otra extensión admisible $L_2/K$, entonces la extensión "levantada" hacia el cuerpo compuesto, $L_1 L_2 / L_2$, también pertenece a la clase $\mathcal{C}$.
+
+    Sabemos que la clase de las extensiones de Galois es cerrada para levantamientos (al igual que lo son las extensiones finitas, algebraicas, finitamente generadas y simples). 
+
+    Para nuestro caso, definimos nuestras extensiones admisibles sobre el cuerpo base $K$:
+    \begin{itemize}
+        \item Sea $L_1 = L$. Por la hipótesis (1), sabemos que $L/K$ es una extensión de Galois, luego $L_1/K \in \mathcal{C}$.
+        \item Sea $L_2 = E$, donde $E$ es un cuerpo intermedio ($K \subseteq E \subseteq L$). Esta es la extensión hacia la que queremos levantar.
+    \end{itemize}
+
+    Calculamos el cuerpo compuesto $L_1 L_2$:
+    $$L_1 L_2 = L \cdot E$$
+    Como $E$ es un subcuerpo de $L$ (es decir, $E \subseteq L$), el menor cuerpo que contiene a ambos es simplemente el cuerpo más grande.
+     Por tanto, el cuerpo compuesto es $L_1 L_2 = L$.
+
+    Aplicando la definición de la propiedad de cierre bajo levantamientos:
+    $$L_1/K \text{ es de Galois} \implies L_1 L_2 / L_2 \text{ es de Galois}$$
     
-    (2) $\implies$ (3). Supongamos que $L/K$ satisface (2) y sea $E\in \operatorname{Sub}(L/K)$. De la Proposición 5.3 se tiene que $E\subseteq E^{\circ\circ}$ y tenemos que demostrar que se verifica la igualdad, o lo que es lo mismo, tenemos que demostrar que si $\alpha\in L\setminus E$ entonces existe $\sigma\in \operatorname{Gal}(L/E)$ tal que $\sigma(\alpha)\ne\alpha$. % 18]
-    Sea $\alpha\in L\setminus E$ y sea $p=\operatorname{Min}_{E}(\alpha)$. Este polinomio tiene una raíz en $L$ y, como $L/E$ es normal, $p$ es completamente factorizable en $L$. Como además $L/E$ es separable y $\alpha\notin E$, existe $\beta\in L$, con $\alpha\ne\beta$, tal que $\beta$ también es raíz de $p$. % 19]
-    De la Proposición 1.10 se deduce que existe un $E$-isomorfismo $\sigma:E(\alpha)\rightarrow E(\beta)$. Sea $\overline{L}$ una clausura algebraica de $L$. Como $L/E$ es algebraica (y por tanto también lo es $L/E(\alpha)$), $\sigma$ se extiende a un homomorfismo de $L$ en $\overline{L}$ que también denotaremos por $\sigma$, y como $L/E$ es normal, $\sigma(L)\subseteq L$, con lo que $\sigma\in \operatorname{Gal}(L/E)$. % 20]
-    Deducimos que $\alpha\ne\beta=\sigma(\alpha)$. % 21]
+    Sustituyendo nuestros cuerpos concretos en la implicación, obtenemos:
+    $$L/K \text{ es de Galois} \implies L/E \text{ es de Galois}$$
+
+    Lo cual demuestra de forma directa y estructural que, para todo cuerpo intermedio $E \in \operatorname{Sub}(L/K)$, la subextensión $L/E$ es de Galois.
+
+    \textbf{(2) $\implies$ (3): Toda subextensión es cerrada.} \\
+    Supongamos que $L/E$ es una extensión de Galois para cualquier cuerpo intermedio $E$. Queremos demostrar que $E$ es una subextensión cerrada, es decir, que $E = E^{\circ\circ}$.
     
-    (3) $\implies$ (4), (4) $\implies$ (5), y que (5) y (6) son equivalentes, está claro. % 22]
+    Por las propiedades de la correspondencia de Galois, siempre se tiene la inclusión trivial $E \subseteq E^{\circ\circ}$. 
+    Para demostrar la igualdad, probaremos la inclusión contraria viendo que si un elemento $\alpha$ no está en $E$, tampoco puede estar en $E^{\circ\circ}$. 
+    Recordemos que $E^{\circ\circ}$ es el cuerpo fijo del grupo $\operatorname{Gal}(L/E)$. Por tanto, demostrar que $\alpha \notin E^{\circ\circ}$ equivale a encontrar al menos un automorfismo $\sigma \in \operatorname{Gal}(L/E)$ que "mueva" a $\alpha$ (es decir, $\sigma(\alpha) \neq \alpha$).
+
+    Sea $\alpha \in L \setminus E$ y sea $p = \operatorname{Min}_E(\alpha)$.
+    \begin{itemize}
+        \item Como $L/E$ es normal por hipótesis, $p$ factoriza completamente en $L$, es decir, todas sus raíces están en $L$.
+        \item Como $L/E$ es separable y $\alpha \notin E$ (luego el grado de $p$ es estrictamente mayor que 1), $p$ no tiene raíces múltiples.
+    \end{itemize}
+    Por consiguiente, existe obligatoriamente otra raíz $\beta \in L$ del mismo polinomio $p$, con $\beta \neq \alpha$.
     
-    (5) $\implies$ (1). Supongamos que $L/K$ verifica (5). Sea $\alpha\in L$; sean $p=\operatorname{Min}_{K}(\alpha)$ y $n=\operatorname{gr}(p)$. % 23]
-    Tenemos que demostrar que $p$ factoriza completamente en $L$ (para demostrar que $L/K$ es normal) y que $p$ no tiene raíces múltiples (para mostrar que $L/K$ es separable). % 24]
-    Esto equivale a demostrar que $p$ tiene $n$ raíces (distintas) en $L$. Sea $R=\{\alpha=\alpha_{1},\dots,\alpha_{r}\}$ el conjunto de las (distintas) raíces de $p$ en $L$ y sea $q=(X-\alpha_{1})\cdots(X-\alpha_{r})$. % 25]
-    Si $\sigma\in \operatorname{Gal}(L/K)$, entonces $\sigma(\alpha_{i})$ es una raíz de $p$ en $L$, lo que implica que $\sigma$ induce una permutación de $R$ y por tanto $\sigma(q)=q$, es decir $\sigma(a)=a$ para cada uno de los coeficientes $a$ de $q$. % 26]
-    Como estamos suponiendo que $L/K$ satisface la propiedad (5), concluimos que cada uno de estos coeficientes pertenece a $K$, es decir $q\in K[X]$. % 2
-    Como $r=\operatorname{gr}(q)\le n=\operatorname{gr}(p)$ y $p$ tiene grado mínimo entre los polinomios de $K[X]$ que tienen a $\alpha$ como raíz deducimos que $p=q$ y por tanto $r=n$. % 28]
+    Por la Proposición 1.10 (isomorfismo de raíces conjugadas), sabemos que existe un $E$-isomorfismo $\tau: E(\alpha) \xrightarrow{\simeq} E(\beta)$ tal que $\tau(\alpha) = \beta$.
+    Sea $\overline{L}$ la clausura algebraica de $L$. Como la extensión $L/E(\alpha)$ es algebraica, el Teorema de Extensión de Homomorfismos garantiza que podemos extender $\tau$ a un homomorfismo global $\sigma: L \rightarrow \overline{L}$.
+    
+    Pero, al ser $L/E$ una extensión normal, cualquier $E$-homomorfismo de $L$ en su clausura algebraica cumple que $\sigma(L) = L$. Esto convierte a $\sigma$ en un $E$-automorfismo de $L$, es decir, $\sigma \in \operatorname{Gal}(L/E)$.
+    Evaluando en nuestro elemento: $\sigma(\alpha) = \beta \neq \alpha$. 
+    Hemos encontrado el automorfismo que mueve a $\alpha$, luego $\alpha \notin E^{\circ\circ}$. Esto prueba que $E^{\circ\circ} \subseteq E$ y, por tanto, $E = E^{\circ\circ}$.
+
+    \vspace{0.3cm}
+    \textbf{(3) $\implies$ (4): El cuerpo base es cerrado.} \\
+    Si toda subextensión de $L/K$ es cerrada, en particular el propio cuerpo base $K$ es una subextensión (la más pequeña posible). Por lo tanto, $K$ es cerrado. (La extensión es algebraica por hipótesis heredada).
+
+    \vspace{0.3cm}
+    \textbf{(4) $\implies$ (5): Igualdad del cuerpo fijo.} \\
+    Asumimos que $K$ es cerrado, lo que por definición significa que $K = K^{\circ\circ}$.
+    Desplegando la notación de la correspondencia de Galois:
+    \begin{itemize}
+        \item $K^\circ$ es el grupo de automorfismos que fijan $K$. Esto es, por definición, todo el grupo de Galois: $K^\circ = \operatorname{Gal}(L/K) = G$.
+        \item Aplicando el segundo círculo, $K^{\circ\circ} = (K^\circ)^\circ = G^\circ$.
+    \end{itemize}
+    Sustituyendo en la hipótesis, obtenemos directamente $K = G^\circ$. Esto significa exactamente que el conjunto de elementos de $L$ que quedan fijos por todos los elementos de $G$ es exactamente $K$.
+
+    \vspace{0.3cm}
+    \textbf{(5) $\iff$ (6): Equivalencia lógica del cuerpo fijo.} \\
+    Esta equivalencia es un mero parafraseo de la definición de cuerpo fijo.
+    \begin{itemize}
+        \item $(5) \implies (6)$: Si $G^\circ = K$, significa que si un elemento está en $L$ pero no en $K$ ($\alpha \in L \setminus K$), entonces no puede pertenecer al cuerpo fijo $G^\circ$. Al no estar en el cuerpo fijo, debe existir al menos un automorfismo en el grupo $G$ que no lo deje fijo, es decir, $\exists \sigma \in G$ tal que $\sigma(\alpha) \neq \alpha$.
+        \item $(6) \implies (5)$: Si para todo $\alpha \notin K$ existe un automorfismo que lo mueve, entonces ningún elemento fuera de $K$ puede pertenecer al cuerpo fijo $G^\circ$. Por otro lado, todos los elementos de $K$ quedan fijos por definición de los $K$-automorfismos de $G$. Por tanto, el cuerpo fijo es exactamente $K$ ($G^\circ = K$).
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{(5) $\implies$ (1): Caracterización de Galois.} \\
+    Esta es la implicación fundamental. Supongamos que $G^\circ = K$. Queremos demostrar que $L/K$ es de Galois, es decir, que es simultáneamente normal y separable. 
+    Para ello, tomamos un elemento arbitrario $\alpha \in L$, sea $p = \operatorname{Min}_K(\alpha)$ su polinomio mínimo, con $n = \operatorname{gr}(p)$. Debemos demostrar que $p$ factoriza completamente en $L$ (normalidad) y que todas sus raíces son simples (separabilidad).
+    
+    Definimos $R = \{\alpha_1, \alpha_2, \dots, \alpha_r\}$ como el conjunto de las \textbf{distintas} raíces de $p$ que residen dentro de $L$. (Sabemos que $r \ge 1$ porque al menos el propio $\alpha$ está en $R$).
+    
+    Construimos el polinomio $q(X)$ usando exclusivamente estas raíces distintas:
+    $$ q(X) = (X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_r) $$
+    Por construcción, $q(X)$ es un polinomio de $L[X]$ que no tiene raíces múltiples y cuyo grado es $r$.
+    
+    Consideremos la acción de cualquier automorfismo $\sigma \in G = \operatorname{Gal}(L/K)$ sobre el polinomio $q(X)$. Como $p \in K[X]$, sus coeficientes están fijos por $\sigma$, por lo que $\sigma(p) = p$. Esto implica que $\sigma$ envía raíces de $p$ en raíces de $p$. Dado que $\sigma(L) = L$, $\sigma$ induce una permutación sobre el conjunto finito $R$.
+    
+    Si aplicamos $\sigma$ a los coeficientes de $q(X)$, lo que estamos haciendo es aplicar $\sigma$ a sus raíces:
+    $$ \sigma(q(X)) = (X-\sigma(\alpha_1))(X-\sigma(\alpha_2))\cdots(X-\sigma(\alpha_r)) $$
+    Como $\sigma$ simplemente permuta los elementos de $R$, los factores son exactamente los mismos pero en distinto orden. Por tanto, $\sigma(q(X)) = q(X)$.
+    
+    Esto significa que todos y cada uno de los coeficientes del polinomio $q(X)$ quedan fijos por \textbf{todos} los automorfismos $\sigma \in G$.
+    Por la hipótesis (5), el conjunto de elementos de $L$ que quedan fijos por todo el grupo de Galois es exactamente el cuerpo base $K$. Por consiguiente, los coeficientes de $q(X)$ pertenecen a $K$, lo que implica que $q \in K[X]$.
+    
+    Recapitulemos: tenemos un polinomio $q \in K[X]$ que tiene a $\alpha$ como raíz (pues $\alpha \in R$). Por la propia definición de polinomio mínimo, el mínimo $p(X)$ debe dividir a cualquier otro polinomio en $K[X]$ que anule a $\alpha$. Por tanto, $p$ divide a $q$.
+    
+    Sin embargo, analizamos los grados:
+    $$ \operatorname{gr}(q) = r \quad \text{y} \quad \operatorname{gr}(p) = n $$
+    Como $R$ contiene, a lo sumo, a todas las raíces de $p$, es obvio que $r \le n$. 
+    El único modo en que un polinomio $p$ de grado $n$ pueda dividir a un polinomio $q$ de grado $r \le n$ (siendo ambos mónicos) es que sean el mismo polinomio.
+    
+    Concluimos que $p(X) = q(X)$ y $r = n$.
+    Esta igualdad nos da automáticamente las dos propiedades que buscábamos:
+    \begin{itemize}
+        \item \textit{Normalidad:} Como $p=q$ y $q$ se construyó multiplicando factores $(X-\alpha_i)$ con $\alpha_i \in L$, $p$ descompone completamente en $L$.
+        \item \textit{Separabilidad:} Como $q$ se construyó tomando raíces distintas (sin repeticiones), $p$ no tiene raíces múltiples.
+    \end{itemize}
+    Dado que esto es cierto para todo $\alpha \in L$, la extensión $L/K$ es de Galois.
 \end{proof}
 
 La siguiente proposición muestra criterios para decidir si una extensión es de Galois para el caso de extensiones finitas. % 29]
@@ -410,32 +646,122 @@ La siguiente proposición muestra criterios para decidir si una extensión es de
     \end{enumerate}
 \end{proposicion}
 
-\begin{proof} 
-    Sea $\overline{L}$ una clausura algebraica. Podemos ver cada elemento de $\operatorname{Gal}(L/K)$ como un $K$-homomorfismo de $L$ en $\overline{L}$. De esta manera, si $\sigma$ denota la inclusión de $K$ en $L$ tenemos que $\operatorname{Gal}(L/K)\subseteq S_{\sigma}^{L}$. Combinando esto con la Proposición 5.2 tenemos que: % 35]
-    $$|\operatorname{Gal}(L/K)|\le[L:K]_{s}\le[L:K]$$ 
-    Por el Teorema 4.12, la segunda desigualdad es una igualdad si y solo si $L/K$ es separable. % 3
-    La primera desigualdad es una igualdad si y solo si todo $K$-homomorfismo de $L$ a $\overline{L}$ cumple $\tau(L)\subseteq L$ si y solo si $L/K$ es normal. % 38]
-    Esto demuestra que (1) y (2) son equivalentes. 
+\begin{proof}
+    Vamos a demostrar en primer lugar la equivalencia entre (1) y (2) analizando la cadena de desigualdades fundamentales que relaciona el orden del grupo de Galois, el grado de separabilidad y el grado de la extensión.
+
+    \vspace{0.3cm}
+    \textbf{Demostración de (1) $\iff$ (2):}
+
+    Sea $\overline{L}$ una clausura algebraica de $L$. 
+    Recordemos que el grupo de Galois, $\operatorname{Gal}(L/K)$, está formado por todos los $K$-automorfismos de $L$. Todo automorfismo $\tau \in \operatorname{Gal}(L/K)$ puede verse de forma natural como un $K$-homomorfismo (o inmersión) del cuerpo $L$ en su clausura algebraica $\overline{L}$, con la particularidad de que su imagen es exactamente $L$ ($\tau(L) = L$).
+
+    Sea $S_{K}^{L}$ el conjunto de todos los $K$-homomorfismos de $L$ en $\overline{L}$. (En la notación original, si $\sigma$ es la inclusión de $K$ en $\overline{L}$, este conjunto se denota como $S_{\sigma}^{L}$).
+    Como todo elemento de $\operatorname{Gal}(L/K)$ es una de estas inmersiones, tenemos la inclusión de conjuntos:
+    $$ \operatorname{Gal}(L/K) \subseteq S_{K}^{L} $$
+    Lo que implica que el número de automorfismos es menor o igual al número total de inmersiones:
+    $$ |\operatorname{Gal}(L/K)| \le |S_{K}^{L}| $$
+
+    Por teoría de cuerpos (Proposición 5.2), el número total de $K$-homomorfismos de $L$ en $\overline{L}$ se define como el \textbf{grado de separabilidad} de la extensión, denotado como $[L:K]_s$. 
+    A su vez, es un resultado conocido que el grado de separabilidad nunca supera al grado total de la extensión $[L:K]$.
     
-    Combinando la equivalencia entre (1) y (2) y el Teorema 5.10 se deduce de forma inmediata que (1) y (3) son equivalentes. % 40]
+    Juntando todo esto, obtenemos la cadena de desigualdades fundamental:
+    \begin{equation}
+        |\operatorname{Gal}(L/K)| \le [L:K]_s \le [L:K] \tag{*}
+    \end{equation}
+
+    Analicemos cuándo estas dos desigualdades se convierten en igualdades estrictas:
+    \begin{itemize}
+        \item \textbf{La segunda desigualdad ($[L:K]_s \le [L:K]$):} 
+        El Teorema 4.12 nos garantiza que el número de inmersiones coincide con el grado de la extensión si y solo si todos los elementos de $L$ tienen polinomios mínimos con raíces simples. Es decir, esta desigualdad es una igualdad \textbf{si y solo si $L/K$ es una extensión separable}.
+        
+        \item \textbf{La primera desigualdad ($|\operatorname{Gal}(L/K)| \le [L:K]_s$):}
+        Para que el número de $K$-automorfismos sea exactamente igual al número de $K$-inmersiones en $\overline{L}$, toda inmersión $\tau: L \rightarrow \overline{L}$ debe ser, en realidad, un automorfismo de $L$. 
+        Esto significa que para cualquier $\tau \in S_{K}^{L}$, se debe cumplir que $\tau(L) = L$ (o de forma equivalente, $\tau(L) \subseteq L$).
+        Como vimos en el Teorema 2.11 (Condiciones equivalentes de normalidad), que todo $K$-homomorfismo en la clausura algebraica deje invariante a $L$ es cierto \textbf{si y solo si $L/K$ es una extensión normal}.
+    \end{itemize}
+
+    En conclusión, para que los extremos de la cadena (*) sean iguales, es decir, para que $|\operatorname{Gal}(L/K)| = [L:K]$, es necesario y suficiente que se den ambas igualdades intermedias. 
+    Esto ocurre si y solo si la extensión $L/K$ es simultáneamente normal y separable. 
+    Por definición, esto significa que $L/K$ es una extensión de Galois. Así queda probada la equivalencia $(1) \iff (2)$.
+
+    \vspace{0.4cm}
+    \textbf{Demostración de (1) $\iff$ (3):}
+
+    Esta equivalencia es ahora una consecuencia rápida de la equivalencia anterior y de las propiedades hereditarias de las extensiones de Galois.
+
+    \begin{itemize}
+        \item \textbf{(1) $\implies$ (3):} Supongamos que $L/K$ es de Galois y sea $E$ cualquier subextensión ($K \subseteq E \subseteq L$). 
+        Por el Teorema 5.10 (demostrado previamente usando levantamientos o el análisis de subextensiones cerradas), sabemos que si $L/K$ es de Galois, entonces $L/E$ también es una extensión de Galois.
+        Aplicando la equivalencia recién demostrada $(1 \iff 2)$ pero a la extensión $L/E$, deducimos directamente que $[L:E] = |\operatorname{Gal}(L/E)|$. Como $E$ era arbitrario, se cumple (3).
+        
+        \item \textbf{(3) $\implies$ (1):} Si asumimos que $[L:E] = |\operatorname{Gal}(L/E)|$ para absolutamente toda subextensión $E \in \operatorname{Sub}(L/K)$, esta propiedad debe cumplirse en particular para la subextensión trivial $E = K$.
+        Sustituyendo $E$ por $K$, obtenemos $[L:K] = |\operatorname{Gal}(L/K)|$, que es exactamente la condición (2).
+        Y como hemos demostrado exhaustivamente que $(2) \implies (1)$, concluimos que $L/K$ es una extensión de Galois.
+    \end{itemize}
 \end{proof}
 
-\begin{teorema}{Teorema Fundamental de la Teoría de Galois} % 41]
-    Sea $L/K$ una extensión de Galois finita y sea $G=\operatorname{Gal}(L/K)$. Entonces se verifican las siguientes propiedades: % 41]
+\begin{teorema}{Teorema Fundamental de la Teoría de Galois}
+    Sea $L/K$ una extensión de Galois finita y sea $G=\operatorname{Gal}(L/K)$. Entonces se verifican las siguientes propiedades fundamentales:
     \begin{enumerate}
-        \item La correspondencia de Galois es un anti-isomorfismo de conjuntos ordenados entre $\operatorname{Sub}(L/K)$ y $\operatorname{Sub}(G)$. % 42]
-        \item Si $X$ e $Y$ están ambos en $\operatorname{Sub}(L/K)$ o en $\operatorname{Sub}(G)$ y $X\subseteq Y$ entonces $[X^{\circ}:Y^{\circ}]=[Y:X]$. En particular: % 43]
-        \begin{enumerate}[label=(a)]
-            \item Si $E\in \operatorname{Sub}(L/K)$ entonces $[L:E]=|E^{\circ}|$ y $[E:K]=[G:E^{\circ}]$. % 44]
-            \item Si $H\in \operatorname{Sub}(G)$ entonces $|H|=[L:H^{\circ}]$ y $[G:H]=[H^{\circ}:K]$. % 45]
+        \item La correspondencia de Galois es un \textbf{anti-isomorfismo de conjuntos ordenados} (una biyección que invierte el orden) entre $\operatorname{Sub}(L/K)$ (el conjunto de cuerpos intermedios) y $\operatorname{Sub}(G)$ (el conjunto de subgrupos de $G$).
+        \item Si $X$ e $Y$ están ambos en $\operatorname{Sub}(L/K)$ o en $\operatorname{Sub}(G)$ y se cumple que $X \subseteq Y$, entonces se invierten los índices/grados:
+        $$ [X^{\circ} : Y^{\circ}] = [Y : X] $$
+        En particular, evaluando en los extremos se obtienen las siguientes igualdades:
+        \begin{enumerate}[label=(\alph*)]
+            \item Si $E\in \operatorname{Sub}(L/K)$ entonces $[L:E] = |E^{\circ}|$ y $[E:K] = [G:E^{\circ}]$.
+            \item Si $H\in \operatorname{Sub}(G)$ entonces $|H| = [L:H^{\circ}]$ y $[G:H] = [H^{\circ}:K]$.
         \end{enumerate}
     \end{enumerate}
 \end{teorema}
 
-\begin{proof} 
-    (1) A la vista de la Proposición 5.3 y el Teorema 5.10, para demostrar (1) sólo falta demostrar que todo subgrupo $H$ de $G$ es cerrado, pero eso es consecuencia inmediata del Corolario 5.7. % 46]
+\begin{proof}
+    \textbf{Demostración de (1): El Anti-isomorfismo.}
     
-    (2) Es consecuencia de la Proposición 5.6. 
+    Para demostrar que las aplicaciones de la correspondencia de Galois ($E \mapsto E^\circ$ y $H \mapsto H^\circ$) conforman una biyección perfecta entre los cuerpos intermedios y los subgrupos, necesitamos probar que son funciones inversas mutuas. Es decir, debemos garantizar que todo elemento coincide con su clausura: $E = E^{\circ\circ}$ para todo cuerpo intermedio y $H = H^{\circ\circ}$ para todo subgrupo.
+    
+    \begin{itemize}
+        \item \textit{Para los cuerpos intermedios:} Por hipótesis, $L/K$ es una extensión de Galois. Como vimos en las condiciones equivalentes (Teorema 5.10), que una extensión sea de Galois implica que absolutamente \textbf{toda subextensión $E \in \operatorname{Sub}(L/K)$ es cerrada}. Por tanto, $E = E^{\circ\circ}$ siempre se cumple.
+        
+        \item \textit{Para los subgrupos:} Al ser $L/K$ una extensión finita (y de Galois), su grupo de Galois $G = \operatorname{Gal}(L/K)$ es un grupo finito (de orden igual a $[L:K]$). En consecuencia, cualquier subgrupo $H \in \operatorname{Sub}(G)$ es obligatoriamente un subgrupo finito. Por el Corolario 5.7, todo subgrupo finito del grupo de Galois es cerrado. Por tanto, $H = H^{\circ\circ}$ siempre se cumple.
+    \end{itemize}
+    
+    Dado que todos los elementos de ambos conjuntos son cerrados, las aplicaciones restringen a una biyección exacta. Como ya sabíamos por la Proposición 5.3 que el operador $^\circ$ invierte las inclusiones (es antítono), esta biyección constituye un anti-isomorfismo de conjuntos ordenados.
+
+    \vspace{0.4cm}
+    \textbf{Demostración de (2): Fórmulas de índices y grados.}
+    
+    La igualdad general $[X^{\circ} : Y^{\circ}] = [Y : X]$ es consecuencia directa de la Proposición 5.6 (y su corolario). Dicha proposición establecía que si el elemento más pequeño ($X$) es cerrado, entonces los grados coinciden. Como acabamos de demostrar en el apartado (1) que \textbf{todos} los elementos son cerrados, la igualdad es universalmente válida para cualquier par $X \subseteq Y$.
+
+    Vamos a deducir las fórmulas particulares (a) y (b) sustituyendo los casos extremos:
+
+    \textit{Demostración de (a) - Para un cuerpo intermedio $E$:}
+    \begin{itemize}
+        \item Tomamos $X = E$ e $Y = L$. Aplicamos la fórmula general:
+        $$ [E^\circ : L^\circ] = [L : E] $$
+        Sabemos que el grupo de automorfismos que fijan todo $L$ es únicamente la identidad, luego $L^\circ = \{1\}$. 
+        Sustituyendo: $[E^\circ : \{1\}] = [L : E]$. 
+        Como el índice respecto al subgrupo trivial es el orden del grupo, concluimos que \textbf{$|E^\circ| = [L : E]$}.
+        
+        \item Tomamos $X = K$ e $Y = E$. Aplicamos la fórmula general:
+        $$ [K^\circ : E^\circ] = [E : K] $$
+        Sabemos que el grupo de automorfismos que fijan el cuerpo base $K$ es el grupo de Galois completo, luego $K^\circ = G$. 
+        Sustituyendo directamente obtenemos \textbf{$[G : E^\circ] = [E : K]$}.
+    \end{itemize}
+
+    \textit{Demostración de (b) - Para un subgrupo $H$:}
+    \begin{itemize}
+        \item Tomamos $X = \{1\}$ e $Y = H$. Aplicamos la fórmula general:
+        $$ [\{1\}^\circ : H^\circ] = [H : \{1\}] $$
+        El cuerpo fijado por la identidad es todo el cuerpo superior, por lo que $\{1\}^\circ = L$. El índice $[H : \{1\}]$ es simplemente el orden del grupo $|H|$. 
+        Sustituyendo, obtenemos \textbf{$[L : H^\circ] = |H|$}.
+        
+        \item Tomamos $X = H$ e $Y = G$. Aplicamos la fórmula general:
+        $$ [H^\circ : G^\circ] = [G : H] $$
+        El cuerpo fijado por todo el grupo de Galois es (por ser extensión de Galois) el cuerpo base $K$, luego $G^\circ = K$. 
+        Sustituyendo directamente obtenemos \textbf{$[H^\circ : K] = [G : H]$}.
+    \end{itemize}
+    
+    Estas deducciones completan la demostración de la estructura numérica de la correspondencia de Galois.
 \end{proof}
 
 Si $K\subseteq E\subseteq L$ es una torre de cuerpos y $\sigma\in \operatorname{Gal}(L/K)$, entonces $\operatorname{Res}_{E}^{L}(\sigma)$ denota la restricción de $\sigma$ a $E$. 
@@ -456,26 +782,85 @@ Eso es lo que pasa en las condiciones de la siguiente proposición y está claro
     $$\operatorname{Gal}(E/K)\simeq\frac{\operatorname{Gal}(L/K)}{\operatorname{Gal}(L/E)}$$ % 58]
 \end{proposicion}
 
-
 \begin{proof}
-    La equivalencia entre (1) y (2) es consecuencia inmediata de que la clase de extensiones separables es multiplicativa (Proposición 4.13).
-    
-    (2) $\implies$ (3). Supongamos que $E/K$ es normal y sean $\alpha\in E$ y $\sigma\in \operatorname{Gal}(L/K)$. Entonces $p=\operatorname{Min}_{K}(\alpha)$ es completamente factorizable en $E$, o sea $p=(X-\alpha_{1})\cdots(X-\alpha_{n})$ con $\alpha_{1},\dots,\alpha_{n}\in E$. Entonces $\sigma(\alpha)$ es raíz de $p$ y por tanto $\sigma(\alpha)=\alpha_{i}\in E$, para algún $i$. 
-    Esto prueba que $\sigma(E)\subseteq E$.
-    
-    (3) $\implies$ (4). Supongamos que se verifica (3) y sean $\sigma\in \operatorname{Gal}(L/K)$ y $\tau\in \operatorname{Gal}(L/E)$. Entonces $\sigma(E)\subseteq E$ y por tanto $\tau(\sigma(\alpha))=\sigma(\alpha)$, es decir $\sigma^{-1}\tau\sigma(\alpha)=\alpha$, para todo $\alpha\in E$. Esto prueba que $\sigma^{-1}\tau\sigma\in \operatorname{Gal}(L/E)$ para todo $\sigma\in \operatorname{Gal}(L/K)$ y todo $\tau\in \operatorname{Gal}(L/E)$, es decir $\operatorname{Gal}(L/E)$ es normal en $\operatorname{Gal}(L/K)$.
-    
-    (4) $\implies$ (2). Supongamos que $\operatorname{Gal}(L/E)$ es normal en $\operatorname{Gal}(L/K)$. Sea $\rho:E\rightarrow\overline{L}$ un $K$-homomorfismo. 
-    Como $L/E$ es algebraica, $\rho$ se extiende a un $K$-homomorfismo $\sigma:L\rightarrow\overline{L}$. Como $L/K$ es normal, $\sigma(L)=L$ (Teorema 2.11), y por tanto podemos considerar $\sigma$ como un elemento de $\operatorname{Gal}(L/K)$. Por hipótesis, $\sigma^{-1}\tau\sigma\in \operatorname{Gal}(L/E)$ para todo $\tau\in \operatorname{Gal}(L/E)$, con lo que $\tau\sigma(\alpha)=\sigma(\alpha)$, para todo $\tau\in \operatorname{Gal}(L/E)$ y todo $\alpha\in E$. 
-    Esto muestra que $\rho(\alpha)=\sigma(\alpha)\in \operatorname{Gal}(L/E)^{\circ}=E^{\circ\circ}=E$65]. Como $L/E$ es algebraica, $\overline{L}$ es una clausura algebraica de $E$ con lo que hemos comprobado que $E/K$ satisface las condiciones del Teorema 2.11, es decir $E/K$ es normal65].
-    
-    Supongamos ahora que las condiciones (1)-(4) se verifican. Entonces la aplicación de restricción
-    $$f = \operatorname{Res}_{E}^{L}: \operatorname{Gal}(L/K) \rightarrow \operatorname{Gal}(E/K), \quad \sigma\mapsto\sigma|_{E}$$
-    es un homomorfismo de grupos cuyo núcleo es $\operatorname{Gal}(L/E)$. Aplicando el Primer Teorema de Isomorfía y que todas las extensiones $L/K$, $E/K$ y $L/E$ son de Galois deducimos que
-    $$|\operatorname{Im} f| = \frac{|\operatorname{Gal}(L/K)|}{|\operatorname{Gal}(L/E)|} = \frac{[L:K]}{[L:E]} = [E:K] = |\operatorname{Gal}(E/K)|,$$
-    lo que implica que $f$ es suprayectiva y $\operatorname{Gal}(E/K)\simeq\frac{\operatorname{Gal}(L/K)}{\operatorname{Gal}(L/E)}$.
-\end{proof}
+    Vamos a desglosar el ciclo de implicaciones y la demostración del isomorfismo final paso a paso. Recordemos que por hipótesis global, $L/K$ es una extensión de Galois (finita, normal y separable).
 
+    \vspace{0.3cm}
+    \textbf{(1) $\iff$ (2): La separabilidad se hereda (es gratis).} \\
+    Recordemos que una extensión es de Galois si y solo si es normal y separable. 
+    Como $L/K$ es separable por hipótesis, y la separabilidad es una propiedad que se hereda a las subextensiones (Proposición 4.13), la extensión intermedia $E/K$ es automáticamente separable. 
+    Por tanto, para que $E/K$ sea de Galois, la única condición que le falta cumplir es ser normal. Esto hace que las afirmaciones (1) y (2) sean estrictamente equivalentes.
+
+    \vspace{0.3cm}
+    \textbf{(2) $\implies$ (3): La normalidad encierra a las raíces conjugadas.} \\
+    Supongamos que $E/K$ es normal. Tomemos un elemento cualquiera $\alpha \in E$ y un automorfismo cualquiera $\sigma \in \operatorname{Gal}(L/K)$. Nuestro objetivo es demostrar que $\sigma(\alpha)$ se queda dentro de $E$.
+    
+    Sea $p = \operatorname{Min}_{K}(\alpha)$ su polinomio mínimo sobre $K$. Como $\alpha \in E$ y $E/K$ es normal, este polinomio factoriza completamente dentro de $E$. Es decir, todas sus raíces $\alpha_1, \alpha_2, \dots, \alpha_n$ pertenecen a $E$.
+    
+    Ahora, apliquemos el automorfismo $\sigma$ a $\alpha$. Como $\sigma$ es un $K$-automorfismo, deja fijos los coeficientes de $p$ (que están en $K$), lo que implica por el Lema de Invarianza que $\sigma$ envía raíces de $p$ a raíces de $p$.
+    Por consiguiente, $\sigma(\alpha)$ debe ser obligatoriamente una de esas raíces $\alpha_i$.
+    Y como ya sabíamos que todas las $\alpha_i \in E$, concluimos que $\sigma(\alpha) \in E$. Como esto vale para todo $\alpha \in E$, hemos demostrado que $\sigma(E) \subseteq E$.
+
+    \vspace{0.3cm}
+    \textbf{(3) $\implies$ (4): El subgrupo de Galois es normal.} \\
+    Supongamos que $\sigma(E) \subseteq E$ para todo $\sigma \in \operatorname{Gal}(L/K)$. Queremos ver que el subgrupo $H = \operatorname{Gal}(L/E)$ es un subgrupo normal del grupo total $G = \operatorname{Gal}(L/K)$.
+    
+    Por la definición de subgrupo normal en teoría de grupos, debemos demostrar que para cualquier $\sigma \in G$ y cualquier $\tau \in H$, el elemento conjugado $\sigma^{-1}\tau\sigma$ pertenece a $H$.
+    ¿Qué significa pertenecer a $H = \operatorname{Gal}(L/E)$? Significa ser un automorfismo de $L$ que deja fijo a todo elemento de $E$.
+    
+    Tomemos un elemento cualquiera $\alpha \in E$ y evaluemos la composición:
+    \begin{itemize}
+        \item Primero actúa $\sigma$: Por la hipótesis (3), sabemos que $\sigma(\alpha) \in E$. Llamemos $y = \sigma(\alpha)$, con $y \in E$.
+        \item Luego actúa $\tau$: Al ser $\tau \in \operatorname{Gal}(L/E)$, deja fijos todos los elementos de $E$. Como $y \in E$, entonces $\tau(y) = y$. Sustituyendo de vuelta: $\tau(\sigma(\alpha)) = \sigma(\alpha)$.
+        \item Finalmente actúa $\sigma^{-1}$: Aplicamos $\sigma^{-1}$ a ambos lados de la igualdad anterior:
+        $$ \sigma^{-1}(\tau(\sigma(\alpha))) = \sigma^{-1}(\sigma(\alpha)) = \alpha $$
+    \end{itemize}
+    Hemos demostrado que el automorfismo conjugado $\sigma^{-1}\tau\sigma$ deja fijo el elemento $\alpha$. Como esto es válido para todo $\alpha \in E$, el conjugado pertenece a $\operatorname{Gal}(L/E)$, probando que es un subgrupo normal.
+
+    \vspace{0.3cm}
+    \textbf{(4) $\implies$ (2): El truco del cuerpo fijo.} \\
+    Supongamos que $\operatorname{Gal}(L/E)$ es un subgrupo normal de $\operatorname{Gal}(L/K)$. Queremos ver que $E/K$ es normal.
+    Usaremos el criterio de que todo $K$-homomorfismo $\rho: E \rightarrow \overline{L}$ debe cumplir $\rho(E) \subseteq E$.
+    
+    \begin{itemize}
+        \item \textit{Paso 1: Extender el homomorfismo.} Como $L/E$ es una extensión algebraica, el Teorema de Extensión nos permite prolongar $\rho$ a un $K$-homomorfismo global $\sigma: L \rightarrow \overline{L}$.
+        \item \textit{Paso 2: $\sigma$ es un automorfismo.} Como la extensión total $L/K$ es normal por hipótesis, cualquier $K$-homomorfismo de $L$ cumple $\sigma(L) = L$. Esto nos asegura que $\sigma \in \operatorname{Gal}(L/K)$.
+        \item \textit{Paso 3: Bajar a E.} Sea $\alpha \in E$. Queremos probar que $\rho(\alpha) = \sigma(\alpha) \in E$.
+        Sabemos que la subextensión $L/E$ es de Galois (por ser $L/K$ de Galois), luego por el Teorema Fundamental, $E$ es exactamente el cuerpo fijo de su grupo de Galois: $E = \operatorname{Gal}(L/E)^\circ$.
+        Para probar que $\sigma(\alpha) \in E$, basta con ver que es invariante bajo cualquier $\tau \in \operatorname{Gal}(L/E)$.
+        
+        Evaluemos $\tau(\sigma(\alpha))$. Esto es equivalente a $\sigma(\sigma^{-1}\tau\sigma(\alpha))$.
+        Por hipótesis, $\operatorname{Gal}(L/E)$ es normal, luego el conjugado $\sigma^{-1}\tau\sigma$ es algún elemento $\tau' \in \operatorname{Gal}(L/E)$.
+        Como $\alpha \in E$ y $\tau'$ fija $E$, tenemos que $\tau'(\alpha) = \alpha$.
+        Sustituyendo: $\tau(\sigma(\alpha)) = \sigma(\tau'(\alpha)) = \sigma(\alpha)$.
+        
+        Como $\sigma(\alpha)$ queda fijo ante todo $\tau \in \operatorname{Gal}(L/E)$, obligatoriamente $\sigma(\alpha) \in \operatorname{Gal}(L/E)^\circ = E$.
+    \end{itemize}
+    Esto demuestra que todo $\rho(E) \subseteq E$, por lo que $E/K$ es normal.
+
+    \vspace{0.3cm}
+    \textbf{Demostración de la aplicación de Restricción y el Isomorfismo:} \\
+    Supongamos ahora que se verifican las condiciones. Definimos la aplicación de restricción:
+    $$f = \operatorname{Res}_{E}^{L}: \operatorname{Gal}(L/K) \rightarrow \operatorname{Gal}(E/K), \quad \sigma \mapsto \sigma|_{E}$$
+    \begin{itemize}
+        \item \textit{Buena definición:} La aplicación tiene sentido porque por la condición (3), $\sigma(E) \subseteq E$. Al ser $\sigma$ una inyección lineal en un espacio de dimensión finita sobre $K$, forzosamente $\sigma(E) = E$. Luego la restricción de $\sigma$ a $E$ es efectivamente un $K$-automorfismo de $E$, es decir, pertenece a $\operatorname{Gal}(E/K)$.
+        \item \textit{Es homomorfismo:} La restricción de una composición es la composición de las restricciones.
+        \item \textit{El Núcleo:} ¿Qué elementos $\sigma \in \operatorname{Gal}(L/K)$ van a parar al elemento neutro de $\operatorname{Gal}(E/K)$ (que es la identidad $\operatorname{id}_E$)? Exactamente aquellos que cumplen $\sigma|_E = \operatorname{id}_E$, es decir, los que dejan fijos todos los elementos de $E$. Por definición, este conjunto es $\operatorname{Gal}(L/E)$. Por tanto, $\operatorname{Ker}(f) = \operatorname{Gal}(L/E)$.
+    \end{itemize}
+
+    Aplicamos el \textbf{Primer Teorema de Isomorfía} de grupos:
+    $$ \frac{\operatorname{Gal}(L/K)}{\operatorname{Ker}(f)} \simeq \operatorname{Im}(f) \subseteq \operatorname{Gal}(E/K) $$
+    Para ver que la imagen es todo $\operatorname{Gal}(E/K)$ (es decir, que $f$ es suprayectiva), comparamos las cardinalidades. 
+    Como las tres extensiones implicadas ($L/K$, $L/E$ y $E/K$) son de Galois, el orden de sus grupos de Galois coincide exactamente con el grado de sus extensiones.
+    
+    $$|\operatorname{Im} f| = \frac{|\operatorname{Gal}(L/K)|}{|\operatorname{Gal}(L/E)|} = \frac{[L:K]}{[L:E]}$$
+    Por la propiedad multiplicativa del grado en la torre $K \subseteq E \subseteq L$, sabemos que $[L:K] = [L:E][E:K]$, luego la fracción se simplifica a:
+    $$|\operatorname{Im} f| = [E:K]$$
+    Y como $E/K$ es de Galois, $[E:K] = |\operatorname{Gal}(E/K)|$.
+    
+    Al tener la imagen el mismo tamaño finito que el codominio, la aplicación $f$ es suprayectiva, y el isomorfismo queda establecido:
+    $$\operatorname{Gal}(E/K) \simeq \frac{\operatorname{Gal}(L/K)}{\operatorname{Gal}(L/E)}$$
+\end{proof}
 En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfismo de restricción.
 
 \begin{teorema}{Teorema de las Irracionalidades Accesorias de Lagrange}
@@ -485,14 +870,67 @@ En el siguiente Teorema volvemos a encontrar una versión diferente de homomorfi
 \end{teorema}
 
 \begin{proof}
-    Como $L/K$ es de Galois, del Teorema 5.10 se deduce que $L/L\cap E$ también es de Galois y de la Proposición 5.9 que lo es $LE/E$. Que la primera es finita es obvio y que lo sea la segunda es consecuencia de la Proposición 1.18.
+    Vamos a dividir la demostración en cuatro bloques lógicos para garantizar el rigor en cada afirmación.
+
+    \vspace{0.3cm}
+    \textbf{Paso 1: Naturaleza de las extensiones (Finitud y propiedad de Galois)}
+    \begin{itemize}
+        \item \textit{La extensión $L/(L\cap E)$:} Como $L/K$ es de Galois por hipótesis, sabemos por el Teorema 5.10 (propiedad hereditaria) que cualquier subextensión superior es de Galois. Al ser $L\cap E$ un cuerpo intermedio ($K \subseteq L\cap E \subseteq L$), la extensión $L/(L\cap E)$ hereda automáticamente la finitud y la propiedad de Galois.
+        \item \textit{La extensión $LE/E$:} Por hipótesis, $L/K$ es finita y de Galois. Esto significa que $L$ es el cuerpo de descomposición de un cierto polinomio separable $p \in K[X]$. 
+        Al considerar el cuerpo compuesto $LE$, podemos ver este mismo polinomio $p$ como un elemento de $E[X]$ (ya que $K \subseteq E$). El cuerpo $LE$ se forma adjuntando a $E$ las raíces de $p$, por lo que $LE$ es exactamente el cuerpo de descomposición de $p$ sobre $E$. Al ser un polinomio separable, $LE/E$ es una extensión normal y separable, es decir, de Galois. Su finitud se deduce de la Proposición 1.18 (el grado del compuesto no supera el producto de los grados).
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{Paso 2: Buena definición de la aplicación de restricción} \\
+    Definimos la aplicación $f = \operatorname{Res}_{L}^{LE}$, que toma un automorfismo $\sigma \in \operatorname{Gal}(LE/E)$ y lo restringe al cuerpo $L$, denotándolo $\sigma|_L$. ¿Por qué $\sigma|_L \in \operatorname{Gal}(L/L\cap E)$?
+    \begin{itemize}
+        \item Como $L/K$ es normal, sabemos que cualquier $K$-homomorfismo del cuerpo compuesto que se aplique sobre $L$ debe cumplir que la imagen de $L$ es $L$. Como $\sigma$ fija $E$ (y por ende fija $K \subseteq E$), $\sigma$ es un $K$-homomorfismo, luego $\sigma(L) = L$. Esto hace que $\sigma|_L$ sea un automorfismo bien definido de $L$.
+        \item Además, como $\sigma \in \operatorname{Gal}(LE/E)$, $\sigma$ deja fijos \textbf{todos} los elementos de $E$. En particular, dejará fijos los elementos de la intersección $L \cap E$. Por tanto, $\sigma|_L$ es un automorfismo de $L$ que fija $L \cap E$, lo que demuestra que $\sigma|_L \in \operatorname{Gal}(L/L\cap E)$.
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{Paso 3: Inyectividad de $f$} \\
+    Para demostrar que $f$ es un homomorfismo inyectivo, basta con calcular su núcleo ($\operatorname{Ker}(f)$) y ver que solo contiene al elemento neutro (la identidad $\operatorname{id}_{LE}$).
     
-    Sea $f=\operatorname{Res}_{L}^{LE}$7. Que $f$ es inyectiva es obvio ya que un elemento del núcleo es un automorfismo $\sigma$ de $LE$ que verifica $\sigma(x)=x$ para todo $x\in L$ y todo $x\in E$7.
+    Supongamos que $\sigma \in \operatorname{Ker}(f)$. Por definición, esto significa que $f(\sigma) = \sigma|_L = \operatorname{id}_L$. Es decir, $\sigma(x) = x$ para todo $x \in L$.
+    Pero recordemos de dónde viene $\sigma$: es un elemento de $\operatorname{Gal}(LE/E)$, por lo que, por definición, también fija todo elemento de $E$.
     
-    Para ver que $f$ es suprayectiva ponemos $H=\operatorname{Im} f\subseteq \operatorname{Gal}(L/L\cap E)$. Entonces $L\cap E=(L\cap E)^{\circ\circ}=\operatorname{Gal}(L/L\cap E)^{\circ}\subseteq H^{\circ}$. 
-    Sea $\alpha\in H^{\circ}$. Entonces para todo $\sigma\in \operatorname{Gal}(LE/E)$ se verifica $\sigma(\alpha)=f(\sigma)(\alpha)=\alpha$, pues $f(\sigma)\in H$. Esto demuestra que $\alpha\in \operatorname{Gal}(LE/E)^{\circ}=E^{\circ\circ}=E$, pues $LE/E$ es de Galois.
-     Como esto se verifica para cada $\alpha\in H^{\circ}$ y $H^{\circ}\subseteq L$ deducimos que $H^{\circ}\subseteq L\cap E=(L\cap E)^{\circ\circ}$. Por tanto, $H^{\circ}=(L\cap E)^{\circ\circ}$. Como $L/L\cap E$ es de Galois, concluimos que $\operatorname{Im} f=H=(L\cap E)^{\circ\circ\circ}=\operatorname{Gal}(L/L\cap E)$, o sea $f$ es suprayectiva.
+    El cuerpo compuesto $LE$ está generado por las sumas, productos y cocientes de elementos de $L$ y de $E$. Si $\sigma$ deja fijos todos los elementos de $L$ y todos los elementos de $E$, obligatoriamente deja fijos todos los elementos generados por ellos. Por tanto, $\sigma(x) = x$ para todo $x \in LE$, lo que implica que $\sigma = \operatorname{id}_{LE}$. 
+    Como $\operatorname{Ker}(f) = \{\operatorname{id}_{LE}\}$, la aplicación es inyectiva.
+
+    \vspace{0.3cm}
+    \textbf{Paso 4: Suprayectividad de $f$ (El argumento del cuerpo fijo)} \\
+    Este es el paso más brillante de la demostración. Denotemos la imagen de nuestra aplicación como $H = \operatorname{Im} f \subseteq \operatorname{Gal}(L/L\cap E)$. 
+    Queremos demostrar que $H$ es todo el grupo, lo cual haremos utilizando la correspondencia de Galois y demostrando que el cuerpo fijo de $H$ es exactamente $L \cap E$.
+
+    Denotemos el cuerpo fijo de $H$ (dentro de $L$) como $H^\circ = \{ \alpha \in L \mid \tau(\alpha) = \alpha, \, \forall \tau \in H \}$.
+    
+    \begin{itemize}
+        \item \textit{Inclusión trivial ($L\cap E \subseteq H^\circ$):} Como $H$ es un subgrupo de $\operatorname{Gal}(L/L\cap E)$, todos los automorfismos de $H$ fijan por definición a $L \cap E$. Por tanto, $L \cap E$ está contenido en el cuerpo fijo de $H$.
+        
+        \item \textit{Inclusión profunda ($H^\circ \subseteq L\cap E$):} Sea $\alpha$ un elemento cualquiera del cuerpo fijo, $\alpha \in H^\circ$.
+        Para cualquier automorfismo $\sigma \in \operatorname{Gal}(LE/E)$, su imagen $f(\sigma)$ pertenece a $H$. 
+        Por estar $\alpha$ en el cuerpo fijo de $H$, sabemos que:
+        $$ f(\sigma)(\alpha) = \alpha $$
+        Pero por la propia definición de la restricción, $f(\sigma)(\alpha)$ es simplemente $\sigma(\alpha)$. Por tanto:
+        $$ \sigma(\alpha) = \alpha \quad \forall \sigma \in \operatorname{Gal}(LE/E) $$
+        Esta última afirmación significa que $\alpha$ es un elemento de $LE$ que queda invariante bajo \textbf{todo} automorfismo de $\operatorname{Gal}(LE/E)$. Como sabemos que la extensión $LE/E$ es de Galois, el único cuerpo fijo de su grupo de Galois es el cuerpo base $E$. Es decir, $\operatorname{Gal}(LE/E)^\circ = E$.
+        Concluimos que $\alpha \in E$.
+        
+        Pero, al principio, habíamos tomado $\alpha \in H^\circ \subseteq L$, lo que significa que $\alpha$ también pertenece a $L$. 
+        Si $\alpha \in E$ y $\alpha \in L$, entonces irremediablemente $\alpha \in L \cap E$.
+        Como esto se cumple para todo $\alpha \in H^\circ$, deducimos que $H^\circ \subseteq L \cap E$.
+    \end{itemize}
+
+    Por la doble inclusión, hemos demostrado que el cuerpo fijo del subgrupo imagen es exactamente la intersección: $H^\circ = L \cap E$.
+    
+    Finalmente, invocamos el Teorema Fundamental de la Teoría de Galois sobre la extensión $L/(L\cap E)$. Como todo subgrupo es cerrado, podemos recuperar el subgrupo original aplicando la clausura:
+    $$ H = H^{\circ\circ} = (L \cap E)^\circ = \operatorname{Gal}(L/L\cap E) $$
+    
+    Esto demuestra de forma concluyente que la imagen $H$ cubre todo el grupo codominio, haciendo que la aplicación $f$ sea suprayectiva y, en definitiva, un isomorfismo.
 \end{proof}
+
+
 \subsection{Ejemplo tocho}
     Vamos a calcular los subcuerpos del cuerpo de escisión $F$ del polinomio $X^{5}-p$, donde $p$ es un número primo, y cuáles son normales sobre $\mathbb{Q}$.
     
