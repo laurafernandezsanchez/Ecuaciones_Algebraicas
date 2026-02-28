@@ -233,8 +233,8 @@ Gracias a esto, a partir de ahora podemos usar el artículo definido y hablar de
     Sean $\overline{K_1}$ y $\overline{K_2}$ las clausuras algebraicas de $K_1$ y $K_2$ respectivamente.
     Por definición de cuerpo de descomposición, podemos escribir $L_i = K_i(S_i)$ dentro de $\overline{K_i}$ para $i=1,2$, donde $S_i$ es el conjunto de las raíces de los polinomios de $\mathcal{P}_i$.
 
-    \textbf{Estrategia de la demostración: "Subir al cielo para bajar a la tierra"}
-    El problema es que construir un isomorfismo directamente entre $L_1$ y $L_2$ "a ciegas" es difícil. La estrategia matemática estándar aquí es:
+    \textbf{Estrategia de la demostración: Subir al cielo para bajar a la tierra}
+    El problema es que construir un isomorfismo directamente entre $L_1$ y $L_2$ a ciegas es difícil. La estrategia matemática estándar aquí es:
     \begin{enumerate}
         \item \textbf{Subir:} Irnos a las Clausuras Algebraicas ($\overline{K_1}$ y $\overline{K_2}$), que son cuerpos enormes donde sabemos que todas las raíces existen.
         \item \textbf{Conectar:} Usar el Teorema anterior (Corolario 2.7) para conectar esas dos clausuras mediante un isomorfismo global.
@@ -333,7 +333,7 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     \end{enumerate}
 \end{ejemplo}
 
-% -----------------------------------------------------------------------------
+% -----EXTENSIONES NORMALES------------------------------------------------------------------------
 
 \section{Extensiones Normales}
 
@@ -346,7 +346,7 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     \begin{enumerate}
         \item $L$ es el cuerpo de descomposición sobre $K$ de una familia de polinomios no constantes con coeficientes en $K$.
         \item $L/K$ es algebraica y, para toda clausura algebraica $F$ de $L$ y todo $K$-homomorfismo $\sigma: L \longrightarrow F$, se verifica que $\sigma(L) = L$ (es decir, $\sigma$ es un endomorfismo de $L$, $\sigma \in \operatorname{Gal}(L/K)$).
-        \item $L/K$ es algebraica y existe \textit{una} clausura algebraica $F$ de $L$ tal que todo $K$-homomorfismo $\sigma: L \longrightarrow F$ cumple que $\sigma(L) \subseteq L$.
+        \item $L/K$ es algebraica y existe \textit{una} clausura algebraica $F$ de $L$ tal que todo $K$-homomorfismo $\sigma: L \longrightarrow F$ cumple que $\sigma(L) = L$.
         \item $L/K$ es algebraica y, para todo $\alpha \in L$, su polinomio mínimo $\operatorname{Min}_K(\alpha)$ factoriza completamente en $L$.
         \item $L/K$ es algebraica y todo polinomio irreducible de $K[X]$ que tenga \textit{al menos una} raíz en $L$, factoriza completamente en $L$ (es decir, "si tenemos una raíz, las tenemos todas").
     \end{enumerate}
@@ -368,6 +368,21 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     $$\sigma(L) = \sigma(K(S)) = K(\sigma(S)) \subseteq K(S) = L$$
     (De hecho, como $S$ es invariante y la aplicación es inyectiva sobre las raíces de cada polinomio que son conjuntos finitos, permuta las raíces, obligando a que $\sigma(S) = S$ y por tanto $\sigma(L) = L$). Que la extensión es algebraica es obvio, pues $L = K(S)$ está generada por raíces de polinomios.
 
+    % --- DETALLE LÓGICO SOBRE LA SOBREYECTIVIDAD EN FAMILIAS INFINITAS ---
+    \begin{observacion}{Justificación de la invariancia del conjunto de raíces $S$}
+        Es fundamental precisar por qué la inclusión $\sigma(S) \subseteq S$ implica la igualdad $\sigma(S) = S$ aun cuando la familia de polinomios $\mathcal{P}$ sea infinita. El razonamiento se basa en la estructura algebraica individual de los elementos:
+
+        \begin{itemize}
+            \item Sea $p \in \mathcal{P}$ cualquier polinomio de la familia. Aunque $\mathcal{P}$ pueda ser un conjunto infinito, cada polinomio $p$ tiene un grado finito y, por tanto, el conjunto de sus raíces en $L$, al que llamaremos $R_p$, es \textbf{finito}.
+            \item Dado que $\sigma$ es un $K$-homomorfismo y los coeficientes de $p$ están en $K$, se cumple por el Lema de Invarianza de raíces que $\sigma(R_p) \subseteq R_p$.
+            \item Al ser $\sigma$ un homomorfismo de cuerpos, es necesariamente \textbf{inyectivo}. Una aplicación inyectiva de un conjunto finito en sí mismo es, por definición de cardinalidad, sobreyectiva. Por tanto, $\sigma(R_p) = R_p$ para cada $p \in \mathcal{P}$.
+            \item Como el conjunto total de generadores es la unión de todas las raíces de todos los polinomios de la familia ($S = \bigcup_{p \in \mathcal{P}} R_p$), la sobreyectividad local sobre cada conjunto $R_p$ garantiza la sobreyectividad global sobre $S$:
+            $$ \sigma(S) = \sigma\left( \bigcup_{p \in \mathcal{P}} R_p \right) = \bigcup_{p \in \mathcal{P}} \sigma(R_p) = \bigcup_{p \in \mathcal{P}} R_p = S $$
+        \end{itemize}
+        De este modo, al ser $L = K(S)$, se deduce que $\sigma(L) = \sigma(K(S)) = K(\sigma(S)) = K(S) = L$, independientemente del cardinal de la familia $\mathcal{P}$.
+    \end{observacion}
+
+
     \textbf{(2) $\implies$ (3):} 
     Es una implicación lógica trivial. Si la propiedad (2) se cumple para \textit{toda} clausura algebraica y garantiza la igualdad $\sigma(L) = L$, entonces en particular existe \textit{alguna} clausura algebraica donde se cumple la inclusión $\sigma(L) \subseteq L$.
 
@@ -387,7 +402,8 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     \begin{quote}
         \textit{Teorema 2.6:} Si $\sigma: K \to L$ es un homomorfismo de cuerpos con $L$ algebraicamente cerrado y $F/K$ una extensión algebraica, entonces existe otro homomorfismo de cuerpos $\tau: F \to L$ que extiende a $\sigma$.
     \end{quote}
-    \textit{Adaptación a nuestro contexto:} Tomamos como homomorfismo base a $\tau: K(\alpha) \to F$. Sabemos que la extensión $L/K(\alpha)$ es algebraica porque $K \subseteq K(\alpha) \subseteq L$ y la extensión global $L/K$ es algebraica por hipótesis. Como $F$ es algebraicamente cerrado, el teorema nos garantiza que existe una extensión del homomorfismo a todo $L$. Es decir, $\exists \overline{\tau}: L \to F$ que extiende a $\tau$. (Para simplificar la notación, la llamaremos simplemente $\tau$).
+    \textit{Adaptación a nuestro contexto:} Tomamos como homomorfismo base a $\tau: K(\alpha) \to F, \tau=i \circ \tau_i$. 
+    Sabemos que la extensión $L/K(\alpha)$ es algebraica porque $K \subseteq K(\alpha) \subseteq L$ y la extensión global $L/K$ es algebraica por hipótesis. Como $F$ es algebraicamente cerrado, el teorema nos garantiza que existe una extensión del homomorfismo a todo $L$. Es decir, $\exists \overline{\tau}: L \to F$ que extiende a $\tau$. (Para simplificar la notación, la llamaremos simplemente $\tau$).
     
     Evaluamos el elemento $\alpha$ bajo este homomorfismo:
     $$\tau(\alpha) = (i \circ \tau_i)(\alpha) = i(\tau_i(\alpha)) = i(\alpha_i) = \alpha_i$$
@@ -449,9 +465,10 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     Como el polinomio irreducible $\operatorname{Min}_{\mathbb{Q}}(\alpha)$ tiene una raíz en $L$ pero no factoriza completamente en $L$, la extensión no es normal. %
 \end{ejemplo} %
 
-\begin{corolario}{Corolario 2.12} %
+
+\begin{corolario}{Corolario 2.12} 
     Una extensión finitamente generada es normal si y solo si es el cuerpo de descomposición de un polinomio de $K[X]$. %
-\end{corolario} %
+\end{corolario} 
 
 \begin{proof}[Demostración del Corolario 2.12] %
     $\impliedby$: Es la propia definición geométrica (por la equivalencia (1) del Teorema Anterior). %
@@ -499,10 +516,17 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
 \end{proposicion}
 
 \begin{proof} %
-    \textbf{(1)} Obvio por definición, ya que si los polinomios factorizan completamente sobre $K$, también lo hacen sobre $E$. %
+    \textbf{(1)} Obvio por definición, ya que si los polinomios que factorizan completamente en $L$ tienen coeficientes en $K$, también podemos verlos con coeficientes en $E$. 
+    Por tanto, factorizan completamente sobre $E$. %
     
-    \textbf{(2)} Para la intersección: Sea $p \in K[X]$ un polinomio irreducible con una raíz en $\bigcap E_i$. Entonces $p$ tiene una raíz en cada $E_i$. Como cada $E_i/K$ es normal (Teorema 2.11(5)), $p$ factoriza completamente en cada $E_i$. Al tener todas sus raíces en todos los $E_i$, tiene todas sus raíces en la intersección $\bigcap E_i$. Luego la intersección es normal. %
-    Para el producto: Si $E_i = K(S_i)$ es el C.D. de $\mathcal{P}_i$, entonces $\prod E_i = K(\bigcup S_i)$ es el C.D. de $\bigcup \mathcal{P}_i$, que la hace normal. %
+    \textbf{(2)} \textit{Sobre la admisibilidad:} Aquí es donde interviene la hipótesis de que la familia $\{E_i/K\}$ es \textbf{admisible}. Esto asegura que todos los cuerpos $E_i$ están inmersos dentro de un mismo cuerpo mayor común (por ejemplo, una misma clausura algebraica $\overline{K}$). Sin esta inmersión común, las operaciones de intersección $\bigcap_{i \in I} E_i$ y del cuerpo compuesto $\prod_{i \in I} E_i$ carecerían de sentido riguroso tanto a nivel conjuntista como algebraico.
+    
+    Para la intersección: Sea $p \in K[X]$ un polinomio irreducible con una raíz en $\bigcap E_i$. 
+    Entonces $p$ tiene una raíz en cada $E_i$. Como cada $E_i/K$ es normal (Teorema 2.11(5)), $p$ factoriza completamente en cada $E_i$. 
+    Al tener todas sus raíces (dentro de ese cuerpo común mayor) en todos y cada uno de los $E_i$, el conjunto de todas estas raíces pertenece a la intersección $\bigcap E_i$. 
+    Luego la extensión intersección es normal. %
+    
+    Para el compuesto: Si cada $E_i = K(S_i)$ es el cuerpo de descomposición (C.D.) de una familia de polinomios $\mathcal{P}_i \subseteq K[X]$, entonces, gracias a que la familia es admisible y podemos operar en un cuerpo común, el compuesto $\prod E_i = K(\bigcup S_i)$ está bien definido. Resulta ser exactamente el C.D. de la unión de las familias $\bigcup \mathcal{P}_i$ sobre $K$. Al ser un C.D., la extensión compuesta es normal. %
     
     \textbf{(3)} Supongamos que $E/K$ es normal. Por la caracterización (1), $E$ es el cuerpo de descomposición de un cierto conjunto $\mathcal{P} \subseteq K[X] \setminus K$. Podemos escribir $E = K(S)$ donde $S$ es el conjunto de raíces de $\mathcal{P}$. %
     Consideremos el cuerpo compuesto $EF$. Por propiedades del cuerpo generado: %
@@ -538,52 +562,74 @@ Vamos a calcular los cuerpos de descomposición de varios polinomios sobre $\mat
     Al adjuntar la raíz primitiva de la unidad, la clausura normal resultante será exactamente el cuerpo de descomposición: $\mathbb{Q}(\sqrt[3]{2}, \xi_3)$. %
 \end{ejemplo} %
 
-
 \begin{proof}[Demostración del Teorema 2.16] %
     \textbf{Demostración de (1): Existencia y minimidad.} %
     Sea $\overline{L}$ una clausura algebraica de $L$. %
-    Definimos el siguiente conjunto de subextensiones: %
+    Definimos el siguiente conjunto de subextensiones de $\overline{L}$: %
     $$\Omega = \{ E \mid L \subseteq E \subseteq \overline{L} \text{ tal que } E/K \text{ es una extensión normal} \}$$ %
     
     ¿Está este conjunto vacío? No. Como $\overline{L}$ es algebraicamente cerrado, por el Corolario 2.13 sabemos que la extensión $\overline{L}/K$ es normal. Por tanto, $\overline{L} \in \Omega$, lo que implica que $\Omega \neq \emptyset$. %
     
-    Si tomamos la intersección de todos los cuerpos de esta familia: %
+    Definimos el cuerpo $N$ como la intersección de todos los cuerpos de esta familia: %
     $$N := \bigcap_{E \in \Omega} E$$ %
-    se tiene trivialmente que $L \subseteq N \subseteq \overline{L}$. %
+    Trivialmente se cumple que $L \subseteq N \subseteq \overline{L}$. %
     
-    Comprobemos las dos condiciones exigidas: %
+    Comprobemos las dos condiciones exigidas para ser clausura normal: %
     \begin{enumerate}
-        \item Por la Proposición 2.15, la intersección arbitraria de extensiones normales vuelve a ser una extensión normal. Por tanto, $N/K$ es normal. %
-        \item Si $E$ es una subextensión de $N/L$ que es normal sobre $K$, entonces $E \in \Omega$. Por la propia definición de la intersección, $N$ está contenido en todos los elementos de $\Omega$, luego $N \subseteq E$. Como por hipótesis de subextensión $E \subseteq N$, forzosamente $N = E$. %
+        \item[(a)] \textbf{$N/K$ es normal:} Al ser $\Omega$ una familia admisible (todos sus elementos son subcuerpos de la misma clausura algebraica $\overline{L}$), la Proposición 2.15 nos asegura que la intersección arbitraria de extensiones normales vuelve a ser una extensión normal. Por tanto, $N/K$ es normal. %
+        \item[(b)] \textbf{Minimidad:} Si $E$ es una subextensión de $N$ que contiene a $L$ (es decir, $L \subseteq E \subseteq N$) y $E/K$ es normal, entonces por definición $E$ pertenece a la familia $\Omega$. Como $N$ se ha definido como la intersección de \textit{todos} los elementos de $\Omega$, obligatoriamente $N \subseteq E$. Dado que por hipótesis partíamos de $E \subseteq N$, concluimos forzosamente que $N = E$. %
     \end{enumerate}
-    Con esto queda demostrada la existencia. De esta demostración nos quedamos con la idea clave de que la clausura normal se obtiene \textit{intersecando} todas las subextensiones de la clausura algebraica que son normales sobre $K$. %
+    Con esto queda demostrada la existencia. %
 
     \vspace{0.5cm}
 
-    \textbf{Demostración de (2) y (3): Unicidad e finitud.} %
-    Supongamos que tenemos dos clausuras normales $N_1/K$ y $N_2/K$ de $L$. Queremos ver que son $L$-isomorfas. %
+    \textbf{Demostración de (2): Unicidad salvo $L$-isomorfismo.} %
+    Supongamos que tenemos dos clausuras normales $N_1/K$ y $N_2/K$ de la misma extensión $L/K$. Queremos demostrar que existe un $L$-isomorfismo entre ellas. %
+
+    \textbf{Paso 1: Construcción de la familia de polinomios.} \\
+    Sea $B$ una base de $L$ visto como espacio vectorial sobre $K$. Para cada elemento $\alpha \in B$, definimos su polinomio mínimo $p_\alpha = \operatorname{Min}_K(\alpha)$. %
+    Consideramos la familia de todos estos polinomios mínimos: %
+    $$\mathcal{P} = \{ p_\alpha \mid \alpha \in B \} \subseteq K[X]$$
+
+    \textbf{Paso 2: Los conjuntos de raíces en cada clausura.} \\
+    Como $L \subseteq N_1$ y $L \subseteq N_2$, ambas clausuras normales contienen a todos los elementos $\alpha \in B$. Por tanto, cada polinomio $p_\alpha$ tiene al menos una raíz (la propia $\alpha$) tanto en $N_1$ como en $N_2$. %
     
-    Sea $B$ una base de $L$ visto como espacio vectorial sobre $K$. Para cada elemento básico $\alpha \in B$, construimos su polinomio mínimo $p_\alpha = \operatorname{Min}_K(\alpha)$. %
-    Definimos la familia de polinomios $\mathcal{P} = \{ p_\alpha \mid \alpha \in B \}$. %
+    Por la definición de normalidad, si una extensión normal contiene una raíz de un polinomio irreducible, debe contenerlas todas. Esto obliga a que los polinomios $p_\alpha$ factoricen completamente (escindan) tanto sobre el cuerpo $N_1$ como sobre el cuerpo $N_2$. %
     
-    Llamemos $R_{1,\alpha}$ al conjunto de raíces de $p_\alpha$ que residen en $N_1$, y $R_{2,\alpha}$ a las que residen en $N_2$. %
-    Como $N_1/K$ y $N_2/K$ son extensiones normales por definición, cada polinomio $p_\alpha$ (al tener una raíz $\alpha \in L \subseteq N_i$) es completamente factorizable sobre $N_1$ y sobre $N_2$. %
+    Para ser rigurosos con los conjuntos subyacentes, definimos: %
+    \begin{itemize}
+        \item $R_{1,\alpha}$: el conjunto de todas las raíces de $p_\alpha$ que residen dentro de $N_1$.
+        \item $R_{2,\alpha}$: el conjunto de todas las raíces de $p_\alpha$ que residen dentro de $N_2$.
+    \end{itemize}
+
+    \textbf{Paso 3: Justificación de que son exactamente Cuerpos de Descomposición.} \\
+    Definamos los subcuerpos $E_1 \subseteq N_1$ y $E_2 \subseteq N_2$ generados por adjuntar todas estas raíces a $K$: %
+    $$E_1 = K\left( \bigcup_{\alpha \in B} R_{1,\alpha} \right) \quad \text{y} \quad E_2 = K\left( \bigcup_{\alpha \in B} R_{2,\alpha} \right)$$ %
     
-    Además, la clausura normal $N_1$ ha de contener a $L$ (que contiene a la base $B$) y ser normal. Para ser normal, debe contener obligatoriamente \textit{todas} las raíces de los polinomios mínimos de sus elementos. Por minimalidad, no puede contener elementos "extra". %
-    Por tanto, $N_1$ y $N_2$ son exactamente los cuerpos de descomposición de la familia de polinomios $\mathcal{P}$ sobre $K$. %
+    Analicemos $E_1$: Por construcción, es el cuerpo de descomposición de la familia $\mathcal{P}$ sobre $K$. Todo cuerpo de descomposición es una extensión normal (Teorema 2.11). Además, como contiene a todas las raíces, en particular contiene a cada $\alpha \in B$. Al contener a toda la base de $L/K$, se deduce que el cuerpo completo $L$ está contenido en $E_1$ ($L \subseteq E_1$). %
+    Tenemos entonces que $E_1$ es una extensión normal de $K$ que cumple $L \subseteq E_1 \subseteq N_1$. %
+    Pero sabemos que $N_1$ es una clausura normal, y por la condición de \textbf{minimidad} demostrada en (1)(b) (no hay subextensiones normales intermedias estrictas), obligatoriamente $N_1 = E_1$. %
     
-    Formalmente, se tiene: %
+    Por un argumento exactamente simétrico aplicado a la segunda clausura, deducimos que $N_2 = E_2$. %
+
+    \textbf{Paso 4: Aplicación del isomorfismo.} \\
+    Hemos demostrado que las clausuras normales se pueden escribir como: %
     $$N_1 = K\left( \bigcup_{\alpha \in B} R_{1,\alpha} \right) \quad \text{y} \quad N_2 = K\left( \bigcup_{\alpha \in B} R_{2,\alpha} \right)$$ %
-    Dado que $K \subseteq L$, podemos reescribir estos cuerpos añadiendo la base $L$: %
+    Dado que $K \subseteq L \subseteq N_i$, podemos cambiar el cuerpo base de la generación sin alterar el cuerpo resultante, viéndolos como extensiones de $L$: %
     $$N_1 = L\left( \bigcup_{\alpha \in B} R_{1,\alpha} \right) \quad \text{y} \quad N_2 = L\left( \bigcup_{\alpha \in B} R_{2,\alpha} \right)$$ %
     
-    Esto demuestra que $N_1$ y $N_2$ son cuerpos de descomposición de la \textbf{misma familia de polinomios} $\mathcal{P}$, pero vistos como extensiones sobre el cuerpo base $L$. %
-    Aplicando la Proposición 2.9 (Unicidad del cuerpo de descomposición), garantizamos la existencia de un $L$-isomorfismo entre ellos: %
-    $$\sigma: N_1 \longrightarrow N_2$$ %
-    Lo que prueba la parte (2). %
+    Esto significa formalmente que $N_1$ y $N_2$ son cuerpos de descomposición de la \textbf{misma familia de polinomios} $\mathcal{P}$, pero vistos ahora como polinomios sobre el cuerpo base $L$. %
+    El Teorema de Unicidad de los Cuerpos de Descomposición (Proposición 2.9) garantiza que dos cuerpos de descomposición de una misma familia sobre un mismo cuerpo base son isomorfos, y que dicho isomorfismo actúa como la identidad sobre el cuerpo base. %
+    Por tanto, existe un $L$-isomorfismo $\sigma: N_1 \xrightarrow{\sim} N_2$. %
+
+    \vspace{0.5cm}
+
+    \textbf{Demostración de (3): Finitud.} %
+    Supongamos que la extensión inicial $L/K$ es finita, es decir, su grado $[L:K] = n$ es finito. %
+    Esto implica que la base $B = \{\alpha_1, \dots, \alpha_n\}$ tiene un número finito de elementos. %
+    En consecuencia, la familia de polinomios mínimos $\mathcal{P} = \{p_{\alpha_1}, \dots, p_{\alpha_n}\}$ es un conjunto finito. %
     
-    Finalmente, para la parte (3): Si la extensión inicial $L/K$ es finita, entonces la base $B$ tiene un número finito de elementos. %
-    Esto implica que la familia de polinomios $\mathcal{P}$ es finita, y por ende, el conjunto total de raíces que debemos adjuntar es finito. %
-    Como acabamos de ver que $N_i$ es el cuerpo de descomposición de estos polinomios sobre $L$, la extensión $N_i/K$ está generada por un número finito de elementos algebraicos. %
-    Por el Corolario 1.15 (toda extensión finita generada por elementos algebraicos es finita), deducimos que $\frac{N_i}{K}$ es finita. %
+    Como acabamos de probar que la clausura normal $N_1$ es el cuerpo de descomposición de esta familia finita $\mathcal{P}$ sobre $K$, y cada polinomio tiene un número finito de raíces, el conjunto total de raíces $\bigcup R_{1,\alpha}$ es finito. %
+    Así, $N_1$ se obtiene adjuntando a $K$ un número finito de elementos algebraicos. %
+    Por el teorema que establece que toda extensión finita generada por elementos algebraicos es finita (Corolario 1.15), deducimos que la extensión $N_1/K$ es finita. %
 \end{proof} %

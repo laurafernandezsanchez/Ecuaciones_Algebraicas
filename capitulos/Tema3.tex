@@ -1,5 +1,113 @@
-\section{Extensiones Ciclotómicas} % [cite: 280]
+\section{Preámbulo: Raíces de la Unidad} 
 
+En todo momento estaremos trabajando con cuerpos. Como ya vimos, estos tienen siempre característica $0$ o $p$ (siendo $p$ un número primo).
+
+El anillo $\mathbb{Z}_p$ será el anillo primo de dichos cuerpos (es decir, $\mathbb{Z}_p \subseteq K$). ¿Qué ocurre con el cuerpo primo (el cuerpo más pequeño contenido en $K$)?
+\begin{itemize}
+    \item Si $\operatorname{car}(K) = p > 0$, entonces $\mathbb{Z}_p$ también es su cuerpo primo.
+    \item Si $\operatorname{car}(K) = 0$, $\mathbb{Z}_0 = \mathbb{Z}$, y este \textbf{no} es su cuerpo primo. Su cuerpo primo de fracciones es $\mathbb{Q}$.
+\end{itemize}
+
+\begin{observacion}{Recordatorio de Grupos y Anillos} % [cite: 296]
+    \begin{itemize}
+        \item El \textbf{subcuerpo primo} de un cuerpo $K$ es el menor cuerpo contenido en él. % [cite: 297, 298, 299, 300]
+        \item Se tiene que el cuerpo primo de $K \cong \mathbb{Q}$ si $\operatorname{car}(K) = 0$, y es isomorfo a $\mathbb{Z}_p$ si $\operatorname{car}(K) = p$. % [cite: 301]
+        \item El \textbf{anillo primo} de $K$ es isomorfo a $\mathbb{Z}$ si $\operatorname{car}(K) = 0$, o igual al cuerpo primo si la característica es distinta de cero. % [cite: 302, 321]
+        \item En cualquier caso, el anillo primo es siempre un Dominio de Factorización Única (DFU). % [cite: 322]
+    \end{itemize}
+\end{observacion}
+\subsection*{Raíces de la Unidad}
+
+\textbf{Recordatorio de Anillos:} Un elemento $a \in A$ es una raíz múltiple de un polinomio $f(X) \in A[X]$ si y solo si $f(a) = f'(a) = 0$.
+
+Vamos a considerar el polinomio $P(X) = X^n - 1$ y analicemos sus raíces.
+Para un $p$ fijo (primo o cero) hay un polinomio distinto con coeficientes en $\mathbb{Z}_p$. Distinguimos dos casos fundamentales:
+
+\begin{enumerate}
+    \item $\mathbf{p \nmid n}$ \textbf{(incluye el caso $p=0$):} Entonces no tenemos raíces múltiples.
+    La única raíz de la derivada $P'(X) = nX^{n-1}$ es $0$, y resulta que $0$ no es raíz de $P(X)$ (ya que $0^n - 1 = -1 \neq 0$).
+    En este caso, tenemos $n$ raíces distintas en cualquier clausura algebraica del cuerpo original.
+
+    \item $\mathbf{p \mid n}$ \textbf{($p>0$):} Entonces \textbf{todas} las raíces son múltiples porque la derivada es idénticamente nula: $P'(X) = nX^{n-1} = 0$ en $\mathbb{Z}_p$ 
+    (ya que $n$ es múltiplo de $p$).
+    De hecho, para cualquier cuerpo con característica $p$, se cumple: $(a+b)^p = a^p + b^p$.
+    En concreto, si $n = p^k m$ (donde $p \nmid m$), obtenemos:
+    $$ X^n - 1 = (X^m - 1)^{p^k} $$
+    Por el primer apartado (ya que $p \nmid m$), las raíces de $X^m - 1$ son simples.
+     Por tanto, las raíces de $X^n - 1$ son exactamente las mismas que las de $X^m - 1$, 
+     pero cada una tiene multiplicidad $p^k$.
+\end{enumerate}
+
+Resumimos esto en el siguiente lema:
+
+\begin{lema}{Lema 3.1 - Raíces de $X^n-1$}
+    Consideremos $X^n - 1$ como un polinomio en cuerpos de característica $p \ge 0$.
+    \begin{enumerate}
+        \item Si $p = 0$, entonces $X^n - 1$ tiene $n$ raíces distintas en cualquier cuerpo de descomposición suyo.
+        \item Si $p \neq 0$ y $n = p^k m$ con $p \nmid m$, entonces $X^n - 1$ tiene $m$ raíces distintas en un cuerpo de descomposición suyo, todas con multiplicidad exactamente $p^k$.
+    \end{enumerate}
+\end{lema}
+
+\subsection*{El grupo de las raíces de la unidad}
+
+Las raíces $n$-ésimas de la unidad son los elementos de orden finito (divisores de $n$) del grupo de unidades de un cuerpo algebraicamente cerrado.
+Por ser un cuerpo, este grupo multiplicativo lo conforman todos los elementos excepto el cero ($K^*$).
+
+El hecho de que tengan orden finito es directo, ya que $\alpha^n = 1$ por ser raíz de $P(X) = X^n - 1$. Consideramos un cuerpo algebraicamente cerrado simplemente para garantizarnos de que contiene a todas las raíces del polinomio y poder formar el grupo.
+
+\begin{lema}{Lema 3.2 - Subgrupos finitos de $K^*$}
+    Todo subgrupo finito del grupo de unidades de un cuerpo es \textbf{cíclico}.
+\end{lema}
+
+\begin{proof}
+    Sea $G$ un subgrupo finito del grupo de unidades $K^*$ de un cuerpo $K$, bajo la operación multiplicación.
+    Del Teorema de Estructura de los Grupos Abelianos Finitos, se deduce que $G \simeq C_{n_1} \times C_{n_2} \times \dots \times C_{n_k}$ para ciertos enteros mayores que 1 tales que $n_1 \mid n_2 \mid \dots \mid n_k$.
+    
+    Si $p$ es un divisor primo de $n_1$, entonces, por las condiciones de divisibilidad, cada componente $C_{n_i}$ tiene un subgrupo de orden $p$. Esto implica que $G$ tendría un subgrupo isomorfo a $C_p^k$.
+    Por tanto, la ecuación $X^p - 1 = 0$ tendría al menos $p^k$ soluciones en el cuerpo $K$. 
+    Pero en un cuerpo, un polinomio de grado $p$ no puede tener más de $p$ raíces. Esto fuerza irremediablemente a que $k = 1$.
+    Al ser $k=1$, la descomposición se reduce a $G \simeq C_{n_1}$, lo cual significa, por definición, que $G$ es un grupo cíclico.
+\end{proof}
+
+\begin{observacion}{Orden del grupo de raíces}
+    Por tanto, el grupo de las raíces $n$-ésimas de la unidad (en cualquier característica) es un \textbf{grupo cíclico finito}.
+    \begin{itemize}
+        \item Si $p = 0$ (o si $p \nmid n$), el orden del grupo es $n$, ya que hay $n$ raíces distintas.
+        \item Si $p > 0$ y $p \mid n$, el orden del grupo es el mayor divisor de $n$ que sea coprimo con $p$ (que en la notación anterior sería $m$).
+    \end{itemize}
+    Recíprocamente, si tenemos un subgrupo $G \le K^*$ de orden $n$, por el Teorema de Lagrange, los elementos de $G$ satisfacen la ecuación $X^n - 1 = 0$.
+\end{observacion}
+
+\subsection*{Raíces primitivas de la unidad}
+
+Una raíz $n$-ésima de la unidad se denomina \textbf{raíz primitiva} si tiene orden exactamente $n$ como elemento del grupo multiplicativo $K^*$. 
+Al ser el grupo de raíces un grupo cíclico, los generadores de este grupo son precisamente las raíces primitivas de la unidad.
+
+\textbf{Recordatorio de Grupos Cíclicos:} Si $g \in G$ con $\operatorname{ord}(g) = n$, entonces la potencia $g^r$ tiene orden:
+$$ \operatorname{ord}(g^r) = \frac{n}{\gcd(n, r)} $$
+
+
+\begin{lema}{Lema 3.3 - Existencia y cantidad de raíces primitivas}
+    \begin{itemize}
+        \item Si $n$ no es múltiplo de la característica $p$ (incluyendo el caso $p=0$), entonces en cualquier cuerpo algebraicamente cerrado de característica $p$ 
+        hay exactamente $\varphi(n)$ raíces $n$-ésimas \textbf{primitivas} de la unidad, donde $\varphi(n) = |\mathbb{Z}_n^*|$ es la función indicatriz de Euler.
+        En tal caso, si $\xi$ es una raíz $n$-ésima primitiva de la unidad y $r$ es un entero positivo, 
+        entonces $\xi^r$ es una raíz $\frac{n}{\gcd(r,n)}$-ésima primitiva de la unidad. 
+        En particular, las raíces $n$-ésimas primitivas de la unidad son todos los elementos de la forma $\xi^r$ con $\gcd(r,n) = 1$.
+    
+    
+        \item Por el contrario, si $n$ es múltiplo de $p$, entonces \textbf{no hay} raíces $n$-ésimas primitivas de la unidad 
+        en ningún cuerpo de característica $p$.
+    \end{itemize}
+\end{lema}
+
+\begin{observacion}{Por qué no hay raíces primitivas si $p \mid n$}
+    Hay raíces $n$-ésimas primitivas de la unidad en característica $p$ si y solo si $n$ no es un múltiplo de $p$.
+    La justificación es que, si $p \mid n$, entonces $n = p^k m$. Las raíces del polinomio $X^n-1$ son en realidad las raíces de $X^m-1$. Por tanto, cualquier raíz tiene orden a lo sumo $m$ (que es estrictamente menor que $n$). Ningún elemento llega a tener el orden $n$ requerido para ser generador primitivo.
+\end{observacion}
+
+
+\section{Extensiones Ciclotómicas} % [cite: 280]
 \begin{definicion}{Extensión ciclotómica (Def. 3.4)} % [cite: 281]
     Sea $K$ un cuerpo y $n$ un entero positivo. % [cite: 281]
     Se llama \textbf{$n$-ésima extensión ciclotómica} de $K$ al cuerpo de descomposición del polinomio $X^n - 1$ sobre $K$. % [cite: 282]
@@ -23,14 +131,7 @@
     \end{itemize}
 \end{observacion}
 
-\begin{observacion}{Recordatorio de Grupos y Anillos} % [cite: 296]
-    \begin{itemize}
-        \item El \textbf{subcuerpo primo} de un cuerpo $K$ es el menor cuerpo contenido en él. % [cite: 297, 298, 299, 300]
-        \item Se tiene que el cuerpo primo de $K \cong \mathbb{Q}$ si $\operatorname{car}(K) = 0$, y es isomorfo a $\mathbb{Z}_p$ si $\operatorname{car}(K) = p$. % [cite: 301]
-        \item El \textbf{anillo primo} de $K$ es isomorfo a $\mathbb{Z}$ si $\operatorname{car}(K) = 0$, o igual al cuerpo primo si la característica es distinta de cero. % [cite: 302, 321]
-        \item En cualquier caso, el anillo primo es siempre un Dominio de Factorización Única (DFU). % [cite: 322]
-    \end{itemize}
-\end{observacion}
+
 
 \section{Polinomios sobre un DFU} % [cite: 303]
 
