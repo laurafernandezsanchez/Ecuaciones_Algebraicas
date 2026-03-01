@@ -1,0 +1,576 @@
+
+\section{Polinomio característico, norma y traza} %
+Recuérdese que el polinomio característico, el determinante y la norma de un endomorfismo $f$ del espacio vectorial de dimensión finita $V$, son respectivamente el polinomio característico, el determinante y la traza de $A$, donde $A$ es cualquiera de las matrices asociadas a $f$ en una base de $V$, y que el resultado de este cálculo no depende de la base elegida.
+
+En esta sección $L/K$ va a ser una extensión finita.
+
+\begin{definicion}{Definición 6.1}
+    Definimos tres aplicaciones
+    $$ \chi_{K}^{L}:L \rightarrow K[X], \quad N_{K}^{L}:L \rightarrow K, \quad T_{K}^{L}:L \rightarrow K $$
+    de la siguiente forma: Para cada $\alpha \in L$ consideramos la aplicación
+    $$ \rho_{\alpha}^{L}:L \rightarrow L $$
+    como un endomorfismo del espacio vectorial $L_{K}$. Entonces $\chi_{K}^{L}(\alpha)$, $N_{K}^{L}(\alpha)$ y $T_{K}^{L}(\alpha)$ son respectivamente el polinomio característico, el determinante y la traza de este endomorfismo y se llaman respectivamente \textbf{polinomio característico, norma y traza} de $\alpha$ en la extensión $L/K$.
+\end{definicion}
+
+\begin{observacion}{Observaciones 6.2}
+    \begin{enumerate}
+        \item Podríamos haber considerado $\rho_{\alpha}^{L}$ como endomorfismo de $L_{L}$ ó como endomorfismo de $L_{E}$ para cualquier subcuerpo $E$ de $L$, pero eso no es lo que hacemos pues en ese caso el polinomio característico de $\rho_{\alpha}^{L}$ no tendría que estar en $K[X]$ y la norma y traza de $\rho_{\alpha}^{L}$ no tendrían por qué estar en $K$.
+        \item Obsérvese que la norma y la traza coinciden con dos de los coeficientes del polinomio característico, salvo en el signo. Más concretamente:
+        \begin{align}
+            N_{K}^{L}(\alpha) &= (-1)^{[L:K]} \cdot \text{Término independiente de } \chi_{K}^{L}(\alpha) \nonumber \\
+            T_{K}^{L}(\alpha) &= \text{Coeficiente de } X^{[L:K]-1} \text{ en } \chi_{K}^{L}(\alpha) \tag{6.1}
+        \end{align}
+       
+    \end{enumerate}
+\end{observacion}
+
+La siguiente proposición reúne las propiedades principales del polinomio característico, la norma y la traza.
+
+\begin{proposicion}{Proposición 6.3}
+    Sea $L/K$ una extensión finita de cuerpos y sean $\alpha, \beta \in L$, $a \in K$ y $E \in \operatorname{Sub}(L/K)$.
+    \begin{enumerate}
+        \item $T_{K}^{L}:L \rightarrow K$ es una aplicación $K$-lineal y $T_{K}^{L}(a) = [L:K]a$.
+        \item $N_{K}^{L}(\alpha\beta) = N_{K}^{L}(\alpha)N_{K}^{L}(\beta)$ y $N_{K}^{L}(a) = a^{[L:K]}$.
+        \item Si $\alpha \in E$, entonces
+        $$ \chi_{K}^{L}(\alpha) = \chi_{K}^{E}(\alpha)^{[L:E]}, \quad N_{K}^{L}(\alpha) = N_{K}^{E}(\alpha)^{[L:E]} \quad \text{y} \quad T_{K}^{L}(\alpha) = [L:E]T_{K}^{E}(\alpha) $$
+       .
+        \item $\chi_{K}^{L}(\alpha) = \operatorname{Min}_{K}(\alpha)^{[L:K(\alpha)]}$. En particular, $\alpha$ es una raíz de $\chi_{K}^{L}(\alpha)$ y $\alpha$ es un elemento primitivo de $L$ si y solo si $\chi_{K}^{L}(\alpha) = \operatorname{Min}_{K}(\alpha)$.
+        \item Si $\sigma_{1}, \dots, \sigma_{n}$ son los $K$-homomorfismos de $L$ en una clausura algebraica de $K$, entonces
+        $$ \chi_{K}^{L}(\alpha) = \left( \prod_{i=1}^{n}(X-\sigma_{i}(\alpha)) \right)^{[L:K]_{i}}, \quad N_{K}^{L}(\alpha) = \left( \prod_{i=1}^{n}\sigma_{i}(\alpha) \right)^{[L:K]_{i}}, \quad T_{K}^{L}(\alpha) = [L:K]_{i}\sum_{i=1}^{n}\sigma_{i}(\alpha) $$
+        En particular, si $L/K$ es separable, entonces
+        $$ \chi_{K}^{L}(\alpha) = \prod_{i=1}^{n}(X-\sigma_{i}(\alpha)), \quad N_{K}^{L}(\alpha) = \prod_{i=1}^{n}\sigma_{i}(\alpha), \quad T_{K}^{L}(\alpha) = \sum_{i=1}^{n}\sigma_{i}(\alpha) $$
+       .
+        \item Si $\sigma:L \rightarrow L^{\prime}$ es un $K$-isomorfismo de cuerpos, entonces
+        $$ \chi_{K}^{L}(\alpha) = \chi_{K}^{L^{\prime}}(\sigma(\alpha)), \quad N_{K}^{L}(\alpha) = N_{K}^{L^{\prime}}(\sigma(\alpha)), \quad T_{K}^{L}(\alpha) = T_{K}^{L^{\prime}}(\sigma(\alpha)) $$
+       .
+        \item (Transitividad de la norma y la traza) Si $E \in \operatorname{Sub}(L/K)$ entonces
+        $$ N_{K}^{L}(\alpha) = N_{K}^{E}(N_{E}^{L}(\alpha)) \quad \text{y} \quad T_{K}^{L}(\alpha) = T_{K}^{E}(T_{E}^{L}(\alpha)) $$
+       .
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+    (1) y (2) son consecuencias inmediatas de las propiedades del determinante y la traza de una matriz.
+
+    En las demostraciones de (3) y (5) basta comprobar las propiedades sobre el polinomio característico pues las propiedades sobre la norma y la traza son consecuencias inmediatas de las del polinomio característico y de la relación (6.1).
+
+    (3) Si $B_{1} = \{b_{1}, \dots, b_{n}\}$ es una base de $E_{K}$ y $B_{2} = \{c_{1}, \dots, c_{m}\}$ es una base de $L_{E}$ entonces $B = \{b_{i}c_{j} : i=1,\dots,n, j=1,\dots,m\}$ es una base de $L/K$. 
+    Si $A = (a_{ij})$ es la matriz asociada a $\rho_{\alpha}^{E}:E \rightarrow E$ en la base $B_1$ entonces
+    $$ \alpha b_{i} = \rho_{\alpha}^{E}(b_{i}) = \sum_{k=1}^{n}a_{ki}b_{k} $$
+   .
+    
+    Por tanto,
+    $$ \rho_{\alpha}^{L}(b_{i}c_{j}) = \alpha b_{i}c_{j} = \sum_{k=1}^{n}a_{ki}b_{k}c_{j} $$
+    con lo que la matriz asociada a $\rho_{\alpha}^{L}$ en la base $B$ tiene la siguiente forma en $m \times m$ bloques de matrices cuadradas de tamaño $n$:
+    $$ \overline{A} = \begin{pmatrix}
+    A & 0 & \cdots & 0 \\
+    0 & A & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & A
+    \end{pmatrix} $$
+    donde la matriz $A$ aparece $m = [L:E]$ veces en la diagonal y donde no se escribe nada es porque hay ceros.
+    
+    Por tanto,
+    $$ \chi_{K}^{L}(\alpha) = \det(XI - \overline{A}) = \det(XI - A)^{m} = \chi_{K}^{E}(\alpha)^{m} $$
+
+    \textbf{Demostración de (4): $\chi_{K}^{K(\alpha)}(\alpha) = \operatorname{Min}_{K}(\alpha)$.} \\
+    En vista del apartado (3) (tomando $E = K(\alpha)$), sólo hay que demostrar el caso base donde el cuerpo de arriba es exactamente el generado por el elemento: $\chi_{K}^{K(\alpha)}(\alpha) = \operatorname{Min}_{K}(\alpha)$. 
+    
+    Pongamos que el polinomio mínimo es de grado $n$:
+    $$ p = \operatorname{Min}_{K}(\alpha) = p_{0} + p_{1}X + \dots + p_{n-1}X^{n-1} + X^{n} $$
+   .
+    Entonces el conjunto $B = \{1, \alpha, \alpha^{2}, \dots, \alpha^{n-1}\}$ es una base del espacio vectorial $K(\alpha)_{K}$. 
+    Veamos cómo actúa el endomorfismo $\rho_{\alpha}^{K(\alpha)}$ (que es multiplicar por $\alpha$) sobre los elementos de esta base:
+    \begin{align*}
+        \rho(\alpha^0) &= \alpha^1 \\
+        \rho(\alpha^1) &= \alpha^2 \\
+        &\vdots \\
+        \rho(\alpha^{n-2}) &= \alpha^{n-1} \\
+        \rho(\alpha^{n-1}) &= \alpha^n = -p_0 - p_1\alpha - \dots - p_{n-1}\alpha^{n-1} \quad \text{(despejando de } p(\alpha)=0 \text{)}
+    \end{align*}
+    
+    Por tanto, la matriz asociada a $\rho_{\alpha}^{K(\alpha)}$ en esta base $B$, colocando las imágenes en columnas, es:
+    $$ A = \begin{pmatrix}
+        0 & 0 & \cdots & 0 & -p_0 \\
+        1 & 0 & \cdots & 0 & -p_1 \\
+        0 & 1 & \cdots & 0 & -p_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & -p_{n-1}
+    \end{pmatrix} $$
+    Esta matriz se llama \textbf{matriz de compañía} (o matriz compañera) del polinomio $p$. 
+    Vamos a ver que su polinomio característico es exactamente $p$ por inducción sobre el grado $n$.
+    
+    Esto es obvio para grados pequeños ($n=1 \implies A=(-p_0) \implies \det(XI-A) = X+p_0 = p$), por lo que podemos suponer que $n>1$ y aplicar la hipótesis de inducción. Calculamos el polinomio característico desarrollando el determinante por la primera fila:
+    \begin{align*}
+        \chi_{K}^{K(\alpha)}(\alpha) &= \det(XI - A) = 
+        \begin{vmatrix}
+            X & 0 & 0 & \cdots & p_0 \\
+            -1 & X & 0 & \cdots & p_1 \\
+            0 & -1 & X & \cdots & p_2 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & -1 & X+p_{n-1}
+        \end{vmatrix} \\
+        &= X \cdot \begin{vmatrix}
+            X & 0 & \cdots & p_1 \\
+            -1 & X & \cdots & p_2 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & -1 & X+p_{n-1}
+        \end{vmatrix} 
+        + (-1)^{n+1} p_0 \cdot \begin{vmatrix}
+            -1 & X & 0 & \cdots \\
+            0 & -1 & X & \cdots \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & -1
+        \end{vmatrix}
+    \end{align*}
+   
+    
+    Obsérvese que el primer determinante que aparece multiplicado por $X$ es exactamente el polinomio característico de la matriz de compañía del polinomio truncado $q = p_{1} + p_{2}X + \dots + p_{n-1}X^{n-2} + X^{n-1}$. Aplicando la hipótesis de inducción a ese bloque de tamaño $(n-1)\times(n-1)$, sabemos que ese determinante vale $q(X)$.
+    El segundo determinante es el de una matriz triangular inferior con $-1$ en la diagonal, por lo que su valor es $(-1)^{n-1}$.
+    
+    Sustituyendo:
+    $$ \chi_{K}^{K(\alpha)}(\alpha) = X \cdot q(X) + (-1)^{n+1} p_0 (-1)^{n-1} = X q(X) + p_0 = p(X) $$
+   .
+    Lo cual demuestra que $\chi_{K}^{K(\alpha)}(\alpha) = \operatorname{Min}_{K}(\alpha)$.
+    
+    \vspace{0.3cm}
+    \textbf{Demostración de (5): Fórmulas con las inmersiones en la clausura.} \\
+    Sean $p = \operatorname{Min}_{K}(\alpha)$ y sean $\alpha_{1}, \dots, \alpha_{r}$ las diferentes raíces de $p$ en una clausura algebraica $\overline{K}$ de $K$. 
+    Por la Uniformidad de las Raíces (Lema 4.6), se tiene que cada raíz aparece en la factorización con la misma multiplicidad de inseparabilidad, por lo que $p = \prod_{i=1}^{r}(X-\alpha_{i})^{[K(\alpha):K]_{i}}$. 
+    
+    Además, el número de distintos $K$-homomorfismos de $K(\alpha)$ en $\overline{K}$ es exactamente $r = [K(\alpha):K]_{s}$ y estos $r$ homomorfismos $\tau_{1}, \dots, \tau_{r}$ vienen dados unívocamente por $\tau_{i}(\alpha) = \alpha_{i}$. 
+    Por los teoremas de extensión, cada uno de estos $\tau_i$ tiene exactamente $t = [L:K(\alpha)]_{s}$ extensiones a homomorfismos globales $\rho_{i,j}:L \rightarrow \overline{K}$. 
+    Con lo que el conjunto total de inmersiones de $L$ es $\{\sigma_{1}, \dots, \sigma_{n}\} = \{\rho_{i,j} : i=1,\dots,r, \; j=1,\dots,t\}$. 
+    Dado que las extensiones $\rho_{i,j}$ actúan sobre $\alpha$ igual que su restricción $\tau_i$, resulta que cada $\alpha_{i}$ aparece repetido $t$ veces en la lista de evaluaciones $\sigma_{1}(\alpha), \dots, \sigma_{n}(\alpha)$. 
+    
+    Por tanto, aplicando la fórmula del apartado (3) y (4):
+    \begin{align*}
+        \chi_{K}^{L}(\alpha) &= \left(\chi_{K}^{K(\alpha)}(\alpha)\right)^{[L:K(\alpha)]} = p(X)^{[L:K(\alpha)]} \\
+        &= \left( \prod_{i=1}^{r}(X-\alpha_{i})^{[K(\alpha):K]_{i}} \right)^{[L:K(\alpha)]} \\
+        &= \prod_{i=1}^{r}(X-\alpha_{i})^{[K(\alpha):K]_{i} \cdot [L:K(\alpha)]}
+    \end{align*}
+   
+    
+    Recordando que la multiplicidad ineseparable es $[L:K]_i = \frac{[L:K]}{[L:K]_s}$ y usando la multiplicatividad de los grados, reagrupamos los exponentes:
+    $$ [K(\alpha):K]_{i} \cdot [L:K(\alpha)] = \frac{[K(\alpha):K]}{r} \cdot [L:K(\alpha)] = \frac{[L:K]}{r} = \frac{[L:K]_s \cdot [L:K]_i}{r} = \frac{r \cdot t \cdot [L:K]_i}{r} = t \cdot [L:K]_i $$
+    Sustituyendo esto arriba:
+    $$ \chi_{K}^{L}(\alpha) = \left( \prod_{i=1}^{r}(X-\alpha_{i})^{t} \right)^{[L:K]_i} $$
+    Como cada $\alpha_i$ repetido $t$ veces conforma la lista completa de los $\sigma_k(\alpha)$, obtenemos finalmente:
+    $$ \chi_{K}^{L}(\alpha) = \left( \prod_{k=1}^{n}(X-\sigma_{k}(\alpha)) \right)^{[L:K]_i} $$
+   .
+    Combinando esto con la Observación 6.2.(2), identificando los coeficientes de este polinomio expandido, se deducen automáticamente las fórmulas de este apartado sobre la norma (producto de las raíces) y la traza (suma de las raíces).
+    
+    \vspace{0.3cm}
+    \textbf{Demostración de (7): Transitividad de la Norma y la Traza.} \\
+    Sean $\overline{L}$ una clausura algebraica de $L$ y $F$ la clausura normal de $L/K$ en $\overline{L}$. Definimos los siguientes conjuntos de inmersiones:
+    \begin{itemize}
+        \item $\tau_{1}, \dots, \tau_{r}:E \rightarrow \overline{K}$ los $K$-homomorfismos de $E$ a $\overline{L}$.
+        \item $\sigma_{1}, \dots, \sigma_{s}:L \rightarrow \overline{K}$ los $E$-homomorfismos de $L$ a $\overline{L}$.
+        \item $\overline{\tau}_{1}, \dots, \overline{\tau}_{r}:F \rightarrow \overline{L}$ donde cada $\overline{\tau}_{i}$ es una extensión global del correspondiente $\tau_{i}$.
+    \end{itemize}
+    
+    Como $F$ es la clausura normal sobre $K$ (y contiene a $L$ y $E$), los $\overline{\tau}_i$ son en realidad automorfismos de $F$, por lo que restringen bien.
+    Los elementos del conjunto $X = \{\overline{\tau}_{i} \circ \sigma_{j} : i=1,\dots,r, \; j=1,\dots,s\}$ son claramente $K$-homomorfismos de $L$ en $\overline{K}$. 
+    De hecho, este conjunto contiene \textbf{todos} los diferentes $K$-homomorfismos de $L$ en $\overline{K}$. 
+    Para ver por qué, tomemos cualquier $K$-homomorfismo $\rho:L \rightarrow \overline{K}$. Su restricción al subcuerpo $E$, denotada $\rho|_{E}$, debe coincidir con alguno de los $\tau_{i}$ (ya que esos son todos los posibles). Como $\tau_i = \overline{\tau}_{i}|_{E}$, tenemos que $\rho$ y $\overline{\tau}_i$ coinciden en $E$. 
+    Esto implica que la composición $\overline{\tau}_{i}^{-1} \circ \rho$ deja fijo a todo el cuerpo $E$, por lo que es un $E$-homomorfismo de $L$. En consecuencia, $\overline{\tau}_{i}^{-1} \circ \rho = \sigma_{j}$ para algún $j$, de donde se despeja $\rho = \overline{\tau}_{i} \circ \sigma_{j}$.
+    
+    Usando la fórmula de la norma probada en (5) (y asumiendo separabilidad para simplificar la notación de la demostración), evaluamos la norma global:
+    \begin{align*}
+        N_{K}^{L}(\alpha) &= \prod_{i,j} (\overline{\tau}_{i} \circ \sigma_{j})(\alpha) \\
+        &= \prod_{i=1}^r \overline{\tau}_{i} \left( \prod_{j=1}^s \sigma_{j}(\alpha) \right) \quad \text{(ya que } \overline{\tau}_i \text{ es homomorfismo)} \\
+        &= \prod_{i=1}^r \overline{\tau}_{i} \left( N_{E}^{L}(\alpha) \right)
+    \end{align*}
+   
+    
+    Como la norma intermedia $N_{E}^{L}(\alpha)$ es un elemento que pertenece al cuerpo $E$, al evaluarlo con $\overline{\tau}_i$ (que actúa sobre $E$ exactamente igual que $\tau_i$), estamos simplemente calculando la norma de ese elemento desde $E$ hasta $K$:
+    $$ N_{K}^{L}(\alpha) = N_{K}^{E}\left(N_{E}^{L}(\alpha)\right) $$
+   .
+    Esto muestra la transitividad de la norma. La transitividad de la traza se demuestra de forma análoga usando sumas en lugar de productos y la linealidad de los homomorfismos.
+\end{proof}
+
+\vspace{1cm}
+\section{Teorema 90 de Hilbert} %
+
+En esta sección veremos un teorema fundamental de Hilbert para cuya demostración utilizaremos el siguiente teorema sobre la independencia de caracteres.
+
+\begin{lema}{Lema 6.4 (Lema de Artin sobre Independencia Lineal de Homomorfismos)}
+    Si $K$ y $L$ son dos cuerpos, entonces el conjunto de los homomorfismos no nulos de cuerpos de $K$ en $L$ es linealmente independiente sobre $L$.
+\end{lema}
+
+\begin{proof}
+    Sean $\sigma_{1}, \dots, \sigma_{n}:K \rightarrow L$ homomorfismos distintos (y diferentes del homomorfismo nulo 0).
+    Podemos considerar el conjunto de todas las funciones de $K$ en $L$ como un espacio vectorial sobre $L$. Tenemos que demostrar que la dimensión $d$ del subespacio generado $V = L\sigma_{1} + \dots + L\sigma_{n}$ coincide exactamente con $n$ (lo que implicaría que no hay redundancias y son linealmente independientes).
+    
+    Razonaremos por \textbf{reducción al absurdo}. Suponiendo que son linealmente dependientes, entonces $d < n$. 
+    Podemos reordenar los $\sigma_{i}$ para que los primeros $d$ formen una base del subespacio $V$. 
+    Consideremos el siguiente homomorfismo, al que llamaremos $\sigma = \sigma_{n}$. Al ser $n > d$, $\sigma$ es distinto de 0 y es distinto de todos los $\sigma_{i}$ de la base (para $i = 1, \dots, d$).
+    
+    Como los primeros $d$ forman una base de $V$ y $\sigma \in V$, existen coeficientes $a_{1}, \dots, a_{d} \in L$ (no todos nulos) tales que:
+    \begin{equation}
+        \sigma = a_{1}\sigma_{1} + \dots + a_{d}\sigma_{d} \tag{*}
+    \end{equation}
+   
+    
+    Como $\sigma \neq 0$, algún $a_{i} \neq 0$. Reordenando los índices de la base $\sigma_{1}, \dots, \sigma_{d}$ si es necesario, podemos asumir sin pérdida de generalidad que $a_{1} \neq 0$. 
+    Además, como $\sigma \neq \sigma_{1}$ (son homomorfismos distintos por hipótesis), forzosamente debe existir algún elemento $\alpha \in K$ en el que difieran, es decir, tal que $\sigma(\alpha) \neq \sigma_{1}(\alpha)$.
+    
+    Evaluemos la combinación lineal (*) en un producto de elementos $(\alpha\beta)$ para cualquier $\beta \in K$:
+    \begin{itemize}
+        \item Por un lado, como $\sigma$ es un homomorfismo multiplicativo, $\sigma(\alpha\beta) = \sigma(\alpha)\sigma(\beta)$. Sustituyendo $\sigma(\beta)$ usando la combinación lineal (*):
+        $$ \sigma(\alpha\beta) = \sigma(\alpha) \left( a_{1}\sigma_{1}(\beta) + \dots + a_{d}\sigma_{d}(\beta) \right) $$
+        \item Por otro lado, evaluando la combinación lineal (*) directamente en el producto $(\alpha\beta)$, y usando que cada $\sigma_i$ es homomorfismo:
+        $$ \sigma(\alpha\beta) = a_{1}\sigma_{1}(\alpha\beta) + \dots + a_{d}\sigma_{d}(\alpha\beta) = a_{1}\sigma_{1}(\alpha)\sigma_{1}(\beta) + \dots + a_{d}\sigma_{d}(\alpha)\sigma_{d}(\beta) $$
+    \end{itemize}
+   
+    
+    Igualando ambas expresiones para $\sigma(\alpha\beta)$ y agrupando términos para cada $\sigma_i(\beta)$, obtenemos:
+    $$ \sigma(\alpha)a_{1}\sigma_{1}(\beta) + \dots + \sigma(\alpha)a_{d}\sigma_{d}(\beta) = a_{1}\sigma_{1}(\alpha)\sigma_{1}(\beta) + \dots + a_{d}\sigma_{d}(\alpha)\sigma_{d}(\beta) $$
+    $$ \left[ (\sigma(\alpha) - \sigma_{1}(\alpha))a_{1} \right] \sigma_{1}(\beta) + \dots + \left[ (\sigma(\alpha) - \sigma_{d}(\alpha))a_{d} \right] \sigma_{d}(\beta) = 0 $$
+   
+    
+    Como esta última igualdad es cierta para todo $\beta \in K$, hemos encontrado una relación de dependencia lineal funcional entre los elementos de la base:
+    $$ (\sigma(\alpha) - \sigma_{1}(\alpha))a_{1}\sigma_{1} + \dots + (\sigma(\alpha) - \sigma_{d}(\alpha))a_{d}\sigma_{d} = 0 $$
+   
+    
+    Analicemos el primer coeficiente de esta nueva combinación lineal: $(\sigma(\alpha) - \sigma_{1}(\alpha))a_{1}$.
+    Sabíamos por construcción que $a_1 \neq 0$ y que elegimos $\alpha$ tal que $\sigma(\alpha) \neq \sigma_1(\alpha)$. Por tanto, el producto en un cuerpo es no nulo. 
+    Hemos construido una combinación lineal nula de los elementos $\{\sigma_{1}, \dots, \sigma_{d}\}$ donde al menos el primer coeficiente es diferente de 0.
+    Esto contradice frontalmente la independencia lineal de $\{\sigma_{1}, \dots, \sigma_{d}\}$ sobre $L$, la cual habíamos asumido al elegirlos como base de $V$.
+    
+    Esta contradicción proviene de suponer que $d < n$. Por tanto, $d = n$, y el conjunto original de homomorfismos es linealmente independiente.
+\end{proof}
+
+\begin{lema}{Lema 6.5 (Equivalencia de la separabilidad con la traza)}
+    Las siguientes condiciones son equivalentes para una extensión finita $L/K$:
+    \begin{enumerate}
+        \item $T_{K}^{L}(\alpha) \neq 0$ para algún $\alpha \in L$.
+        \item $T_{K}^{L}(\alpha) = 1$ para algún $\alpha \in L$.
+        \item $L/K$ es separable.
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}
+    \textbf{(2) $\implies$ (1):} Es una implicación lógica obvia, ya que $1 \neq 0$.
+
+    \textbf{(1) $\implies$ (2):} Supongamos que existe un $\alpha \in L$ tal que $T_{K}^{L}(\alpha) \neq 0$. Como la traza toma valores en el cuerpo base $K$, este valor es un elemento invertible en $K$. 
+    Por la $K$-linealidad de la traza (demostrada en la Proposición 6.3), podemos definir un nuevo elemento $\alpha' = \frac{\alpha}{T_{K}^{L}(\alpha)} \in L$. Evaluando su traza:
+    $$ T_{K}^{L}(\alpha') = T_{K}^{L}\left( \frac{\alpha}{T_{K}^{L}(\alpha)} \right) = \frac{1}{T_{K}^{L}(\alpha)} T_{K}^{L}(\alpha) = 1 $$
+   
+
+    \textbf{(3) $\iff$ (1):}
+    Elegimos una clausura algebraica $\overline{L}$ de $L$. Si denotamos por $\sigma_{1}, \dots, \sigma_{n}$ a los distintos $K$-homomorfismos de $L$ en $\overline{L}$, sabemos por el Lema de Artin (Lema 6.4) que este conjunto de funciones $\{\sigma_{1}, \dots, \sigma_{n}\}$ es linealmente independiente sobre el cuerpo $L$.
+    
+    Por la propiedad 5 de la Proposición 6.3, la traza se puede expresar como:
+    $$ T_{K}^{L} = [L:K]_{i} \sum_{j=1}^{n} \sigma_{j} = [L:K]_{i} (\sigma_{1} + \dots + \sigma_{n}) $$
+   
+    
+    Dado que los $\sigma_j$ son linealmente independientes sobre $L$, la suma $(\sigma_{1} + \dots + \sigma_{n})$ nunca es la función nula. Por tanto, la aplicación traza $T_{K}^{L}$ será la función nula (es decir, $T_{K}^{L}(\alpha) = 0$ para todo $\alpha \in L$) si y solo si el coeficiente escalar $[L:K]_{i}$ es congruente con cero dentro del cuerpo $L$.
+    
+    Pongamos $t = [L:K]_{i} \cdot 1_{L}$. Entonces:
+    $$ T_{K}^{L} = 0 \iff t = 0 \iff [L:K]_{i} \text{ es múltiplo de la característica de } L $$
+   
+    
+    Recordando que el grado de inseparabilidad $[L:K]_{i}$ es siempre, por definición, una potencia de la característica de $K$ (salvo en característica 0 donde siempre es 1), la única forma de que este grado no se anule en el cuerpo (es decir, de que no sea un múltiplo positivo de la característica) es que sea exactamente igual a $1$.
+    
+    Sabemos por teoría de cuerpos que una extensión es separable si y solo si su grado de inseparabilidad es 1 ($[L:K]_{i} = 1$).
+    Enlazando las equivalencias:
+    $$ L/K \text{ es separable} \iff [L:K]_{i} = 1 \iff t \neq 0 \iff T_{K}^{L} \neq 0 $$
+   
+    Lo cual demuestra la equivalencia con (1).
+\end{proof}
+
+\begin{definicion}{Definición 6.6 (Extensión Cíclica)}
+    Una extensión cíclica es una extensión de Galois cuyo grupo de Galois es un grupo cíclico.
+\end{definicion}
+
+\begin{observacion}{Ejemplos 6.7}
+    \begin{enumerate}
+        \item Toda extensión de Galois de grado primo es cíclica, ya que, por teoría básica de grupos, todo grupo de orden primo es isomorfo a un grupo cíclico.
+        \item Si $p$ es un número primo y $\zeta_{p}$ es una raíz compleja $p$-ésima primitiva de la unidad, entonces $\mathbb{Q}(\zeta_{p})/\mathbb{Q}$ es una extensión de Galois. Su grupo de Galois es isomorfo al grupo de unidades $\mathbb{Z}_{p}^{*}$ del cuerpo $\mathbb{Z}_{p}$, el cual, por el Lema 3.2, es un grupo cíclico.
+        De hecho, si $K$ es cualquier cuerpo y $\zeta_{p}$ es una raíz $p$-ésima primitiva de la unidad en alguna extensión de $K$, entonces la extensión generada $K(\zeta_{p})/K$ es también una extensión cíclica, pues su grupo de Galois será isomorfo a algún subgrupo de $\mathbb{Z}_{p}^{*}$ (y todo subgrupo de un grupo cíclico es cíclico).
+    \end{enumerate}
+\end{observacion}
+
+\begin{observacion}{Subextensiones de una extensión cíclica}
+    Supongamos que $L/K$ es una extensión cíclica de grado $n$, con grupo de Galois $G$, y sea $\sigma$ un generador de $G$ ($G = \langle\sigma\rangle$).
+    
+    Por las propiedades de los grupos cíclicos, para cada divisor $d$ de $n$, existe un único subgrupo de orden $d$, que es generado por $\sigma^{n/d}$. De forma equivalente, para cada divisor $d$ de $n$, el grupo $G_{d} = \langle\sigma^{d}\rangle$ es el \textbf{único} subgrupo de $G$ de orden $\frac{n}{d}$.
+    
+    Aplicando el Teorema Fundamental de la Teoría de Galois (la correspondencia biyectiva), al subgrupo $G_d$ le corresponde un único cuerpo intermedio $L_{d} = L^{G_{d}} = \{x \in L : \sigma^{d}(x) = x\}$.
+    El índice del subgrupo determina el grado de la subextensión: $[L : L_{d}] = |G_d| = \frac{n}{d}$, lo que implica (por la multiplicatividad de los grados $[L:K] = [L:L_d][L_d:K]$) que el grado inferior es $[L_{d} : K] = d$.
+    
+    Por tanto, $L_{d}$ es la \textbf{única} subextensión de $L/K$ que tiene grado $d$ sobre $K$. Por ejemplo, $L_{1} = K$ y $L_{n} = L$.
+\end{observacion}
+
+\vspace{0.5cm}
+
+\begin{teorema}{Teorema 6.8 (Teorema 90 de Hilbert)}
+    Sea $L/K$ una extensión cíclica finita con $\operatorname{Gal}(L/K) = \langle\sigma\rangle$ y sea $\alpha \in L$. Entonces se verifican las siguientes caracterizaciones:
+    \begin{enumerate}
+        \item $T_{K}^{L}(\alpha) = 0$ si y solo si existe algún $\beta \in L$ tal que $\alpha = \beta - \sigma(\beta)$.
+        \item $N_{K}^{L}(\alpha) = 1$ si y solo si existe algún $\beta \in L^{*}$ tal que $\alpha = \beta\sigma(\beta)^{-1}$.
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    Para abreviar la notación a lo largo de la demostración, denotaremos la norma y la traza como $N = N_{K}^{L}$ y $T = T_{K}^{L}$, y sea $n = [L:K]$.
+    
+    \textbf{Condiciones suficientes ($\impliedby$):}
+    En ambos casos, la implicación hacia atrás es una comprobación directa basada en que la traza y la norma son invariantes bajo la acción del grupo de Galois. Como $\sigma$ es un automorfismo que deja fijo al cuerpo base $K$, evaluar $T$ o $N$ sobre un elemento conjugado $\sigma(\beta)$ da el mismo resultado que evaluarlo sobre $\beta$:
+    $$ T(\sigma(\beta)) = T(\beta) \quad \text{y} \quad N(\sigma(\beta)) = N(\beta) $$
+   
+    \begin{itemize}
+        \item Si $\alpha = \beta - \sigma(\beta)$, entonces $T(\alpha) = T(\beta) - T(\sigma(\beta)) = T(\beta) - T(\beta) = 0$.
+        \item Si $\alpha = \beta\sigma(\beta)^{-1}$, entonces $N(\alpha) = N(\beta)N(\sigma(\beta))^{-1} = N(\beta)N(\beta)^{-1} = 1$.
+    \end{itemize}
+    
+    \textbf{Condiciones necesarias ($\implies$):}
+    
+    \textbf{Demostración de (1): Caso de la Traza Nula.} \\
+    Supongamos que $T(\alpha) = 0$. Para cada $i = 1, \dots, n$, definimos los siguientes elementos de $L$, que podemos interpretar como "trazas parciales":
+    $$ \gamma_{i} = \alpha + \sigma(\alpha) + \dots + \sigma^{i-1}(\alpha) $$
+   
+    Obsérvese que el primer término es $\gamma_{1} = \alpha$ y el último término coincide con la traza total (que asumimos nula): $\gamma_{n} = T(\alpha) = 0$.
+    
+    Como la extensión es cíclica (y por tanto de Galois, implicando que es separable), el Lema 6.5 garantiza la existencia de un elemento $\theta \in L$ cuya traza sea 1, es decir, $T(\theta) = 1$.
+    
+    Consideremos el siguiente elemento $\beta \in L$ construido como una combinación de las trazas parciales y los conjugados de $\theta$:
+    $$ \beta = \gamma_{1}\sigma(\theta) + \gamma_{2}\sigma^{2}(\theta) + \dots + \gamma_{n-1}\sigma^{n-1}(\theta) $$
+   
+    
+    Vamos a verificar que este $\beta$ satisface $\alpha = \beta - \sigma(\beta)$. Calculamos primero $\sigma(\beta)$:
+    $$ \sigma(\beta) = \sigma(\gamma_{1})\sigma^{2}(\theta) + \sigma(\gamma_{2})\sigma^{3}(\theta) + \dots + \sigma(\gamma_{n-1})\sigma^{n}(\theta) $$
+    
+    Analizamos la relación entre $\sigma(\gamma_i)$ y $\gamma_{i+1}$. Por definición de la traza parcial:
+    $$ \sigma(\gamma_i) = \sigma(\alpha + \dots + \sigma^{i-1}(\alpha)) = \sigma(\alpha) + \dots + \sigma^{i}(\alpha) $$
+    Si a esto le sumamos y restamos $\alpha$, obtenemos:
+    $$ \sigma(\gamma_i) = (\alpha + \sigma(\alpha) + \dots + \sigma^{i}(\alpha)) - \alpha = \gamma_{i+1} - \alpha $$
+    Sustituyendo esto en los términos de $\sigma(\beta)$, obtenemos que para $i = 1, \dots, n-1$:
+    $$ \sigma(\gamma_i)\sigma^{i+1}(\theta) = (\gamma_{i+1} - \alpha)\sigma^{i+1}(\theta) = \gamma_{i+1}\sigma^{i+1}(\theta) - \alpha\sigma^{i+1}(\theta) $$
+   
+    
+    Ahora restamos $\sigma(\beta)$ a $\beta$, agrupando los términos con el mismo conjugado de $\theta$:
+    \begin{align*}
+        \beta - \sigma(\beta) &= \gamma_{1}\sigma(\theta) + \gamma_{2}\sigma^{2}(\theta) + \dots + \gamma_{n-1}\sigma^{n-1}(\theta) \\
+        &\quad - (\gamma_{2} - \alpha)\sigma^{2}(\theta) - \dots - (\gamma_{n} - \alpha)\sigma^{n}(\theta) \\
+        &= \gamma_{1}\sigma(\theta) + \alpha\sigma^{2}(\theta) + \dots + \alpha\sigma^{n-1}(\theta) - \gamma_{n}\sigma^{n}(\theta) + \alpha\sigma^{n}(\theta)
+    \end{align*}
+   
+    
+    Recordando que $\gamma_1 = \alpha$ y que $\gamma_n = 0$, la expresión se simplifica enormemente:
+    \begin{align*}
+        \beta - \sigma(\beta) &= \alpha\sigma(\theta) + \alpha\sigma^{2}(\theta) + \dots + \alpha\sigma^{n-1}(\theta) + \alpha\sigma^{n}(\theta) \\
+        &= \alpha \left( \sigma(\theta) + \sigma^{2}(\theta) + \dots + \sigma^{n}(\theta) \right)
+    \end{align*}
+   
+    La suma entre paréntesis es exactamente la suma de todos los conjugados de $\theta$ por el grupo de Galois, que es por definición la traza de $\theta$.
+    Como habíamos elegido $\theta$ tal que $T(\theta) = 1$, obtenemos finalmente:
+    $$ \beta - \sigma(\beta) = \alpha \cdot T(\theta) = \alpha \cdot 1 = \alpha $$
+    Lo cual demuestra la afirmación.
+    
+    \vspace{0.3cm}
+    \textbf{Demostración de (2): Caso de la Norma Unitaria.} \\
+    Supongamos ahora que $N(\alpha) = 1$. De manera análoga al caso anterior, definimos las "normas parciales":
+    $$ \gamma_{i} = \alpha \cdot \sigma(\alpha) \cdots \sigma^{i-1}(\alpha) $$
+    Para que la recursión funcione correctamente, definimos $\gamma_{0} = 1$. Así tenemos la sucesión $\gamma_{0} = 1, \gamma_{1} = \alpha, \dots$, y el último término coincide con la norma total: $\gamma_{n} = N(\alpha) = 1$.
+    
+    Construimos el siguiente endomorfismo de $L_{K}$ combinando las potencias de $\sigma$ ponderadas por estas normas parciales:
+    $$ f = \gamma_{0}1 + \gamma_{1}\sigma + \gamma_{2}\sigma^{2} + \dots + \gamma_{n-1}\sigma^{n-1} $$
+   
+    Por el Lema de Artin sobre la independencia de caracteres (Lema 6.4), los distintos automorfismos $\{1, \sigma, \sigma^2, \dots, \sigma^{n-1}\}$ son linealmente independientes sobre $L$. Como $\gamma_0 = 1 \neq 0$, los coeficientes de esta combinación lineal no son todos nulos, lo que garantiza que el endomorfismo $f$ es diferente del endomorfismo nulo ($f \neq 0$).
+    
+    Al no ser la función nula, debe existir algún elemento $\theta \in L$ en el que no se anule. Es decir, existe $\theta \in L$ tal que:
+    $$ \beta = f(\theta) = \gamma_{0}\theta + \gamma_{1}\sigma(\theta) + \gamma_{2}\sigma^{2}(\theta) + \dots + \gamma_{n-1}\sigma^{n-1}(\theta) \neq 0 $$
+   
+    
+    Evaluemos ahora el producto $\alpha \cdot \sigma(\beta)$:
+    $$ \alpha\sigma(\beta) = \alpha\sigma(\gamma_{0}\theta) + \alpha\sigma(\gamma_{1}\sigma(\theta)) + \dots + \alpha\sigma(\gamma_{n-1}\sigma^{n-1}(\theta)) $$
+    
+    Por la definición multiplicativa de las normas parciales, se cumple que $\alpha \cdot \sigma(\gamma_{i}) = \gamma_{i+1}$. Sustituyendo esto término a término:
+    $$ \alpha\sigma(\beta) = \gamma_{1}\sigma(\theta) + \gamma_{2}\sigma^{2}(\theta) + \dots + \gamma_{n}\sigma^{n}(\theta) $$
+   
+    
+    Dado que el grupo de Galois es cíclico de orden $n$, tenemos que $\sigma^{n} = 1$ (es el automorfismo identidad), por lo que $\sigma^{n}(\theta) = \theta$. Además, habíamos supuesto que $\gamma_n = 1$ y definimos $\gamma_0 = 1$. Reordenando el último término al principio:
+    $$ \alpha\sigma(\beta) = \gamma_{0}\theta + \gamma_{1}\sigma(\theta) + \gamma_{2}\sigma^{2}(\theta) + \dots + \gamma_{n-1}\sigma^{n-1}(\theta) $$
+    
+    La expresión resultante es exactamente la definición de $\beta$. Por tanto:
+    $$ \alpha\sigma(\beta) = \beta $$
+    Como $\beta \neq 0$, podemos dividir por $\sigma(\beta)$ (que también es distinto de 0 al ser un automorfismo), obteniendo finalmente $\alpha = \beta\sigma(\beta)^{-1}$, lo que concluye la demostración.
+\end{proof}
+
+\vspace{0.5cm}
+
+\section{Caracterización de las extensiones cíclicas} %
+
+\begin{proposicion}{Proposición 6.9}
+    Sean $n$ un entero positivo, $K$ un cuerpo que contiene una raíz $n$-ésima primitiva de la unidad, y $a \in K$. Si $L$ es el cuerpo de descomposición del binomio $X^{n} - a$ sobre $K$, entonces la extensión $L/K$ es una extensión cíclica.
+\end{proposicion}
+
+\begin{proof}
+    Si $a=0$, el polinomio es $X^n$ y su cuerpo de descomposición es trivialmente $L=K$. En este caso la extensión tiene grado 1, cuyo grupo de Galois es el grupo trivial (que es cíclico), y no hay nada más que demostrar.
+    Por tanto, supongamos que $a \neq 0$.
+    
+    Por hipótesis, el cuerpo $K$ tiene una raíz $n$-ésima primitiva de la unidad (llamémosla $\zeta$). Sabemos por la teoría de extensiones ciclotómicas que esto solo es posible si $n$ no es múltiplo de la característica del cuerpo $K$. 
+    Al no dividir la característica al exponente $n$, la derivada del polinomio $P(X) = X^n - a$ es $P'(X) = nX^{n-1} \neq 0$. Dado que $a \neq 0$, el cero no es raíz de $P(X)$, por lo que $P(X)$ no comparte raíces con su derivada y es, por ende, un polinomio separable. 
+    Siendo $L$ el cuerpo de descomposición de un polinomio separable sobre $K$, $L/K$ es obligatoriamente una extensión de Galois.
+    
+    Sea $\alpha$ una raíz cualquiera de $X^{n} - a$ en $L$. Podemos obtener todas las demás raíces multiplicando $\alpha$ por las distintas potencias de la raíz de la unidad $\zeta$. Así, las $n$ raíces distintas de $X^{n} - a$ son:
+    $$ \alpha, \quad \zeta\alpha, \quad \zeta^{2}\alpha, \quad \dots, \quad \zeta^{n-1}\alpha $$
+   
+    Como todas las potencias de $\zeta$ ya pertenecen al cuerpo base $K$, para generar el cuerpo de descomposición basta con añadir $\alpha$. Por tanto, $L = K(\alpha)$.
+    
+    Cualquier automorfismo $\sigma \in \operatorname{Gal}(L/K)$ queda unívocamente determinado por su acción sobre el generador $\alpha$. Como $\sigma$ debe enviar raíces en raíces, necesariamente debe mapear $\alpha$ a otra de las raíces de la lista. Es decir, existe un único exponente $i_{\sigma} \in \{0, 1, \dots, n-1\}$ tal que:
+    $$ \sigma(\alpha) = \zeta^{i_{\sigma}}\alpha $$
+   
+    Podemos identificar este exponente con una clase de congruencia en el grupo aditivo $\mathbb{Z}_{n}$.
+    
+    Consideremos la aplicación $\phi: \operatorname{Gal}(L/K) \rightarrow \mathbb{Z}_{n}$ definida por $\phi(\sigma) = i_{\sigma}$. Veamos que es un homomorfismo inyectivo.
+    Si tomamos dos automorfismos $\sigma, \tau \in \operatorname{Gal}(L/K)$:
+    $$ (\sigma \circ \tau)(\alpha) = \sigma(\tau(\alpha)) = \sigma(\zeta^{i_{\tau}}\alpha) $$
+    Como $\zeta \in K$, el automorfismo $\sigma$ lo deja fijo, por lo que actúa de forma lineal:
+    $$ \sigma(\zeta^{i_{\tau}}\alpha) = \zeta^{i_{\tau}}\sigma(\alpha) = \zeta^{i_{\tau}}(\zeta^{i_{\sigma}}\alpha) = \zeta^{i_{\tau} + i_{\sigma}}\alpha $$
+    Esto demuestra que $i_{\sigma \circ \tau} \equiv i_{\sigma} + i_{\tau} \pmod n$, probando que la aplicación es un homomorfismo de grupos.
+    La inyectividad es evidente, ya que si $i_\sigma = 0$, entonces $\sigma(\alpha) = \alpha$, y al fijar el generador de la extensión, $\sigma$ debe ser la identidad.
+    
+    Por el Primer Teorema de Isomorfía, la imagen de este homomorfismo es un subgrupo de $\mathbb{Z}_{n}$. Como $\mathbb{Z}_{n}$ es un grupo cíclico y todo subgrupo de un grupo cíclico es a su vez cíclico, concluimos que $\operatorname{Gal}(L/K)$ (que es isomorfo a esta imagen) también es un grupo cíclico. Por definición, esto hace que $L/K$ sea una extensión cíclica.
+\end{proof}
+
+\vspace{0.5cm}
+
+\textbf{Polinomios Simétricos Elementales}
+
+Vamos a fijar $n$ indeterminadas algebraicamente independientes $X_{1}, \dots, X_{n}$. Definimos los polinomios simétricos elementales $S_k$ como las sumas de todos los posibles productos de $k$ indeterminadas distintas:
+
+\begin{align*}
+    S_{1} &= \Sigma_{n}(X_{1}) = X_{1} + X_{2} + \dots + X_{n} \\
+    S_{2} &= \Sigma_{n}(X_{1}X_{2}) = \sum_{1 \le i < j \le n} X_{i}X_{j} \\
+    S_{3} &= \Sigma_{n}(X_{1}X_{2}X_{3}) = \sum_{1 \le i < j < k \le n} X_{i}X_{j}X_{k} \\
+    &\vdots \\
+    S_{n} &= \Sigma_{n}(X_{1}X_{2}\cdots X_{n}) = X_{1}X_{2}\cdots X_{n}
+\end{align*}
+
+
+\vspace{0.5cm}
+% ==========================================
+% POLINOMIOS SIMÉTRICOS Y CARDANO-VIETA
+% ==========================================
+
+\begin{observacion}{Recordatorio: Fórmulas de Cardano-Vieta}
+    Las fórmulas de Cardano-Vieta establecen una relación fundamental entre las raíces de un polinomio y sus coeficientes. 
+    
+    Si tenemos un polinomio mónico genérico de grado $n$ y lo factorizamos utilizando todas sus raíces $\alpha_1, \alpha_2, \dots, \alpha_n$ en su cuerpo de descomposición, obtenemos la igualdad:
+    $$ P(X) = X^n + p_{n-1}X^{n-1} + \dots + p_1X + p_0 = \prod_{i=1}^n (X - \alpha_i) $$
+    
+    Al expandir el producto de la derecha y agrupar los términos por su grado en $X$, los coeficientes resultantes están formados por sumas de productos de las raíces. Estos bloques se conocen como \textbf{polinomios simétricos elementales}, denotados por $S_k$:
+    \begin{align*}
+        S_1(\alpha_1, \dots, \alpha_n) &= \sum \alpha_i = \alpha_1 + \dots + \alpha_n \\
+        S_2(\alpha_1, \dots, \alpha_n) &= \sum_{i<j} \alpha_i \alpha_j \\
+        &\vdots \\
+        S_n(\alpha_1, \dots, \alpha_n) &= \alpha_1 \alpha_2 \cdots \alpha_n \quad \text{(el producto de todas)}
+    \end{align*}
+    
+    La \textbf{Fórmula de Cardano-Vieta} nos dice exactamente cómo se empareja cada coeficiente del polinomio original con estos polinomios simétricos evaluados en las raíces:
+    $$ p_{n-k} = (-1)^k S_k(\alpha_1, \dots, \alpha_n) $$
+   
+    
+    Es decir, el coeficiente que acompaña a $X^{n-1}$ es $-S_1$ (menos la suma de las raíces), el de $X^{n-2}$ es $+S_2$, y el término independiente es $p_0 = (-1)^n S_n$ (el producto de todas las raíces, con signo alterno).
+\end{observacion}
+
+A partir de la Fórmula de Cardano-Vieta (6.2) deducimos formalmente que si:
+$$ P = X^{n} + p_{n-1}X^{n-1} + \dots + p_{1}X + p_{0} = \prod_{i=1}^{n}(X-\alpha_{i}) $$
+entonces los coeficientes cumplen $p_{n-i} = (-1)^{i}S_i(\alpha_{1}, \dots, \alpha_{n})$. 
+\textit{(Nota: En tus apuntes hay una pequeña errata tipográfica de índices en esta fórmula, indicando $p_i = (-1)^i S$; la forma correcta relacionando el grado es la que hemos escrito arriba).}
+
+\vspace{0.5cm}
+% ==========================================
+% TEOREMA 6.10: CARACTERIZACIÓN
+% ==========================================
+
+\begin{teorema}{Teorema 6.10}
+    Sean $n$ un entero positivo y $K$ un cuerpo que contiene una raíz $n$-ésima primitiva de la unidad.
+    Las siguientes condiciones son lógicamente equivalentes para una extensión $L/K$ de grado $n$:
+    \begin{enumerate}
+        \item $L/K$ es cíclica.
+        \item Existe $a \in K$ tal que $p = X^{n} - a$ es irreducible en $K[X]$ y tiene una raíz en $L$.
+        \item Existe $\alpha \in L$ tal que $L = K(\alpha)$ y $\alpha^{n} \in K$.
+        \item $L$ es un cuerpo de descomposición de $X^{n} - a$ sobre $K$ para algún $a \in K$. \textit{(Nota: En el original dice "algún $u \in K$", pero es una errata por $a$).}
+    \end{enumerate}
+\end{teorema}
+
+\begin{proof}
+    Fijemos una raíz $n$-ésima primitiva de la unidad $\zeta \in K$.
+    
+    \textbf{(1) $\implies$ (2): El uso del Teorema 90 de Hilbert.} \\
+    Supongamos que $L/K$ es una extensión cíclica y sea $\sigma$ un generador de su grupo de Galois $\operatorname{Gal}(L/K)$.
+    
+    Como $\zeta \in K$, los automorfismos de Galois la dejan fija ($\sigma(\zeta) = \zeta$). Calculemos la norma de este elemento en la extensión $L/K$:
+    $$ N_{K}^{L}(\zeta) = \prod_{k=0}^{n-1} \sigma^{k}(\zeta) = \prod_{k=0}^{n-1} \zeta = \zeta^{n} = 1 $$
+   
+    (La última igualdad es porque $\zeta$ es una raíz $n$-ésima de la unidad).
+    
+    Dado que $N_{K}^{L}(\zeta^{-1}) = 1$ también, podemos aplicar directamente la parte multiplicativa del Teorema 90 de Hilbert (Teorema 6.8): debe existir algún elemento no nulo $\alpha \in L$ tal que $\zeta^{-1} = \alpha \cdot \sigma(\alpha)^{-1}$. 
+    Despejando $\sigma(\alpha)$, obtenemos que existe un $\alpha \in L$ que cumple:
+    $$ \sigma(\alpha) = \zeta\alpha $$
+   
+    
+        
+    Sea $p = \operatorname{Min}_{K}(\alpha)$. Sabemos que si aplicamos potencias del automorfismo $\sigma$ a una raíz, obtenemos otras raíces del mismo polinomio mínimo. Evaluando de forma iterativa:
+    \begin{align*}
+        \sigma(\alpha) &= \zeta\alpha \\
+        \sigma^{2}(\alpha) &= \sigma(\zeta\alpha) = \zeta\sigma(\alpha) = \zeta(\zeta\alpha) = \zeta^{2}\alpha \\
+        &\vdots \\
+        \sigma^{n-1}(\alpha) &= \zeta^{n-1}\alpha
+    \end{align*}
+   
+    
+    Hemos encontrado la lista de elementos: $\alpha, \zeta\alpha, \zeta^{2}\alpha, \dots, \zeta^{n-1}\alpha$. 
+    Como $\zeta$ es una raíz \textbf{primitiva}, todas las potencias de $\zeta$ son distintas, lo que hace que estos $n$ elementos sean raíces de $p$ y todas sean distintas entre sí.
+    
+    Por propiedades del polinomio mínimo, su grado cumple $\operatorname{gr}(p) = [K(\alpha) : K] \le [L : K] = n$. Como hemos encontrado $n$ raíces distintas, el grado de $p$ tiene que ser exactamente $n$, y esas son \textit{todas} sus raíces. Por tanto, el polinomio factoriza en la clausura como:
+    $$ p(X) = (X-\alpha)(X-\zeta\alpha)(X-\zeta^{2}\alpha)\cdots(X-\zeta^{n-1}\alpha) $$
+   
+    
+    Ahora aplicaremos la \textbf{Fórmula de Cardano-Vieta} para deducir los coeficientes de $p(X)$. El coeficiente de $X^{n-i}$ (para $i = 1, 2, \dots, n$) es:
+    $$ p_{n-i} = (-1)^{i} S_i(\alpha, \zeta\alpha, \dots, \zeta^{n-1}\alpha) $$
+    Como cada término dentro del polinomio simétrico de grado $i$ es un producto de $i$ elementos, podemos extraer el factor común $\alpha^{i}$:
+    $$ p_{n-i} = (-1)^{i} \alpha^{i} S_i(1, \zeta, \zeta^{2}, \dots, \zeta^{n-1}) $$
+   
+    
+    ¿Qué valor tiene $S_i(1, \zeta, \dots, \zeta^{n-1})$? 
+    Recordemos que los elementos $1, \zeta, \dots, \zeta^{n-1}$ son exactamente las raíces del polinomio $X^n - 1$.
+    Aplicando Cardano-Vieta al polinomio $X^n - 1$:
+    \begin{itemize}
+        \item Todos los coeficientes intermedios son $0$. Por tanto, para $1 \le i \le n-1$, $S_i(1, \zeta, \dots) = 0$.
+        \item El término independiente es $-1$. Por la fórmula, $-1 = (-1)^n S_n(1, \zeta, \dots) \implies S_n = -(-1)^{-n} = -(-1)^n$.
+    \end{itemize}
+    
+    Sustituyendo esto en los coeficientes de $p(X)$:
+    \begin{itemize}
+        \item Para $i \neq n$, $p_{n-i} = 0$. (Es decir, no hay términos intermedios).
+        \item Para $i = n$ (el término independiente $p_0$): 
+        $$ p_0 = (-1)^n \alpha^n S_n(1, \dots) = (-1)^n \alpha^n (-(-1)^n) = -(-1)^{2n} \alpha^n = -\alpha^n $$
+       
+    \end{itemize}
+    
+    Por tanto, el polinomio mínimo es simplemente $p(X) = X^n - \alpha^n$.
+    Definiendo $a = \alpha^n$, tenemos que $a \in K$ (porque los coeficientes del polinomio mínimo pertenecen al cuerpo base), $p = X^n - a$ es irreducible en $K[X]$ (por ser polinomio mínimo), y obviamente tiene una raíz en $L$ (la propia $\alpha$).
+
+    \vspace{0.3cm}
+    \textbf{(2) $\implies$ (3): Generación del cuerpo.} \\
+    Supongamos que $p = X^n - a$ es irreducible en $K[X]$ y $\alpha$ es una de sus raíces en $L$.
+    Al ser raíz, trivialmente $\alpha^n = a \in K$. 
+    Además, como el polinomio es irreducible sobre $K$ y su grado es $n$, el grado de la extensión generada por la raíz es exactamente el grado del polinomio: $[K(\alpha) : K] = \operatorname{gr}(p) = n$.
+    Como sabíamos por hipótesis global que la extensión total tiene grado $n$ ($[L : K] = n$), y tenemos la torre $K \subseteq K(\alpha) \subseteq L$, forzosamente las dimensiones coinciden y $L = K(\alpha)$.
+
+    \vspace{0.3cm}
+    \textbf{(3) $\implies$ (4): Cuerpo de descomposición.} \\
+    Si existe $\alpha \in L$ tal que $L = K(\alpha)$ y $\alpha^n = a \in K$, consideremos el polinomio $X^n - a \in K[X]$.
+    Las $n$ raíces de este polinomio se obtienen multiplicando $\alpha$ por las distintas raíces $n$-ésimas de la unidad: $\alpha, \zeta\alpha, \zeta^2\alpha, \dots, \zeta^{n-1}\alpha$.
+    Dado que $\alpha \in L$ por hipótesis y que $\zeta \in K \subseteq L$, todos estos productos también pertenecen al cuerpo $L$. 
+    Al contener $L$ a todas las raíces y estar generado por ellas (pues $L=K(\alpha)$), concluimos que $L$ es el cuerpo de descomposición de $X^n - a$ sobre $K$.
+
+    \vspace{0.3cm}
+    \textbf{(4) $\implies$ (1): Ciclicidad.} \\
+    Si $L$ es el cuerpo de descomposición de $X^n - a$ sobre $K$, donde $K$ contiene a una raíz $n$-ésima primitiva de la unidad, entonces por la Proposición 6.9 (demostrada previamente), sabemos que el grupo de Galois de la extensión es obligatoriamente cíclico y $L/K$ es una extensión cíclica.
+\end{proof}

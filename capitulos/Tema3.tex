@@ -131,63 +131,84 @@ $$ \operatorname{ord}(g^r) = \frac{n}{\gcd(n, r)} $$
     \end{itemize}
 \end{observacion}
 
+\begin{observacion}{Generadores de un grupo cíclico y la función de Euler}
+    Para entender por qué un grupo cíclico $G$ de orden $n$ tiene exactamente $\varphi(n)$ generadores, debemos analizar la estructura de sus elementos.
+    
+    Sea $G = \langle g \rangle$ un grupo cíclico de orden $n$ generado por un elemento $g$. Esto significa que los elementos de $G$ son exhaustivamente las distintas potencias de $g$:
+    $$ G = \{1, g, g^2, \dots, g^{n-1}\} $$
+    
+    Cualquier elemento de $G$ es de la forma $g^k$ para algún entero $0 \le k < n$. Nos preguntamos: ¿bajo qué condiciones este elemento $g^k$ es también un generador de todo el grupo $G$?
+    
+    Para que $g^k$ genere $G$, el subgrupo generado por él, $\langle g^k \rangle$, debe ser todo $G$. Esto es lógicamente equivalente a exigir que el orden del elemento $g^k$ sea exactamente el orden del grupo $n$.
+    
+    Por teoría elemental de grupos, sabemos que el orden de una potencia $g^k$ viene dado por la fórmula:
+    $$ \operatorname{ord}(g^k) = \frac{n}{\operatorname{mcd}(n, k)} $$
+    
+    Imponiendo la condición de que este elemento sea un generador (es decir, que su orden sea $n$), obtenemos:
+    $$ \frac{n}{\operatorname{mcd}(n, k)} = n \iff \operatorname{mcd}(n, k) = 1 $$
+    
+    Esta equivalencia demuestra que el elemento $g^k$ es un generador de $G$ si y solo si el exponente $k$ es coprimo con $n$.
+    
+    Por definición, la \textbf{función indicatriz de Euler}, $\varphi(n)$ (o $|\mathbb{Z}_n^*|$), cuenta exactamente la cantidad de números enteros positivos menores o iguales a $n$ que son coprimos con $n$. 
+    
+    Por consiguiente, hay exactamente $\varphi(n)$ exponentes $k$ válidos, lo que implica que hay exactamente $\varphi(n)$ generadores distintos en el grupo $G$. Aplicado a las raíces de la unidad, esto significa que hay exactamente $\varphi(n)$ raíces $n$-ésimas primitivas.
+\end{observacion}
 
-
-\section{Polinomios sobre un DFU} % [cite: 303]
+\section{Polinomios sobre un DFU} 
 
 \begin{definicion}{Polinomio Primitivo y Contenido} % [cite: 304, 306]
-    Sea $D$ un Dominio de Factorización Única (DFU) y $K$ su cuerpo de fracciones. Sea $P \in K[X] \setminus \{0\}$. % [cite: 303]
+    Sea $D$ un Dominio de Factorización Única (DFU) y $K$ su cuerpo de fracciones. Sea $P \in K[X] \setminus \{0\}$. 
     \begin{itemize}
-        \item Un polinomio $Q \in D[X]$ es un \textbf{polinomio primitivo} si sus coeficientes son coprimos entre sí. % [cite: 305]
-        \item Llamaremos \textbf{contenido} de $P$ a un elemento $a \in K$ tal que $P = a P_1$ con $P_1 \in D[X]$ primitivo. % [cite: 307]
+        \item Un polinomio $Q \in D[X]$ es un \textbf{polinomio primitivo} si sus coeficientes son coprimos entre sí.
+        \item Llamaremos \textbf{contenido} de $P$ a un elemento $a \in K$ tal que $P = a P_1$ con $P_1 \in D[X]$ primitivo. 
         \item Lo denotamos por $C(P)$. Este valor siempre existe: como $P \in K[X]$, podemos multiplicar por un denominador común $d \in D \setminus \{0\}$ tal que $dP \in D[X]$. % [cite: 308]
         Si extraemos el máximo común divisor de los coeficientes, $a = \operatorname{mcd}(\text{coeficientes de } dP)$, entonces $P_1 = \frac{d}{a} P$ es un polinomio primitivo, y podemos escribir $P = \frac{a}{d} P_1$. Por tanto, $\frac{a}{d} \in C(P)$. % [cite: 309]
     \end{itemize}
 \end{definicion}
 
-\begin{observacion}{Unicidad del contenido} % [cite: 326]
-    El concepto de contenido de un polinomio es único salvo producto por unidades de $D$ ($D^\times$). % [cite: 326]
-    En efecto, si $a, b \in C(P)$, entonces $P = a P_1 = b P_2$ con $P_1, P_2 \in D[X]$ primitivos. % [cite: 310, 312]
+\begin{observacion}{Unicidad del contenido}
+    El concepto de \textbf{contenido de un polinomio es único salvo producto por unidades} de $D$ ($D^\times$).
+    En efecto, si $a, b \in C(P)$, entonces $P = a P_1 = b P_2$ con $P_1, P_2 \in D[X]$ primitivos. 
     Escribiendo $a = \frac{a_1}{a_2}$ y $b = \frac{b_1}{b_2}$, tenemos $\frac{a_1}{a_2} P_1 = \frac{b_1}{b_2} P_2$, lo que equivale a $a_1 b_2 P_1 = a_2 b_1 P_2$. % [cite: 316, 319]
     Como $D$ es un dominio y los polinomios son primitivos, al igualar los máximos comunes divisores de los coeficientes a ambos lados, obtenemos que $a_1 b_2$ y $a_2 b_1$ son elementos asociados en $D$. % [cite: 323, 325] 
-    Por tanto, existe una unidad $u \in D^\times$ tal que $b = a u$. % [cite: 326]
+    Por tanto, existe una unidad $u \in D^\times$ tal que $b = a u$.
 \end{observacion}
 
-\begin{lema}{Lema de Gauss} % [cite: 327]
-    Si $K$ es el cuerpo de fracciones de un DFU $D$, y $P, Q \in K[X] \setminus \{0\}$, entonces: % [cite: 329]
-    $$C(P \cdot Q) = C(P) \cdot C(Q)$$ % [cite: 329]
-    En particular, el producto de dos polinomios primitivos es primitivo (salvo unidad). % [cite: 330, 334]
+\begin{lema}{Lema de Gauss} 
+    Si $K$ es el cuerpo de fracciones de un DFU $D$, y $P, Q \in K[X] \setminus \{0\}$, entonces: 
+    $$C(P \cdot Q) = C(P) \cdot C(Q)$$ 
+    En particular, el producto de dos polinomios primitivos es primitivo (salvo unidad).
 \end{lema}
 
 \begin{proof}
     Podemos escribir $P = a P_1$ y $Q = b Q_1$ con $P_1, Q_1$ primitivos y $a \in C(P)$, $b \in C(Q)$. % [cite: 331, 332]
     Está claro que $P \cdot Q = ab (P_1 Q_1)$. % [cite: 333]
-    Bastará con demostrar que el producto $P_1 Q_1$ es primitivo, ya que eso implicaría automáticamente que $ab \in C(PQ)$. % [cite: 335]
+    Bastará con demostrar que el producto $P_1 Q_1$ es primitivo, ya que eso implicaría automáticamente que $ab \in C(PQ)$. 
     
-    Procedemos por reducción al absurdo. Supongamos que $P_1 Q_1$ no es primitivo. Entonces existe un elemento primo $p \in D$ que divide a todos los coeficientes de $P_1 Q_1$. % [cite: 335]
-    Sean $P_1 = a_0 + a_1 X + \dots + a_n X^n$ y $Q_1 = b_0 + b_1 X + \dots + b_m X^m$. % [cite: 335]
-    Como $P_1$ y $Q_1$ son primitivos, $\operatorname{mcd}(a_i) = 1$ y $\operatorname{mcd}(b_j) = 1$. Por lo tanto, $p$ no puede dividir a todos sus coeficientes. % [cite: 335]
-    Elijamos $i$ como el menor índice tal que $p \nmid a_i$, y $j$ como el menor índice tal que $p \nmid b_j$. % [cite: 335]
+    Procedemos por reducción al absurdo. Supongamos que $P_1 Q_1$ no es primitivo. Entonces existe un elemento primo $p \in D$ que divide a todos los coeficientes de $P_1 Q_1$. 
+    Sean $P_1 = a_0 + a_1 X + \dots + a_n X^n$ y $Q_1 = b_0 + b_1 X + \dots + b_m X^m$. 
+    Como $P_1$ y $Q_1$ son primitivos, $\operatorname{mcd}(a_i) = 1$ y $\operatorname{mcd}(b_j) = 1$. Por lo tanto, $p$ no puede dividir a todos sus coeficientes. 
+    Elijamos $i$ como el menor índice tal que $p \nmid a_i$, y $j$ como el menor índice tal que $p \nmid b_j$. 
     
     Analicemos el coeficiente de grado $i+j$ en el polinomio producto $P_1 Q_1$, que viene dado por la suma $\sum_{k+l=i+j} a_k b_l$: % [cite: 337, 338]
-    $$\dots + a_{i-1}b_{j+1} + a_i b_j + a_{i+1}b_{j-1} + \dots$$ % [cite: 335]
-    Por nuestra elección minimal de $i$ y $j$, el primo $p$ divide a todos los sumandos anteriores a $a_i b_j$ (porque $p \mid a_k$ para $k < i$) y a todos los sumandos posteriores (porque $p \mid b_l$ para $l < j$). % [cite: 335]
-    Sin embargo, $p \nmid a_i$ y $p \nmid b_j$, y como $p$ es primo, $p \nmid a_i b_j$. % [cite: 335]
-    Por tanto, $p$ no puede dividir a la suma total, lo que es una flagrante contradicción con la suposición de que $p$ dividía a todos los coeficientes de $P_1 Q_1$. % [cite: 335]
+    $$\dots + a_{i-1}b_{j+1} + a_i b_j + a_{i+1}b_{j-1} + \dots$$ 
+    Por nuestra elección minimal de $i$ y $j$, el primo $p$ divide a todos los sumandos anteriores a $a_i b_j$ (porque $p \mid a_k$ para $k < i$) y a todos los sumandos posteriores (porque $p \mid b_l$ para $l < j$). 
+    Sin embargo, $p \nmid a_i$ y $p \nmid b_j$, y como $p$ es primo, $p \nmid a_i b_j$. 
+    Por tanto, $p$ no puede dividir a la suma total, lo que es una flagrante contradicción con la suposición de que $p$ dividía a todos los coeficientes de $P_1 Q_1$. 
 \end{proof}
 
-\begin{lema}{Lema 3.6} % [cite: 336]
-    Sea $D$ un DFU, $K$ su cuerpo de fracciones y $P \in D[X]$, $Q \in K[X]$ polinomios mónicos. % [cite: 339]
-    Si $Q$ divide a $P$ en el anillo $K[X]$, entonces $Q \in D[X]$ y $Q$ divide a $P$ en $D[X]$. % [cite: 339, 340]
+\begin{lema}{Lema 3.6} 
+    Sea $D$ un DFU, $K$ su cuerpo de fracciones y $P \in D[X]$, $Q \in K[X]$ polinomios mónicos.
+    Si $Q$ divide a $P$ en el anillo $K[X]$, entonces $Q \in D[X]$ y $Q$ divide a $P$ en $D[X]$. 
 \end{lema}
 
 \begin{proof}
-    Dado que $Q$ divide a $P$ en $K[X]$, existe un polinomio $R \in K[X]$ tal que $P = Q \cdot R$. % [cite: 341]
-    Como $P$ es mónico y está en $D[X]$, sus coeficientes son coprimos (el coeficiente principal es 1, que solo es divisible por unidades). Por tanto, $P$ es primitivo y $C(P) = 1$. % [cite: 341]
-    Además, como $P$ y $Q$ son mónicos, necesariamente $R$ debe ser también un polinomio mónico. % [cite: 341]
+    Dado que $Q$ divide a $P$ en $K[X]$, existe un polinomio $R \in K[X]$ tal que $P = Q \cdot R$. 
+    Como $P$ es mónico y está en $D[X]$, sus coeficientes son coprimos (el coeficiente principal es 1, que solo es divisible por unidades). Por tanto, $P$ es primitivo y $C(P) = 1$. 
+    Además, como $P$ y $Q$ son mónicos, necesariamente $R$ debe ser también un polinomio mónico. 
     
-    Aplicamos el Lema de Gauss a la igualdad $P = Q \cdot R$: % [cite: 348]
-    $$1 = C(P) = C(Q \cdot R) = C(Q) \cdot C(R)$$ % [cite: 342]
+    Aplicamos el Lema de Gauss a la igualdad $P = Q \cdot R$: 
+    $$1 = C(P) = C(Q \cdot R) = C(Q) \cdot C(R)$$ 
     
     Por la definición de contenido, existen polinomios primitivos $Q^*, R^* \in D[X]$ tales que $Q = C(Q)Q^*$ y $R = C(R)R^*$. % [cite: 342, 352]
     Fijémonos en los coeficientes principales. Sea $u \in D$ el coeficiente principal de $Q^*$. % [cite: 350, 351]
@@ -203,7 +224,7 @@ $$ \operatorname{ord}(g^r) = \frac{n}{\gcd(n, r)} $$
     Al tener $P = Q \cdot R$ con $Q, R \in D[X]$, concluimos que $Q$ divide a $P$ dentro de $D[X]$. % [cite: 340]
 \end{proof}
 
-%%%%%%%%%%%%%%%% AÑADIR AQUI LA DEM 
+
 
 \begin{proposicion}{Propiedades de los polinomios ciclotómicos (Prop. 3.7)} %
 En característica $p \ge 0$ (siempre que $p \nmid n$), se verifican las siguientes propiedades: %
@@ -242,32 +263,36 @@ En característica $p \ge 0$ (siempre que $p \nmid n$), se verifican las siguien
     Reordenando los factores del producto original según esta partición geométrica, obtenemos: %
     $$X^n - 1 = \prod_{d \mid n} \left( \prod_{z \in G_d} (X - z) \right) = \prod_{d \mid n} \Phi_d(X)$$ %
 
+    
     \textbf{Demostración de 3): Pertenencia a $\mathbb{Z}_p[X]$} %
     
-    Dividiremos esta demostración en dos fases lógicas. Primero demostraremos que $\Phi_n \in K[X]$ (donde $K$ es el cuerpo de fracciones de $\mathbb{Z}_p$) razonando por inducción fuerte sobre $n$. %
+    Para unificar la demostración y hacerla independiente de la característica, denotaremos por $D = \mathbb{Z}_p$ al anillo primo (recordando que $\mathbb{Z}_0 = \mathbb{Z}$) y por $K$ a su cuerpo de fracciones (que es $\mathbb{Q}$ si $p=0$, y el propio $\mathbb{Z}_p$ si $p>0$). Es un hecho fundamental que $D$ es siempre un Dominio de Factorización Única (DFU). %
+    
+    Vamos a demostrar que $\Phi_n \in D[X]$ razonando por inducción fuerte sobre $n$: %
     
     \begin{itemize}
-        \item \textbf{Caso base ($n=1$):} $\Phi_1(X) = X - 1$. Como los coeficientes $1$ y $-1$ pertenecen a cualquier cuerpo primo, trivialmente $\Phi_1 \in K[X]$. %
-        \item \textbf{Paso inductivo:} Supongamos que la proposición es cierta para todo entero $d < n$. Esto es, para todo divisor $d$ de $n$ estrictamente menor que $n$, se cumple que $\Phi_d \in K[X]$. %
-        Despejando el término $d=n$ del producto obtenido en el apartado anterior, tenemos: %
-        $$X^n - 1 = \left( \prod_{\substack{d \mid n \\ d < n}} \Phi_d(X) \right) \cdot \Phi_n(X)$$ %
-        Definamos $G(X) = \prod_{d \mid n, d < n} \Phi_d(X)$. Por la hipótesis de inducción, al ser un producto de polinomios en $K[X]$, el propio $G(X)$ pertenece a $K[X]$. Además, como cada $\Phi_d$ es mónico por definición, $G(X)$ también es un polinomio mónico. %
+        \item \textbf{Caso base ($n=1$):} $\Phi_1(X) = X - 1$. Sus coeficientes son $1$ y $-1$, los cuales pertenecen a cualquier anillo primo $D$. Además, es trivialmente un polinomio mónico. Por tanto, $\Phi_1 \in D[X]$. %
         
-        Realizamos la división euclídea de $X^n - 1$ entre $G(X)$ dentro del anillo $K[X]$. El algoritmo de la división nos garantiza que existen únicos polinomios $C(X), R(X) \in K[X]$ tales que: %
-        $$X^n - 1 = G(X) C(X) + R(X) \quad \text{con } \operatorname{gr}(R) < \operatorname{gr}(G)$$ %
-        Sin embargo, operando en el cuerpo de descomposición (un cuerpo más grande), sabemos que la división es exacta y el cociente es $\Phi_n(X)$. Por la unicidad del algoritmo de división, el cociente y el resto deben ser los mismos independientemente de si operamos en $K$ o en su extensión. Por tanto, el resto $R(X)$ es obligatoriamente el polinomio nulo y el cociente $C(X) = \Phi_n(X)$ debe tener sus coeficientes en $K$. Concluimos que $\Phi_n \in K[X]$. %
+        \item \textbf{Paso inductivo:} Supongamos que la proposición es cierta para todo divisor $d$ de $n$ estrictamente menor que $n$. Es decir, $\Phi_d \in D[X]$ y es mónico para todo $d \mid n$ con $d < n$. %
+        
+        A partir de la propiedad (2) ya demostrada, podemos aislar el $n$-ésimo polinomio ciclotómico: %
+        $$X^n - 1 = \left( \prod_{\substack{d \mid n \\ d < n}} \Phi_d(X) \right) \cdot \Phi_n(X)$$ %
+        
+        Definamos el polinomio agrupado $G(X) = \prod_{d \mid n, d < n} \Phi_d(X)$. %
+        Por nuestra hipótesis de inducción, al ser un producto de polinomios mónicos con coeficientes en $D$, $G(X)$ es también un polinomio mónico y pertenece a $D[X]$. Como $D \subseteq K$, se tiene trivialmente que $G(X) \in K[X]$. %
+        
+        Consideremos ahora la división euclídea de $X^n - 1$ entre $G(X)$ dentro del anillo de polinomios del cuerpo de fracciones, $K[X]$. Operando en el cuerpo de descomposición sabemos que esta división es exacta y su cociente es $\Phi_n(X)$. Por la unicidad del algoritmo de la división en $K[X]$, este cociente debe tener sus coeficientes en $K$. Deducimos así que $\Phi_n(X) \in K[X]$ y que es un polinomio mónico. %
+        
+        Llegados a este punto, reunimos las condiciones para aplicar el \textbf{Lema 3.6}: %
+        \begin{itemize}
+            \item $D = \mathbb{Z}_p$ es un DFU y $K$ es su cuerpo de fracciones. %
+            \item $P(X) = X^n - 1$ es un polinomio mónico que pertenece a $D[X]$. %
+            \item $Q(X) = \Phi_n(X)$ es un polinomio mónico que pertenece a $K[X]$. %
+            \item $Q(X)$ divide a $P(X)$ en el anillo $K[X]$ (puesto que $X^n - 1 = \Phi_n(X) G(X)$). %
+        \end{itemize}
+        
+        Aplicando directamente el lema, concluimos que el divisor $Q(X)$ pertenece necesariamente al anillo base. Es decir, $\Phi_n(X) \in D[X] = \mathbb{Z}_p[X]$. %
     \end{itemize}
-    
-    A continuación, fortalecemos el resultado para demostrar que realmente caen en $\mathbb{Z}_p[X]$, dependiendo de la característica: %
-    \begin{itemize}
-        \item \textbf{Si $p > 0$:} El cuerpo primo $K$ es exactamente $\mathbb{Z}_p$. Al no haber denominadores, el anillo y su cuerpo de fracciones coinciden. Hemos probado que $\Phi_n \in K[X] = \mathbb{Z}_p[X]$. %
-        \item \textbf{Si $p = 0$:} El anillo es $\mathbb{Z}_0 = \mathbb{Z}$ y su cuerpo de fracciones es $K = \mathbb{Q}$. Hasta ahora sabemos que $\Phi_n \in \mathbb{Q}[X]$. %
-        Consideremos la igualdad $X^n - 1 = G(X) \cdot \Phi_n(X)$. %
-        Sabemos que $X^n - 1 \in \mathbb{Z}[X]$. Además, tanto $G(X)$ como $\Phi_n(X)$ son polinomios mónicos con coeficientes en $\mathbb{Q}$. %
-        Aplicamos el \textbf{Lema 3.6} (corolario del Lema de Gauss): si un polinomio mónico en $\mathbb{Q}[X]$ divide a un polinomio en $\mathbb{Z}[X]$, entonces el divisor pertenece necesariamente a $\mathbb{Z}[X]$. %
-        Dado que $\Phi_n(X)$ divide a $X^n - 1$ en $\mathbb{Q}[X]$, deducimos que $\Phi_n(X) \in \mathbb{Z}[X]$. %
-    \end{itemize}
-
     \textbf{Demostración de 4): El polinomio mínimo sobre el cuerpo de fracciones} %
     
     Sea $\xi$ una raíz de la unidad (de algún orden $m$) y $f(X) = \operatorname{Min}_K(\xi)$. %
